@@ -1,14 +1,13 @@
 # 序言
 
-这是一本关于集合 [shell](https://zh.m.wikipedia.org/zh/Unix_shell) 的书。
+这是一本关于集合 [python](https://www.python.org/) 的书。
 
 
 ## 参考
 
-- [阮一峰老师的《Bash 脚本教程》](https://wangdoc.com/bash/intro.html)
-- [Linux Shell脚本学习指南](http://c.biancheng.net/shell/)
-- [geeks for geeks](https://www.geeksforgeeks.org/array-basics-shell-scripting-set-1/)
-- [Shell Books](https://www.aliyundrive.com/s/8P5dodAE44M)
+- [realpython](https://realpython.com/)
+- [python 网络爬虫实战](https://python3webspider.cuiqingcai.com/)
+- [geeks for geeks python ](https://www.geeksforgeeks.org/python-programming-language/)
 
 ## 联系
 
@@ -21,4 +20,4 @@
 
 ## 公众号
 
-![爱 死 亡 机 器 人 ](https://github.com/Ghostwritten/gitbook-docs/blob/gh-pages/assets/imgs/public.jpg?raw=true) 
+![爱 死 亡 机 器 人 ](https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/public.jpg?raw=true) 
