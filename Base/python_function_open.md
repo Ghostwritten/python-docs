@@ -32,7 +32,7 @@ open函数使用一个文件名作为唯一的强制参数，然后返回一个�
 这里主要是提醒一下‘b’参数的使用，一般处理文本文件时，是用不 到‘b’参数的，但处理一些其他类型的文件（二进制文件），比如mp3音乐或者图 像，那么应该在模式参数中增加‘b’，这在爬虫中处理媒体文件很常用。参 数‘rb’可以用来读取一个二进制文件。
 示例：
 `encoding='utf-8'`支持中文读写格式
-```python
+```bash
 f = open('test1.txt','wt',encoding='utf-8')
 f.write('hello world, 周董')
 f.close()
@@ -44,7 +44,7 @@ print(s)
 ### 2.3 文件缓冲区
 open函数中第三个可选参数buffering控制着文件的缓冲。如果参数是0，I/O 操作就是无缓冲的，直接将数据写到硬盘上；如果参数是1，I/O操作就是有缓冲 的，数据先写到内存里，只有使用flush函数或者close函数才会将数据更新到硬 盘；如果参数为大于1的数字则代表缓冲区的大小（单位是字节），-1（或者是任何 负数）代表使用默认缓冲区的大小。
 
-```python
+```bash
 f=open(“demo.txt”,’w’,buffering=1) #先缓存至内存
 f=open(“demo.txt”,’w,’,buffering=0) #直接写入磁盘
 ```
@@ -53,7 +53,7 @@ f=open(“demo.txt”,’w,’,buffering=0) #直接写入磁盘
 文件读取主要是分为按字节读取和按行进行读取，经常用到的方法有 read（）、readlines（）、close（）。
 
 优雅1
-```python
+```bash
   try:       
      f = open(r'c:\text\qiye.txt','r')        
      print f.read()     
@@ -62,7 +62,7 @@ f=open(“demo.txt”,’w,’,buffering=0) #直接写入磁盘
         f.close()
 ```
 优雅2
-```python
+```bash
  with open(r'c:\text\qiye.txt','r') as fileReader:        
         print fileReader.read()
 ```
@@ -72,7 +72,7 @@ f=open(“demo.txt”,’w,’,buffering=0) #直接写入磁盘
  - 大文件更加安全的方式是连续调用read（size），
  - 而对于 配置文件等文本文件，使用readline（）方法更加合理。
 
-```python
+```bash
  with open(r'c:\text\qiye.txt','r') as fileReader:        
        for line in fileReader.readlines():                
              print line.strip()
@@ -81,14 +81,14 @@ f=open(“demo.txt”,’w,’,buffering=0) #直接写入磁盘
 写文件和读文件是一样的，唯一的区别是在调用open方法时，传入标识
 符‘w’或者‘wb’表示写入文本文件或者写入二进制文件，示例如下：
 
-```python
+```bash
   f = open(r'c:\text\qiye.txt','w')     
   f.write('qiye')     
   f.close()
 ```
 我们可以反复调用write（）方法写入文件，最后必须使用close（）方法来关 闭文件。使用write（）方法的时候，操作系统不是立即将数据写入文件中的，而是 先写入内存中缓存起来，等到空闲时候再写入文件中，最后使用close（）方法就将 数据完整地写入文件中了。当然也可以使用f.flush（）方法，不断将数据立即写 入文件中，最后使用close（）方法来关闭文件。和读文件同样道理，文件操作中可 能会出现IO异常，所以还是推荐使用with语句：
 
-```python
+```bash
  with open(r'c:\text\qiye.txt','w') as fileWriter:        
        fileWriter.write('qiye')
 ```

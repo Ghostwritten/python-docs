@@ -147,7 +147,7 @@ Python 的另一个主要用例是[Web 应用程序](https://realpython.com/pyth
 ###  2.1 Django
 让我们按字母顺序，从 Django 开始。Django 的优点之一是它会在运行后为您创建一个项目骨架`django-admin startproject project`，其中project是您的项目名称。这将在您当前的工作目录中创建一个名为project以下内​​部结构的目录：
 
-```python
+```bash
 project/
 │
 ├── project/
@@ -168,7 +168,7 @@ Django 应用程序可以导入项目并跨项目使用，其结构类似于专�
 
 这将产生一个app使用以下布局调用的目录：
 
-```python
+```bash
 app/
 │
 ├── migrations/
@@ -185,7 +185,7 @@ app/
 
 这种文件和文件夹结构非常简单，是 Django 的基本要求。对于任何开源 Django 项目，您可以（并且应该）从命令行应用程序布局调整结构。我通常在外部project/目录中得到类似这样的东西：
 
-```python
+```bash
 project/
 │
 ├── app/
@@ -228,7 +228,7 @@ Flask 是一个 Python 网络“微框架”。主要卖点之一是它可以非
 
 幸运的是[，Flask 文档](http://flask.pocoo.org/docs/1.0/)突然出现，为他们的教程项目（一个名为 Flaskr 的博客 Web 应用程序）提供了建议的布局，我们将在主项目目录中检查它：
 
-```python
+```bash
 flaskr/
 │
 ├── flaskr/

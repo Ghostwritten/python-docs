@@ -15,7 +15,7 @@ Python实现多进程的方式主要有两种，一种方法是使用os模块中
 ### 1.2 os模块fork方式实现多进程
 Python的os模块封装了常见的系统调用，其中就有`fork方法`。fork方法来自于 Unix/Linux操作系统中提供的一个fork系统调用，这个方法非常特殊。普**通的方法 都是调用一次，返回一次，而fork方法是调用一次，返回两次，原因在于操作系统 将当前进程（父进程）复制出一份进程（子进程），这两个进程几乎完全相同，于 是fork方法分别在父进程和子进程中返回。子进程中永远返回0，父进程中返回的是 子进程的ID。**下面举个例子，对Python使用fork方法创建进程进行讲解。其中os模 块中的getpid方法用于获取当前进程的ID，getppid方法用于获取父进程的ID。
 
-```python
+```bash
 import os     
 
 if __name__ == '__main__':        
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         print 'I(%s) created a chlid process (%s).',(os.getpid(),pid)
 ```
 
-```python
+```bash
 $  python os3.py 
 current Process (3113) start ...
 I(%s) created a chlid process (%s). (3113, 3114)
@@ -40,7 +40,7 @@ I am child process(%s) and my parent process is (%s) (3114, 3113)
 ### 1.2 multiprocessing模块创建多进程
 multiprocessing模块提供了一个Process类来描述一个进程对象。创建子进 程时，只需要传入一个执行函数和函数的参数，即可完成一个Process实例的创 建，用start（）方法启动进程，用join（）方法实现进程间的同步。下面通过一 个例子来演示创建多进程的流程，代码如下：
 
-```python
+```bash
 #!/usr/bin/python
 #coding:utf-8
 import os     
@@ -60,7 +60,7 @@ p.join()
 print 'Process end.'
 ```
 
-```python
+```bash
 $ python os4.py 
 Parent process 3810.
 Process will start.
@@ -81,7 +81,7 @@ Process end.
 Pool可以提供指定数量的进程供用户调用，默认大小是CPU的核数。当有新的 请求提交到Pool中时，如果池还没有满，那么就会创建一个新的进程用来执行该请 求；但如果池中的进程数已经达到规定最大值，那么该请求就会等待，直到池中有
 进程结束，才会创建新的进程来处理它。下面通过一个例子来演示进程池的工作流 程，代码如下：
 
-```python
+```bash
 #coding:utf-8
 
 from multiprocessing import Pool     
@@ -105,7 +105,7 @@ if __name__=='__main__':
 
 ```
 
-```python
+```bash
 $ python os5.py 
 Current process 4238.
 Waiting for all subprocesses done...
@@ -146,7 +146,7 @@ All subprocesses done.
 下面通过一个例子进行说明：在父进程中创建三个子进程，两个子进程往Queue 中写入数据，一个子进程从Queue中读取数据。程序示例如下：
  
 
-```python
+```bash
  #coding: utf-8
 
 from multiprocessing import Process, Queue     
@@ -184,7 +184,7 @@ if __name__=='__main__':
    proc_reader.terminate()
 ```
 
-```python
+```bash
 $ python os6.py 
 Process(4996) is writing...
 Put url_1 to queue...
@@ -208,7 +208,7 @@ Pipe方法返回（conn1，conn2）代表一个管道的两个端。Pipe方法�
 下面通过一个例子进行说明：创建两个进程，一个子进程通过Pipe发送数据， 一个子进程通过Pipe接收数据。程序示例如下：
  
 
-```python
+```bash
 import multiprocessing     
 import random     
 import time,os          
@@ -274,7 +274,7 @@ Python的标准库提供了两个模块：thread和threading，thread是低级�
 `threading`模块一般通过两种方式创建多线程：第一种方式是把一个函数传入 并创建`Thread实例`，然后调用start方法开始执行；第二种方式是直接从 threading.Thread继承并创建线程类，然后重写__init__方法和run方法。
 首先介绍第一种方法，通过一个简单例子演示创建多线程的流程，程序如下：
 
-```python
+```bash
 #coding:utf-8
 import random     
 import time, threading     
@@ -295,7 +295,7 @@ t2.join()
 print '%s ended.' % threading.current_thread().name
 ```
 
-```python
+```bash
 $ python thr1.py
 MainThread is running...
 Current Thread_1 is running...
@@ -314,7 +314,7 @@ MainThread ended.
  
  
 
-```python
+```bash
 #coding:utf-8
 
 import random     
@@ -346,7 +346,7 @@ t2.join()
 如果多个线程共同对某个数据修改，则可能出现不可预料的结果，为了保证数 据的正确性，需要对多个线程进行同步。使用Thread对象的Lock和RLock可以实现 简单的线程同步，这两个对象都有acquire方法和release方法，对于那些每次只允 许一个线程操作的数据，可以将其操作放到acquire和release方法之间。
 对于Lock对象而言，如果一个线程连续两次进行acquire操作，那么由于第一 次acquire之后没有release，第二次acquire将挂起线程。这会导致Lock对象永远 不会release，使得线程死锁。RLock对象允许一个线程多次对其进行acquire操 作，因为在其内部通过一个counter变量维护着线程acquire的次数。而且每一次的 acquire操作必须有一个release操作与之对应，在所有的release操作完成之后， 别的线程才能申请该RLock对象。下面通过一个简单的例子演示线程同步的过程：
 
-```python
+```bash
 import threading
 
 mylock = threading.RLock()     
@@ -374,7 +374,7 @@ if __name__== '__main__':
    thread2.start()
 ```
 
-```python
+```bash
 $ python th3.py
 Thread_1 locked, Number: 0
 Thread_1 released, Number: 1

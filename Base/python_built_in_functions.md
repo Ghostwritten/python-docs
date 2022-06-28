@@ -58,7 +58,7 @@ reversed(sequence) ： 生成一个反转序列的迭代器。 reversed('abc') >
 
 ## 4. 内置函数
 ### 4.1 add()添加
-```python
+```bash
 s=['alex', 2,3]
 s2=set(s)
 print(s2)
@@ -69,7 +69,7 @@ output:
 {3, 'alex', 2, 'uu'}
 ```
 ### 4.2 append()向列表的尾部添加一个新的元素
-```python
+```bash
 #!/usr/bin/python
 aList = [123, 'xyz', 'zara', 'abc'];
 aList.append( 2009 );
@@ -81,7 +81,7 @@ Updated List :  [123, 'xyz', 'zara', 'abc', 2009]
 
 ### 4.3 all()判断列表是否有为空的元素
 
-```python
+```bash
 print(all([1,2,3,'ef']))
 True
 print(all([1,2,3,'ef','']))
@@ -90,7 +90,7 @@ False
 
 ### 4.4 clear() 函数用于删除字典内所有元素
 
-```python
+```bash
 #!/usr/bin/python
 
 dict = {'Name': 'Zara', 'Age': 7};
@@ -105,7 +105,7 @@ End Len : 0
 ```
 ### 4.5 del()删除列表的元素
 
-```python
+```bash
 #!/usr/bin/python
  
 list1 = ['physics', 'chemistry', 1997, 2000]
@@ -117,7 +117,7 @@ print list1
 ```
 ### 4.6 remove是用来移除指定值. 并且,一次只会移除一个
 
-```python
+```bash
 s=['alex', 2,3]
 s2=set(s)
 print(s2)
@@ -135,7 +135,7 @@ output:
  - globals -- 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。
  - locals -- 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。 返回值
 
-```python
+```bash
 >>>x = 7
 >>> eval( '3 * x' )
 21
@@ -149,7 +149,7 @@ output:
 ```
 
 
-```python
+```bash
 a=str({'beijing':{'1':111}})
 print(type(a))
 print(a)
@@ -166,7 +166,7 @@ output:
 
 ### 4.8 filter()过滤元组值，不能修改
 
-```python
+```bash
 #!/usr/bin/python
 #---coding:utf-8---
 str = ['a','b','c','d']
@@ -183,7 +183,7 @@ print(list(ret))
 即将缓冲区中的数据立刻写入文件，同时清空缓冲区，不需要是被动的等待输出缓冲区写入。
 一般情况下，文件关闭后会自动刷新缓冲区，但有时你需要在关闭前刷新它，这时就可以使用 flush() 方法。
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -201,7 +201,7 @@ fo.close()
 raw_input()随便输都是字符串，而input()必须按照Python的规则来~
 raw_input()
 
-```python
+```bash
 name=raw_input('输入姓名：')
 age=raw_input('输入年龄')
 我们输入汉字的姓名和数字的年龄
@@ -213,7 +213,7 @@ age=raw_input('输入年龄')
  
 input()
 
-```python
+```bash
 name=input('输入姓名：')
 age=input('输入年龄：')
 我们还是输入汉字的姓名和数字的年龄
@@ -228,7 +228,7 @@ input()输入严格按照Python的语法，是字符就自觉的加 ' ' ，数�
 字符的时候可以用raw_input()，当然不怕麻烦也可以用input()手动加''
 int类型的时候最好用input()**
 
-```python
+```bash
 $ cat input1.py
 #!/usr/bin/python3.8
 #-----coding:utf-8---
@@ -270,11 +270,11 @@ You will be retired in 47 years
 ### 4.11 isatty() 检测文件是否连接到一个终端设备
 如果是返回 True，否则返回 False。
 
-```python
+```bash
 fileObject.isatty()
 ```
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
@@ -311,7 +311,7 @@ isinstance(object, classinfo)
 object -- 实例对象。
 classinfo -- 可以是直接或间接类名、基本类型或者由它们组成的元组。
 
-```python
+```bash
 >>>a = 2
 >>> isinstance (a,int)
 True
@@ -323,7 +323,7 @@ True
 
 type() 与 isinstance()区别：
 
-```python
+```bash
 class A:
     pass
  
@@ -341,7 +341,7 @@ int，float，bool，complex，str(字符串)，list，dict(字典)，set，tupl
 要注意的是，classinfo 的字符串是 str 而不是 string，字典也是简写 dict。
 实例
 
-```python
+```bash
 arg=123
 isinstance(arg, int)    #输出True
 isinstance(arg, str)    #输出False
@@ -350,7 +350,7 @@ isinstance(arg, string) #报错
 
 ### 4.13 lower() 方法转换字符串中所有大写字符为小写
 
-```python
+```bash
 #!/usr/bin/python
 str = "THIS IS STRING EXAMPLE....WOW!!!";
 print str.lower();
@@ -361,7 +361,7 @@ this is string example....wow!!!
 
 ### 4.14 map()迭代函数以列表返回
 1.对可迭代函数'iterable'中的每一个元素应用‘function’方法，将结果作为list返回
-```python
+```bash
 $ cat map1.py
 #!/usr/bin/python
 def add100(x):
@@ -374,7 +374,7 @@ print map(add100,hh)
 ```
 2.如果给出了额外的可迭代参数，则对每个可迭代参数中的元素‘并行’的应用‘function’
 
-```python
+```bash
 $ cat map2.py
 #!/usr/bin/python
 def abc(a, b, c):
@@ -389,7 +389,7 @@ print map(abc,list1,list2,list3)
 ```
 3.如果'function'给出的是‘None’，自动假定一个‘identity’函数
 
-```python
+```bash
 $ cat map3.py
 #!/usr/bin/python
 
@@ -404,7 +404,7 @@ print map(None,list1,list2,list3)
 [(11, 44, 77), (22, 55, 88), (33, 66, 99)]
 ```
 4.map(f, iterable)基本上等于：[f(x) for x in iterable]
-```python
+```bash
 $ cat map4.py
 #!/usr/bin/python
 def add100(x):
@@ -423,7 +423,7 @@ print [add100(i) for i in list1]
 ### 4.15 reduce() 函数会对参数序列中元素进行累积
 函数将一个数据集合（链表，元组等）中的所有数据进行下列操作：用传给 reduce 中的函数 function（有两个参数）先对集合中的第 1、2 个元素进行操作，得到的结果再与第三个数据用 function 函数运算，最后得到一个结果。
 
-```python
+```bash
 reduce(function, iterable[, initializer])
 ```
 
@@ -433,7 +433,7 @@ reduce(function, iterable[, initializer])
  - iterable -- 可迭代对象
  - initializer -- 可选，初始参数
 
-```python
+```bash
 from functools import reduce
 def add1(x,y):
     return x + y
@@ -446,7 +446,7 @@ output:
 
 ### 4.16 pop()函数用于移除列表中的一个元素（默认最后一个元素）并且返回该元素的值
 
-```python
+```bash
 #!/usr/bin/python3
 #coding=utf-8
  
@@ -463,7 +463,7 @@ print "列表现在为 : ", list1
 ### 4.17 pow()获取乘方数
 
 
-```python
+```bash
 $ cat pow1.py
 #!/usr/bin/python
 
@@ -486,14 +486,14 @@ pow(x,y,z) 当 z 这个参数不存在时 x,y 不限制是否为 float 类型, �
 
 ### 4.18 seek()用于移动文件读取指针到文件指定的位置
 
-```python
+```bash
 file. seek(offset[, whence])
 ```
 
  - whence：0,1,2三个参数，0表示文件开头，1表示当前位置，2表示文件结尾
  - offset:偏移量，可正可负，正数表示向后移动offset位，负数表示向前移动offset位。
 
-```python
+```bash
 cat log.txt
 122222222222222222
 1324222222222
@@ -549,7 +549,7 @@ iterable -- 可迭代对象对象；
 
 #字典与列表的set   
 
-```python
+```bash
 s=set('alex li')
 s1= ['alvin', 'ee', 'alvin']
 s2=set(s1)
@@ -563,7 +563,7 @@ output：
 
 #列表中的列表不可哈希
 
-```python
+```bash
 $ cat set1.py
 #!/usr/bin/python
 s=[[23,2], 'sgs',34]
@@ -578,7 +578,7 @@ TypeError: unhashable type: 'list'
 
 交集并集差集
 
-```python
+```bash
 >>>x = set('runoob')
 >>> y = set('google')
 >>> x, y
@@ -597,7 +597,7 @@ set(['r', 'b', 'u', 'n'])
 #### 4.19.2 访问集合
 由于集合本身是无序的，所以不能为集合创建索引或切片操作，只能循环遍历或使用in、not in 来 访问或者判断集合元素
 
-```python
+```bash
 s=['alex', 2,3]
 s2=set(s)
 print(s2)
@@ -654,7 +654,7 @@ True
 *******************************
 #### 4.19.3 交集与并集、差集、对称差集（反向交集）、父集
 
-```python
+```bash
 #intersection（）
 a = set([ 1,2,3,4,5 ])
 b = set([4,5,6,7,8])
@@ -680,7 +680,7 @@ False
 ```
 ### 4.20 strip()它返回的是字符串的副本并删除前导和后缀字符
 无参数
-```python
+```bash
 a=" \rzha ng\n\t "
 print(len(a))
 
@@ -695,7 +695,7 @@ zha ng
 ```
 有参数
 
-```python
+```bash
 a="rrbbrrddrr"
 b=a.strip("r")
 print(b)
@@ -703,7 +703,7 @@ print(b)
 输出：bbrrdd
 ```
 ### 4.21 lstrip()与rstrip分别删除前缀与后缀
-```python
+```bash
 $ cat strip1.py
 #!/usr/bin/python
 a=" zhangkang "
@@ -719,11 +719,11 @@ print(a.rstrip(),len(a.rstrip()))
 如果指定了可选参数 size，则表示截断文件为 size 个字符。 如果没有指定 size，则从当前位置起截断；截断之后 size 后面的所有字符被删除。
 truncate() 方法语法如下：
 
-```python
+```bash
 fileObject.truncate( [ size ])
 ```
 文件 runoob.txt 的内容如下：
-```python
+```bash
 1:www.runoob.com
 2:www.runoob.com
 3:www.runoob.com
@@ -732,7 +732,7 @@ fileObject.truncate( [ size ])
 ```
 循环读取文件的内容：
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 # 打开文件
@@ -757,7 +757,7 @@ fo.close()
 
 以下实例截取 runoob.txt 文件的10个字节：
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 # 打开文件
@@ -783,7 +783,7 @@ start -- 字符串中的开始位置。
 end -- 字符中结束位置。
 
 
-```python
+```bash
 text = 'Happy National Day!'   
 print text.startswith('A')      # False
 print text.startswith('H')      # True
@@ -798,7 +798,7 @@ print text.endswith('Day!')     # True
 startswith()和endswith()函数的参数可以包在一个括号中一次列出多个，各个参数之间是或的关系：
 
 
-```python
+```bash
 text = 'Happy National Day!'      
 print text.startswith(('A','H'))   # True
 print text.endswith(('y','!'))     # True
@@ -808,7 +808,7 @@ print text.endswith(('y','!'))     # True
 endswith典型的应用场景是用来判断是否是某一文件类型（图片或.exe、.sh执行文件）
 
 
-```python
+```bash
 import os 
 import cv2
  
@@ -818,7 +818,7 @@ for item in os.listdir('/home/xxx/TestImage/'):
         print True
 ```
 
-```python
+```bash
 #!/usr/bin/python
  
 str = "this is string example....wow!!!";
@@ -839,7 +839,7 @@ False
 ### 4.24 tuple() 函数将列表转换为元组。
 
 
-```python
+```bash
 $ cat tuple.py
 #!/usr/bin/python
 
@@ -857,7 +857,7 @@ Tuple elements :  (123, 'xyz', 'zara', 'abc')
 ```
 ### 4.25 with()
 一般读写文件
-```python
+```bash
 #!/usr/bin/env python
 
 fileReader = open('students.txt', 'r')
@@ -870,7 +870,7 @@ fileReader.close()
 
 基本也实现了读取文件的功能。但是有的时候，上述代码在运行的时候会`抛出异常，导致无法关闭文件句柄`，这个时候，我就会加上异常处理程序，代码就改成了这样：
 
-```python
+```bash
 #!/usr/bin/env python
 
 try:
@@ -889,7 +889,7 @@ finally:
 
 with语句适用于对资源进行访问的场合，确保不管使用过程中是否发生异常都会执行必要的“清理”操作，释放资源，比如文件使用后自动关闭、线程中锁的自动获取和释放等。比如上面的代码，通过使用with语句改造，就变成了下面这个样子：
 
-```python
+```bash
 #!/usr/bin/env python
 with open('students.txt', 'r') as fileReader:
     for row in fileReader:
@@ -898,7 +898,7 @@ with open('students.txt', 'r') as fileReader:
 ## 5. 函数混合
 ### 5.1 list 、filter、lambda
 
-```python
+```bash
 $cat test1.py
 #!/usr/bin/python
 
@@ -918,7 +918,7 @@ print all_less_than_zero
 
 ### 5.2 reduce、lambda
 
-```python
+```bash
 $ cat test2.py
 #!/usr/bin/python
 
@@ -936,7 +936,7 @@ print product
 ```
 ### 5.3 lambda、map、list
 
-```python
+```bash
 cat test3.py
 #!/usr/bin/python
 

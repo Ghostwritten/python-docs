@@ -20,7 +20,7 @@
 return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。
 
 
-```python
+```bash
 def functionname( parameters ):
    "函数_文档字符串"
    function_suite
@@ -28,7 +28,7 @@ def functionname( parameters ):
 ```
 函数实例
 
-```python
+```bash
 def printme( str ):
    "打印传入的字符串到标准显示设备上"
    print str
@@ -37,14 +37,14 @@ def printme( str ):
 ## 3. pass空的语句块
 pass语句在Python中表示一个空的语句块。
 
-```python
+```bash
 def someFunction():
     pass
 ```
 
 ## 4. 函数调用
 
-```python
+```bash
 $ cat fun1.py
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
@@ -74,7 +74,7 @@ printme("再次调用同一函数")
  6. 不定长参数：一个函数能处理比当初声明时更多的参数。这些参数叫做不定长参数，和上述2种参数不同，声明时不会命名。
 
 ### 5.1 不可变参数
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -87,7 +87,7 @@ print b # 结果是 2
 ```
 ### 5.2 可变参数
 
-```python
+```bash
 [root@localhost func]# cat func2.py
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
@@ -109,7 +109,7 @@ print "函数外取值: ", mylist
 ```
 ### 5.3 必备参数：
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -130,7 +130,7 @@ TypeError: printme() takes exactly 1 argument (0 given)
 ```
 ### 5.4 关键字参数
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -144,7 +144,7 @@ def printme( str ):
 printme( str = "My string")
 ```
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -160,7 +160,7 @@ printinfo( age=50, name="miki" )
 ```
 ### 5.5 默认参数
 
-```python
+```bash
 [root@localhost func]# cat fun3.py
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
@@ -184,7 +184,7 @@ Age  35
 ### 5.6 不定长参数
 
 
-```python
+```bash
 $ cat fun5.py
 #!/usr/bin/python
 
@@ -232,7 +232,7 @@ python 使用 `lambda` 来创建匿名函数。
  - lambda函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数。
  - 虽然lambda函数看起来只能写一行，却不等同于C或C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率。
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -251,7 +251,7 @@ print "相加后的值为 : ", sum( 20, 20 )
 ## 7. return 语句
 return语句[表达式]退出函数，选择性地向调用方返回一个表达式。不带参数值的return语句返回None.
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -269,7 +269,7 @@ total = sum( 10, 20 )
 ## 8. 变量
 全局变量和局部变量
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -293,7 +293,7 @@ print "函数外是全局变量 : ", total
 ### 8.1 global语句
 如果你想要为一个定义在函数外的变量赋值，那么你就得告诉Python这个变量名不是局部的，而是 全局 的
 
-```python
+```bash
 #!/usr/bin/python
 # Filename: func_global.py
 
@@ -315,7 +315,7 @@ Value of x is 2
 ```
 内部作用域先声明就会覆盖外部变量，不声明直接使用，就会使用外部作用域变量
 
-```python
+```bash
 [root@localhost func]$ cat global1.py
 #!/usr/bin/python
 count = 10
@@ -336,7 +336,7 @@ print count
 ## 9. DocStrings
 文档字符串 ，它通常被简称为 `docstrings` 。DocStrings是一个重要的工具，由于它帮助你的程序文档更加简单易懂，你应该尽量使用它。
 
-```python
+```bash
 #!/usr/bin/python
 # Filename: func_doc.py
 

@@ -26,7 +26,7 @@ super(type[, object-or-type])
 
 ## 4. 实例1
 （Python3.x ）
-```python
+```bash
 class A:
      def add(self, x):
          y = x+1
@@ -41,7 +41,7 @@ b.add(2)  # 3
 ## 5. 实例2
 （Python2.x ）
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -64,7 +64,7 @@ b.add(2)  # 3
 
 实例
 
-```python
+```bash
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
  
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
 执行结果：
 
-```python
+```bash
 Parent
 Child
 HelloWorld from Parent

@@ -2,7 +2,7 @@
 
 ## 1. 函数模块化调用
 带时间戳日志格式的函数模块化
-```python
+```bash
 $ mkdir log1
 $ touch log1/__init__.py
 $ vim log1/timestamp.py
@@ -52,7 +52,7 @@ You owe $0.06
 
 假如不调用模块化函数方法
 
-```python
+```bash
 #!/usr/bin/env python3
 import time
 total = 0
@@ -88,7 +88,7 @@ You owe $0.04
 
 ### 2.2 闭包实例
 
-```python
+```bash
 def print_msg():
     # print_msg 是外围函数
     msg = "zen of python"
@@ -109,7 +109,7 @@ another 就是一个闭包，闭包本质上是一个函数，它有两部分组
 比如说，如果你希望函数的每次执行结果，都是基于这个函数上次的运行结果。我以一个类似棋盘游戏的例子来说明。假设棋盘大小为50*50，左上角为坐标系原点(0,0)，我需要一个函数，接收2个参数，分别为方向(direction)，步长(step)，该函数控制棋子的运动。棋子运动的新的坐标除了依赖于方向和步长以外，当然还要根据原来所处的坐标点，用闭包就可以保持住这个棋子原来所处的坐标。
 
 
-```python
+```bash
 #!/usr/bin/python
 #--coding:utf-8
 origin = [0, 0] # 坐标系统原点 
@@ -140,7 +140,7 @@ print player([-1,0],10) # 向x轴负方向移动10步
 #### 2.3.2 闭包可以根据外部作用域的局部变量来得到不同的结果
 这有点像一种类似配置功能的作用，我们可以修改外部的变量，闭包根据这个变量展现出不同的功能。比如有时我们需要对某些文件的特殊行进行分析，先要提取出这些特殊行。
 
-```python
+```bash
 def make_filter(keep): 
     def the_filter(file_name): 
           file = open(file_name) 
@@ -160,7 +160,7 @@ filter_result = filter("result.txt")
 
 #### 2.4.1 闭包中是不能修改外部作用域的局部变量的
 
-```python
+```bash
 $ cat bibao3.py
 #!/usr/bin/python
 
@@ -180,7 +180,7 @@ out()
 ('out x:', 0)
 ```
 #### 2.4.2 闭包函数返回变量报错
-```python
+```bash
 def foo(): 
  a = 1
  def bar(): 
@@ -190,7 +190,7 @@ def foo():
 ```
 这段程序的本意是要通过在每次调用闭包函数时都对变量a进行递增的操作。但在实际使用时
 
-```python
+```bash
 >>> c = foo() 
 >>> print c() 
 Traceback (most recent call last): 
@@ -201,7 +201,7 @@ UnboundLocalError: local variable 'a' referenced before assignment
 这是因为在执行代码 c = foo()时，python会导入全部的闭包函数体bar()来分析其的局部变量，python规则指定所有在赋值语句左面的变量都是局部变量，则在闭包bar()中，变量a在赋值符号"="的左面，被python认为是bar()中的局部变量。再接下来执行print c()时，程序运行至a = a + 1时，因为先前已经把a归为bar()中的局部变量，所以python会在bar()中去找在赋值语句右面的a的值，结果找不到，就会报错。解决的方法很简单
 
 
-```python
+```bash
 def foo(): 
  a = [1] 
  def bar(): 
@@ -215,7 +215,7 @@ def foo():
 #### 2.4.3 循环语句中的闭包函数
 在程序里面经常会出现这类的循环语句，Python的问题就在于，当循环结束以后，循环体中的临时变量i不会销毁，而是继续存在于执行环境中。还有一个python的现象是，python的函数只有在执行时，才会去找函数体里的变量的值。
 
-```python
+```bash
 $ cat bibao2.py
 #!/usr/bin/python
 flist = []
@@ -234,7 +234,7 @@ for f in flist:
 可能有些人认为这段代码的执行结果应该是2,3,4.但是实际的结果是4,4,4。这是因为当把函数加入flist列表里时，python还没有给i赋值，只有当执行时，再去找i的值是什么，这时在第一个for循环结束以后，i的值是2，所以以上代码的执行结果是4,4,4.
 改写一下函数的定义
 
-```python
+```bash
 $ cat bibao1.py
 #!/usr/bin/python
 
@@ -261,7 +261,7 @@ for f in flist:
 4.递归效率低
 
 
-```python
+```bash
 $ cat digui.py
 #!/usr/bin/python
 def fat(n):               #第一种方式
@@ -286,7 +286,7 @@ print(fact(5))
  - 函数名可以赋值
  - 函数名可以作为函数参数，还可以作为返回值
 
-```python
+```bash
 $ cat qiantao.py
 #!/usr/bin/python
 def f(n):
