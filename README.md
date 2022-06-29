@@ -20,4 +20,4 @@
 
 ## 公众号
 
-![爱 死 亡 机 器 人 ](https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/public.jpg?raw=true) 
+![爱 死 亡 机 器 人 ](https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/public.jpg?raw=true){:height="400px" width="400px"} 
