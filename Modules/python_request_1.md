@@ -65,7 +65,7 @@ print(response.text)
 
 ### 3.2 发送带数据的post请求
 
-```python
+```bash
 import requests
 
 
@@ -86,7 +86,7 @@ response.raise_for_status()
 
 很多网站都有反爬机制，如果一个请求不携带请求头headers, 很可能被禁止访问。我们可以按如下方式设置请求头。你也可以通过打印response.headers查看当前请求头。
 
-```python
+```bash
 import requests
 headers = {
 
@@ -105,7 +105,7 @@ print(response2.text)
 ### 3.5 代理Proxy
 有的网站反爬机制会限制单位时间内同一IP的请求次数，这时我们可以通过设置IP proxy代理来应对这个反爬机制。requests里设置proxy也非常简单，如下面代码所示。
 
-```python
+```bash
 import requests
 
 proxies = {
@@ -117,7 +117,7 @@ requests.get("http://example.org", proxies=proxies)
 ```
 ## 3.6 保存cookies
 
-```python
+```bash
 cookies = requests.cookies.RequestsCookieJar()
 def login(endpointip):
     endpoint = "http://" + endpointip + ":8080/upcdb_manager/v1.0/login"

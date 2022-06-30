@@ -17,7 +17,7 @@ dump的功能就是把Python对象encode为json对象，一个编码过程。注
 
 实例1：
 
-```python
+```bash
 #!/usr/bin/python
 
 import json
@@ -66,7 +66,7 @@ json和Python对象转换过程中，数据类型不完全一致，有对应。
 ### 3.1 sort_keys
 输出时字典的是按键值排序的，而不是随机的。
 
-```python
+```bash
 import json
 
 data = [ { 'a':'A', 'b':(2, 4), 'c':3.0 } ]
@@ -78,7 +78,7 @@ print 'SORT:', json.dumps(data, sort_keys=True)
 ```
 输出：
 
-```python
+```bash
 $ python js2.py
 DATA: [{'a': 'A', 'c': 3.0, 'b': (2, 4)}]
 JSON: [{"a": "A", "c": 3.0, "b": [2, 4]}]
@@ -88,7 +88,7 @@ SORT: [{"a": "A", "b": [2, 4], "c": 3.0}]
 ### 3.2 indent
 就是更个缩进，让我们更好地看清结构。
 
-```python
+```bash
 import json
 
 data = [ { 'a':'A', 'b':(2, 4), 'c':3.0 } ]
@@ -99,7 +99,7 @@ print 'INDENT:', json.dumps(data, sort_keys=True, indent=2)
 ```
 输出:
 
-```python
+```bash
 $ python js3.py
 DATA: [{'a': 'A', 'c': 3.0, 'b': (2, 4)}]
 NORMAL: [{"a": "A", "b": [2, 4], "c": 3.0}]
@@ -118,7 +118,7 @@ INDENT: [
 ### 3.3 separators
 提供分隔符，可以出去白空格，输出更紧凑，数据更小。默认的分隔符是(', ', ': ')，有白空格的。不同的dumps参数，对应文件大小一目了然。
 
-```python
+```bash
 data = [ { 'a':'A', 'b':(2, 4), 'c':3.0 } ]
 print 'DATA:', repr(data)
 print 'repr(data)             :', len(repr(data))
@@ -128,7 +128,7 @@ print 'dumps(data, separators):', len(json.dumps(data, separators=(',',':')))
 ```
 输出：
 
-```python
+```bash
 DATA: [{'a': 'A', 'c': 3.0, 'b': (2, 4)}]
 repr(data)             : 35
 dumps(data)            : 35
@@ -144,7 +144,7 @@ print json.dumps(servies,ensure_ascii=False)
 ## 4. error错误
 json需要字典的的键是字符串，否则会抛出ValueError。
 
-```python
+```bash
 data = [ { 'a':'A', 'b':(2, 4), 'c':3.0, ('d',):'D tuple' } ]
 
 print 'First attempt'
@@ -159,7 +159,7 @@ print json.dumps(data, skipkeys=True)
 ```
 输出：
 
-```python
+```bash
 First attempt
 ERROR: keys must be a string
 

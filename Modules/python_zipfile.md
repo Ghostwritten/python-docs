@@ -75,7 +75,7 @@ ZipFile实现**上下文管理器协议**，以便您可以在[with语句](https
 
 要热身，首先要阅读名为 `.zip` 的 ZIP 文件`sample.zip`。为此，您可以ZipFile在阅读模式下使用：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -100,7 +100,7 @@ realpython.md                             2021-09-07 19:50:10          428
 
 如果你想在尝试打开它之前确保你的目标是一个有效的 ZIP 文件，那么你可以ZipFile在一个[try...except](https://realpython.com/python-exceptions/#the-try-and-except-block-handling-exceptions)语句中包装并捕获任何[BadZipFile](https://docs.python.org/3/library/zipfile.html#zipfile.BadZipFile)异常：
 
-```python
+```bash
 >>> import zipfile
 
 >>> try:
@@ -126,7 +126,7 @@ File is not a zip file
 
 要检查有效的 ZIP 文件，您还可以使用以下`is_zipfile()`功能：
 
-```python
+```bash
 >>> import zipfile
 
 >>> if zipfile.is_zipfile("sample.zip"):
@@ -156,7 +156,7 @@ File is not a zip file
 
 如果目标 ZIP 文件不存在，则ZipFile在您关闭存档时为您创建它：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("hello.zip", mode="w") as archive:
@@ -175,7 +175,7 @@ hello.txt                                      2022-02-18 15:27:40           83
 
 这就解释了为什么以下代码不起作用：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("missing/hello.zip", mode="w") as archive:
@@ -191,7 +191,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'missing/hello.zip'
 
 要尝试该"a"模式，请继续将`new_hello.txt`文件添加到新创建的hello.zip存档中：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("hello.zip", mode="a") as archive:
@@ -223,7 +223,7 @@ ZipFile还支持独占模式 ( "x")。此模式允许您专门创建新的 ZIP �
 
 使用这三个工具，您可以检索有关 ZIP 文件内容的大量有用信息。例如，看看下面的例子，它使用`.getinfo()`：
 
-```python
+```bash
 
 >>> import zipfile
 
@@ -252,7 +252,7 @@ ZipFile还支持独占模式 ( "x")。此模式允许您专门创建新的 ZIP �
 
 使用`.infolist()`，您可以从给定存档中的所有文件中提取信息。这是一个使用此方法生成包含`sample.zip`存档中所有成员文件信息的最小报告的示例：
 
-```python
+```bash
 
 >>> import datetime
 >>> import zipfile
@@ -287,7 +287,7 @@ Compressed size: 428 bytes
 
 如果您只需要对 ZIP 文件执行快速检查并列出其成员文件的名称，则可以使用`.namelist()`：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -305,7 +305,7 @@ realpython.md
 ###  5.3 读取和写入成员文件
 有时您有一个 ZIP 文件并且需要读取给定成员文件的内容而不解压缩它。为此，您可以使用[.read()](https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.read). 此方法采用成员文件name并将该文件的内容作为字节返回：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -323,7 +323,7 @@ b''
 
 `ZipFile.read()`还接受名为 `.` 的第二个位置参数pwd。此参数允许您提供用于读取加密文件的密码。要尝试此功能，您可以依赖`sample_pwd.zip`与本教程材料一起下载的文件：
 
-```python
+```bash
 
 >>> import zipfile
 
@@ -357,7 +357,7 @@ RuntimeError: File 'hello.txt' is encrypted, password required for extraction
 
 如果您经常使用加密文件，那么您可能希望避免在每次调用.read()或其他接受pwd参数的方法时提供解密密码。如果是这种情况，您可以使用`ZipFile.setpassword()`设置全局密码：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample_pwd.zip", mode="r") as archive:
@@ -387,7 +387,7 @@ b'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 相反，如果您的 ZIP 文件对各个成员文件具有不同的密码，那么您需要使用以下pwd参数为每个文件提供特定密码`.read()`：
 
-```python
+```bash
 
 >>> import zipfile
 
@@ -417,7 +417,7 @@ b'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 如果您正在寻找一种更灵活的方式来读取成员文件并创建新成员文件并将其添加到存档中，那么`ZipFile.open()`它适合您。与内置`open()`函数一样，此方法实现了上下文管理器协议，因此它支持以下with语句：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -435,7 +435,7 @@ b"Ready to try Python's zipfile module?\n"
 
 您也可以使用.open()与"w"模式。此模式允许您创建一个新的成员文件，向其中写入内容，最后将该文件附加到底层存档，您应该以附加模式打开它：
 
-```python
+```bash
 
 >>> import zipfile
 
@@ -478,7 +478,7 @@ b'Hello, World!'
 
 以下是您可以用来从存档文件中`.decode()`读取文本的方法：`hello.txtsample.zip`
 
-```python
+```bash
 >>> import zipfile
 
 >>>  with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -498,7 +498,7 @@ Ready to try Python's zipfile module?
 
 从成员文件中读取文本的第二个选项是使用`io.TextIOWrapper`提供缓冲文本流的对象。这个时候你需要使用`.open()`而不是`.read()`. 下面是一个将成员文件的内容作为文本流io.TextIOWrapper读取的示例：hello.txt
 
-```python
+```bash
 >>> import io
 >>> import zipfile
 
@@ -523,7 +523,7 @@ Ready to try Python's zipfile module?
 
 `ZipFile.extract()`让你完成第一个任务。此方法采用`member`文件名并将其提取到由 . 表示的给定目录path。目标path默认为当前目录：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -540,7 +540,7 @@ Ready to try Python's zipfile module?
 
 在从档案中提取所有成员文件时，您可以使用.extractall(). 顾名思义，此方法将所有成员文件提取到目标路径，默认为当前目录：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -556,7 +556,7 @@ Ready to try Python's zipfile module?
 
 为此，您可以调用`.close()`您的`ZipFile`对象：
 
-```python
+```bash
 >>> import zipfile
 
 >>> archive = zipfile.ZipFile("sample.zip", mode="r")
@@ -584,7 +584,7 @@ new_hello.txt                             1980-01-01 00:00:00           13
 ### 6.1 从多个常规文件创建 ZIP 文件
 有时您需要从多个相关文件创建 ZIP 存档。这样，您可以将所有文件放在一个容器中，以便通过计算机网络分发它们或与朋友或同事共享它们。为此，您可以创建一个目标文件列表，并使用ZipFile循环将它们写入存档：
 
-```python
+```bash
 >> import zipfile
 
 >>> filenames = ["hello.txt", "lorem.md", "realpython.md"]
@@ -604,7 +604,7 @@ new_hello.txt                             1980-01-01 00:00:00           13
 
 在该`python-zipfile/`目录中，您有一个名为 的子目录`source_dir/`，其中包含以下内容：
 
-```python
+```bash
 source_dir/
 │
 ├── hello.txt
@@ -613,7 +613,7 @@ source_dir/
 ```
 在`source_dir/`中，您只有三个常规文件。因为该目录不包含子目录，您可以使用`pathlib.Path.iterdir()`它直接迭代其内容。考虑到这个想法，以下是如何从以下内容构建 ZIP 文件`source_dir/`：
 
-```python
+```bash
 >>> import pathlib
 >>> import zipfile
 
@@ -642,7 +642,7 @@ lorem.md                                  2021-09-07 19:50:10         2609
 
 现在检查root_dir/工作目录中的文件夹。在这种情况下，您会发现以下结构：
 
-```python
+```bash
 root_dir/
 │
 ├── sub_dir/
@@ -656,7 +656,7 @@ root_dir/
 
 以下是如何使用模块中的zipfilewith压缩完整的目录树，如上面的目录树：`Path.rglob()pathlib`
 
-```python
+```bash
 >>> import pathlib
 >>> import zipfile
 
@@ -709,7 +709,7 @@ sub_dir/new_hello.txt                     2021-08-31 17:13:44           13
 
 现在假设您要使用 `Deflate` 方法归档和压缩给定目录的内容，这是 ZIP 文件中最常用的方法。为此，您可以运行以下代码：
 
-```python
+```bash
 
 >>> import pathlib
 >>> from zipfile import ZipFile, ZIP_DEFLATED
@@ -732,7 +732,7 @@ sub_dir/new_hello.txt                     2021-08-31 17:13:44           13
 
 要解决此问题，您可以使用ZipFile附加模式 ( "a")，就像您已经完成的那样。此模式允许您安全地将新成员文件附加到 ZIP 存档而不截断其当前内容：
 
-```python
+```bash
 >>> import zipfile
 
 >>> def append_member(zip_file, member):
@@ -767,7 +767,7 @@ realpython.md                             2021-09-07 19:50:10          428
 
 再举一个例子，回到你的`sample.zip`文件。此时，存档包含四个不同类型的文件。你有两个`.txt`文件和两个`.md`文件。现在假设您只想提取.md文件。为此，您可以运行以下代码：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.ZipFile("sample.zip", mode="r") as archive:
@@ -794,7 +794,7 @@ realpython.md                             2021-09-07 19:50:10          428
 
 以你的老朋友`sample.zip`为目标，运行以下代码：
 
-```python
+```bash
 >>> import zipfile
 
 >>> hello_txt = zipfile.Path("sample.zip", "hello.txt")
@@ -822,7 +822,7 @@ Ready to try Python's zipfile module?
 
 Path还提供了`.open()`一种使用不同模式打开成员文件的方法。例如，下面的代码打开hello.txt以供阅读：
 
-```python
+```bash
 >>> import zipfile
 
 >>> hello_txt = zipfile.Path("sample.zip", "hello.txt")
@@ -841,7 +841,7 @@ Ready to try Python's zipfile module?
 
 就像使用pathlib.Path对象一样，您可以通过调用对象来列出 ZIP 文件的.iterdir()内容zipfile.Path：
 
-```python
+```bash
 >>> import zipfile
 
 >>> root = zipfile.Path("sample.zip")
@@ -873,7 +873,7 @@ PyZipFile当您需要生成可导入的 ZIP 文件时非常有用。打包.pyc�
 
 在`python-zipfile/`目录中，您有一个`hello.py`包含以下内容的模块：
 
-```python
+```bash
 """Print a greeting message."""
 # hello.py
 
@@ -882,7 +882,7 @@ def greet(name="World"):
 ```
 这段代码定义了一个名为 的函数`greet()`，它接受`name`一个参数并将问候消息打印到屏幕上。现在假设您想将此模块打包成一个 ZIP 文件以用于分发。为此，您可以运行以下代码：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.PyZipFile("hello.zip", mode="w") as zip_module:
@@ -899,7 +899,7 @@ hello.pyc                                 2021-09-13 13:25:56          311
 
 hello.py捆绑到 ZIP 文件后，您可以使用 Python 的导入[系统](https://realpython.com/python-import/)从其包含的存档中导入此模块：
 
-```python
+```bash
 >>> import sys
 
 >>> # Insert the archive into sys.path
@@ -919,7 +919,7 @@ Hello, Pythonista! Welcome to Real Python!
 
 最后，考虑hello/工作文件夹中的子目录。它包含一个具有以下结构的小型 Python 包：
 
-```python
+```bash
 hello/
 |
 ├── __init__.py
@@ -927,7 +927,7 @@ hello/
 ```
 该`__init__.py`模块将hello/目录转换为 Python 包。该hello.py模块与您在上面的示例中使用的模块相同。现在假设您想将此包捆绑到一个 ZIP 文件中。如果是这种情况，那么您可以执行以下操作：
 
-```python
+```bash
 >>> import zipfile
 
 >>> with zipfile.PyZipFile("hello.zip", mode="w") as zip_pkg:
@@ -943,7 +943,7 @@ hello/hello.pyc                           2021-09-13 13:39:30          317
 ```
 调用`.writepy()`将hello包作为参数，在其中搜索.py文件，将它们编译为.pyc文件，最后将它们添加到目标 ZIP 文件中，hello.zip. 同样，您可以按照之前学习的步骤从该存档中导入您的代码：
 
-```python
+```bash
 >>> import sys
 
 >>> sys.path.insert(0, "/home/user/python-zipfile/hello.zip")
@@ -958,7 +958,7 @@ Hello, Pythonista! Welcome to Real Python!
 ###  7.3 zipfile从命令行运行
 Pythonzipfile还提供了一个最小的[命令行界面](https://realpython.com/command-line-interfaces-python-argparse/)，允许您快速访问模块的主要功能。例如，您可以使用-lor--list选项列出现有 ZIP 文件的内容：
 
-```python
+```bash
 $ python -m zipfile --list sample.zip
 File Name                                         Modified             Size
 hello.txt                                  2021-09-07 19:50:10           83
@@ -970,7 +970,7 @@ new_hello.txt                              1980-01-01 00:00:00           13
 
 现在假设您要创建一个包含多个输入文件的新 ZIP 文件。在这种情况下，您可以使用`-cor--create`选项：
 
-```python
+```bash
 $ python -m zipfile --create new_sample.zip hello.txt lorem.md realpython.md
 
 $ python -m zipfile -l new_sample.zip
@@ -983,7 +983,7 @@ realpython.md                              2021-09-07 19:50:10          428
 
 如果您需要创建一个 ZIP 文件来归档整个目录怎么办？例如，您可能拥有source_dir/与上面示例相同的三个文件。您可以使用以下命令从该目录创建 ZIP 文件：
 
-```python
+```bash
 $ python -m zipfile -c source_dir.zip source_dir/
 
 $ python -m zipfile -l source_dir.zip
@@ -999,7 +999,7 @@ source_dir/realpython.md                   2021-08-31 09:31:22          428
 
 您还可以使用命令行中的`-eor--extract`选项提取给定 ZIP 文件的所有内容：
 
-```python
+```bash
 $ python -m zipfile --extract sample.zip sample/
 ```
 运行此命令后，您sample/的工作目录中将有一个新文件夹。新文件夹将包含存档中的当前文件sample.zip。
@@ -1021,7 +1021,7 @@ Python 标准库中还有一些其他工具可用于在较低级别归档、压�
 
 例如，您可以使用gzip创建包含一些文本的压缩文件：
 
-```python
+```bash
 >>> import gzip
 
 >>> with gzip.open("hello.txt.gz", mode="wt") as gz_file:
@@ -1033,7 +1033,7 @@ Python 标准库中还有一些其他工具可用于在较低级别归档、压�
 
 在不使用的情况下创建 ZIP 文件的一种快速且高级的方法zipfile是使用[shutil](https://docs.python.org/3/library/shutil.html). 该模块允许您对文件和文件集合执行多项高级操作。当涉及到[归档操作](https://docs.python.org/3/library/shutil.html#archiving-operations)时，您[make_archive()](https://docs.python.org/3/library/shutil.html#shutil.make_archive)可以创建归档，例如 ZIP 或 TAR 文件：
 
-```python
+```bash
 >>> import shutil
 
 >>> shutil.make_archive("shutil_sample", format="zip", root_dir="source_dir/")

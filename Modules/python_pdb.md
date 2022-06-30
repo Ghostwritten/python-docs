@@ -42,7 +42,7 @@ w where 打印当前执行堆栈
 在ipython中使用PDB（体验更好）：`%run -d demo.py`
 ## 2. 实战
 ### 2.1 第一种调试
-```python
+```bash
 $ cat test.py：
 # coding:utf-8
 import pdb
@@ -62,7 +62,7 @@ pdb.set_trace()函数在第4、7行分别打了一个断点
  - n：进行下一步
  - q：退出调试
 
-```python
+```bash
 $ python test1.py
 > /root/python/pdb/test.py(5)<module>()
 -> s2 = 'bbb'
@@ -122,7 +122,7 @@ bdb.BdbQuit
  - b <行号>：命令在某一行打一个断点
  - b：查看当前打了哪些断点
 
-```python
+```bash
 $ cat test2.py
 # coding:utf-8
 s1 = 'aaa'
@@ -134,7 +134,7 @@ print s
 开始调试：
 
 
-```python
+```bash
 $ python -m pdb test2.py 
 > /root/python/pdb/test2.py(2)<module>()
 -> s1 = 'aaa'

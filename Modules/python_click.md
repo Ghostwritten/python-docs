@@ -12,7 +12,7 @@ Click 的使用大致有两个步骤：
 
 它的一种典型使用形式如下：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -24,7 +24,7 @@ def func(param):
 ## 2. 简单示例
 下面，让我们看一下官方文档的入门例子：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -87,7 +87,7 @@ Hello Ethan!
 ### 3.1 指定 type
 我们可以使用 type 来指定参数类型：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -111,7 +111,7 @@ rate: 0.66
 ### 3.2 可选值
 在某些情况下，一个参数的值只能是某些可选的值，如果用户输入了其他值，我们应该提示用户输入正确的值。在这种情况下，我们可以通过 click.Choice() 来限定：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -139,7 +139,7 @@ gender: man
 有时，一个参数需要接收多个值。option 支持设置固定长度的参数值，通过 nargs 指定。
 看看例子就明白了：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -155,7 +155,7 @@ if __name__ == '__main__':
 在上面的例子中，option 指定了两个参数：**center 和 radius**，其中，center 表示二维平面上一个圆的圆心坐标，接收**两个值**，以元组的形式将值传递给函数，而 **radius 表示圆的半径。**
 执行情况：
 
-```python
+```bash
 $ python click_multi_values.py --center 3 4 --radius 10
 center: (3.0, 4.0), radius: 10.0
 
@@ -169,7 +169,7 @@ Error: Got unexpected extra argument (5)
 有时，在输入密码的时候，我们希望能隐藏显示。option 提供了两个参数来设置密码的输入：`hide_input` 和 `confirmation_promt`，其中，hide_input 用于隐藏输入，confirmation_promt 用于重复输入。
 看看例子：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -183,7 +183,7 @@ if __name__ == '__main__':
 
 执行情况：
 
-```python
+```bash
 $ python click_password.py
 Password:                         # 不会显示密码
 Repeat for confirmation:          # 重复一遍
@@ -192,7 +192,7 @@ password: 666666
 
 由于上面的写法有点繁琐，click 也提供了一种快捷的方式，通过使用 @click.password_option()，上面的代码可以简写成：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -208,7 +208,7 @@ if __name__ == '__main__':
 有些参数会改变命令行程序的执行，比如在终端输入 python 是进入 python 控制台，而输入 python --version 是打印 python 版本。Click 提供 eager 标识对参数名进行标识，如果输入该参数，则会拦截既定的命令行执行流程，跳转去执行一个回调函数。
 让我们看看例子：
 
-```python
+```bash
 import click
 
 def print_version(ctx, param, value):
@@ -236,7 +236,7 @@ if __name__ == '__main__':
 
 执行情况：
 
-```python
+```bash
 $ python click_eager.py
 Hello Ethan!
 
@@ -256,7 +256,7 @@ Version 1.0
 ### 4.1 入门使用
 下面是一个简单的例子：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -292,7 +292,7 @@ coordinates: 10
 ### 4.2 多个 argument
 我们再来看看多个 argument 的例子：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -331,7 +331,7 @@ Error: Got unexpected extra argument (40)
 ### 4.3 不定参数
 argument 还有另外一种常见的用法，就是接收不定量的参数，让我们看看例子：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -364,7 +364,7 @@ $ pip install colorama
 
 看看例子：
 
-```python
+```bash
 import click
 
 @click.command()
@@ -380,7 +380,7 @@ if __name__ == '__main__':
 ## 5. cli.add_command
 @click.group装饰器把方法装饰为可以拥有多个子命令的Group对象。由Group.add_command()方法把Command对象关联到Group对象。 也可以直接用@Group.command装饰方法，会自动把方法关联到该Group` 对象下。
 
-```python
+```bash
 #!/usr/bin/python
 
 import click
@@ -404,7 +404,7 @@ if __name__ == '__main__':
     cli()
 ```
 执行输出：
-```python
+```bash
 $ python click2.py 
 Usage: click2.py [OPTIONS] COMMAND [ARGS]...
 

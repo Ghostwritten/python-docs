@@ -62,7 +62,7 @@ print(datetime.date.today().ctime())
 ```
 
 ## 2. 扩展
-```python
+```bash
 import datetime
 mtime = path.stat().st_mtime
 timestamp_str = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d-%H:%M')

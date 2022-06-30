@@ -9,14 +9,14 @@
 
 这个列表中的第一个参数是被调用的脚本名称，也就是说，调用 Python 解释器的“命令”（python）本身并没有被加入这个列表当中。
 
-```python
+```bash
 import sys
 
 print("The list of command line arguments:\n", sys.argv)
 ```
 输出：
 
-```python
+```bash
 $ python sy1.py 
 ('The list of command line arguments:\n', ['sy1.py'])
 
@@ -27,7 +27,7 @@ $ python sy1.py arg1 arg2 arg3
 查看sys模块中的sys.platform属性可以得到关于运行平台更详细的信息。
 win
 
-```python
+```bash
 >>> import sys
 >>> sys.platform
 'win32'
@@ -35,7 +35,7 @@ win
 
 在 Linux 上：
 
-```python
+```bash
 >>> sys.platform
 'linux'
 ```
@@ -68,7 +68,7 @@ win
 
 通过手动修改这个字典，可以重新加载某些模块；但要注意，切记不要大意删除了一些基本的项，否则可能会导致 Python 整个儿无法运行。
 
-```python
+```bash
 >>> sys.modules
 {'copy_reg': <module 'copy_reg' from '/usr/lib64/python2.7/copy_reg.pyc'>, 'sre_compile': <module 'sre_compile' from '/usr/lib64/python2.7/sre_compile.pyc'>
 ```
@@ -96,7 +96,7 @@ print sys.path[1]
 ```
 输出：
 
-```python
+```bash
 $ python sy2.py 
 ['/root/python/sys', '/usr/lib/python2.7/site-packages/s3cmd-2.0.2-py2.7.egg', '/usr/lib/python2.7/site-packages/python_magic-0.4.15-py2.7.egg', '/usr/lib/python2.7/site-packages/UNKNOWN-0.0.0-py2.7.egg', '/usr/lib64/python27.zip', '/usr/lib64/python2.7', '/usr/lib64/python2.7/plat-linux2', '/usr/lib64/python2.7/lib-tk', '/usr/lib64/python2.7/lib-old', '/usr/lib64/python2.7/lib-dynload', '/usr/lib64/python2.7/site-packages', '/usr/lib64/python2.7/site-packages/gtk-2.0', '/usr/lib/python2.7/site-packages']
 /root/python/sys
@@ -109,7 +109,7 @@ $ python sy2.py
 所谓“标准输入”，实际上就是通过键盘输入的字符。
 sys.stdin.readline() 相当于input，区别在于input不会读入'\n'
 实例1
-```python
+```bash
 import sys
 print('Plase input your name: ')
 name = sys.stdin.readline()
@@ -118,14 +118,14 @@ print('Hello ', name)
 
 输出：
 
-```python
+```bash
 Plase input your name: 
 hello world   
 ('Hello ', 'hello world\n')
 ```
 实例2
 
-```python
+```bash
 while True:
     n = int(input('Please input a number:\n'))
     sn = list(map(int,input('Please input some numbers:\n').split()))
@@ -135,7 +135,7 @@ while True:
 
 输出:
 
-```python
+```bash
 Please input a number:
 34 
 Please input some numbers:
@@ -149,7 +149,7 @@ Please input some numbers:
 
 通过将这个属性的值修改为某个文件对象，可以将本来要打印到屏幕上的内容写入文件。
 实例1
-```python
+```bash
 import sys
 # 以附加模式打开文件，若不存在则新建
 with open("count_log.txt", 'a', encoding='utf-8') as f:
@@ -159,7 +159,7 @@ with open("count_log.txt", 'a', encoding='utf-8') as f:
 ```
 输出：
 
-```python
+```bash
 $ cat count_log.txt 
 count =  0
 count =  1
@@ -175,14 +175,14 @@ count =  9
 
 实例2：
 
-```python
+```bash
 import sys
 
 sys.stdout.write('hello'+'\n')
 print 'hello'
 ```
 
-```python
+```bash
 $ python sy7.py
 hello
 hello
@@ -196,7 +196,7 @@ hello
 ### 2.11 sys.exit(n)
 功能：执行到主程序末尾，解释器自动退出，但是如果需要中途退出程序，可以调用sys.exit函数，带有一个可选的整数参数返回给调用它的程序，表示你可以在主程序中捕获对sys.exit的调用。（0是正常退出，其他为异常）
 
-```python
+```bash
 #!/usr/bin/env python
 
 import sys
@@ -216,7 +216,7 @@ print "come?"
 ```
 输出：
 
-```python
+```bash
 $ python sy11.py 
 hello
 1

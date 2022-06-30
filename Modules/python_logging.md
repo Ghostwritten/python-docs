@@ -18,13 +18,13 @@ Logger是一个树形层级结构，在使用接口`debug，info，warn，error�
 
 创建方法: 
 
-```python
+```bash
 logger = logging.getLogger(logger_name)
 ```
 
 创建Logger实例后，可以使用以下方法进行日志级别设置，增加处理器Handler。
 
-```python
+```bash
 logger.setLevel(logging.ERROR)    #设置日志级别为ERROR，即只有日志级别大于等于ERROR的日志才会输出
 logger.addHandler(handler_name) # 为Logger实例增加一个处理器
 logger.removeHandler(handler_name) # 为Logger实例删除一个处理器
@@ -33,7 +33,7 @@ logger.removeHandler(handler_name) # 为Logger实例删除一个处理器
 Handler处理器类型有很多种，比较常用的有三个，`StreamHandler`，`FileHandler`，`NullHandler`。
 创建StreamHandler之后，可以通过使用以下方法设置日志级别，设置格式化器Formatter，增加或删除过滤器Filter。
 
-```python
+```bash
 ch.setLevel(logging.WARN)     #指定日志级别，低于WARN级别的日志将被忽略
 ch.setFormatter(formatter_name)   #设置一个格式化器formatter
 ch.addFilter(filter_name)    #增加一个过滤器，可以增加多个
@@ -43,14 +43,14 @@ ch.removeFilter(filter_name)   #删除一个过滤器
 StreamHandler
 创建方法: 
 
-```python
+```bash
 sh = logging.StreamHandler(stream=None)
 ```
 
 FileHandler
 创建方法: 
 
-```python
+```bash
 fh = logging.FileHandler(filename, mode='a', encoding=None, delay=False)
 ```
 
@@ -79,7 +79,7 @@ HTTPHandler：logging.handlers.HTTPHandler；通过”GET”或者”POST”远�
 
 创建方法: 
 
-```python
+```bash
 formatter = logging.Formatter(fmt=None, datefmt=None)
 ```
 
@@ -90,7 +90,7 @@ Handlers和Loggers可以使用Filters来完成比级别更复杂的过滤。Filt
 
 创建方法:
 
-```python
+```bash
  filter = logging.Filter(name='')
 ```
 
@@ -110,7 +110,7 @@ Logger可以包含一个或多个Handler和Filter，即Logger与Handler或Fitler
 ## 3. 用法
 ### 3.1 默认输出
 高于WARNING的日志信息才会输出
-```python
+```bash
 $ cat log1.py 
 import logging
 
@@ -169,7 +169,7 @@ format格式
 
 #### 3.2.1 配置输出级别并指定到文件
 
-```python
+```bash
 $ cat log2.py 
 #!/usr/local/bin/python
 # -*- coding:utf-8 -*-
@@ -194,7 +194,7 @@ ERROR:root:error message
 CRITICAL:root:critical message
 ```
 #### 3.2.2 声明了一个 Logger 对象，它就是日志输出的主类
-```python
+```bash
 $ cat log3.py 
 #!/usr/local/bin/python
 # -*- coding:utf-8 -*-
@@ -220,7 +220,7 @@ CRITICAL:__main__:critical message
 ```
 #### 3.2.3 格式化输出
 
-```python
+```bash
 $ cat log4.py 
 import logging
 
@@ -234,7 +234,7 @@ logger.critical('critical message')
 ```
 输出：
 
-```python
+```bash
 $ python log4.py
 $ cat logger.log 
 17-49-2020 13:49:16 __main__:DEBUG:debug message
@@ -247,7 +247,7 @@ $ cat logger.log
 ### 3.3 Handler配置
 #### 3.3.1 handler配置格式输出
 
-```python
+```bash
 $ cat log5.py 
 import logging
  
@@ -265,7 +265,7 @@ logger.info('Finish')
 ```
 没有再使用 basicConfig 全局配置，而是先声明了一个 Logger 对象，然后指定了其对应的 Handler 为 FileHandler 对象，然后 Handler 对象还单独指定了 Formatter 对象单独配置输出格式，最后给 Logger 对象添加对应的 Handler 即可，最后可以发现日志就会被输出到 output.log 中.
 
-```python
+```bash
 $ python log5.py 
 $ cat output.log 
 2020-05-17 13:58:41,039 - __main__ - INFO - This is a log info
@@ -277,7 +277,7 @@ $ cat output.log
 ```
 #### 3.3.2 多种handle输出
 
-```python
+```bash
 $ cat log6.py 
 import logging
 from logging.handlers import HTTPHandler
@@ -310,7 +310,7 @@ logger.info('Finish')
 ```
 输出：
 
-```python
+```bash
 $ python log6.py
 This is a log info
 Debugging
@@ -323,7 +323,7 @@ $ cat output.log
 ```
 ### 3.4 捕获 Traceback
 
-```python
+```bash
 $ cat log7.py
 import logging
  
@@ -369,7 +369,7 @@ ZeroDivisionError: integer division or modulo by zero
 ### 3.5 配置共享
 在写项目的时候，我们肯定会将许多配置放置在许多模块下面，这时如果我们每个文件都来配置 logging 配置那就太繁琐了，logging 模块提供了父子模块共享配置的机制，会根据 Logger 的名称来自动加载父模块的配置。
 
-```python
+```bash
 $ vim main.py
 import logging
 import core
@@ -391,7 +391,7 @@ core.run()
 ```
 这里我们配置了日志的输出格式和文件路径，同时定义了 Logger 的名称为 main，然后引入了另外一个模块 core，最后调用了 core 的 run() 方法。
 
-```python
+```bash
 $ vim core.py
 import logging
  
@@ -404,7 +404,7 @@ def run():
 ```
 这里我们定义了 Logger 的名称为 main.core，注意这里开头是 main，即刚才我们在 main.py 里面的 Logger 的名称，这样 core.py 里面的 Logger 就会复用 main.py 里面的 Logger 配置，而不用再去配置一次了.
 
-```python
+```bash
 $ python main.py
 $ cat result.log 
 2020-05-17 14:30:48,559 - main - INFO - Main Info
@@ -418,7 +418,7 @@ $ cat result.log
 常见的配置文件有 ini 格式、yaml 格式、JSON 格式，这里以yaml为例。将配置写入到配置文件，然后运行时读取配置文件里面的配置，这样是更方便管理和维护.
 
 #### 3.6.1 yaml配置文件
-```python
+```bash
 $ vim config.yaml
 version: 1
 formatters:
@@ -456,7 +456,7 @@ root:
 这里我们定义了 formatters、handlers、loggers、root 等模块，实际上对应的就是各个 Formatter、Handler、Logger 的配置，参数和它们的构造方法都是相同的。
 定义一个主入口文件，main.py.
 
-```python
+```bash
 $ vim main.py
 import logging
 import core
@@ -492,7 +492,7 @@ if __name__ == '__main__':
 
 另外这个模块还引入了另外一个模块 core，所以我们定义 core.py 如下：
 
-```python
+```bash
 import logging
  
 logger = logging.getLogger('main.core')
@@ -524,7 +524,7 @@ $  cat debug.log
 #### 3.6.2 ini配置文件
 下面只展示了 ini 格式和 yaml 格式的配置。
 
-```python
+```bash
 test.ini 文件
 [loggers]
 keys=root,sampleLogger
@@ -558,7 +558,7 @@ format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 testinit.py 文件
 
-```python
+```bash
 import logging.config
 
 logging.config.fileConfig(fname='test.ini', disable_existing_loggers=False)
@@ -569,7 +569,7 @@ logger.error('Core Error')
 ```
 输出：
 
-```python
+```bash
 $ python test.py 
 2020-05-17 15:07:47,328 - sampleLogger - INFO - Core Info
 2020-05-17 15:07:47,328 - sampleLogger - DEBUG - Core Debug
@@ -580,7 +580,7 @@ $ python test.py
 
 ### 3.7 字符串拼接
  format() 构造与占位符用%
-```python
+```bash
 $ log8.py
 import logging
  
@@ -593,7 +593,7 @@ logging.debug('Hello %s, %s!', 'World', 'Congratulations')
 ```
 运行结果如下：
 
-```python
+```bash
 $ python log8.py 
 2020-05-17 14:55:29,709 - root - DEBUG - Hello World, Congratulations!
 2020-05-17 14:55:29,709 - root - DEBUG - Hello World, Congratulations!
@@ -601,7 +601,7 @@ $ python log8.py
 
 ### 3.8 异常处理
 
-```python
+```bash
 $ cat log9.py
 import logging
  
@@ -619,7 +619,7 @@ except Exception as e:
 ```
 结果输出：
 
-```python
+```bash
 $ python log9.py
 2020-05-17 14:56:51,027 - root - ERROR - Error: integer division or modulo by zero
 2020-05-17 14:56:51,027 - root - ERROR - Error
@@ -640,12 +640,12 @@ ZeroDivisionError: integer division or modulo by zero
 #### 3.9.1 TimedRotatingFileHandler构造函数
 定义如下:
 
-```python
+```bash
 TimedRotatingFileHandler(filename [,when [,interval [,backupCount]]])
 ```
 示例：
 
-```python
+```bash
 # 每隔 1小时 划分一个日志文件，interval 是时间间隔，备份文件为 10 个
 handler2 = logging.handlers.TimedRotatingFileHandler("test.log", when="H", interval=1, backupCount=10)
 ```
@@ -662,7 +662,7 @@ handler2 = logging.handlers.TimedRotatingFileHandler("test.log", when="H", inter
  - backupCount：是保留日志个数。默认的0是不会自动删除掉日志。若设3，则在文件的创建过程中库会判断是否有超过这个3，若超过，则会从最先创建的开始删除。
 
 
-```python
+```bash
 $ cat log10.py 
 #!/usr/bin/python
 #---coding:utf-8
@@ -699,21 +699,21 @@ while True:
     time.sleep(1)
 ```
 
-```python
+```bash
 $ ls
 all.log  all.log.2020-05-17_15-21-55  all.log.2020-05-17_15-21-56  all.log.2020-05-17_15-21-57  log10.py
 ```
 
 #### 3.9.2 RotatingFileHandler 构造函数
 示例：
-```python
+```bash
 # 每隔 1000 Byte 划分一个日志文件，备份文件为 3 个
 file_handler = logging.handlers.RotatingFileHandler("test.log", mode="w", maxBytes=1000, backupCount=3, encoding="utf-8")
 复制代码
 
 ```
 
-```python
+```bash
 $ cat log11.py 
 #!coding:utf-8
 #!/usr/bin/env python
@@ -735,7 +735,7 @@ while True:
 ```
 输出：
 
-```python
+```bash
 $ python log11.py
 INFO:myapp:file test
 INFO:myapp:file test

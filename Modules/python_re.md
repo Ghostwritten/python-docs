@@ -270,7 +270,7 @@ print re.split('\d+', s, 1)
  - re.compile(r’表达式’+变量+’表达式’)
  - re.compile(r’表达式(%s)表达式’ %变量)
 
-```python
+```bash
 #!/usr/bin/python
 
 import re
@@ -291,7 +291,7 @@ print(mo5.group())
 ```
 输出：
 
-```python
+```bash
 /medium.com
 /medium.com
 /medium.com

@@ -2,7 +2,7 @@
 
 ##  1. 返回数据获取方式
 
-```python
+```bash
 response.text
 response.json()
 response.content
@@ -10,7 +10,7 @@ response.content
 
 ## 2. request class 的格式
 
-```python
+```bash
 import re
 import requests
  
@@ -80,7 +80,7 @@ html内容
 ```
 代码
 
-```python
+```bash
 r = re.compile(r'''<td>(?P<number>\d+)</td>.*?<td><a>(?P<name>\w+)</a></td''', re.S)
 result = re.finditer(r, content)
  
@@ -88,7 +88,7 @@ print [m.groupdict() for m in result]
 ```
 输出结果：
 
-```python
+```bash
 [{'number': '60', 'name': 'leeliao'}, {'number': '61', 'name': 'luo321654'}]
 ```
 

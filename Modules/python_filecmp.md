@@ -21,7 +21,7 @@ filecmp提供了三个操作方法。
 现在我在我代码的当前路径下有三个分别名为File1.txt、File2.txt、File3.txt的文件，File1.txt和File3.txt两个文件是单独创建的文本文件，而File2.txt是File1.txt的副本文件，即直接由复制文件File1.txt并改名File2.txt得到。所以按理来说File1.txt、File2.txt两个文件完全相同、而与File3.txt文件不同。
 下面使用代码进行验证：
 
-```python
+```bash
 Python 3.6.2 (v3.6.2:5fd33b5, Jul  8 2017, 04:14:34) [MSC v.1900 32 bit (Intel)] on win32
 >>> import filecmp 
 >>> filecmp.cmp('./File1.txt', './File2.txt') True # 说明两个文件相同，返回True 
@@ -58,7 +58,7 @@ CB30FC9CEC9A2D04EF49B22E2066C264 *File5.txt
 
 使用示例代码验证：
 
-```python
+```bash
 >>> filecmp.cmpfiles('./dir1', './dir2', ['File1.txt', 'File2.txt', 'File3.txt', 'File4.txt', 'File5.txt'])
 (['File1.txt', 'File2.txt'], ['File3.txt'], ['File4.txt', 'File5.txt'])       # 返回为列表
 
@@ -95,7 +95,7 @@ subdirs：将common_dirs 目录映射到新的dircmp对象，格式为字典的�
 
 示例代码，比较dir1和dir2文件夹目录的差异
 
-```python
+```bash
 -*- coding: utf-8 -*
 
 import filecmp
@@ -179,7 +179,7 @@ $ tree
 源文件与备份文件保持同步
 
 
-```python
+```bash
 #---coding:utf8----
 import os, sys
 import filecmp

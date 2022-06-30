@@ -253,7 +253,7 @@ os.chdir("path")
 ```
 
 
-```python
+```bash
 $ cat os1.py 
 #!/usr/bin/python
 #---coding: utf-8---
@@ -305,7 +305,7 @@ docker run -e MY_USER=test -e MY_PASS=12345 ... <image-name> ...
 ```
 ###  5.8 批量创建指定名称的文件夹
 
-```python
+```bash
 import os, sys
 def MkDir():
     path = './file/'#创建文件路径
@@ -320,7 +320,7 @@ MkDir()
 ```
 ###  5.9 判断目录是否存在
 
-```python
+```bash
 import os
 dirs = '/Users/joseph/work/python/'
 
@@ -329,7 +329,7 @@ if not os.path.exists(dirs):
 ```
 ### 5.10 判断文件是否存在
 
-```python
+```bash
 import os
 filename = '/Users/joseph/work/python/poem.txt'
 

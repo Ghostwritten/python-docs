@@ -74,7 +74,7 @@ HTTP服务是最流行的互联网应用之一，服务质量的好坏关系到�
 
 本实例使用pycurl的setopt与getinfo方法时间HTTP服务质量的探测，获取监控URL返回的HTTP状态码,HTTP状态码采用pycurl.HTTP_CODE常量，以及从HTTP请求到下载期间各环节的响应时间，通过pycurl.NAMELOOKUP_TIME、pycurl.CONNECT_TIME、pycurl.PRETRANSFER_TIME、pycurl.R等常量来时间。另外通过pycurl.WRITEHEADER、pycurl.WRITEDATA常量得到目标URL的HTTP响应头部及页面内容.
 第一种方法：
-```python
+```bash
 #!/usr/bin/python
 # -*- coding:UTF-8 -*-
 import os, sys
@@ -149,7 +149,7 @@ c.close()
 ```
 
 
-```python
+```bash
 [root@localhost pycurl]# python pycurl1.py
 HTTP状态码： 200
 DNS解析时间: 62.75 ms
@@ -181,7 +181,7 @@ Server: BWS/1.1
 ```
 第二种方法
 
-```python
+```bash
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2016/10/18 9:50
@@ -241,7 +241,7 @@ if __name__ == '__main__':
     main()
 ```
 
-```python
+```bash
 [root@localhost pycurl]# python pycurl2.py
 请输入一个URL地址(Q for exit)：http://baidu.com
 Connection error:(52, 'Empty reply from server')
