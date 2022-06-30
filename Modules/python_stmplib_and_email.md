@@ -1,4 +1,4 @@
-#  python stmplib与email 模块 发送邮箱
+#  python 模块 stmplib与email 发送邮箱
 
 ##  1. stmplib 简介
 简单邮件传输协议 (SMTP) 是一种协议，用于处理在邮件服务器之间发送电子邮件和路由电子邮件。

@@ -1,4 +1,4 @@
-#  python requests (1) 处理url模块
+#  python 模块 requests (1) 处理 url
 
 
 ## 1. 简介

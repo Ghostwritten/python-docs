@@ -20,4 +20,4 @@
 
 ## 公众号
 
- <img src="https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/public.jpg?raw=true" width = "400" height = "2400" alt="爱死亡机器人" align=center />
+ <img src="https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/public.jpg?raw=true" width = "400" height = "400" alt="爱死亡机器人" align=center />

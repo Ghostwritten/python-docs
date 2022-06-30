@@ -1,4 +1,4 @@
-#  Python3 模块 PyMySQL 管理数据库
+#  Python 模块 PyMySQL 管理数据库
 
 ## 1. 介绍
 [PyMySQL](https://pypi.org/project/PyMySQL/) 是在 Python3.x 版本中用于连接 MySQL 服务器的一个库，Python2中则使用mysqldb。
