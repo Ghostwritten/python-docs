@@ -3,7 +3,7 @@
 
 ## 1. 查对象（切片）
 
-```bash
+```python
 $ vim list0.py
 a=['wuhao','jinxing','xiaohu','sanpang','ligang']
 print(a[0]) #取第一个
@@ -35,7 +35,7 @@ ligang
 
 ```
 特色版
-```bash
+```python
 first_two = [1, 2, 3, 4, 5][0:2]
 print(first_two)
 # [1, 2]
@@ -51,7 +51,7 @@ print(mystring)
 
 ## 2. 查索引(index)
 
-```bash
+```python
 $ cat list1.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -79,7 +79,7 @@ $ python list9.py
 
 ##  3. 插入(append)
 
-```bash
+```python
 $ cat list2.py 
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -110,7 +110,7 @@ $ python list2.py
 ```
 ##  4. 增添(extend)
 **第一种增添**
-```bash
+```python
 $ cat  list3.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -124,7 +124,7 @@ $ python list3.py
 [1, 2, 3, 4, 5, 6]
 ```
 **第二种增添**
-```bash
+```python
 listone = [1, 2, 3]
 listtwo = [4, 5, 6]
 
@@ -136,7 +136,7 @@ print(mergelist)
 ```
 **增添" + "的扩展（class）**
 
-```bash
+```python
 class User(object):
     def __init__(self, age):
         self.age = age
@@ -163,7 +163,7 @@ User(30)
 
 ### 5.1 remove
 
-```bash
+```python
 $ cat list4.py 
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -181,7 +181,7 @@ $ python list4.py
 
 ### 5.2 pop
 
-```bash
+```python
 $ cat list5.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -199,7 +199,7 @@ xiaohu
 
 ### 5.3 del
 
-```bash
+```python
 $ cat list6.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -218,7 +218,7 @@ $ python list6.py
 
 ## 6. 修改
 
-```bash
+```python
 $ cat list7.py 
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -235,7 +235,7 @@ $  python list7.py
 ```
 ##  7. 计数(count)
 
-```bash
+```python
 $ cat list8.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -255,7 +255,7 @@ $  python list8.py
 
 ## 8.  颠倒(reverse)
 
-```bash
+```python
 $ cat  list10.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -268,8 +268,12 @@ $ python list10.py
 ['ligang', 'sanpang', 'ligang', 'xiaohu', 'jinxin', 'wuhao']
 ```
 ## 9. 排序(sort)
-### 9.1 普通版
-```bash
+### 9.1 数字排序
+- 数字递增排序
+- 数字递减排序
+- 首字母排序
+
+```python
 $ cat  list11.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -279,19 +283,58 @@ x.sort()
 print(x)
 x.sort(reverse=True)    
 print(x)
-a = ['Wuhao','jinxin','xiaohu','ligang','sanpang','ligang']
-a.sort()
-print(a)
 
 $  python list11.py
 [1, 4, 6, 7, 9]
 [9, 7, 6, 4, 1]
-['Wuhao', 'jinxin', 'ligang', 'ligang', 'sanpang', 'xiaohu']
 ```
-默认是按升序排列，指定 reverse=True 按降序排列 
-### 9.2 升级版
+默认是按升序排列，指定 `reverse=True` 按降序排列 
+
+###  9.2 字母排序
 
 ```bash
+# vowels list
+vowels = ['e', 'a', 'u', 'o', 'i']
+
+# sort the vowels
+vowels.sort()
+print('Sorted list:', vowels)
+vowels.sort(reverse=True)
+print('Sorted list (in Descending):', vowels)
+```
+输出：
+
+```bash
+Sorted list: ['a', 'e', 'i', 'o', 'u']
+Sorted list (in Descending): ['u', 'o', 'i', 'e', 'a']
+```
+
+### 9.2 key 值排序
+第一例：按照第二个值排序
+
+```bash
+# take second element for sort
+def takeSecond(elem):
+    return elem[1]
+
+# random list
+random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+
+# sort list with key
+random.sort(key=takeSecond)
+
+# print list
+print('Sorted list:', random)
+```
+输出：
+
+```bash
+Sorted list: [(4, 1), (2, 2), (1, 3), (3, 4)]
+```
+当把`elem[1]`改成`elem[0]`，就会按照第一个值排序。
+
+第二例
+```python
 items = [{'name': 'Homer', 'age': 39},
          {'name': 'Bart', 'age': 10},
          {"name": 'cater', 'age': 20}]
@@ -303,9 +346,31 @@ print(items)
 >>>
 [{'age': 10, 'name': 'Bart'}, {'age': 20, 'name': 'cater'}, {'age': 39, 'name': 'Homer'}]
 ```
-## 10. 不改变源列表排序（sorted）
+
+###  9.3 按部分字符串排序
+`split()` 按空格分离字符串， `[-1]` 则取出每组里的最后一部分
+```bash
+>>> a = ["John Smith", "Alice Young", "John Scott Brown"]
+>>> a.sort(key=lambda x:x.split()[-1])
+>>> a
+['John Scott Brown', 'John Smith', 'Alice Young']
+```
+
+###  9.4 按长度排序
 
 ```bash
+>>> a = ["John Smith", "Alice Young", "John Scott Brown"]
+>>> a.sort(key=len)
+>>> a
+['John Smith', 'Alice Young', 'John Scott Brown']
+>>> a.sort(key=len, reverse=True)
+>>> a
+['John Scott Brown', 'Alice Young', 'John Smith']
+```
+
+## 10. 不改变源列表排序（sorted）
+
+```python
 items = [{'name': 'Homer', 'age': 39},
          {'name': 'Bart', 'age': 10},
          {"name": 'cater', 'age': 20}]
@@ -320,13 +385,35 @@ print(new_items)
 >>>
 [{'name': 'Bart', 'age': 10}, {'name': 'cater', 'age': 20}, {'name': 'Homer', 'age': 39}]
 ```
-----
+
+
+### 10.1 按照字符串中的数字排序
+
+```bash
+#!/usr/bin/python
+
+import re
+
+a=['Docker-Swarm/docker_swarm_1_start.md','Docker-Swarm/docker_swarm_10_maintenance_mode.md','Docker-Swarm/docker_swarm_2_network.md']
+
+
+#a.sort(key=lambda x: list(map(int, re.findall('\_([0-9])\_', x))))
+b=sorted(a,key=lambda x: list(map(int, re.findall(r'\d+', x))))
+print(b)
+```
+执行：
+
+```bash
+$ python3 test.py 
+['Docker-Swarm/docker_swarm_1_start.md', 'Docker-Swarm/docker_swarm_2_network.md', 'Docker-Swarm/docker_swarm_10_maintenance_mode.md']
+```
+
 ## 11. 列表脚本操作符
 
 列表对 + 和 * 的操作符与字符串相似。+ 号用于组合列表，* 号用于重复列表。
 如下所示：
 
-```bash
+```python
 >>> len([1, 2, 3]) 
 3 长度
 >>> [1, 2, 3] + [4, 5, 6] 
@@ -354,13 +441,13 @@ Python包含以下函数:
 ## 13. 列表推导式
 列表推导式的基本语法如下：
 
-```bash
+```python
 [expression for item in list if conditional]
 ```
 
 举一个基本的例子：用一组有序数字填充一个列表：
 
-```bash
+```python
 mylist = [i for i in range(10)]
 print(mylist)
 # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -368,7 +455,7 @@ print(mylist)
 
 由于可以使用表达式，所以你也可以做一些算术运算：
 
-```bash
+```python
 squares = [x**2 for x in range(10)]
 print(squares)
 # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
@@ -376,7 +463,7 @@ print(squares)
 
 甚至可以调用外部函数：
 
-```bash
+```python
 def some_function(a):
     return (a + 5) / 2
 
@@ -387,7 +474,7 @@ print(my_formula)
 
 最后，你还可以使用 ‘if’ 来过滤列表。在如下示例中，我们只保留能被2整除的数字：
 
-```bash
+```python
 filtered = [i for i in range(20) if i%2==0]
 print(filtered)
 # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
@@ -397,7 +484,7 @@ print(filtered)
 
 ### 14.1 遍历
 
-```bash
+```python
 $ cat  list12.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -416,7 +503,7 @@ m
 ### 14.2 遍历加索引
 
 **普通版**
-```bash
+```python
 items = [8, 23, 45]
 for index in range(len(items)):
     print(index, "-->", items[index])
@@ -428,7 +515,7 @@ for index in range(len(items)):
 ```
 **优雅版**
 
-```bash
+```python
 for index, item in enumerate(items):
     print(index, "-->", item)
 
@@ -439,7 +526,7 @@ for index, item in enumerate(items):
 ```
 enumerate 还可以指定元素的第一个元素从几开始，默认是0，也可以**指定从1开始：**
 
-```bash
+```python
 for index, item in enumerate(items, start=1):
     print(index, "-->", item)
 
@@ -453,7 +540,7 @@ for index, item in enumerate(items, start=1):
 
 #### 14.3.1 zip
 
-```bash
+```python
 $ cat list13.py 
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -469,7 +556,7 @@ $ python3.8 list13.py
 王五 : 34
 ```
 
-```bash
+```python
 cat  list14.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -487,7 +574,7 @@ $ python3.8 list14.py
 5 f F
 ```
 
-```bash
+```python
 $ cat list15.py 
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -510,7 +597,7 @@ $ python3.8 list15.py
 
 #### 14.3.2 笨办法多列表遍历
 
-```bash
+```python
 cat  list16.py
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -545,7 +632,7 @@ if items == []:
 
 **优雅版：**
 
-```bash
+```python
 $ cat list17.py 
 #!/usr/bin/python
 #!---coding:utf-8----
@@ -564,15 +651,15 @@ $ python3.8 list17.py
 ### 14.5 拷贝一个列表对象
 
 第一种方法：
-```bash
+```python
 new_list = old_list[:]
 ```
 第二种方法：
-```bash
+```python
 new_list = list(old_list)
 ```
 第三种方法：
-```bash
+```python
 import copy
 # 浅拷贝
 new_list = copy.copy(old_list)
@@ -584,7 +671,7 @@ new_list = copy.deepcopy(old_list)
 
 索引列表中的元素不仅支持正数还支持负数，正数表示从列表的左边开始索引，负数表示从列表的右边开始索引，获取最后一个元素有两种方法。
 
-```bash
+```python
 >>> a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 >>> a[len(a)-1]
 10
@@ -594,7 +681,7 @@ new_list = copy.deepcopy(old_list)
 
 ### 14.7 随机获取列表中的某个元素
 
-```bash
+```python
 import random
 items = [8, 23, 45, 12, 78]
 
@@ -616,7 +703,7 @@ list = [1, 2, 3, 4, 5]
 
 ','.join(list) 结果即为：1,2,3,4,5
 
-```bash
+```python
 a = 5
 str=[] #有的题目要输出字符串，但是有时候list更好操作，于是可以最后list转string提交
 for i in range(0,a):
@@ -627,7 +714,7 @@ print(str1)
 ```
 #### 14.8.2 string转换list
 
-```bash
+```python
 str = 'abcde'
 print(str)
 #输出：abcde
@@ -658,7 +745,7 @@ print(str(datas))
 
 方法一：
 
-```bash
+```python
 # -*- coding:utf-8 -*-
 f = open(r'ip.txt','r')
 a = list(f)
@@ -668,7 +755,7 @@ f.close()
 
 方法二：
 
-```bash
+```python
 # -*- coding:utf-8 -*-
 f = open(r'ip.txt','r')
 a=[i for i in f]
@@ -682,4 +769,5 @@ f.close()
  - [python dict 字典](https://blog.csdn.net/xixihahalelehehe/article/details/104488899)
  - [pyhon tuple 元组](https://blog.csdn.net/xixihahalelehehe/article/details/104486159)
  - [python list 列表](https://blog.csdn.net/xixihahalelehehe/article/details/104437743)
+
 
