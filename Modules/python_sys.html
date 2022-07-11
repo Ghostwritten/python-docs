@@ -1,0 +1,1705 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 sys · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_pandas.html" />
+    
+    
+    <link rel="prev" href="python_socket.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 sys</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-sys"><b></b>python &#x6A21;&#x5757; sys</a></li><ul><li><span class="title-icon "></span><a href="#1-sys&#x4ECB;&#x7ECD;"><b></b>1. sys&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><b></b>2. &#x5E38;&#x7528;&#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#21-sysargv"><b></b>2.1 sys.argv</a></li><li><span class="title-icon "></span><a href="#22-sysplatform"><b></b>2.2 sys.platform</a></li><li><span class="title-icon "></span><a href="#23-sysbyteorder"><b></b>2.3 sys.byteorder</a></li><li><span class="title-icon "></span><a href="#24-executable"><b></b>2.4 .executable</a></li><li><span class="title-icon "></span><a href="#25-sysmodules"><b></b>2.5 sys.modules</a></li><li><span class="title-icon "></span><a href="#26-sysbuiltinmodulenames"><b></b>2.6 sys.builtin_module_names</a></li><li><span class="title-icon "></span><a href="#27-syspath"><b></b>2.7 sys.path</a></li><li><span class="title-icon "></span><a href="#28-sysstdin"><b></b>2.8 sys.stdin</a></li><li><span class="title-icon "></span><a href="#29-sysstdout"><b></b>2.9 sys.stdout</a></li><li><span class="title-icon "></span><a href="#210-syserr"><b></b>2.10 sys.err</a></li><li><span class="title-icon "></span><a href="#211-sysexitn"><b></b>2.11 sys.exit(n)</a></li></ul></ul></ul></div><a href="#python-&#x6A21;&#x5757;-sys" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-sys"><a name="python-&#x6A21;&#x5757;-sys" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-sys"><i class="fa fa-link" aria-hidden="true"></i></a>python &#x6A21;&#x5757; sys</h1>
+<h2 id="1-sys&#x4ECB;&#x7ECD;"><a name="1-sys&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-sys&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. sys&#x4ECB;&#x7ECD;</h2>
+<p>&#x201C;sys&#x201D;&#x5373;&#x201C;system&#x201D;&#xFF0C;&#x201C;&#x7CFB;&#x7EDF;&#x201D;&#x4E4B;&#x610F;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x4E8E;&#x8BBF;&#x95EE; Python &#x89E3;&#x91CA;&#x5668;&#x81EA;&#x8EAB;&#x4F7F;&#x7528;&#x548C;&#x7EF4;&#x62A4;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x540C;&#x65F6;&#x6A21;&#x5757;&#x4E2D;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x90E8;&#x5206;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0E;&#x89E3;&#x91CA;&#x5668;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x6DF1;&#x5EA6;&#x7684;&#x4EA4;&#x4E92;&#x3002;</p>
+<h2 id="2-&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a name="2-&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5E38;&#x7528;&#x65B9;&#x6CD5;</h2>
+<h3 id="21-sysargv"><a name="21-sysargv" class="anchor-navigation-ex-anchor" href="#21-sysargv"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 sys.argv</h3>
+<p>&#x201C;argv&#x201D;&#x5373;&#x201C;argument value&#x201D;&#x7684;&#x7B80;&#x5199;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x662F;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x8C03;&#x7528; Python &#x811A;&#x672C;&#x65F6;&#x63D0;&#x4F9B;&#x7684;&#x201C;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x201D;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x811A;&#x672C;&#x540D;&#x79F0;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8C03;&#x7528; Python &#x89E3;&#x91CA;&#x5668;&#x7684;&#x201C;&#x547D;&#x4EE4;&#x201D;&#xFF08;python&#xFF09;&#x672C;&#x8EAB;&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x52A0;&#x5165;&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x5F53;&#x4E2D;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> sys
+
+print<span class="token punctuation">(</span><span class="token string">&quot;The list of command line arguments:<span class="token entity" title="\n">\n</span>&quot;</span>, sys.argv<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">$ python sy1.py 
+<span class="token punctuation">(</span><span class="token string">&apos;The list of command line arguments:\n&apos;</span>, <span class="token punctuation">[</span><span class="token string">&apos;sy1.py&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+$ python sy1.py arg1 arg2 arg3
+<span class="token punctuation">(</span><span class="token string">&apos;The list of command line arguments:\n&apos;</span>, <span class="token punctuation">[</span><span class="token string">&apos;sy1.py&apos;</span>, <span class="token string">&apos;arg1&apos;</span>, <span class="token string">&apos;arg2&apos;</span>, <span class="token string">&apos;arg3&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="22-sysplatform"><a name="22-sysplatform" class="anchor-navigation-ex-anchor" href="#22-sysplatform"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 sys.platform</h3>
+<p>&#x67E5;&#x770B;sys&#x6A21;&#x5757;&#x4E2D;&#x7684;sys.platform&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5173;&#x4E8E;&#x8FD0;&#x884C;&#x5E73;&#x53F0;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4FE1;&#x606F;&#x3002;
+win</p>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token function">import</span> sys
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sys.platform
+<span class="token string">&apos;win32&apos;</span>
+</code></pre>
+<p>&#x5728; Linux &#x4E0A;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sys.platform
+<span class="token string">&apos;linux&apos;</span>
+</code></pre>
+<p>&#x6BD4;&#x8F83;&#x4E00;&#x4E0B;os.name&#x7684;&#x7ED3;&#x679C;&#xFF0C;sys.platform&#x7684;&#x4FE1;&#x606F;&#x66F4;&#x52A0;&#x51C6;&#x786E;&#x3002;</p>
+<h3 id="23-sysbyteorder"><a name="23-sysbyteorder" class="anchor-navigation-ex-anchor" href="#23-sysbyteorder"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 sys.byteorder</h3>
+<p><code>&#x201C;byteord2er&#x201D;</code>&#x5373;&#x201C;&#x5B57;&#x8282;&#x5E8F;&#x201D;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x5185;&#x90E8;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x4F4E;&#x4F4D;&#x5B57;&#x8282;&#x5B58;&#x50A8;&#x5728;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x9AD8;&#x4F4D;&#x8FD8;&#x662F;&#x4F4E;&#x4F4D;&#x3002;</p>
+<p>&#x201C;&#x5C0F;&#x7AEF;&#x5B58;&#x50A8;&#x201D;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x4F4E;&#x4F4D;&#x4E5F;&#x5B58;&#x50A8;&#x5728;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x7684;&#x4F4E;&#x4F4D;&#x5730;&#x5740;&#x4E2D;&#xFF0C;&#x6B64;&#x65F6;sys.byteorder&#x7684;&#x503C;&#x4E3A;&#x201C;little&#x201D;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x6309;&#x5730;&#x5740;&#x987A;&#x5E8F;&#x6253;&#x5370;&#x5185;&#x5BB9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x628A;&#x5C0F;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x5185;&#x5BB9;&#x6253;&#x9519;&#x3002;&#x5F53;&#x524D;&#x5927;&#x90E8;&#x5206;&#x673A;&#x5668;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x5C0F;&#x7AEF;&#x5B58;&#x50A8;&#x3002;</p>
+<pre class="language-"><code class="lang-powershell">&gt;&gt;&gt; sys<span class="token punctuation">.</span>byteorder
+<span class="token string">&apos;little&apos;</span>
+</code></pre>
+<p>&#x800C;&#x53E6;&#x5916;&#x8FD8;&#x5B58;&#x5728;&#x4E00;&#x79CD;&#x5B58;&#x50A8;&#x987A;&#x5E8F;&#x662F;&#x201C;&#x5927;&#x7AEF;&#x5B58;&#x50A8;&#x201D;&#xFF0C;&#x5373;&#x6570;&#x636E;&#x7684;&#x9AD8;&#x4F4D;&#x5B57;&#x8282;&#x5B58;&#x50A8;&#x5728;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x7684;&#x4F4E;&#x4F4D;&#x5730;&#x5740;&#x4E0A;&#xFF0C;&#x6B64;&#x65F6;sys.byteorder&#x7684;&#x503C;&#x4E3A;&#x201C;big&#x201D;&#x3002;</p>
+<pre class="language-"><code class="lang-powershell">&gt;&gt;&gt; sys<span class="token punctuation">.</span>byteorder
+<span class="token string">&apos;big&apos;</span>
+</code></pre>
+<h3 id="24-executable"><a name="24-executable" class="anchor-navigation-ex-anchor" href="#24-executable"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 .executable</h3>
+<p>&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5728;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5176;&#x503C;&#x662F;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x7684; Python &#x89E3;&#x91CA;&#x5668;&#x5BF9;&#x5E94;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x6240;&#x5728;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p>
+<pre class="language-"><code class="lang-powershell">&gt;&gt;&gt; sys<span class="token punctuation">.</span>executable
+<span class="token string">&apos;/usr/bin/python&apos;</span>
+</code></pre>
+<h3 id="25-sysmodules"><a name="25-sysmodules" class="anchor-navigation-ex-anchor" href="#25-sysmodules"><i class="fa fa-link" aria-hidden="true"></i></a>2.5 sys.modules</h3>
+<p>&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x5305;&#x542B;&#x7684;&#x662F;&#x5404;&#x79CD;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5757;&#x540D;&#x5230;&#x6A21;&#x5757;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#x7684;&#x6620;&#x5C04;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x624B;&#x52A8;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x67D0;&#x4E9B;&#x6A21;&#x5757;&#xFF1B;&#x4F46;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x5207;&#x8BB0;&#x4E0D;&#x8981;&#x5927;&#x610F;&#x5220;&#x9664;&#x4E86;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x7684;&#x9879;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4; Python &#x6574;&#x4E2A;&#x513F;&#x65E0;&#x6CD5;&#x8FD0;&#x884C;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sys.modules
+<span class="token punctuation">{</span><span class="token string">&apos;copy_reg&apos;</span><span class="token builtin class-name">:</span> <span class="token operator">&lt;</span>module <span class="token string">&apos;copy_reg&apos;</span> from <span class="token string">&apos;/usr/lib64/python2.7/copy_reg.pyc&apos;</span><span class="token operator">&gt;</span>, <span class="token string">&apos;sre_compile&apos;</span><span class="token builtin class-name">:</span> <span class="token operator">&lt;</span>module <span class="token string">&apos;sre_compile&apos;</span> from <span class="token string">&apos;/usr/lib64/python2.7/sre_compile.pyc&apos;</span><span class="token operator">&gt;</span>
+</code></pre>
+<h3 id="26-sysbuiltinmodulenames"><a name="26-sysbuiltinmodulenames" class="anchor-navigation-ex-anchor" href="#26-sysbuiltinmodulenames"><i class="fa fa-link" aria-hidden="true"></i></a>2.6 sys.builtin_module_names</h3>
+<p>&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5143;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5747;&#x4E3A;&#x5F53;&#x524D;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x7684; Python &#x89E3;&#x91CA;&#x5668;&#x5185;&#x7F6E;&#x7684;&#x6A21;&#x5757;&#x540D;&#x79F0;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x533A;&#x522B;<code>sys.modules</code>&#x548C;<code>sys.builtin_module_names</code>&#x2014;&#x2014;&#x524D;&#x8005;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF08;keys&#xFF09;&#x5217;&#x51FA;&#x7684;&#x662F;&#x5BFC;&#x5165;&#x7684;&#x6A21;&#x5757;&#x540D;&#xFF0C;&#x800C;&#x540E;&#x8005;&#x5219;&#x662F;&#x89E3;&#x91CA;&#x5668;&#x5185;&#x7F6E;&#x7684;&#x6A21;&#x5757;&#x540D;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">sys.builtin_module_names
+<span class="token punctuation">(</span><span class="token string">&apos;__builtin__&apos;</span>, <span class="token string">&apos;__main__&apos;</span>, <span class="token string">&apos;_ast&apos;</span>, <span class="token string">&apos;_codecs&apos;</span>, <span class="token string">&apos;_sre&apos;</span>, <span class="token string">&apos;_symtable&apos;</span>, <span class="token string">&apos;_warnings&apos;</span>, <span class="token string">&apos;_weakref&apos;</span>, <span class="token string">&apos;errno&apos;</span>, <span class="token string">&apos;exceptions&apos;</span>, <span class="token string">&apos;gc&apos;</span>, <span class="token string">&apos;imp&apos;</span>, <span class="token string">&apos;marshal&apos;</span>, <span class="token string">&apos;posix&apos;</span>, <span class="token string">&apos;pwd&apos;</span>, <span class="token string">&apos;signal&apos;</span>, <span class="token string">&apos;sys&apos;</span>, <span class="token string">&apos;thread&apos;</span>, <span class="token string">&apos;zipimport&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="27-syspath"><a name="27-syspath" class="anchor-navigation-ex-anchor" href="#27-syspath"><i class="fa fa-link" aria-hidden="true"></i></a>2.7 sys.path</h3>
+<p>&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x7531;&#x5B57;&#x7B26;&#x4E32;&#x7EC4;&#x6210;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x5176;&#x4E2D;&#x5404;&#x4E2A;&#x5143;&#x7D20;&#x8868;&#x793A;&#x7684;&#x662F; Python &#x641C;&#x7D22;&#x6A21;&#x5757;&#x7684;&#x8DEF;&#x5F84;&#xFF1B;&#x5728;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x671F;&#x95F4;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF08;&#x4E5F;&#x5C31;&#x662F;path[0]&#xFF09;&#x7684;&#x503C;&#x662F;&#x6700;&#x521D;&#x8C03;&#x7528; Python &#x89E3;&#x91CA;&#x5668;&#x7684;&#x811A;&#x672C;&#x6240;&#x5728;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1B;&#x5982;&#x679C;&#x662F;&#x5728;&#x4EA4;&#x4E92;&#x5F0F;&#x73AF;&#x5883;&#x4E0B;&#x67E5;&#x770B;sys.path&#x7684;&#x503C;&#xFF0C;&#x5C31;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token function">import</span> sys
+print sys.path
+print sys.path<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+print sys.path<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">$ python sy2.py 
+<span class="token punctuation">[</span><span class="token string">&apos;/root/python/sys&apos;</span>, <span class="token string">&apos;/usr/lib/python2.7/site-packages/s3cmd-2.0.2-py2.7.egg&apos;</span>, <span class="token string">&apos;/usr/lib/python2.7/site-packages/python_magic-0.4.15-py2.7.egg&apos;</span>, <span class="token string">&apos;/usr/lib/python2.7/site-packages/UNKNOWN-0.0.0-py2.7.egg&apos;</span>, <span class="token string">&apos;/usr/lib64/python27.zip&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7/plat-linux2&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7/lib-tk&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7/lib-old&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7/lib-dynload&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7/site-packages&apos;</span>, <span class="token string">&apos;/usr/lib64/python2.7/site-packages/gtk-2.0&apos;</span>, <span class="token string">&apos;/usr/lib/python2.7/site-packages&apos;</span><span class="token punctuation">]</span>
+/root/python/sys
+/usr/lib/python2.7/site-packages/s3cmd-2.0.2-py2.7.egg
+</code></pre>
+<h3 id="28-sysstdin"><a name="28-sysstdin" class="anchor-navigation-ex-anchor" href="#28-sysstdin"><i class="fa fa-link" aria-hidden="true"></i></a>2.8 sys.stdin</h3>
+<p>&#x5373; Python &#x7684;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x901A;&#x9053;&#x3002;&#x901A;&#x8FC7;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x4E3A;&#x5176;&#x4ED6;&#x7684;&#x7C7B;&#x6587;&#x4EF6;&#xFF08;file-like&#xFF09;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8F93;&#x5165;&#x7684;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EF;&#x4EE5;&#x7528;&#x5176;&#x4ED6;&#x5185;&#x5BB9;&#x66FF;&#x6362;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x6240;&#x8C13;&#x201C;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x201D;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x952E;&#x76D8;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x3002;
+sys.stdin.readline() &#x76F8;&#x5F53;&#x4E8E;input&#xFF0C;&#x533A;&#x522B;&#x5728;&#x4E8E;input&#x4E0D;&#x4F1A;&#x8BFB;&#x5165;&apos;\n&apos;
+&#x5B9E;&#x4F8B;1</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> sys
+print<span class="token punctuation">(</span><span class="token string">&apos;Plase input your name: &apos;</span><span class="token punctuation">)</span>
+name <span class="token operator">=</span> sys.stdin.readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&apos;Hello &apos;</span>, name<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">Plase input your name: 
+hello world   
+<span class="token punctuation">(</span><span class="token string">&apos;Hello &apos;</span>, <span class="token string">&apos;hello world\n&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x5B9E;&#x4F8B;2</p>
+<pre class="language-"><code class="lang-bash"><span class="token keyword">while</span> True:
+    n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">&apos;Please input a number:\n&apos;</span><span class="token punctuation">))</span>
+    sn <span class="token operator">=</span> list<span class="token punctuation">(</span>map<span class="token punctuation">(</span>int,input<span class="token punctuation">(</span><span class="token string">&apos;Please input some numbers:\n&apos;</span><span class="token punctuation">)</span>.split<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span>sn,<span class="token string">&apos;\n&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;:</p>
+<pre class="language-"><code class="lang-bash">Please input a number:
+<span class="token number">34</span> 
+Please input some numbers:
+<span class="token number">34</span> <span class="token number">353</span>
+<span class="token number">34</span>
+<span class="token punctuation">[</span><span class="token number">34</span>, <span class="token number">353</span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="29-sysstdout"><a name="29-sysstdout" class="anchor-navigation-ex-anchor" href="#29-sysstdout"><i class="fa fa-link" aria-hidden="true"></i></a>2.9 sys.stdout</h3>
+<p>&#x4E0E;&#x4E0A;&#x4E00;&#x4E2A;&#x201C;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x201D;&#x7C7B;&#x4F3C;&#xFF0C;sys.stdout&#x5219;&#x662F;&#x4EE3;&#x8868;&#x201C;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x201D;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5C06;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x4FEE;&#x6539;&#x4E3A;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x672C;&#x6765;&#x8981;&#x6253;&#x5370;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x3002;
+&#x5B9E;&#x4F8B;1</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> sys
+<span class="token comment"># &#x4EE5;&#x9644;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#xFF0C;&#x82E5;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x65B0;&#x5EFA;</span>
+with open<span class="token punctuation">(</span><span class="token string">&quot;count_log.txt&quot;</span>, <span class="token string">&apos;a&apos;</span>, <span class="token assign-left variable">encoding</span><span class="token operator">=</span><span class="token string">&apos;utf-8&apos;</span><span class="token punctuation">)</span> as f:
+    sys.stdout <span class="token operator">=</span> f
+    <span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>:
+        print<span class="token punctuation">(</span><span class="token string">&quot;count = &quot;</span>, i<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">$ <span class="token function">cat</span> count_log.txt 
+count <span class="token operator">=</span>  <span class="token number">0</span>
+count <span class="token operator">=</span>  <span class="token number">1</span>
+count <span class="token operator">=</span>  <span class="token number">2</span>
+count <span class="token operator">=</span>  <span class="token number">3</span>
+count <span class="token operator">=</span>  <span class="token number">4</span>
+count <span class="token operator">=</span>  <span class="token number">5</span>
+count <span class="token operator">=</span>  <span class="token number">6</span>
+count <span class="token operator">=</span>  <span class="token number">7</span>
+count <span class="token operator">=</span>  <span class="token number">8</span>
+count <span class="token operator">=</span>  <span class="token number">9</span>
+</code></pre>
+<p>&#x5B9E;&#x4F8B;2&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> sys
+
+sys.stdout.write<span class="token punctuation">(</span><span class="token string">&apos;hello&apos;</span>+<span class="token string">&apos;\n&apos;</span><span class="token punctuation">)</span>
+print <span class="token string">&apos;hello&apos;</span>
+</code></pre>
+<pre class="language-"><code class="lang-bash">$ python sy7.py
+hello
+hello
+</code></pre>
+<h3 id="210-syserr"><a name="210-syserr" class="anchor-navigation-ex-anchor" href="#210-syserr"><i class="fa fa-link" aria-hidden="true"></i></a>2.10 sys.err</h3>
+<p>&#x4E0E;&#x524D;&#x9762;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8BE5;&#x5C5E;&#x6027;&#x6807;&#x8BC6;&#x7684;&#x662F;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#xFF0C;&#x901A;&#x5E38;&#x4E5F;&#x662F;&#x5B9A;&#x5411;&#x5230;&#x5C4F;&#x5E55;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7C97;&#x7CD9;&#x5730;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x7684;&#x7279;&#x6B8A;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x6D41;&#x3002;&#x7531;&#x4E8E;&#x6027;&#x8D28;&#x7C7B;&#x4F3C;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x505A;&#x6F14;&#x793A;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;sys&#x6A21;&#x5757;&#x4E2D;&#x8FD8;&#x5B58;&#x5728;&#x51E0;&#x4E2A;&#x201C;&#x79C1;&#x6709;&#x201D;&#x5C5E;&#x6027;&#xFF1A;sys.<strong>stdin</strong>&#xFF0C;sys.<strong>stdout</strong>&#xFF0C;sys.<strong>stderr</strong>&#x3002;&#x8FD9;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x5C31;&#x662F;&#x6700;&#x521D;&#x5B9A;&#x5411;&#x7684;&#x201C;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x201D;&#x3001;&#x201C;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x201D;&#x548C;&#x201C;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#x201D;&#x6D41;&#x3002;&#x5728;&#x9002;&#x5F53;&#x7684;&#x65F6;&#x4FAF;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x8FD9;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#x5C06;sys.stdin&#x3001;sys.stdout&#x548C;sys.err&#x6062;&#x590D;&#x4E3A;&#x521D;&#x59CB;&#x503C;&#x3002;</p>
+<h3 id="211-sysexitn"><a name="211-sysexitn" class="anchor-navigation-ex-anchor" href="#211-sysexitn"><i class="fa fa-link" aria-hidden="true"></i></a>2.11 sys.exit(n)</h3>
+<p>&#x529F;&#x80FD;&#xFF1A;&#x6267;&#x884C;&#x5230;&#x4E3B;&#x7A0B;&#x5E8F;&#x672B;&#x5C3E;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x81EA;&#x52A8;&#x9000;&#x51FA;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x9700;&#x8981;&#x4E2D;&#x9014;&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;sys.exit&#x51FD;&#x6570;&#xFF0C;&#x5E26;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x6574;&#x6570;&#x53C2;&#x6570;&#x8FD4;&#x56DE;&#x7ED9;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x8868;&#x793A;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E2D;&#x6355;&#x83B7;&#x5BF9;sys.exit&#x7684;&#x8C03;&#x7528;&#x3002;&#xFF08;0&#x662F;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#xFF0C;&#x5176;&#x4ED6;&#x4E3A;&#x5F02;&#x5E38;&#xFF09;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env python</span>
+
+<span class="token function">import</span> sys
+
+def exitfunc<span class="token punctuation">(</span>value<span class="token punctuation">)</span>:
+    print value
+    sys.exit<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+print <span class="token string">&quot;hello&quot;</span>
+
+try:
+    sys.exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+except SystemExit,value:
+    exitfunc<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+print <span class="token string">&quot;come?&quot;</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">$ python sy11.py 
+hello
+<span class="token number">1</span>
+</code></pre>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="http://www.ityouknow.com/python/2019/10/09/python-sys-demonstration-028.html" target="_blank">&#x7EAF;&#x6D01;&#x7684;&#x5FAE;&#x7B11;</a></li>
+<li><a href="https://www.cnblogs.com/turtle-fly/p/3280519.html" target="_blank">Python &#x6807;&#x51C6;&#x8F93;&#x51FA; sys.stdout&#x91CD;&#x5B9A;&#x5411;</a></li>
+<li><a href="https://ghostwritten.blog.csdn.net/article/details/112751406" target="_blank">python &#x6A21;&#x5757;&#x8FD0;&#x7528;&#x5FEB;&#x901F;&#x5B66;&#x4E60;&#x624B;&#x518C;</a></li>
+<li><a href="https://ghostwritten.blog.csdn.net/article/details/121199110" target="_blank">python argparse&#x53C2;&#x6570;&#x914D;&#x7F6E;</a></li>
+<li><a href="https://ghostwritten.blog.csdn.net/article/details/106124675" target="_blank">python click&#x6A21;&#x5757;&#x53C2;&#x6570;&#x5904;&#x7406;</a></li>
+<li><a href="https://www.geeksforgeeks.org/python-sys-module/" target="_blank">geeksforgeeks Python sys Module</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 12:23:54
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_socket.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 socket 网络通信">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_pandas.html" class="navigation navigation-next " aria-label="Next page: python 模块 pandas 数组处理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 sys","level":"1.7.15","depth":2,"next":{"title":"python 模块 pandas 数组处理","level":"1.7.16","depth":2,"path":"Modules/python_pandas.md","ref":"Modules/python_pandas.md","articles":[]},"previous":{"title":"python 模块 socket 网络通信","level":"1.7.14","depth":2,"path":"Modules/python_socket.md","ref":"Modules/python_socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_sys.md","mtime":"2022-06-30T12:23:54.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

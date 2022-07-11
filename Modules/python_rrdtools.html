@@ -1,0 +1,1742 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 rrdtool 数据处理 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_cPickle_and_pickle.html" />
+    
+    
+    <link rel="prev" href="python_psutil.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 rrdtool 数据处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-rrdtool-&#x6570;&#x636E;&#x5904;&#x7406;"><b></b>Python &#x6A21;&#x5757; rrdtool &#x6570;&#x636E;&#x5904;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x4ECB;&#x7ECD;"><b></b>1. &#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-&#x5B89;&#x88C5;"><b></b>2. &#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#3-&#x65B9;&#x6CD5;"><b></b>3. &#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#31-create&#x65B9;&#x6CD5;"><b></b>3.1 Create&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#32-update&#x65B9;&#x6CD5;"><b></b>3.2 update&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#33-graph&#x65B9;&#x6CD5;"><b></b>3.3 graph&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#33-fetch&#x65B9;&#x6CD5;"><b></b>3.3 fetch&#x65B9;&#x6CD5;</a></li></ul><li><span class="title-icon "></span><a href="#4-&#x5B9E;&#x8DF5;"><b></b>4. &#x5B9E;&#x8DF5;</a></li><ul><li><span class="title-icon "></span><a href="#41-&#x5B9E;&#x73B0;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x56FE;&#x8868;&#x7ED8;&#x5236;"><b></b>4.1 &#x5B9E;&#x73B0;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x56FE;&#x8868;&#x7ED8;&#x5236;</a></li></ul></ul></ul></div><a href="#python-&#x6A21;&#x5757;-rrdtool-&#x6570;&#x636E;&#x5904;&#x7406;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-rrdtool-&#x6570;&#x636E;&#x5904;&#x7406;"><a name="python-&#x6A21;&#x5757;-rrdtool-&#x6570;&#x636E;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-rrdtool-&#x6570;&#x636E;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>Python &#x6A21;&#x5757; rrdtool &#x6570;&#x636E;&#x5904;&#x7406;</h1>
+<h2 id="1-&#x4ECB;&#x7ECD;"><a name="1-&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4ECB;&#x7ECD;</h2>
+<p><a href="https://pypi.org/project/rrdtool/" target="_blank">rrdtool</a>&#xFF08;round robin database&#xFF09;&#x5DE5;&#x5177;&#x4E3A;<code>&#x73AF;&#x72B6;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5B58;&#x50A8;&#x683C;&#x5F0F;</code>&#xFF0C;<strong>round robin&#x662F;&#x4E00;&#x79CD;&#x5904;&#x7406;&#x5B9A;&#x91CF;&#x6570;&#x636E;&#x4EE5;&#x53CA;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x6307;&#x9488;&#x7684;&#x6280;&#x672F;&#x3002;</strong>rrdtool&#x4E3B;&#x8981;&#x7528;&#x6765;&#x8DDF;&#x8E2A;&#x5BF9;&#x8C61;&#x7684;&#x53D8;&#x5316;&#x60C5;&#x51B5;&#xFF0C;&#x751F;&#x6210;&#x8FD9;&#x4E9B;&#x53D8;&#x5316;&#x7684;&#x8D70;&#x52BF;&#x56FE;&#xFF0C;&#x6BD4;&#x5982;<strong>&#x4E1A;&#x52A1;&#x7684;&#x8BBF;&#x95EE;&#x6D41;&#x91CF;&#x3001;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x3001;&#x78C1;&#x76D8;&#x5229;&#x7528;&#x7387;</strong>&#x7B49;&#x8D8B;&#x52BF;&#x56FE;&#xFF0C;&#x5F88;&#x591A;&#x6D41;&#x884C;&#x76D1;&#x63A7;&#x5E73;&#x53F0;&#x90FD;&#x4F7F;&#x7528;&#x5230;rrdtool&#xFF0C;&#x6BD4;&#x8F83;&#x6709;&#x540D;&#x7684;&#x4E3A;<code>Cacti&#x3001;Ganglia&#x3001;Monitorix</code>&#x7B49;&#x3002;
+rrdtool&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x6D89;&#x53CA;&#x8F83;&#x591A;&#x53C2;&#x6570;&#x6982;&#x5FF5;&#xFF0C;&#x672C;&#x8282;&#x4E3B;&#x8981;&#x901A;&#x8FC7;Python&#x7684;rrdtool&#x6A21;&#x5757;&#x5BF9;rrdtool&#x7684;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x5305;&#x62EC;<code>create&#x3001;fetch&#x3001;graph&#x3001;info&#x3001;update</code>&#x7B49;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="2-&#x5B89;&#x88C5;"><a name="2-&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#2-&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B89;&#x88C5;</h2>
+<pre class="language-"><code class="lang-bash">easy_install python-rrdtool 
+pip <span class="token function">install</span> python-rrdtool
+yum <span class="token function">install</span> rrdtool-python
+</code></pre>
+<h2 id="3-&#x65B9;&#x6CD5;"><a name="3-&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#3-&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x65B9;&#x6CD5;</h2>
+<p>rrdtool&#x6A21;&#x5757;&#x5E38;&#x7528;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5305;&#x62EC;create&#xFF08;&#x521B;&#x5EFA;rrd&#xFF09;&#x3001;update&#xFF08;&#x66F4;&#x65B0;rrd&#xFF09;&#x3001;graph&#xFF08;&#x7ED8;&#x56FE;&#xFF09;&#x3001;fetch&#xFF08;&#x67E5;&#x8BE2;rrd&#xFF09;&#x7B49;&#x3002;</p>
+<h3 id="31-create&#x65B9;&#x6CD5;"><a name="31-create&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#31-create&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 Create&#x65B9;&#x6CD5;</h3>
+<p><code>create filename[&#x2013;start|-b start time][&#x2013;step|-s step][DS&#xFF1A;ds-name&#xFF1A;DST&#xFF1A;heartbeat&#xFF1A;min&#xFF1A;max][RRA&#xFF1A;CF&#xFF1A;xff&#xFF1A;steps&#xFF1A;rows]</code>&#x65B9;&#x6CD5;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540E;&#x7F00;&#x4E3A;rrd&#x7684;rrdtool&#x6570;&#x636E;&#x5E93;&#x3002;
+&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code>filename&#x521B;&#x5EFA;&#x7684;rrdtool&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x540E;&#x7F00;&#x4E3A;.rrd&#xFF1B;
+
+&#x2013;start&#x6307;&#x5B9A;rrdtool&#x7B2C;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x8D77;&#x59CB;&#x65F6;&#x95F4;&#xFF0C;&#x5FC5;&#x987B;&#x662F;timestamp&#x7684;&#x683C;&#x5F0F;&#xFF1B;
+
+&#x2013;step&#x6307;&#x5B9A;rrdtool&#x6BCF;&#x9694;&#x591A;&#x957F;&#x65F6;&#x95F4;&#x5C31;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;5&#x5206;&#x949F;&#xFF1B;
+
+DS&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x811A;&#x672C;&#x7684;&#x7ED3;&#x679C;&#x7684;&#x53D8;&#x91CF;&#xFF1B;
+
+DST&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x6E90;&#x7C7B;&#x578B;&#xFF0C;rrdtool&#x652F;&#x6301;COUNTER&#xFF08;&#x9012;&#x589E;&#x7C7B;&#x578B;&#xFF09;&#x3001;DERIVE&#xFF08;&#x53EF;&#x9012;&#x589E;&#x53EF;&#x9012;&#x51CF;&#x7C7B;&#x578B;&#xFF09;&#x3001;ABSOLUTE&#xFF08;&#x5047;&#x5B9A;&#x524D;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x7684;&#x503C;&#x4E3A;0&#xFF0C;&#x518D;&#x8BA1;&#x7B97;&#x5E73;&#x5747;&#x503C;&#xFF09;&#x3001;GUAGE&#xFF08;&#x6536;&#x5230;&#x503C;&#x540E;&#x76F4;&#x63A5;&#x5B58;&#x5165;RRA&#xFF09;&#x3001;COMPUTE&#xFF08;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5F15;&#x7528;DS&#x5E76;&#x81EA;&#x52A8;&#x8BA1;&#x7B97;&#x51FA;&#x67D0;&#x4E2A;&#x503C;&#xFF09;5&#x79CD;&#xFF0C;&#x6BD4;&#x5982;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x5C5E;&#x4E8E;&#x8BA1;&#x6570;&#x5668;&#x578B;&#xFF0C;&#x5E94;&#x8BE5;&#x9009;&#x62E9;COUNTER&#xFF1B;
+
+RRA&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5982;&#x4F55;&#x5B58;&#x653E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x4E2A;RRA&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x8868;&#xFF0C;&#x4FDD;&#x5B58;&#x4E0D;&#x540C;&#x95F4;&#x9694;&#x7684;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x6570;&#x636E;&#xFF0C;&#x4E3A;CF&#x505A;&#x6570;&#x636E;&#x5408;&#x5E76;&#x63D0;&#x4F9B;&#x4F9D;&#x636E;&#xFF0C;&#x5B9A;&#x4E49;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;[RRA&#xFF1A;CF&#xFF1A;xff&#xFF1A;steps&#xFF1A;rows]&#xFF1B;
+
+CF&#x7EDF;&#x8BA1;&#x5408;&#x5E76;&#x6570;&#x636E;&#xFF0C;&#x652F;&#x6301;AVERAGE&#xFF08;&#x5E73;&#x5747;&#x503C;&#xFF09;&#x3001;MAX&#xFF08;&#x6700;&#x5927;&#x503C;&#xFF09;&#x3001;MIN&#xFF08;&#x6700;&#x5C0F;&#x503C;&#xFF09;&#x3001;LAST&#xFF08;&#x6700;&#x65B0;&#x503C;&#xFF09;4&#x79CD;&#x65B9;&#x5F0F;&#x3002;
+</code></pre><h3 id="32-update&#x65B9;&#x6CD5;"><a name="32-update&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#32-update&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 update&#x65B9;&#x6CD5;</h3>
+<p><code>update filename[&#x2013;template|-t ds-name[&#xFF1A;ds-name]&#x2026;]N|timestamp&#xFF1A;value[&#xFF1A;value&#x2026;][timestamp&#xFF1A;value[&#xFF1A;value&#x2026;]&#x2026;]</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5B58;&#x50A8;&#x4E00;&#x4E2A;&#x65B0;&#x503C;&#x5230;rrdtool&#x6570;&#x636E;&#x5E93;&#xFF0C;updatev&#x548C;update&#x7C7B;&#x4F3C;&#xFF0C;&#x533A;&#x522B;&#x662F;&#x6BCF;&#x6B21;&#x63D2;&#x5165;&#x540E;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E86;&#x89E3;&#x662F;&#x5426;&#x6210;&#x529F;&#xFF08;updatev&#x7528;0&#x8868;&#x793A;&#x6210;&#x529F;&#xFF0C;&#x2013;1&#x8868;&#x793A;&#x5931;&#x8D25;&#xFF09;&#x3002;
+&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code> filename&#x6307;&#x5B9A;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5230;&#x7684;&#x76EE;&#x6807;rrd&#x6587;&#x4EF6;&#x540D;&#xFF1B;
+
+ -t ds-name[&#xFF1A;ds-name]&#x6307;&#x5B9A;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x7684;DS&#x540D;&#x79F0;&#xFF1B;
+
+ N|Timestamp&#x8868;&#x793A;&#x6570;&#x636E;&#x91C7;&#x96C6;&#x7684;&#x65F6;&#x95F4;&#x6233;&#xFF0C;N&#x8868;&#x793A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#xFF1B;
+
+ value[&#xFF1A;value&#x2026;]&#x66F4;&#x65B0;&#x7684;&#x6570;&#x636E;&#x503C;&#xFF0C;&#x591A;&#x4E2A;DS&#x5219;&#x591A;&#x4E2A;&#x503C;&#x3002;
+</code></pre><h3 id="33-graph&#x65B9;&#x6CD5;"><a name="33-graph&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#33-graph&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 graph&#x65B9;&#x6CD5;</h3>
+<p><code>graph filename[-s|&#x2013;start seconds][-e|&#x2013;end seconds][-x|&#x2013;x-grid x-axis grid and label][-y|&#x2013;y-grid y-axis grid and label][&#x2013;alt-y-grid][&#x2013;alt-y-mrtg][&#x2013;alt-autoscale][&#x2013;alt-autoscale-max][&#x2013;units-exponent]value[-v|&#x2013;vertical-label text][-w|&#x2013;width pixels][-h|&#x2013;height pixels][-i|&#x2013;interlaced][-f|&#x2013;imginfo formatstring][-a|&#x2013;imgformat GIF|PNG|GD][-B|&#x2013;background value][-O|&#x2013;overlay value][-U|&#x2013;unit value][-z|&#x2013;lazy][-o|&#x2013;logarithmic][-u|&#x2013;upper-limit value][-l|&#x2013;lower-limit value][-g|&#x2013;no-legend][-r|&#x2013;rigid][&#x2013;step value][-b|&#x2013;base value][-c|&#x2013;color COLORTAG#rrggbb][-t|&#x2013;title title][DEF&#xFF1A;vname=rrd&#xFF1A;ds-name&#xFF1A;CF][CDEF&#xFF1A;vname=rpn-expression][PRINT&#xFF1A;vname&#xFF1A;CF&#xFF1A;format][GPRINT&#xFF1A;vname&#xFF1A;CF&#xFF1A;format][COMMENT&#xFF1A;text][HRULE&#xFF1A;value#rrggbb[&#xFF1A;legend]][VRULE&#xFF1A;time#rrggbb[&#xFF1A;legend]][LINE{1|2|3}&#xFF1A;vname[#rrggbb[&#xFF1A;legend]]][AREA&#xFF1A;vname[#rrggbb[&#xFF1A;legend]]][STACK&#xFF1A;vname[#rrggbb[&#xFF1A;legend]]]</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6839;&#x636E;&#x6307;&#x5B9A;&#x7684;rrdtool&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x7ED8;&#x56FE;&#x3002;
+&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code>     filename&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x56FE;&#x50CF;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;PNG&#x683C;&#x5F0F;&#xFF1B;
+
+     &#x2013;start&#x6307;&#x5B9A;&#x8D77;&#x59CB;&#x65F6;&#x95F4;&#xFF1B;&#xB7;&#x2013;end&#x6307;&#x5B9A;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#xFF1B;
+
+     &#x2013;x-grid&#x63A7;&#x5236;X&#x8F74;&#x7F51;&#x683C;&#x7EBF;&#x523B;&#x5EA6;&#x3001;&#x6807;&#x7B7E;&#x7684;&#x4F4D;&#x7F6E;&#xFF1B;
+
+     &#x2013;y-grid&#x63A7;&#x5236;Y&#x8F74;&#x7F51;&#x683C;&#x7EBF;&#x523B;&#x5EA6;&#x3001;&#x6807;&#x7B7E;&#x7684;&#x4F4D;&#x7F6E;&#xFF1B;
+
+     &#x2013;vertical-label&#x6307;&#x5B9A;Y&#x8F74;&#x7684;&#x8BF4;&#x660E;&#x6587;&#x5B57;&#xFF1B;
+
+     &#x2013;width pixels&#x6307;&#x5B9A;&#x56FE;&#x8868;&#x5BBD;&#x5EA6;&#xFF08;&#x50CF;&#x7D20;&#xFF09;&#xFF1B;
+
+     &#x2013;height pixels&#x6307;&#x5B9A;&#x56FE;&#x8868;&#x9AD8;&#x5EA6;&#xFF08;&#x50CF;&#x7D20;&#xFF09;&#xFF1B;
+
+     &#x2013;imgformat&#x6307;&#x5B9A;&#x56FE;&#x50CF;&#x683C;&#x5F0F;&#xFF08;GIF|PNG|GD&#xFF09;&#xFF1B;
+
+     &#x2013;background&#x6307;&#x5B9A;&#x56FE;&#x50CF;&#x80CC;&#x666F;&#x989C;&#x8272;&#xFF0C;&#x652F;&#x6301;#rrggbb&#x8868;&#x793A;&#x6CD5;&#xFF1B;
+
+     &#x2013;upper-limit&#x6307;&#x5B9A;Y&#x8F74;&#x6570;&#x636E;&#x503C;&#x4E0A;&#x9650;&#xFF1B;
+
+     &#x2013;lower-limit&#x6307;&#x5B9A;Y&#x8F74;&#x6570;&#x636E;&#x503C;&#x4E0B;&#x9650;&#xFF1B;
+
+     &#x2013;no-legend&#x53D6;&#x6D88;&#x56FE;&#x8868;&#x4E0B;&#x65B9;&#x7684;&#x56FE;&#x4F8B;&#xFF1B;
+
+     &#x2013;rigid&#x4E25;&#x683C;&#x6309;&#x7167;upper-limit&#x4E0E;lower-limit&#x6765;&#x7ED8;&#x5236;&#xFF1B;
+
+     &#x2013;title&#x56FE;&#x8868;&#x9876;&#x90E8;&#x7684;&#x6807;&#x9898;&#xFF1B;
+
+     DEF&#xFF1A;vname=rrd&#xFF1A;ds-name&#xFF1A;CF&#x6307;&#x5B9A;&#x7ED8;&#x56FE;&#x7528;&#x5230;&#x7684;&#x6570;&#x636E;&#x6E90;&#xFF1B;
+
+     CDEF&#xFF1A;vname=rpn-expression&#x5408;&#x5E76;&#x591A;&#x4E2A;&#x503C;&#xFF1B;
+
+     GPRINT&#xFF1A;vname&#xFF1A;CF&#xFF1A;format&#x56FE;&#x8868;&#x7684;&#x4E0B;&#x65B9;&#x8F93;&#x51FA;&#x6700;&#x5927;&#x503C;&#x3001;&#x6700;&#x5C0F;&#x503C;&#x3001;&#x5E73;&#x5747;&#x503C;&#x7B49;&#xFF1B;
+
+     COMMENT&#xFF1A;text&#x6307;&#x5B9A;&#x56FE;&#x8868;&#x4E2D;&#x8F93;&#x51FA;&#x7684;&#x4E00;&#x4E9B;&#x5B57;&#x7B26;&#x4E32;&#xFF1B;
+
+     HRULE&#xFF1A;value#rrggbb&#x7528;&#x4E8E;&#x5728;&#x56FE;&#x8868;&#x4E0A;&#x9762;&#x7ED8;&#x5236;&#x6C34;&#x5E73;&#x7EBF;&#xFF1B;
+
+     VRULE&#xFF1A;time#rrggbb&#x7528;&#x4E8E;&#x5728;&#x56FE;&#x8868;&#x4E0A;&#x9762;&#x7ED8;&#x5236;&#x5782;&#x76F4;&#x7EBF;&#xFF1B;
+
+     LINE{1|2|3}&#xFF1A;vname&#x4F7F;&#x7528;&#x7EBF;&#x6761;&#x6765;&#x7ED8;&#x5236;&#x6570;&#x636E;&#x56FE;&#x8868;&#xFF0C;{1|2|3}&#x8868;&#x793A;&#x7EBF;&#x6761;&#x7684;&#x7C97;&#x7EC6;&#xFF1B;
+
+     AREA&#xFF1A;vname&#x4F7F;&#x7528;&#x9762;&#x79EF;&#x56FE;&#x6765;&#x7ED8;&#x5236;&#x6570;&#x636E;&#x56FE;&#x8868;&#x3002;
+</code></pre><h3 id="33-fetch&#x65B9;&#x6CD5;"><a name="33-fetch&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#33-fetch&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 fetch&#x65B9;&#x6CD5;</h3>
+<p>fetch filename CF[&#x2013;resolution|-r resolution][&#x2013;start|-s start][&#x2013;end|-e end]&#x65B9;&#x6CD5;&#xFF0C;&#x6839;&#x636E;&#x6307;&#x5B9A;&#x7684;rrdtool&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;
+&#x5173;&#x952E;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code>filename&#x6307;&#x5B9A;&#x8981;&#x67E5;&#x8BE2;&#x7684;rrd&#x6587;&#x4EF6;&#x540D;&#xFF1B;
+
+CF&#x5305;&#x62EC;AVERAGE&#x3001;MAX&#x3001;MIN&#x3001;LAST&#xFF0C;&#x8981;&#x6C42;&#x5FC5;&#x987B;&#x662F;&#x5EFA;&#x5E93;&#x65F6;RRA&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#xFF1B;
+
+&#x2013;start&#x2013;end&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;&#x7684;&#x5F00;&#x59CB;&#x4E0E;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EF;&#x7701;&#x7565;&#x3002;
+</code></pre><h2 id="4-&#x5B9E;&#x8DF5;"><a name="4-&#x5B9E;&#x8DF5;" class="anchor-navigation-ex-anchor" href="#4-&#x5B9E;&#x8DF5;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x5B9E;&#x8DF5;</h2>
+<h3 id="41-&#x5B9E;&#x73B0;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x56FE;&#x8868;&#x7ED8;&#x5236;"><a name="41-&#x5B9E;&#x73B0;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x56FE;&#x8868;&#x7ED8;&#x5236;" class="anchor-navigation-ex-anchor" href="#41-&#x5B9E;&#x73B0;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x56FE;&#x8868;&#x7ED8;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1 &#x5B9E;&#x73B0;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x56FE;&#x8868;&#x7ED8;&#x5236;</h3>
+<p>&#x5728;&#x65E5;&#x5E38;&#x8FD0;&#x8425;&#x5DE5;&#x4F5C;&#x5F53;&#x4E2D;&#xFF0C;&#x89C2;&#x5BDF;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;&#x8D8B;&#x52BF;&#x6709;&#x5229;&#x4E8E;&#x4E86;&#x89E3;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#x65B9;&#x9762;&#xFF0C;&#x7F51;&#x7EDC;&#x6D41;&#x91CF;&#x8D8B;&#x52BF;&#x56FE;&#x76F4;&#x63A5;&#x5C55;&#x73B0;&#x4E86;&#x5F53;&#x524D;&#x7F51;&#x7EDC;&#x7684;&#x541E;&#x5410;&#x3002;CPU&#x3001;&#x5185;&#x5B58;&#x3001;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x5229;&#x7528;&#x7387;&#x8D8B;&#x52BF;&#x5219;&#x53CD;&#x6620;&#x4E86;&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x5065;&#x5EB7;&#x72B6;&#x6001;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x56FE;&#x8868;&#x7BA1;&#x7406;&#x5458;&#x53EF;&#x4EE5;&#x63D0;&#x524D;&#x505A;&#x597D;&#x5E94;&#x6025;&#x9884;&#x6848;&#xFF0C;&#x5BF9;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684;&#x98CE;&#x9669;&#x70B9;&#x505A;&#x597D;&#x9632;&#x8303;&#x3002;&#x672C;&#x6B21;&#x5B9E;&#x8DF5;&#x901A;&#x8FC7;rrdtool&#x6A21;&#x5757;&#x5B9E;&#x73B0;&#x670D;&#x52A1;&#x5668;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x8D8B;&#x52BF;&#x56FE;&#x7684;&#x7ED8;&#x5236;&#xFF0C;&#x5373;&#x5148;&#x901A;&#x8FC7;create&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;rrd&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x518D;&#x901A;&#x8FC7;update&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x7684;&#x5199;&#x5165;&#xFF0C;&#x6700;&#x540E;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;graph&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x56FE;&#x8868;&#x7684;&#x7ED8;&#x5236;&#xFF0C;&#x4EE5;&#x53CA;&#x63D0;&#x4F9B;last&#x3001;first&#x3001;info&#x3001;fetch&#x65B9;&#x6CD5;&#x7684;&#x67E5;&#x8BE2;&#x3002;&#x56FE;3-12&#x4E3A;rrd&#x521B;&#x5EFA;&#x5230;&#x8F93;&#x51FA;&#x56FE;&#x8868;&#x7684;&#x8FC7;&#x7A0B;&#x3002;
+<img src="https://img-blog.csdnimg.cn/20200422004952321.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="411-&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;-create&#x65B9;&#x6CD5;&#x521B;&#x5EFA;rrd&#x6570;&#x636E;&#x5E93;"><a name="411-&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;-create&#x65B9;&#x6CD5;&#x521B;&#x5EFA;rrd&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#411-&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;-create&#x65B9;&#x6CD5;&#x521B;&#x5EFA;rrd&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.1 &#x7B2C;&#x4E00;&#x6B65;&#xFF1A; <code>create</code>&#x65B9;&#x6CD5;&#x521B;&#x5EFA;rrd&#x6570;&#x636E;&#x5E93;</h4>
+<p>&#x91C7;&#x7528;<code>create</code>&#x65B9;&#x6CD5;&#x521B;&#x5EFA;rrd&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;rrd&#x6587;&#x4EF6;&#x3001;&#x66F4;&#x65B0;&#x9891;&#x7387;step&#x3001;&#x8D77;&#x59CB;&#x65F6;&#x95F4;&#x2013;start&#x3001;&#x6570;&#x636E;&#x6E90;DS&#x3001;&#x6570;&#x636E;&#x6E90;&#x7C7B;&#x578B;DST&#x3001;&#x6570;&#x636E;&#x5468;&#x671F;&#x5B9A;&#x4E49;RRA&#x7B49;&#x3002;
+&#x3010;/python/rrdtool/create.py&#x3011;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># -*- coding: utf-8 -*-  </span>
+<span class="token comment">#!/usr/bin/python  </span>
+<span class="token function">import</span> rrdtool  
+<span class="token function">import</span> <span class="token function">time</span>  
+
+<span class="token assign-left variable">cur_time</span><span class="token operator">=</span>str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>time.time<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>    <span class="token comment">#&#x83B7;&#x53D6;&#x5F53;&#x524D;Linux&#x65F6;&#x95F4;&#x6233;&#x4F5C;&#x4E3A;rrd&#x8D77;&#x59CB;&#x65F6;&#x95F4;  </span>
+<span class="token comment">#&#x6570;&#x636E;&#x5199;&#x9891;&#x7387;--step&#x4E3A;300&#x79D2;(&#x5373;5&#x5206;&#x949F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x70B9;)  </span>
+<span class="token assign-left variable">rrd</span><span class="token operator">=</span>rrdtool.create<span class="token punctuation">(</span><span class="token string">&apos;Flow.rrd&apos;</span>,<span class="token string">&apos;--step&apos;</span>,<span class="token string">&apos;300&apos;</span>,<span class="token string">&apos;--start&apos;</span>,cur_time,  
+<span class="token comment">#&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x6E90;eth1_in(&#x5165;&#x6D41;&#x91CF;)&#x3001;eth1_out(&#x51FA;&#x6D41;&#x91CF;)&#xFF1B;&#x7C7B;&#x578B;&#x90FD;&#x4E3A;COUNTER(&#x9012;&#x589E;)&#xFF1B;600&#x79D2;&#x4E3A;&#x5FC3;&#x8DF3;&#x503C;&#xFF0C;  </span>
+<span class="token comment">#&#x5176;&#x542B;&#x4E49;&#x662F;600&#x79D2;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x503C;&#xFF0C;&#x5219;&#x4F1A;&#x7528;UNKNOWN&#x4EE3;&#x66FF;&#xFF1B;0&#x4E3A;&#x6700;&#x5C0F;&#x503C;&#xFF1B;&#x6700;&#x5927;&#x503C;&#x7528;U&#x4EE3;&#x66FF;&#xFF0C;&#x8868;&#x793A;&#x4E0D;&#x786E;&#x5B9A;  </span>
+  <span class="token string">&apos;DS:eth1_in:COUNTER:600:0:U&apos;</span>,  
+  <span class="token string">&apos;DS:eth1_out:COUNTER:600:0:U&apos;</span>,  
+
+  <span class="token comment">#RRA&#x5B9A;&#x4E49;&#x683C;&#x5F0F;&#x4E3A;[RRA:CF:xff:steps:rows]&#xFF0C;CF&#x5B9A;&#x4E49;&#x4E86;AVERAGE&#x3001;MAX&#x3001;MIN&#x4E09;&#x79CD;&#x6570;&#x636E;&#x5408;&#x5E76;&#x65B9;&#x5F0F;  </span>
+  <span class="token comment">#xff&#x5B9A;&#x4E49;&#x4E3A;0.5&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A;CDP&#x4E2D;&#x7684;PDP&#x503C;&#x5982;&#x8D85;&#x8FC7;&#x4E00;&#x534A;&#x503C;&#x4E3A;UNKNOWN&#xFF0C;&#x5219;&#x8BE5;CDP&#x7684;&#x503C;&#x5C31;&#x88AB;&#x6807;&#x4E3A;UNKNOWN  </span>
+  <span class="token comment">#&#x4E0B;&#x5217;&#x524D;4&#x4E2A;RRA&#x7684;&#x5B9A;&#x4E49;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF0C;&#x5176;&#x4ED6;&#x5B9A;&#x4E49;&#x4E0E;AVERAGE&#x65B9;&#x5F0F;&#x76F8;&#x4F3C;&#xFF0C;&#x533A;&#x522B;&#x662F;&#x5B58;&#x6700;&#x5927;&#x503C;&#x4E0E;&#x6700;&#x5C0F;&#x503C;  </span>
+  <span class="token comment"># &#x6BCF;&#x9694;5&#x5206;&#x949F;(1*300&#x79D2;)&#x5B58;&#x4E00;&#x6B21;&#x6570;&#x636E;&#x7684;&#x5E73;&#x5747;&#x503C;,&#x5B58;600&#x7B14;&#xFF0C;&#x5373;2.08&#x5929;  </span>
+  <span class="token comment"># &#x6BCF;&#x9694;30&#x5206;&#x949F;(6*300&#x79D2;)&#x5B58;&#x4E00;&#x6B21;&#x6570;&#x636E;&#x7684;&#x5E73;&#x5747;&#x503C;,&#x5B58;700&#x7B14;&#xFF0C;&#x5373;14.58&#x5929;&#xFF08;2&#x5468;&#xFF09;  </span>
+  <span class="token comment"># &#x6BCF;&#x9694;2&#x5C0F;&#x65F6;(24*300&#x79D2;)&#x5B58;&#x4E00;&#x6B21;&#x6570;&#x636E;&#x7684;&#x5E73;&#x5747;&#x503C;,&#x5B58;775&#x7B14;&#xFF0C;&#x5373;64.58&#x5929;&#xFF08;2&#x4E2A;&#x6708;&#xFF09;  </span>
+  <span class="token comment"># &#x6BCF;&#x9694;24&#x5C0F;&#x65F6;(288*300&#x79D2;)&#x5B58;&#x4E00;&#x6B21;&#x6570;&#x636E;&#x7684;&#x5E73;&#x5747;&#x503C;,&#x5B58;797&#x7B14;&#xFF0C;&#x5373;797&#x5929;(2&#x5E74;)  </span>
+  <span class="token string">&apos;RRA:AVERAGE:0.5:1:600&apos;</span>,  
+  <span class="token string">&apos;RRA:AVERAGE:0.5:6:700&apos;</span>,  
+  <span class="token string">&apos;RRA:AVERAGE:0.5:24:775&apos;</span>,  
+  <span class="token string">&apos;RRA:AVERAGE:0.5:288:797&apos;</span>,  
+  <span class="token string">&apos;RRA:MAX:0.5:1:600&apos;</span>,  
+  <span class="token string">&apos;RRA:MAX:0.5:6:700&apos;</span>,  
+  <span class="token string">&apos;RRA:MAX:0.5:24:775&apos;</span>,  
+  <span class="token string">&apos;RRA:MAX:0.5:444:797&apos;</span>,  
+  <span class="token string">&apos;RRA:MIN:0.5:1:600&apos;</span>,  
+  <span class="token string">&apos;RRA:MIN:0.5:6:700&apos;</span>,  
+  <span class="token string">&apos;RRA:MIN:0.5:24:775&apos;</span>,  
+  <span class="token string">&apos;RRA:MIN:0.5:444:797&apos;</span><span class="token punctuation">)</span>  
+<span class="token keyword">if</span> rrd:  
+    print rrdtool.error<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="412-&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x91C7;&#x7528;updatev&#x65B9;&#x6CD5;&#x66F4;&#x65B0;rrd&#x6570;&#x636E;&#x5E93;"><a name="412-&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x91C7;&#x7528;updatev&#x65B9;&#x6CD5;&#x66F4;&#x65B0;rrd&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#412-&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x91C7;&#x7528;updatev&#x65B9;&#x6CD5;&#x66F4;&#x65B0;rrd&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.2 &#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x91C7;&#x7528;updatev&#x65B9;&#x6CD5;&#x66F4;&#x65B0;rrd&#x6570;&#x636E;&#x5E93;</h4>
+<p>&#x3000;&#x91C7;&#x7528;updatev&#x65B9;&#x6CD5;&#x66F4;&#x65B0;rrd&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x4E86;&#x5F53;&#x524D;&#x7684;Linux&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x4EE5;&#x53CA;&#x6307;&#x5B9A;eth0_in&#x3001;eth0_out&#x503C;&#xFF08;&#x5F53;&#x524D;&#x7F51;&#x5361;&#x7684;&#x51FA;&#x5165;&#x6D41;&#x91CF;&#xFF09;&#xFF0C;&#x7F51;&#x5361;&#x6D41;&#x91CF;&#x6211;&#x4EEC;&#x901A;&#x8FC7;psutil&#x6A21;&#x5757;&#x6765;&#x83B7;&#x53D6;&#xFF0C;&#x5982;psutil.net_io_counters&#xFF08;&#xFF09;[1]&#x4E3A;&#x5165;&#x6D41;&#x91CF;&#x3002;&#x8BE6;&#x7EC6;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+&#x3000;&#x3010;/python/rrdtool/update.py&#x3011;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># -*- coding: utf-8 -*-  </span>
+<span class="token comment">#!/usr/bin/python  </span>
+<span class="token function">import</span> rrdtool  
+<span class="token function">import</span> time,psutil  
+
+total_input_traffic <span class="token operator">=</span> psutil.network_io_counters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>    <span class="token comment">#&#x83B7;&#x53D6;&#x7F51;&#x5361;&#x5165;&#x6D41;&#x91CF;  </span>
+total_output_traffic <span class="token operator">=</span> psutil.network_io_counters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>    <span class="token comment">#&#x83B7;&#x53D6;&#x7F51;&#x5361;&#x51FA;&#x6D41;&#x91CF;  </span>
+<span class="token assign-left variable">starttime</span><span class="token operator">=</span>int<span class="token punctuation">(</span>time.time<span class="token punctuation">(</span><span class="token punctuation">))</span>    <span class="token comment">#&#x83B7;&#x53D6;&#x5F53;&#x524D;Linux&#x65F6;&#x95F4;&#x6233;  </span>
+<span class="token comment">#&#x5C06;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x4F5C;&#x4E3A;updatev&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;{&apos;return_value&apos;: 0L}&#x5219;&#x8BF4;&#x660E;&#x66F4;&#x65B0;&#x6210;&#x529F;&#xFF0C;&#x53CD;&#x4E4B;&#x5931;&#x8D25;  </span>
+<span class="token assign-left variable">update</span><span class="token operator">=</span>rrdtool.updatev<span class="token punctuation">(</span><span class="token string">&apos;/root/python/rddtool/Flow.rrd&apos;</span>,<span class="token string">&apos;%s:%s:%s&apos;</span> % <span class="token punctuation">(</span>str<span class="token punctuation">(</span>starttime<span class="token punctuation">)</span>,str<span class="token punctuation">(</span>total_input_traffic<span class="token punctuation">)</span>,str<span class="token punctuation">(</span>total_output_traffic<span class="token punctuation">))</span><span class="token punctuation">)</span>  
+print update
+</code></pre>
+<p>&#x5C06;&#x4EE3;&#x7801;&#x52A0;&#x5165;crontab&#xFF0C;&#x5E76;&#x914D;&#x7F6E;5&#x5206;&#x949F;&#x4F5C;&#x4E3A;&#x91C7;&#x96C6;&#x9891;&#x7387;&#xFF0C;crontab&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">   */5 * * * * /usr/bin/python /root/python/rddtool/update.py <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+</code></pre>
+<h4 id="413-&#x7B2C;&#x4E09;&#x6B65;&#x3000;&#x91C7;&#x7528;graph&#x65B9;&#x6CD5;&#x7ED8;&#x5236;&#x56FE;&#x8868;"><a name="413-&#x7B2C;&#x4E09;&#x6B65;&#x3000;&#x91C7;&#x7528;graph&#x65B9;&#x6CD5;&#x7ED8;&#x5236;&#x56FE;&#x8868;" class="anchor-navigation-ex-anchor" href="#413-&#x7B2C;&#x4E09;&#x6B65;&#x3000;&#x91C7;&#x7528;graph&#x65B9;&#x6CD5;&#x7ED8;&#x5236;&#x56FE;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.3 &#x7B2C;&#x4E09;&#x6B65;&#x3000;&#x91C7;&#x7528;graph&#x65B9;&#x6CD5;&#x7ED8;&#x5236;&#x56FE;&#x8868;</h4>
+<p>&#x6B64;&#x793A;&#x4F8B;&#x4E2D;&#x5173;&#x952E;&#x53C2;&#x6570;&#x4F7F;&#x7528;&#x4E86;&#x2013;x-grid&#x5B9A;&#x4E49;X&#x8F74;&#x7F51;&#x683C;&#x523B;&#x5EA6;&#xFF1B;DEF&#x6307;&#x5B9A;&#x6570;&#x636E;&#x6E90;&#xFF1B;&#x4F7F;&#x7528;CDEF&#x5408;&#x5E76;&#x6570;&#x636E;&#xFF1B;HRULE&#x7ED8;&#x5236;&#x6C34;&#x5E73;&#x7EBF;&#xFF08;&#x544A;&#x8B66;&#x7EBF;&#xFF09;&#xFF1B;GPRINT&#x8F93;&#x51FA;&#x6700;&#x5927;&#x503C;&#x3001;&#x6700;&#x5C0F;&#x503C;&#x3001;&#x5E73;&#x5747;&#x503C;&#x7B49;&#x3002;&#x8BE6;&#x7EC6;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x3010;/python/rrdtool/graph.py&#x3011;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># -*- coding: utf-8 -*-  </span>
+<span class="token comment">#!/usr/bin/python  </span>
+<span class="token function">import</span> rrdtool  
+<span class="token function">import</span> <span class="token function">time</span>  
+<span class="token comment">#&#x5B9A;&#x4E49;&#x56FE;&#x8868;&#x4E0A;&#x65B9;&#x5927;&#x6807;&#x9898;  </span>
+<span class="token assign-left variable">title</span><span class="token operator">=</span><span class="token string">&quot;Server network  traffic flow (&quot;</span>+time.strftime<span class="token punctuation">(</span><span class="token string">&apos;%Y-%m-%d&apos;</span>,time.localtime<span class="token punctuation">(</span>time.time<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>+<span class="token string">&quot;)&quot;</span>  
+<span class="token comment">#&#x91CD;&#x70B9;&#x89E3;&#x91CA;&quot;--x-grid&quot;,&quot;MINUTE:12:HOUR:1:HOUR:1:0:%H&quot;&#x53C2;&#x6570;&#x7684;&#x4F5C;&#x7528;&#xFF08;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x8FDB;&#x884C;&#x5206;&#x89E3;&#xFF09;  </span>
+<span class="token string">&quot;MINUTE:12&quot;</span> <span class="token comment">#&#x8868;&#x793A;&#x63A7;&#x5236;&#x6BCF;&#x9694;12&#x5206;&#x949F;&#x653E;&#x7F6E;&#x4E00;&#x6839;&#x6B21;&#x8981;&#x683C;&#x7EBF;  </span>
+<span class="token string">&quot;HOUR:1&quot;</span>  <span class="token comment">#&#x8868;&#x793A;&#x63A7;&#x5236;&#x6BCF;&#x9694;1&#x5C0F;&#x65F6;&#x653E;&#x7F6E;&#x4E00;&#x6839;&#x4E3B;&#x8981;&#x683C;&#x7EBF;  </span>
+<span class="token string">&quot;HOUR:1&quot;</span> <span class="token comment"># &#x8868;&#x793A;&#x63A7;&#x5236;1&#x4E2A;&#x5C0F;&#x65F6;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;label&#x6807;&#x7B7E;  </span>
+<span class="token string">&quot;0:%H&quot;</span>  <span class="token comment">#0&#x8868;&#x793A;&#x6570;&#x5B57;&#x5BF9;&#x9F50;&#x683C;&#x7EBF;&#xFF0C;%H&#x8868;&#x793A;&#x6807;&#x7B7E;&#x4EE5;&#x5C0F;&#x65F6;&#x663E;&#x793A;  </span>
+rrdtool.graph<span class="token punctuation">(</span> <span class="token string">&quot;Flow.png&quot;</span>, <span class="token string">&quot;--start&quot;</span>, <span class="token string">&quot;-1d&quot;</span>,<span class="token string">&quot;--vertical-label=Bytes/s&quot;</span>,
+<span class="token string">&quot;--x-grid&quot;</span>,<span class="token string">&quot;MINUTE:12:HOUR:1:HOUR:1:0:%H&quot;</span>,
+ <span class="token string">&quot;--width&quot;</span>,<span class="token string">&quot;650&quot;</span>,<span class="token string">&quot;--height&quot;</span>,<span class="token string">&quot;230&quot;</span>,<span class="token string">&quot;--title&quot;</span>,title,  
+ <span class="token string">&quot;DEF:inoctets=Flow.rrd:eth1_in:AVERAGE&quot;</span>,    <span class="token comment">#&#x6307;&#x5B9A;&#x7F51;&#x5361;&#x5165;&#x6D41;&#x91CF;&#x6570;&#x636E;&#x6E90;DS&#x53CA;CF  </span>
+ <span class="token string">&quot;DEF:outoctets=Flow.rrd:eth1_out:AVERAGE&quot;</span>,    <span class="token comment">#&#x6307;&#x5B9A;&#x7F51;&#x5361;&#x51FA;&#x6D41;&#x91CF;&#x6570;&#x636E;&#x6E90;DS&#x53CA;CF  </span>
+ <span class="token string">&quot;CDEF:total=inoctets,outoctets,+&quot;</span>,    <span class="token comment">#&#x901A;&#x8FC7;CDEF&#x5408;&#x5E76;&#x7F51;&#x5361;&#x51FA;&#x5165;&#x6D41;&#x91CF;&#xFF0C;&#x5F97;&#x51FA;&#x603B;&#x6D41;&#x91CF;total  </span>
+
+<span class="token string">&quot;LINE1:total#FF8833:Total traffic&quot;</span>,    <span class="token comment">#&#x4EE5;&#x7EBF;&#x6761;&#x65B9;&#x5F0F;&#x7ED8;&#x5236;&#x603B;&#x6D41;&#x91CF;  </span>
+ <span class="token string">&quot;AREA:inoctets#00FF00:In traffic&quot;</span>,    <span class="token comment">#&#x4EE5;&#x9762;&#x79EF;&#x65B9;&#x5F0F;&#x7ED8;&#x5236;&#x5165;&#x6D41;&#x91CF;  </span>
+ <span class="token string">&quot;LINE1:outoctets#0000FF:Out traffic&quot;</span>,    <span class="token comment">#&#x4EE5;&#x7EBF;&#x6761;&#x65B9;&#x5F0F;&#x7ED8;&#x5236;&#x51FA;&#x6D41;&#x91CF;  </span>
+ <span class="token string">&quot;HRULE:6144#FF0000:Alarm value<span class="token entity" title="\\">\\</span>r&quot;</span>,    <span class="token comment">#&#x7ED8;&#x5236;&#x6C34;&#x5E73;&#x7EBF;&#xFF0C;&#x4F5C;&#x4E3A;&#x544A;&#x8B66;&#x7EBF;&#xFF0C;&#x9608;&#x503C;&#x4E3A;6.1k  </span>
+ <span class="token string">&quot;CDEF:inbits=inoctets,8,*&quot;</span>,    <span class="token comment">#&#x5C06;&#x5165;&#x6D41;&#x91CF;&#x6362;&#x7B97;&#x6210;bit&#xFF0C;&#x5373;*8&#xFF0C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7ED9;inbits  </span>
+ <span class="token string">&quot;CDEF:outbits=outoctets,8,*&quot;</span>,    <span class="token comment">#&#x5C06;&#x51FA;&#x6D41;&#x91CF;&#x6362;&#x7B97;&#x6210;bit&#xFF0C;&#x5373;*8&#xFF0C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7ED9;outbits  </span>
+<span class="token string">&quot;COMMENT:<span class="token entity" title="\\">\\</span>r&quot;</span>,                    <span class="token comment">#&#x5728;&#x7F51;&#x683C;&#x4E0B;&#x65B9;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x6362;&#x884C;&#x7B26;  </span>
+ <span class="token string">&quot;COMMENT:<span class="token entity" title="\\">\\</span>r&quot;</span>,  
+ <span class="token string">&quot;GPRINT:inbits:AVERAGE:Avg In traffic\: %6.2lf %Sbps&quot;</span>,    <span class="token comment">#&#x7ED8;&#x5236;&#x5165;&#x6D41;&#x91CF;&#x5E73;&#x5747;&#x503C;  </span>
+ <span class="token string">&quot;COMMENT:   &quot;</span>,  
+ <span class="token string">&quot;GPRINT:inbits:MAX:Max In traffic\: %6.2lf %Sbps&quot;</span>,    <span class="token comment">#&#x7ED8;&#x5236;&#x5165;&#x6D41;&#x91CF;&#x6700;&#x5927;&#x503C;  </span>
+ <span class="token string">&quot;COMMENT:  &quot;</span>,  
+ <span class="token string">&quot;GPRINT:inbits:MIN:MIN In traffic\: %6.2lf %Sbps<span class="token entity" title="\\">\\</span>r&quot;</span>,    <span class="token comment">#&#x7ED8;&#x5236;&#x5165;&#x6D41;&#x91CF;&#x6700;&#x5C0F;&#x503C;  </span>
+ <span class="token string">&quot;COMMENT: &quot;</span>,  
+ <span class="token string">&quot;GPRINT:outbits:AVERAGE:Avg Out traffic\: %6.2lf %Sbps&quot;</span>,    <span class="token comment">#&#x7ED8;&#x5236;&#x51FA;&#x6D41;&#x91CF;&#x5E73;&#x5747;&#x503C;  </span>
+ <span class="token string">&quot;COMMENT: &quot;</span>,  
+ <span class="token string">&quot;GPRINT:outbits:MAX:Max Out traffic\: %6.2lf %Sbps&quot;</span>,    <span class="token comment">#&#x7ED8;&#x5236;&#x51FA;&#x6D41;&#x91CF;&#x6700;&#x5927;&#x503C;  </span>
+ <span class="token string">&quot;COMMENT: &quot;</span>,  
+ <span class="token string">&quot;GPRINT:outbits:MIN:MIN Out traffic\: %6.2lf %Sbps<span class="token entity" title="\\">\\</span>r&quot;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x7ED8;&#x5236;&#x51FA;&#x6D41;&#x91CF;&#x6700;&#x5C0F;&#x503C;</span>
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x5C06;&#x751F;&#x6210;&#x4E00;&#x4E2A;Flow.png&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x56FE;3-13&#x6240;&#x793A;&#x3002;
+<img src="https://img-blog.csdnimg.cn/20210117182624995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x67E5;&#x770B;rrd&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x6709;&#x5229;&#x4E8E;&#x89C2;&#x5BDF;&#x6570;&#x636E;&#x7684;&#x7ED3;&#x6784;&#x3001;&#x66F4;&#x65B0;&#x7B49;&#x60C5;&#x51B5;.
+rrdtool&#x63D0;&#x4F9B;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre class="language-"><code>info&#x67E5;&#x770B;rrd&#x6587;&#x4EF6;&#x7684;&#x7ED3;&#x6784;&#x4FE1;&#x606F;&#xFF0C;&#x5982;rrdtool info Flow.rrd&#xFF1B;
+
+first&#x67E5;&#x770B;rrd&#x6587;&#x4EF6;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x66F4;&#x65B0;&#x65F6;&#x95F4;&#xFF0C;&#x5982;rrdtool first Flow.rrd&#xFF1B;
+
+last&#x67E5;&#x770B;rrd&#x6587;&#x4EF6;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5982;rrdtool last Flow.rrd&#xFF1B;
+
+fetch&#x6839;&#x636E;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x3001;CF&#x67E5;&#x8BE2;rrd&#x6587;&#x4EF6;&#xFF0C;&#x5982;rrdtool fetch Flow.rrd AVERAGE &#xFF08;&#x5FC5;&#x987B;&#x4E3A;&#x5927;&#x5199;&#xFF09;
+</code></pre><p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://oss.oetiker.ch/rrdtool/prog/rrdpython.en.html" target="_blank">rrdpython</a></li>
+<li><a href="https://www.cnblogs.com/jin-xin/p/6774828.html" target="_blank">&#x5BF9;python-rrdtool&#x6A21;&#x5757;&#x7684;&#x6D45;&#x7814;&#x7A76;&#x3002;</a> </li>
+<li><a href="https://www.pythonstudio.us/system-administration/storing-data-with-rrdtool.html" target="_blank">Storing Data with RRDTool</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 08:51:48
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_psutil.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 psutil 系统监控">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_cPickle_and_pickle.html" class="navigation navigation-next " aria-label="Next page: python 模块 cpickle 与 pickle 序列化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 rrdtool 数据处理","level":"1.7.40","depth":2,"next":{"title":"python 模块 cpickle 与 pickle 序列化","level":"1.7.41","depth":2,"path":"Modules/python_cPickle_and_pickle.md","ref":"Modules/python_cPickle_and_pickle.md","articles":[]},"previous":{"title":"python 模块 psutil 系统监控","level":"1.7.39","depth":2,"path":"Modules/python_psutil.md","ref":"Modules/python_psutil.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_rrdtools.md","mtime":"2022-06-30T08:51:48.842Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

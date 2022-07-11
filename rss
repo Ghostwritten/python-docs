@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Python Docs]]></title>
+        <description><![CDATA[This is the best book ever.]]></description>
+        <link>https://smoothies.com.cn/python-docs/</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 11 Jul 2022 13:12:28 GMT</lastBuildDate>
+        <atom:link href="http://smoothies.com.cn/rss" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[Zong Xun]]></author>
+        <managingEditor><![CDATA[writer@smoothies.com.cn (Zong Xun)]]></managingEditor>
+        <webMaster><![CDATA[webmaster@smoothies.com.cn (Zong Xun)]]></webMaster>
+        <category><![CDATA[python]]></category>
+        <item>
+            <title><![CDATA[Summary]]></title>
+            <link>https://smoothies.com.cn/python-docs/Overview.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Overview.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[序言]]></title>
+            <description><![CDATA[这是一本关于集合 python 的书。]]></description>
+            <link>https://smoothies.com.cn/python-docs/</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python Flask 教程]]></title>
+            <description><![CDATA[Miraculous Love]]></description>
+            <link>https://smoothies.com.cn/python-docs/Flask/README.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Flask/README.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 基础]]></title>
+            <description><![CDATA[daze]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/README.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/README.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python pip 安装]]></title>
+            <description><![CDATA[首先安装epel扩展源：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_1.0_pip_install.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_1.0_pip_install.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python pip 安装模块包命令]]></title>
+            <description><![CDATA[在这里插入图片描述]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_1.1_pip.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_1.1_pip.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python pip 解决下载速度慢]]></title>
+            <description><![CDATA[新版ubuntu要求使用https源，要注意。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_1.2_pip_download_slow.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_1.2_pip_download_slow.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 3.10.0 源码编译安装]]></title>
+            <description><![CDATA[如果不配置 --prefix，安装文件将分散在多个位置：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_2.0_compile_install.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_2.0_compile_install.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 多种运行脚本方式]]></title>
+            <description><![CDATA[您将有机会通过以下方式学习如何运行 Python 脚本：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_3_scripts_run.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_3_scripts_run.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python import 介绍]]></title>
+            <description><![CDATA[python的类和函数的区别主要在于类可以有变量和各种方法，而函数没有。函数只能被运行，返回或者不返回值都可以。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_4_import.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_4_import.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python list 列表]]></title>
+            <description><![CDATA[特色版]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_5_list.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_5_list.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[pyhon tuple 元组]]></title>
+            <description><![CDATA[[ ]切片]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_6_tuple.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_6_tuple.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python dict 字典]]></title>
+            <description><![CDATA[字典是另一种可变容器模型，且可存储任意类型对象。
+字典的每个键值(key=>value)对用冒号(:)分割，每个对之间用逗号(,)分割，整个字典包括在花括号
+例如：d = {key1 : value1, key2 value2 }
+键必须是唯一的，但值则不必
+不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_7_dict.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_7_dict.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 异常处理]]></title>
+            <description><![CDATA[异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。
+一般情况下，在Python无法正常处理程序时就会发生一个异常。
+异常是Python对象，表示一个错误。
+当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_8_error_handle.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_8_error_handle.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 基本函数]]></title>
+            <description><![CDATA[函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_9_basic_function.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_9_basic_function.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 内置函数]]></title>
+            <description><![CDATA[参数]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_10_built_in_functions.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_10_built_in_functions.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 高级函数]]></title>
+            <description><![CDATA[带时间戳日志格式的函数模块化]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_11_advanced_functions.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_11_advanced_functions.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 装饰器]]></title>
+            <description><![CDATA[装饰器本质上是一个Python函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_12_decoratiors.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_12_decoratiors.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python yield 生成器]]></title>
+            <description><![CDATA[您可能听说过，带有 yield 的函数在 Python 中被称之为 generator（生成器），何谓 generator ？]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_13_yield.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_13_yield.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 函数 print 打印]]></title>
+            <description><![CDATA[以下是 print() 方法的语法:]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_14_function_print.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_14_function_print.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 函数 open 文本操作]]></title>
+            <description><![CDATA[IO在计算机中指的是Input/Output，也就是输入输出。凡是用到数据交换的地 方，都会涉及IO编程，例如磁盘、网络的数据传输。在IO编程中，Stream（流）是 一种重要的概念，分为输入流（Input Stream）和输出流（Output Stream）。我 们可以把流理解为一个水管，数据相当于水管中的水，但是只能单向流动，所以数 据传输过程中需要架设两个水管，一个负责输入，一个负责输出，这样读写就可以 实现同步。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_14.1_function_open.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_14.1_function_open.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 函数 super 调用父类]]></title>
+            <description><![CDATA[super() 函数是用于调用父类(超类)的一个方法。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_14.2_function_super.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_14.2_function_super.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python（1）面向对象之类]]></title>
+            <description><![CDATA[类实例化后，可以使用其属性，实际上，创建一个类之后，可以通过类名访问其属性。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_15_object_oriented.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_15_object_oriented.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python（2）面向对象之类]]></title>
+            <description><![CDATA[示例：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_15.1_object_oriented.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_15.1_object_oriented.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 进程、线程、协程]]></title>
+            <description><![CDATA[并发编程（不是并行）目前有四种方式：多进程、多线程、协程和异步。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_16_process_thread_coroutine.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_16_process_thread_coroutine.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 应用程序布局]]></title>
+            <description><![CDATA[在本文中，我想为您提供一个可靠的 Python 应用程序布局参考指南，您可以参考它来解决您的绝大多数用例。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Base/python_17_application_layout.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Base/python_17_application_layout.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 清单]]></title>
+            <description><![CDATA[我将收集来自四面八方的混合实用的 python 脚本。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Case/README.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Case/README.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 监控文件移动解压]]></title>
+            <description><![CDATA[最近在部署前端项目的时候，需要先将前端项目压缩包通过堡垒机上传到应用服务器的 /tmp 目录下，然后进入应用服务器中，使用 mv 命令将压缩文件移动到 Nginx 项目设定目录，最后使用 unzip 命令解压文件，以此完成项目的部署]]></description>
+            <link>https://smoothies.com.cn/python-docs/Case/python_monitor_1_file_move_and_unzip.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Case/python_monitor_1_file_move_and_unzip.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python Flask 教程]]></title>
+            <description><![CDATA[Miraculous Love]]></description>
+            <link>https://smoothies.com.cn/python-docs/Django/README.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Django/README.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 模块]]></title>
+            <description><![CDATA[我将根据频繁的实际需求收集实用的python模块，或许对你有用。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/README.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/README.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块（1）asyncio 协程异步]]></title>
+            <description><![CDATA[异步IO：就是发起一个IO操作（如：网络请求，文件读写等），这些操作一般是比较耗时的，不用等待它结束，可以继续做其他事情，结束时会发来通知。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_asyncio.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_asyncio.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 subprocess 执行命令]]></title>
+            <description><![CDATA[从Python 2.4开始，Python引入 subprocess 模块来管理子进程，以取代一些旧模块的方法：如 os.system、os.spawn*、os.popen*、popen2.*、commands.*不但可以调用外部的命令作为子进程，而且可以连接到子进程的input/output/error管道，获取相关的返回信息。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_subprocess.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_subprocess.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 concurrent.futures 线程处理]]></title>
+            <description><![CDATA[从Python3.2开始，标准库为我们提供了 concurrent.futures 模块，它提供了 ThreadPoolExecutor (线程池)和ProcessPoolExecutor (进程池)两个类。
+相比 threading 等模块，该模块通过 submit 返回的是一个 future 对象，它是一个未来可期的对象，通过它可以获悉线程的状态主线程(或进程)中可以获取某一个线程(进程)执行的状态或者某一个任务执行的状态及返回值：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_concurrent.futures.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_concurrent.futures.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 Selenium 自动化测试 Web 工具]]></title>
+            <description><![CDATA[Selenium是一个用于测试网站的自动化测试工具，支持各种浏览器包括Chrome、Firefox、Safari等主流界面浏览器，同时也支持phantomJS无界面浏览器。可执行系统如Windows、Linux、IOS、Android等。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_Selenium.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_Selenium.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 configParser 配置文件]]></title>
+            <description><![CDATA[configparser是Pyhton标准库中用来解析配置文件的模块，并且内置方法和字典非常接近。Python2.x 中名为 ConfigParser，3.x 已更名小写，并加入了一些新功能。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_configParser.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_configParser.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 pdb调试工具]]></title>
+            <description><![CDATA[pdb是ptyhon内置的一个调试库，是调试python代码的好帮手，本文是对其用法的详细介绍。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_pdb.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_pdb.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 paramiko批量远程]]></title>
+            <description><![CDATA[paramiko 模块是基于python实现了SSH2远程安全连接，支持认证和密钥方式，可以实现远程连接、命令执行、文件传输、中间SSH代理功能，相对于pexpect，封装层次更高。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_paramiko.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_paramiko.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 dnspython]]></title>
+            <description><![CDATA[dnspython（http://www.dnspython.org/）是Python实现的一个DNS 工具包，它支持几乎所有的记录类型，可以用于查询、传输并动态更新 ZONE信息，同时支持TSIG（事务签名）验证消息和EDNS0（扩展 DNS）。在系统管理方面，我们可以利用其查询功能来实现DNS服务监 控以及解析结果的校验，可以代替nslookup及dig等工具，轻松做到与现 有平台的整合，下面进行详细介绍。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_dnspython.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_dnspython.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 ntpath]]></title>
+            <description><![CDATA[不要直接导入这个模块，而是导入 os 并将这个
+模块称为 os.path。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_ntpath.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_ntpath.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 gevent 协程]]></title>
+            <description><![CDATA[我们通常所说的协程Coroutine其实是corporate routine的缩写，直接翻译为协同的例程，一般我们都简称为协程。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_gevent.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_gevent.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 time 时间处理]]></title>
+            <description><![CDATA[time模块提供各种时间相关的功能
+与时间相关的模块有：time,datetime,calendar
+一些术语和约定的解释：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_time.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_time.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 nmap 网络扫描]]></title>
+            <description><![CDATA[NMap，也就是Network Mapper，最早是Linux下的网络扫描和嗅探工具包。源码：https://github.com/nmmapper/python3-nmap]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_nmap.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_nmap.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 random随机生成]]></title>
+            <description><![CDATA[random() 方法返回随机生成的一个实数，它在[0,1)范围内。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_random.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_random.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 模块 Socket 网络通信]]></title>
+            <description><![CDATA[Python 提供了两个基本的 socket 模块：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_socket.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_socket.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 sys]]></title>
+            <description><![CDATA[“sys”即“system”，“系统”之意。该模块提供了一些接口，用于访问 Python 解释器自身使用和维护的变量，同时模块中还提供了一部分函数，可以与解释器进行比较深度的交互。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_sys.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_sys.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 pandas 数组处理]]></title>
+            <description><![CDATA[Pandas 的数据结构：Pandas 主要有 Series（一维数组），DataFrame（二维数组），Panel（三维数组），Panel4D（四维数组），PanelND（更多维数组）等数据结构。其中 Series 和 DataFrame 应用的最为广泛。
+Pandas 常用的数据结构有两种：Series 和 DataFrame。这些数据结构构建在 Numpy 数组之上，这意味着它们效率很高。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_pandas.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_pandas.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 pycurl 处理 URL]]></title>
+            <description><![CDATA[pycurl 是功能强大的python的url库，是用c语言写的，速度很快，比urllib和httplib都快。支持操作协议有FTP, HTTP,HTTPS,TELNET等，通过pycurl提供的方法，可以实现探测WEB服务质量的情况，比如，响应的HTTP状态码、请求延时、HTTP头信息、下载速度等。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_pycurl.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_pycurl.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 IPy]]></title>
+            <description><![CDATA[IPy 模块包含IP类，可以方便的处理绝大部分个是为IPv6和IPv4的网络和地址。可以通过version方法就可以分出IPv4和IPv6]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_IPy.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_IPy.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 mysql-connector 管理数据库]]></title>
+            <description><![CDATA[MySQL 是最流行的关系型数据库管理系统，mysql-connector 来连接使用 MySQL， mysql-connector 是 MySQL 官方提供的驱动器。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_mysql-connector.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_mysql-connector.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 zipfile压缩文件管理]]></title>
+            <description><![CDATA[Python zipfile是一个用于操作ZIP 文件的标准库模块。在归档和压缩数字数据时，这种文件格式是一种广泛采用的行业标准。您可以使用它将几个相关文件打包在一起。它还允许您减小文件大小并节省磁盘空间。最重要的是，它促进了计算机网络上的数据交换。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_zipfile.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_zipfile.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块  json 文本处理]]></title>
+            <description><![CDATA[JSON 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。
+数据格式可以简单地理解为键值对的集合（A collection of name/value pairs）。不同的语言中，它被理解为对象（object），纪录（record），结构（struct），字典（dictionary），哈希表（hash table），有键列表（keyed list），或者关联数组 （associative array）。
+值的有序列表（An ordered list of values）。在大部分语言中，它被理解为数组（array）。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_json.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_json.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 collections 专用容器数据类型]]></title>
+            <description><![CDATA[官方说法：collections模块实现了特定目标的容器，以提供Python标准内建容器dict ,list , set , 和tuple的替代选择。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_collections.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_collections.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 re 正则表达式]]></title>
+            <description><![CDATA[Python re 正则表达式
+在这里插入图片描述
+正则表达式的大致匹配过程是：依次拿出表达式和文本中的字符比较，如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。如果表达式中有量词或边界，这个过程会稍微有一些不同，但也是很好理解的，看下图中的示例以及自己多使用几次就能明白。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_re.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_re.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 datetime时间处理]]></title>
+            <description><![CDATA[date类表示日期，构造函数如下 ：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_datetime.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_datetime.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 os模块文件目录操作]]></title>
+            <description><![CDATA[size为读取的长度，以byte为单位]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_os.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_os.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 threading 多线程]]></title>
+            <description><![CDATA[多线程类似于同时执行多个不同程序，多线程运行有如下优点：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_threading.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_threading.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 httplib 处理HTTP请求]]></title>
+            <description><![CDATA[httplib是提供了Web客户端的功能和接口。这样httplib将会完成Web浏览器的基本功能。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_httplib.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_httplib.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 logging日志处理]]></title>
+            <description><![CDATA[在 Python 中有一个标准的 logging 模块，我们可以使用它来进行标注的日志记录，利用它我们可以更方便地进行日志记录，同时还可以做更方便的级别区分以及一些额外日志信息的记录，如时间、运行模块信息等。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_logging.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_logging.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 BeautifulSoup 抓取 Web 数据]]></title>
+            <description><![CDATA[互联网上海量的数据是任何研究领域或个人兴趣的丰富资源。为了有效地收集这些数据，您需要熟练掌握网络爬虫。
+您将学习如何：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_BeautifulSoup.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_BeautifulSoup.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 commands 执行命令]]></title>
+            <description><![CDATA[commands模块是python的内置模块，他共有三个函数，使用help(commands)可以查看到]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_commands.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_commands.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 flask-caching 缓存]]></title>
+            <description><![CDATA[为了尽量减少缓存穿透，同时减少web的响应时间，我们可以针对那些需要一定时间才能获取结果的函数和那些不需要频繁更新的视图函数提供缓存服务，可以在一定的时间内直接返回结果而不是每次都需要计算或者从数据库中查找。flask_caching插件就是提供这种功能的神器。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_flask_caching.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_flask_caching.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 argparse参数配置]]></title>
+            <description><![CDATA[通过argparse模块，可以轻松编写用户友好的命令行界面。 它解析sys.argv中定义的参数。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_argparse.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_argparse.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 模块 PyMySQL 管理数据库]]></title>
+            <description><![CDATA[PyMySQL 是在 Python3.x 版本中用于连接 MySQL 服务器的一个库，Python2中则使用mysqldb。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_pymysql.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_pymysql.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 click参数处理]]></title>
+            <description><![CDATA[Click 是 Flask 的开发团队 Pallets 的另一款开源项目，它是用于快速创建命令行的第三方模块。我们知道，Python 内置了一个 Argparse 的标准库用于创建命令行，但使用起来有些繁琐，Click 相比于 Argparse，就好比 requests 相比于 urllib。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_click.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_click.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 copy 复制]]></title>
+            <description><![CDATA[对于简单的 object，用shallow copy 和 deep copy 没区别；而对于复杂的 object， 如 list 中套着 list 的情况，shallow copy 中的 子list，并未从原 object 真的「独立」出来。也就是说，如果你改变原 object 的子 list 中的一个元素，你的 copy 就会跟着一起变。这跟我们直觉上对「复制」的理解不同。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_copy.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_copy.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 redis]]></title>
+            <description><![CDATA[redis 是一个 Key-Value 数据库，Value 支持 string(字符串)，list(列表)，set(集合)，zset(有序集合)，hash(哈希类型)等类型。默认端口号为 6379]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_redis.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_redis.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 XlsxWriter 生成execl文档]]></title>
+            <description><![CDATA[Excel是当今最流行的电子表格处理软件，支持丰富的计算函数及图表，在系统运营方面广泛用于运营数据报表，比如业务质量、资源利用、安全扫描等报表，同时也是应用系统常见的文件导出格式，以便数据使用人员做进一步加工处理。本节主要讲述利用Python操作Excel的模块XlsxWriter（https://xlsxwriter.readthedocs.org），可以操作多个工作表的文字、数字、公式、图表等。XlsxWriter 模块具有以下功能：]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_XlsxWriter.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_XlsxWriter.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 promethues_client 开发 exporter]]></title>
+            <description><![CDATA[promethues_client模块为开放prometheus客户端，自定义监控指标。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_prometheus_client.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_prometheus_client.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 psutil 系统监控]]></title>
+            <description><![CDATA[psutil 是一个跨平台库（http://code.google.com/p/psutil/） ，能够轻松实现获取系统运行的进程和系统利用率（包括CPU、内存、磁盘、网络等）信息。它主要应用于系统监控，分析和限制系统资源及进程的管理。它实现了同等命令行工具提供的功能，如ps、top、lsof、netstat、ifconfig、who、df、kill、free、nice、ionice、iostat、iotop、uptime、pidof、tty、taskset、pmap等。目前支持32位和64位的Linux、Windows、OS X、FreeBSD和Sun Solaris等操作系统]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_psutil.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_psutil.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[Python 模块 rrdtool 数据处理]]></title>
+            <description><![CDATA[rrdtool（round robin database）工具为环状数据库的存储格式，round robin是一种处理定量数据以及当前元素指针的技术。rrdtool主要用来跟踪对象的变化情况，生成这些变化的走势图，比如业务的访问流量、系统性能、磁盘利用率等趋势图，很多流行监控平台都使用到rrdtool，比较有名的为Cacti、Ganglia、Monitorix等。
+rrdtool是一个复杂的工具，涉及较多参数概念，本节主要通过Python的rrdtool模块对rrdtool的几个常用方法进行封装，包括create、fetch、graph、info、update等方法。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_rrdtools.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_rrdtools.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 cPickle 与 pickle 序列化]]></title>
+            <description><![CDATA[cPickle 模块通过实现将任意 python 对象转换为一系列 Bytes 的算法来帮助我们。Pickle 模块也带有类似类型的程序。但是 2 之间的区别在于cPickle 更快并且在 C 中实现了算法。cPickle 优于 Pickle 的唯一缺点是它不允许用户从 Pickle 子类化。简而言之，我们可以得出结论，使用 cPickle 是出于对象序列化的动机。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_cPickle_and_pickle.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_cPickle_and_pickle.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 filecmp 文件差异对比]]></title>
+            <description><![CDATA[Python2.3以上的版本默认自带了filecmp模块，无需额外安装。我们可以用这个模块来检查原式与目标文件的一致性，filecmp可以实现文件、目录、遍历子目录的差异对比功能。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_filecmp.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_filecmp.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 stmplib与email 发送邮箱]]></title>
+            <description><![CDATA[简单邮件传输协议 (SMTP) 是一种协议，用于处理在邮件服务器之间发送电子邮件和路由电子邮件。]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_stmplib_and_email.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_stmplib_and_email.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 requests (1) 处理 url]]></title>
+            <description><![CDATA[requests 是python的一个HTTP客户端库，跟urllib，urllib2类似，那为什么要用requests而不用urllib2呢？]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_request_1.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_request_1.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[python 模块 requests (2) 处理url]]></title>
+            <description><![CDATA[html内容]]></description>
+            <link>https://smoothies.com.cn/python-docs/Modules/python_request_2.html</link>
+            <guid isPermaLink="true">https://smoothies.com.cn/python-docs/Modules/python_request_2.html</guid>
+            <dc:creator><![CDATA[Zong Xun]]></dc:creator>
+        </item>
+    </channel>
+</rss>

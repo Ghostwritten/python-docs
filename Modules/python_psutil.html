@@ -1,0 +1,1707 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 psutil 系统监控 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_rrdtools.html" />
+    
+    
+    <link rel="prev" href="python_prometheus_client.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 psutil 系统监控</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-psutil-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;"><b></b>python &#x6A21;&#x5757; psutil &#x7CFB;&#x7EDF;&#x76D1;&#x63A7;</a></li><ul><li><span class="title-icon "></span><a href="#1-psutil&#x4ECB;&#x7ECD;"><b></b>1 psutil&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-psutil&#x5B89;&#x88C5;"><b></b>2 psutil&#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#3-psutil&#x5B9E;&#x6218;"><b></b>3 psutil&#x5B9E;&#x6218;</a></li><ul><li><span class="title-icon "></span><a href="#31-&#x83B7;&#x53D6;cpu&#x4FE1;&#x606F;"><b></b>3.1 &#x83B7;&#x53D6;cpu&#x4FE1;&#x606F;</a></li><li><span class="title-icon "></span><a href="#32-&#x83B7;&#x53D6;&#x5185;&#x5B58;&#x4FE1;&#x606F;"><b></b>3.2 &#x83B7;&#x53D6;&#x5185;&#x5B58;&#x4FE1;&#x606F;</a></li><li><span class="title-icon "></span><a href="#33-&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;"><b></b>3.3 &#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;</a></li><li><span class="title-icon "></span><a href="#34-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;"><b></b>3.4 &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;</a></li><li><span class="title-icon "></span><a href="#35-&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;"><b></b>3.5 &#x8FDB;&#x7A0B;&#x4FE1;&#x606F;</a></li><li><span class="title-icon "></span><a href="#36-&#x5176;&#x4ED6;&#x4FE1;&#x606F;"><b></b>3.6 &#x5176;&#x4ED6;&#x4FE1;&#x606F;</a></li></ul></ul></ul></div><a href="#python-&#x6A21;&#x5757;-psutil-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-psutil-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;"><a name="python-&#x6A21;&#x5757;-psutil-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-psutil-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;"><i class="fa fa-link" aria-hidden="true"></i></a>python &#x6A21;&#x5757; psutil &#x7CFB;&#x7EDF;&#x76D1;&#x63A7;</h1>
+<h2 id="1-psutil&#x4ECB;&#x7ECD;"><a name="1-psutil&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-psutil&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1 psutil&#x4ECB;&#x7ECD;</h2>
+<p><a href="https://pypi.org/project/psutil/" target="_blank">psutil</a> &#x662F;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x5E93;&#xFF08;<a href="http://code.google.com/p/psutil/&#xFF09;" target="_blank">http://code.google.com/p/psutil/&#xFF09;</a> &#xFF0C;&#x80FD;&#x591F;&#x8F7B;&#x677E;&#x5B9E;&#x73B0;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x548C;&#x7CFB;&#x7EDF;&#x5229;&#x7528;&#x7387;&#xFF08;&#x5305;&#x62EC;CPU&#x3001;&#x5185;&#x5B58;&#x3001;&#x78C1;&#x76D8;&#x3001;&#x7F51;&#x7EDC;&#x7B49;&#xFF09;&#x4FE1;&#x606F;&#x3002;&#x5B83;&#x4E3B;&#x8981;&#x5E94;&#x7528;&#x4E8E;&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#xFF0C;&#x5206;&#x6790;&#x548C;&#x9650;&#x5236;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x53CA;&#x8FDB;&#x7A0B;&#x7684;&#x7BA1;&#x7406;&#x3002;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#x540C;&#x7B49;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5982;ps&#x3001;top&#x3001;lsof&#x3001;netstat&#x3001;ifconfig&#x3001;who&#x3001;df&#x3001;kill&#x3001;free&#x3001;nice&#x3001;ionice&#x3001;iostat&#x3001;iotop&#x3001;uptime&#x3001;pidof&#x3001;tty&#x3001;taskset&#x3001;pmap&#x7B49;&#x3002;&#x76EE;&#x524D;&#x652F;&#x6301;32&#x4F4D;&#x548C;64&#x4F4D;&#x7684;Linux&#x3001;Windows&#x3001;OS X&#x3001;FreeBSD&#x548C;Sun Solaris&#x7B49;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</p>
+<h2 id="2-psutil&#x5B89;&#x88C5;"><a name="2-psutil&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#2-psutil&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>2 psutil&#x5B89;&#x88C5;</h2>
+<pre class="language-"><code class="lang-bash"><span class="token function">wget</span> https://pypi.python.org/packages/source/p/psutil/psutil-2.0.0.tar.gz
+<span class="token function">tar</span> -xzvf psutil-2.0.0.tar.gz
+<span class="token builtin class-name">cd</span> psutil-2.0.0
+python setup.py <span class="token function">install</span>
+<span class="token comment">#or</span>
+pip <span class="token function">install</span> psutil
+</code></pre>
+<h2 id="3-psutil&#x5B9E;&#x6218;"><a name="3-psutil&#x5B9E;&#x6218;" class="anchor-navigation-ex-anchor" href="#3-psutil&#x5B9E;&#x6218;"><i class="fa fa-link" aria-hidden="true"></i></a>3 psutil&#x5B9E;&#x6218;</h2>
+<h3 id="31-&#x83B7;&#x53D6;cpu&#x4FE1;&#x606F;"><a name="31-&#x83B7;&#x53D6;cpu&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#31-&#x83B7;&#x53D6;cpu&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 &#x83B7;&#x53D6;cpu&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># cat psutil1<span class="token punctuation">.</span>py 
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import psutil
+#&#x83B7;&#x53D6;CPU&#x7684;&#x5B8C;&#x6574;&#x4FE1;&#x606F;
+print psutil<span class="token punctuation">.</span><span class="token function">cpu_times</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;CPU&#x7684;USER&#x7684;&#x65F6;&#x95F4;&#x6BD4;
+print psutil<span class="token punctuation">.</span><span class="token function">cpu_times</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>user
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token expression">CPU&#x903B;&#x8F91;&#x4E2A;&#x6570;</span></span>
+print psutil<span class="token punctuation">.</span><span class="token function">cpu_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token expression">CPU&#x7269;&#x7406;&#x4E2A;&#x6570;</span></span>
+print psutil<span class="token punctuation">.</span><span class="token function">cpu_count</span><span class="token punctuation">(</span>logical<span class="token operator">=</span>False<span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;cpu&#x7684;&#x4F7F;&#x7528;&#x7387;
+print psutil<span class="token punctuation">.</span><span class="token function">cpu_percent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x8FDB;&#x7A0B;&#x4E3A;<span class="token number">1</span>&#x7684;cpu&#x7684;&#x4F7F;&#x7528;&#x7387;
+print psutil<span class="token punctuation">.</span><span class="token function">cpu_percent</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># python psutil1<span class="token punctuation">.</span>py 
+<span class="token function">scputimes</span><span class="token punctuation">(</span>user<span class="token operator">=</span><span class="token number">21.13</span><span class="token punctuation">,</span> nice<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> system<span class="token operator">=</span><span class="token number">35.92</span><span class="token punctuation">,</span> idle<span class="token operator">=</span><span class="token number">6167.98</span><span class="token punctuation">,</span> iowait<span class="token operator">=</span><span class="token number">0.96</span><span class="token punctuation">,</span> irq<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> softirq<span class="token operator">=</span><span class="token number">1.15</span><span class="token punctuation">,</span> steal<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> guest<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> guest_nice<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">)</span>
+<span class="token number">21.13</span>
+<span class="token number">2</span>
+<span class="token number">1</span>
+<span class="token number">0.0</span>
+<span class="token number">0.0</span>
+</code></pre>
+<h3 id="32-&#x83B7;&#x53D6;&#x5185;&#x5B58;&#x4FE1;&#x606F;"><a name="32-&#x83B7;&#x53D6;&#x5185;&#x5B58;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#32-&#x83B7;&#x53D6;&#x5185;&#x5B58;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 &#x83B7;&#x53D6;&#x5185;&#x5B58;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># cat psutil2<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import psutil
+mem <span class="token operator">=</span> psutil<span class="token punctuation">.</span><span class="token function">virtual_memory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x5185;&#x5B58;&#x5B8C;&#x6574;&#x4FE1;&#x606F;
+print mem
+#&#x83B7;&#x53D6;&#x603B;&#x5185;&#x5B58;&#x4FE1;&#x606F;
+print mem<span class="token punctuation">.</span>total
+#&#x4EE5;MB&#x4E3A;&#x5355;&#x4F4D;&#x83B7;&#x53D6;&#x603B;&#x5185;&#x5B58;&#x4FE1;&#x606F;
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">str</span><span class="token punctuation">(</span>mem<span class="token punctuation">.</span>total<span class="token operator">/</span><span class="token number">1024</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token char">&apos;MB&apos;</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x5DF2;&#x7528;&#x4FE1;&#x606F;
+print mem<span class="token punctuation">.</span>used
+#&#x83B7;&#x53D6;&#x7A7A;&#x95F2;&#x4FE1;&#x606F;
+print mem<span class="token punctuation">.</span>free
+
+#&#x83B7;&#x53D6;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x4FE1;&#x606F;
+print psutil<span class="token punctuation">.</span><span class="token function">swap_memory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># python psutil2<span class="token punctuation">.</span>py 
+<span class="token function">svmem</span><span class="token punctuation">(</span>total<span class="token operator">=</span><span class="token number">1907802112</span><span class="token punctuation">,</span> available<span class="token operator">=</span><span class="token number">1568444416</span><span class="token punctuation">,</span> percent<span class="token operator">=</span><span class="token number">17.8</span><span class="token punctuation">,</span> used<span class="token operator">=</span><span class="token number">182579200</span><span class="token punctuation">,</span> free<span class="token operator">=</span><span class="token number">1478758400</span><span class="token punctuation">,</span> active<span class="token operator">=</span><span class="token number">142086144</span><span class="token punctuation">,</span> inactive<span class="token operator">=</span><span class="token number">158580736</span><span class="token punctuation">,</span> buffers<span class="token operator">=</span><span class="token number">2170880</span><span class="token punctuation">,</span> cached<span class="token operator">=</span><span class="token number">244293632</span><span class="token punctuation">,</span> shared<span class="token operator">=</span><span class="token number">10051584</span><span class="token punctuation">,</span> slab<span class="token operator">=</span><span class="token number">54722560</span><span class="token punctuation">)</span>
+<span class="token number">1907802112</span>
+<span class="token number">1819</span>MB
+<span class="token number">182579200</span>
+<span class="token number">1478758400</span>
+<span class="token function">sswap</span><span class="token punctuation">(</span>total<span class="token operator">=</span><span class="token number">2147479552</span><span class="token punctuation">,</span> used<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> free<span class="token operator">=</span><span class="token number">2147479552</span><span class="token punctuation">,</span> percent<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> sin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> sout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="33-&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;"><a name="33-&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#33-&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 &#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># cat psutil3<span class="token punctuation">.</span>py 
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import psutil
+
+#&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x603B;&#x78C1;&#x76D8;&#x5206;&#x533A;&#x4FE1;&#x606F;
+print <span class="token char">&apos;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x603B;&#x78C1;&#x76D8;&#x5206;&#x533A;&#x4FE1;&#x606F;:&apos;</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>psutil<span class="token punctuation">.</span><span class="token function">disk_partitions</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x6839;&#x5206;&#x533A;&#x78C1;&#x76D8;&#x5927;&#x5C0F;
+print <span class="token char">&apos;&#x6839;&#x5206;&#x533A;&#x78C1;&#x76D8;&#x5927;&#x5C0F;:&apos;</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>psutil<span class="token punctuation">.</span><span class="token function">disk_usage</span><span class="token punctuation">(</span><span class="token char">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x603B;&#x78C1;&#x76D8;&#x7684;I<span class="token operator">/</span>O&#x7684;&#x8BFB;&#x5199;&#x4FE1;&#x606F;
+print <span class="token char">&apos;*&apos;</span><span class="token operator">*</span><span class="token number">10</span>
+print <span class="token char">&apos;&#x603B;&#x78C1;&#x76D8;&#x7684;I/O&#x7684;&#x8BFB;&#x5199;&#x4FE1;&#x606F;:&apos;</span> <span class="token operator">+</span>  <span class="token function">str</span><span class="token punctuation">(</span>psutil<span class="token punctuation">.</span><span class="token function">disk_io_counters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x6BCF;&#x4E2A;&#x78C1;&#x76D8;&#x7684;I<span class="token operator">/</span>O&#x7684;&#x8BFB;&#x5199;&#x4FE1;&#x606F;
+print <span class="token char">&apos;&#x6BCF;&#x4E2A;&#x78C1;&#x76D8;&#x7684;I/O&#x7684;&#x8BFB;&#x5199;&#x4FE1;&#x606F;:&apos;</span> <span class="token operator">+</span> <span class="token function">str</span><span class="token punctuation">(</span>psutil<span class="token punctuation">.</span><span class="token function">disk_io_counters</span><span class="token punctuation">(</span>perdisk<span class="token operator">=</span>True<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># python psutil3<span class="token punctuation">.</span>py 
+&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x603B;&#x78C1;&#x76D8;&#x5206;&#x533A;&#x4FE1;&#x606F;<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">sdiskpart</span><span class="token punctuation">(</span>device<span class="token operator">=</span><span class="token char">&apos;/dev/mapper/centos-root&apos;</span><span class="token punctuation">,</span> mountpoint<span class="token operator">=</span><span class="token char">&apos;/&apos;</span><span class="token punctuation">,</span> fstype<span class="token operator">=</span><span class="token char">&apos;xfs&apos;</span><span class="token punctuation">,</span> opts<span class="token operator">=</span>&apos;rw<span class="token punctuation">,</span>relatime<span class="token punctuation">,</span>attr2<span class="token punctuation">,</span>inode64<span class="token punctuation">,</span>noquota<span class="token char">&apos;), sdiskpart(device=&apos;</span><span class="token operator">/</span>dev<span class="token operator">/</span>sda1<span class="token char">&apos;, mountpoint=&apos;</span><span class="token operator">/</span>boot<span class="token char">&apos;, fstype=&apos;</span>xfs<span class="token char">&apos;, opts=&apos;</span>rw<span class="token punctuation">,</span>relatime<span class="token punctuation">,</span>attr2<span class="token punctuation">,</span>inode64<span class="token punctuation">,</span>noquota<span class="token char">&apos;), sdiskpart(device=&apos;</span><span class="token operator">/</span>dev<span class="token operator">/</span>mapper<span class="token operator">/</span>centos<span class="token operator">-</span>root<span class="token char">&apos;, mountpoint=&apos;</span><span class="token operator">/</span>var<span class="token operator">/</span>lib<span class="token operator">/</span>docker<span class="token operator">/</span>containers<span class="token char">&apos;, fstype=&apos;</span>xfs<span class="token char">&apos;, opts=&apos;</span>rw<span class="token punctuation">,</span>relatime<span class="token punctuation">,</span>attr2<span class="token punctuation">,</span>inode64<span class="token punctuation">,</span>noquota<span class="token char">&apos;), sdiskpart(device=&apos;</span><span class="token operator">/</span>dev<span class="token operator">/</span>mapper<span class="token operator">/</span>centos<span class="token operator">-</span>root<span class="token char">&apos;, mountpoint=&apos;</span><span class="token operator">/</span>var<span class="token operator">/</span>lib<span class="token operator">/</span>docker<span class="token operator">/</span>overlay2<span class="token char">&apos;, fstype=&apos;</span>xfs<span class="token char">&apos;, opts=&apos;</span>rw<span class="token punctuation">,</span>relatime<span class="token punctuation">,</span>attr2<span class="token punctuation">,</span>inode64<span class="token punctuation">,</span>noquota&apos;<span class="token punctuation">)</span><span class="token punctuation">]</span>
+&#x6839;&#x5206;&#x533A;&#x78C1;&#x76D8;&#x5927;&#x5C0F;<span class="token operator">:</span><span class="token function">sdiskusage</span><span class="token punctuation">(</span>total<span class="token operator">=</span><span class="token number">50432839680</span><span class="token punctuation">,</span> used<span class="token operator">=</span><span class="token number">8449806336</span><span class="token punctuation">,</span> free<span class="token operator">=</span><span class="token number">41983033344</span><span class="token punctuation">,</span> percent<span class="token operator">=</span><span class="token number">16.8</span><span class="token punctuation">)</span>
+<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
+&#x603B;&#x78C1;&#x76D8;&#x7684;I<span class="token operator">/</span>O&#x7684;&#x8BFB;&#x5199;&#x4FE1;&#x606F;<span class="token operator">:</span><span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">11597</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">3662</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">456081920</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">52591104</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">6938</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">5274</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">308</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">6464</span><span class="token punctuation">)</span>
+&#x6BCF;&#x4E2A;&#x78C1;&#x76D8;&#x7684;I<span class="token operator">/</span>O&#x7684;&#x8BFB;&#x5199;&#x4FE1;&#x606F;<span class="token operator">:</span><span class="token punctuation">{</span><span class="token char">&apos;sr0&apos;</span><span class="token operator">:</span> <span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;sda2&apos;</span><span class="token operator">:</span> <span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">5732</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">1672</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">214466560</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">25236480</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">3401</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">2310</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">308</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">3203</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;sda&apos;</span><span class="token operator">:</span> <span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">5934</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">1682</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">243925504</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">27354624</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">3547</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">2321</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">308</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">3280</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;sda1&apos;</span><span class="token operator">:</span> <span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">170</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">27615744</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">2118144</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">134</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">11</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">72</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;dm-0&apos;</span><span class="token operator">:</span> <span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">5571</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">1980</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">209502208</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">25236480</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">3367</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">2953</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">3169</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;dm-1&apos;</span><span class="token operator">:</span> <span class="token function">sdiskio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">92</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">2654208</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_time<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">,</span> write_time<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_merged_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> busy_time<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+</code></pre>
+<h3 id="34-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;"><a name="34-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#34-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4 &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># cat psutil4<span class="token punctuation">.</span>py 
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import psutil
+#&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x603B;IO&#x4FE1;&#x606F;
+print psutil<span class="token punctuation">.</span><span class="token function">net_io_counters</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+print <span class="token char">&apos;*&apos;</span> <span class="token operator">*</span> <span class="token number">20</span>
+#&#x8F93;&#x51FA;&#x7F51;&#x7EDC;&#x6BCF;&#x4E2A;&#x63A5;&#x53E3;&#x4FE1;&#x606F;
+print psutil<span class="token punctuation">.</span><span class="token function">net_io_counters</span><span class="token punctuation">(</span>pernic<span class="token operator">=</span>True<span class="token punctuation">)</span> 
+<span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># python psutil4<span class="token punctuation">.</span>py 
+<span class="token function">snetio</span><span class="token punctuation">(</span>bytes_sent<span class="token operator">=</span><span class="token number">1048099</span><span class="token punctuation">,</span> bytes_recv<span class="token operator">=</span><span class="token number">1294529</span><span class="token punctuation">,</span> packets_sent<span class="token operator">=</span><span class="token number">5664</span><span class="token punctuation">,</span> packets_recv<span class="token operator">=</span><span class="token number">8237</span><span class="token punctuation">,</span> errin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> errout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
+<span class="token punctuation">{</span><span class="token char">&apos;lo&apos;</span><span class="token operator">:</span> <span class="token function">snetio</span><span class="token punctuation">(</span>bytes_sent<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> bytes_recv<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> packets_sent<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> packets_recv<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> errin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> errout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;docker0&apos;</span><span class="token operator">:</span> <span class="token function">snetio</span><span class="token punctuation">(</span>bytes_sent<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> bytes_recv<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> packets_sent<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> packets_recv<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> errin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> errout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token char">&apos;eth0&apos;</span><span class="token operator">:</span> <span class="token function">snetio</span><span class="token punctuation">(</span>bytes_sent<span class="token operator">=</span><span class="token number">1048099</span><span class="token punctuation">,</span> bytes_recv<span class="token operator">=</span><span class="token number">1294529</span><span class="token punctuation">,</span> packets_sent<span class="token operator">=</span><span class="token number">5664</span><span class="token punctuation">,</span> packets_recv<span class="token operator">=</span><span class="token number">8237</span><span class="token punctuation">,</span> errin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> errout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+</code></pre>
+<h3 id="35-&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;"><a name="35-&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#35-&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.5 &#x8FDB;&#x7A0B;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># cat psutil5<span class="token punctuation">.</span>py 
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import psutil
+
+#&#x67E5;&#x770B;&#x5168;&#x90E8;&#x8FDB;&#x7A0B;
+print psutil<span class="token punctuation">.</span><span class="token function">pids</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+p <span class="token operator">=</span> psutil<span class="token punctuation">.</span><span class="token function">Process</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> 
+print p<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   #&#x8FDB;&#x7A0B;&#x540D;
+print p<span class="token punctuation">.</span><span class="token function">exe</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    #&#x8FDB;&#x7A0B;&#x7684;bin&#x8DEF;&#x5F84;
+print p<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    #&#x8FDB;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
+print p<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   #&#x8FDB;&#x7A0B;&#x72B6;&#x6001;
+print p<span class="token punctuation">.</span><span class="token function">create_time</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  #&#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x65F6;&#x95F4;
+print p<span class="token punctuation">.</span><span class="token function">uids</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    #&#x8FDB;&#x7A0B;uid&#x4FE1;&#x606F;
+print p<span class="token punctuation">.</span><span class="token function">gids</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    #&#x8FDB;&#x7A0B;&#x7684;gid&#x4FE1;&#x606F;
+print p<span class="token punctuation">.</span><span class="token function">cpu_times</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   #&#x8FDB;&#x7A0B;&#x7684;cpu&#x65F6;&#x95F4;&#x4FE1;&#x606F;<span class="token punctuation">,</span>&#x5305;&#x62EC;user<span class="token punctuation">,</span>system&#x4E24;&#x4E2A;cpu&#x4FE1;&#x606F;
+print p<span class="token punctuation">.</span><span class="token function">cpu_affinity</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  #get&#x8FDB;&#x7A0B;cpu&#x4EB2;&#x548C;&#x5EA6;<span class="token punctuation">,</span>&#x5982;&#x679C;&#x8981;&#x8BBE;&#x7F6E;cpu&#x4EB2;&#x548C;&#x5EA6;<span class="token punctuation">,</span>&#x5C06;cpu&#x53F7;&#x4F5C;&#x4E3A;&#x53C2;&#x8003;&#x5C31;&#x597D;
+print p<span class="token punctuation">.</span><span class="token function">memory_percent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  #&#x8FDB;&#x7A0B;&#x5185;&#x5B58;&#x5229;&#x7528;&#x7387;
+print p<span class="token punctuation">.</span><span class="token function">memory_info</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    #&#x8FDB;&#x7A0B;&#x5185;&#x5B58;rss<span class="token punctuation">,</span>vms&#x4FE1;&#x606F;
+print p<span class="token punctuation">.</span><span class="token function">io_counters</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    #&#x8FDB;&#x7A0B;&#x7684;IO&#x4FE1;&#x606F;<span class="token punctuation">,</span>&#x5305;&#x62EC;&#x8BFB;&#x5199;IO&#x6570;&#x5B57;&#x53CA;&#x53C2;&#x6570;
+print p<span class="token punctuation">.</span><span class="token function">connections</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   #&#x8FD4;&#x56DE;&#x8FDB;&#x7A0B;&#x5217;&#x8868;
+print p<span class="token punctuation">.</span><span class="token function">num_threads</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  #&#x8FDB;&#x7A0B;&#x5F00;&#x542F;&#x7684;&#x7EBF;&#x7A0B;&#x6570;
+
+#&#x542C;&#x8FC7;psutil&#x7684;Popen&#x65B9;&#x6CD5;&#x542F;&#x52A8;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x8DDF;&#x8E2A;&#x7A0B;&#x5E8F;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;
+from subprocess import PIPE
+p <span class="token operator">=</span> psutil<span class="token punctuation">.</span><span class="token function">Popen</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;/usr/bin/python&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-c&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;print(&apos;hello&apos;)&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token constant">stdout</span><span class="token operator">=</span>PIPE<span class="token punctuation">)</span>
+print p<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print p<span class="token punctuation">.</span><span class="token function">username</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># python psutil5<span class="token punctuation">.</span>py 
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token number">38</span><span class="token punctuation">,</span> <span class="token number">39</span><span class="token punctuation">,</span> <span class="token number">47</span><span class="token punctuation">,</span> <span class="token number">48</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">51</span><span class="token punctuation">,</span> <span class="token number">53</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">,</span> <span class="token number">98</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">277</span><span class="token punctuation">,</span> <span class="token number">279</span><span class="token punctuation">,</span> <span class="token number">280</span><span class="token punctuation">,</span> <span class="token number">281</span><span class="token punctuation">,</span> <span class="token number">307</span><span class="token punctuation">,</span> <span class="token number">313</span><span class="token punctuation">,</span> <span class="token number">318</span><span class="token punctuation">,</span> <span class="token number">319</span><span class="token punctuation">,</span> <span class="token number">322</span><span class="token punctuation">,</span> <span class="token number">323</span><span class="token punctuation">,</span> <span class="token number">325</span><span class="token punctuation">,</span> <span class="token number">329</span><span class="token punctuation">,</span> <span class="token number">330</span><span class="token punctuation">,</span> <span class="token number">404</span><span class="token punctuation">,</span> <span class="token number">405</span><span class="token punctuation">,</span> <span class="token number">415</span><span class="token punctuation">,</span> <span class="token number">416</span><span class="token punctuation">,</span> <span class="token number">429</span><span class="token punctuation">,</span> <span class="token number">430</span><span class="token punctuation">,</span> <span class="token number">431</span><span class="token punctuation">,</span> <span class="token number">432</span><span class="token punctuation">,</span> <span class="token number">433</span><span class="token punctuation">,</span> <span class="token number">434</span><span class="token punctuation">,</span> <span class="token number">435</span><span class="token punctuation">,</span> <span class="token number">436</span><span class="token punctuation">,</span> <span class="token number">437</span><span class="token punctuation">,</span> <span class="token number">438</span><span class="token punctuation">,</span> <span class="token number">439</span><span class="token punctuation">,</span> <span class="token number">440</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">,</span> <span class="token number">532</span><span class="token punctuation">,</span> <span class="token number">534</span><span class="token punctuation">,</span> <span class="token number">585</span><span class="token punctuation">,</span> <span class="token number">590</span><span class="token punctuation">,</span> <span class="token number">593</span><span class="token punctuation">,</span> <span class="token number">594</span><span class="token punctuation">,</span> <span class="token number">595</span><span class="token punctuation">,</span> <span class="token number">602</span><span class="token punctuation">,</span> <span class="token number">603</span><span class="token punctuation">,</span> <span class="token number">611</span><span class="token punctuation">,</span> <span class="token number">616</span><span class="token punctuation">,</span> <span class="token number">617</span><span class="token punctuation">,</span> <span class="token number">619</span><span class="token punctuation">,</span> <span class="token number">621</span><span class="token punctuation">,</span> <span class="token number">687</span><span class="token punctuation">,</span> <span class="token number">691</span><span class="token punctuation">,</span> <span class="token number">692</span><span class="token punctuation">,</span> <span class="token number">713</span><span class="token punctuation">,</span> <span class="token number">714</span><span class="token punctuation">,</span> <span class="token number">715</span><span class="token punctuation">,</span> <span class="token number">716</span><span class="token punctuation">,</span> <span class="token number">718</span><span class="token punctuation">,</span> <span class="token number">722</span><span class="token punctuation">,</span> <span class="token number">727</span><span class="token punctuation">,</span> <span class="token number">730</span><span class="token punctuation">,</span> <span class="token number">733</span><span class="token punctuation">,</span> <span class="token number">737</span><span class="token punctuation">,</span> <span class="token number">750</span><span class="token punctuation">,</span> <span class="token number">752</span><span class="token punctuation">,</span> <span class="token number">753</span><span class="token punctuation">,</span> <span class="token number">762</span><span class="token punctuation">,</span> <span class="token number">767</span><span class="token punctuation">,</span> <span class="token number">780</span><span class="token punctuation">,</span> <span class="token number">1116</span><span class="token punctuation">,</span> <span class="token number">1118</span><span class="token punctuation">,</span> <span class="token number">1120</span><span class="token punctuation">,</span> <span class="token number">1121</span><span class="token punctuation">,</span> <span class="token number">1136</span><span class="token punctuation">,</span> <span class="token number">1137</span><span class="token punctuation">,</span> <span class="token number">1145</span><span class="token punctuation">,</span> <span class="token number">1146</span><span class="token punctuation">,</span> <span class="token number">1174</span><span class="token punctuation">,</span> <span class="token number">1362</span><span class="token punctuation">,</span> <span class="token number">1363</span><span class="token punctuation">,</span> <span class="token number">1364</span><span class="token punctuation">,</span> <span class="token number">1623</span><span class="token punctuation">,</span> <span class="token number">1625</span><span class="token punctuation">,</span> <span class="token number">6488</span><span class="token punctuation">,</span> <span class="token number">7050</span><span class="token punctuation">,</span> <span class="token number">7687</span><span class="token punctuation">,</span> <span class="token number">7745</span><span class="token punctuation">,</span> <span class="token number">8205</span><span class="token punctuation">,</span> <span class="token number">8240</span><span class="token punctuation">]</span>
+kthreadd
+
+<span class="token operator">/</span>
+sleeping
+<span class="token number">1585555747.03</span>
+<span class="token function">puids</span><span class="token punctuation">(</span>real<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> effective<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> saved<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">pgids</span><span class="token punctuation">(</span>real<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> effective<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> saved<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">pcputimes</span><span class="token punctuation">(</span>user<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> system<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> children_user<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> children_system<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> iowait<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token number">0.0</span>
+<span class="token function">pmem</span><span class="token punctuation">(</span>rss<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> vms<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> shared<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> lib<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> dirty<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">pio</span><span class="token punctuation">(</span>read_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_bytes<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_bytes<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> read_chars<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> write_chars<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token number">1</span>
+python
+root
+close failed in file object destructor<span class="token operator">:</span>
+sys<span class="token punctuation">.</span>excepthook is missing
+lost sys<span class="token punctuation">.</span><span class="token constant">stderr</span>
+</code></pre>
+<h3 id="36-&#x5176;&#x4ED6;&#x4FE1;&#x606F;"><a name="36-&#x5176;&#x4ED6;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#36-&#x5176;&#x4ED6;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.6 &#x5176;&#x4ED6;&#x4FE1;&#x606F;</h3>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># cat psutil6<span class="token punctuation">.</span>py 
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import psutil
+import datetime
+#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x767B;&#x5F55;&#x4FE1;&#x606F;
+print psutil<span class="token punctuation">.</span><span class="token function">users</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+#&#x83B7;&#x53D6;&#x5F00;&#x673A;&#x65F6;&#x95F4;
+print psutil<span class="token punctuation">.</span><span class="token function">boot_time</span><span class="token punctuation">(</span><span class="token punctuation">)</span> #&#x4EE5;linux&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x8FD4;&#x56DE;
+print datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span><span class="token function">fromtimestamp</span><span class="token punctuation">(</span>psutil<span class="token punctuation">.</span><span class="token function">boot_time</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">strftime</span><span class="token punctuation">(</span><span class="token string">&quot;%Y-%m-%d %H: %M: %S&quot;</span><span class="token punctuation">)</span> #&#x8F6C;&#x6362;&#x6210;&#x81EA;&#x7136;&#x65F6;&#x95F4;&#x683C;&#x5F0F;
+<span class="token punctuation">[</span>root@localhost psutil<span class="token punctuation">]</span># python psutil6<span class="token punctuation">.</span>py
+<span class="token punctuation">[</span><span class="token function">suser</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token char">&apos;root&apos;</span><span class="token punctuation">,</span> terminal<span class="token operator">=</span><span class="token char">&apos;pts/0&apos;</span><span class="token punctuation">,</span> host<span class="token operator">=</span><span class="token char">&apos;192.168.211.1&apos;</span><span class="token punctuation">,</span> started<span class="token operator">=</span><span class="token number">1585555840.0</span><span class="token punctuation">,</span> pid<span class="token operator">=</span><span class="token number">1625</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token number">1585555747.0</span>
+<span class="token number">2020</span><span class="token operator">-</span><span class="token number">03</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">16</span><span class="token operator">:</span> <span class="token number">09</span><span class="token operator">:</span> <span class="token number">07</span>
+</code></pre>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/psutil-module-in-python/" target="_blank">Psutil module in Python</a></li>
+<li><a href="https://www.educative.io/answers/what-is-psutilcpupercent-in-python" target="_blank">What is psutil.cpu_percent in Python?</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 07:32:52
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_prometheus_client.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 promethues client 开发 exporter">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_rrdtools.html" class="navigation navigation-next " aria-label="Next page: python 模块 rrdtool 数据处理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 psutil 系统监控","level":"1.7.39","depth":2,"next":{"title":"python 模块 rrdtool 数据处理","level":"1.7.40","depth":2,"path":"Modules/python_rrdtools.md","ref":"Modules/python_rrdtools.md","articles":[]},"previous":{"title":"python 模块 promethues client 开发 exporter","level":"1.7.38","depth":2,"path":"Modules/python_prometheus_client.md","ref":"Modules/python_prometheus_client.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_psutil.md","mtime":"2022-06-30T07:32:52.394Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

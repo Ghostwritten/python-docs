@@ -1,0 +1,1773 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 应用程序布局 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Case/" />
+    
+    
+    <link rel="prev" href="python_16_process_thread_coroutine.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="python_1.0_pip_install.html">
+            
+                <a href="python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="python_1.1_pip.html">
+            
+                <a href="python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="python_1.2_pip_download_slow.html">
+            
+                <a href="python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="python_2.0_compile_install.html">
+            
+                <a href="python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="python_3_scripts_run.html">
+            
+                <a href="python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="python_4_import.html">
+            
+                <a href="python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="python_5_list.html">
+            
+                <a href="python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="python_6_tuple.html">
+            
+                <a href="python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="python_7_dict.html">
+            
+                <a href="python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="python_8_error_handle.html">
+            
+                <a href="python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="python_9_basic_function.html">
+            
+                <a href="python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="python_10_built_in_functions.html">
+            
+                <a href="python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="python_11_advanced_functions.html">
+            
+                <a href="python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="python_12_decoratiors.html">
+            
+                <a href="python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="python_13_yield.html">
+            
+                <a href="python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="python_14_function_print.html">
+            
+                <a href="python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="python_14.1_function_open.html">
+            
+                <a href="python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="python_14.2_function_super.html">
+            
+                <a href="python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="python_15_object_oriented.html">
+            
+                <a href="python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="python_15.1_object_oriented.html">
+            
+                <a href="python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="python_16_process_thread_coroutine.html">
+            
+                <a href="python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.22" data-path="python_17_application_layout.html">
+            
+                <a href="python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Modules/">
+            
+                <a href="../Modules/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../Modules/python_asyncio.html">
+            
+                <a href="../Modules/python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../Modules/python_subprocess.html">
+            
+                <a href="../Modules/python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../Modules/python_concurrent.futures.html">
+            
+                <a href="../Modules/python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../Modules/python_Selenium.html">
+            
+                <a href="../Modules/python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../Modules/python_configParser.html">
+            
+                <a href="../Modules/python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../Modules/python_pdb.html">
+            
+                <a href="../Modules/python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../Modules/python_paramiko.html">
+            
+                <a href="../Modules/python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../Modules/python_dnspython.html">
+            
+                <a href="../Modules/python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../Modules/python_ntpath.html">
+            
+                <a href="../Modules/python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../Modules/python_gevent.html">
+            
+                <a href="../Modules/python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="../Modules/python_time.html">
+            
+                <a href="../Modules/python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="../Modules/python_nmap.html">
+            
+                <a href="../Modules/python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="../Modules/python_random.html">
+            
+                <a href="../Modules/python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="../Modules/python_socket.html">
+            
+                <a href="../Modules/python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="../Modules/python_sys.html">
+            
+                <a href="../Modules/python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="../Modules/python_pandas.html">
+            
+                <a href="../Modules/python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="../Modules/python_pycurl.html">
+            
+                <a href="../Modules/python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="../Modules/python_IPy.html">
+            
+                <a href="../Modules/python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="../Modules/python_mysql-connector.html">
+            
+                <a href="../Modules/python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="../Modules/python_zipfile.html">
+            
+                <a href="../Modules/python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="../Modules/python_json.html">
+            
+                <a href="../Modules/python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="../Modules/python_collections.html">
+            
+                <a href="../Modules/python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="../Modules/python_re.html">
+            
+                <a href="../Modules/python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="../Modules/python_datetime.html">
+            
+                <a href="../Modules/python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="../Modules/python_os.html">
+            
+                <a href="../Modules/python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="../Modules/python_threading.html">
+            
+                <a href="../Modules/python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="../Modules/python_httplib.html">
+            
+                <a href="../Modules/python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="../Modules/python_logging.html">
+            
+                <a href="../Modules/python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="../Modules/python_BeautifulSoup.html">
+            
+                <a href="../Modules/python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="../Modules/python_commands.html">
+            
+                <a href="../Modules/python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="../Modules/python_flask_caching.html">
+            
+                <a href="../Modules/python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="../Modules/python_argparse.html">
+            
+                <a href="../Modules/python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="../Modules/python_pymysql.html">
+            
+                <a href="../Modules/python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="../Modules/python_click.html">
+            
+                <a href="../Modules/python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="../Modules/python_copy.html">
+            
+                <a href="../Modules/python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="../Modules/python_redis.html">
+            
+                <a href="../Modules/python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="../Modules/python_XlsxWriter.html">
+            
+                <a href="../Modules/python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="../Modules/python_prometheus_client.html">
+            
+                <a href="../Modules/python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="../Modules/python_psutil.html">
+            
+                <a href="../Modules/python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="../Modules/python_rrdtools.html">
+            
+                <a href="../Modules/python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="../Modules/python_cPickle_and_pickle.html">
+            
+                <a href="../Modules/python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="../Modules/python_filecmp.html">
+            
+                <a href="../Modules/python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="../Modules/python_stmplib_and_email.html">
+            
+                <a href="../Modules/python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="../Modules/python_request_1.html">
+            
+                <a href="../Modules/python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="../Modules/python_request_2.html">
+            
+                <a href="../Modules/python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 应用程序布局</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><b></b>Python &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><b></b>1. &#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;</a></li><ul><li><span class="title-icon "></span><a href="#11-&#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;"><b></b>1.1 &#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;</a></li><li><span class="title-icon "></span><a href="#12-&#x5B89;&#x88C5;&#x5355;&#x5305;"><b></b>1.2 &#x5B89;&#x88C5;&#x5355;&#x5305;</a></li><li><span class="title-icon "></span><a href="#13-&#x5E26;&#x6709;&#x5185;&#x90E8;&#x5305;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;"><b></b>1.3 &#x5E26;&#x6709;&#x5185;&#x90E8;&#x5305;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</a></li></ul><li><span class="title-icon "></span><a href="#2-web-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><b></b>2. Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;</a></li><ul><li><span class="title-icon "></span><a href="#21-django"><b></b>2.1 Django</a></li><li><span class="title-icon "></span><a href="#22-flask"><b></b>2.2 Flask</a></li></ul></ul></ul></div><a href="#python-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><a name="python-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;" class="anchor-navigation-ex-anchor" href="#python-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><i class="fa fa-link" aria-hidden="true"></i></a>Python &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;</h1>
+<p>&#x5728;&#x672C;&#x6587;&#x4E2D;&#xFF0C;&#x6211;&#x60F3;&#x4E3A;&#x60A8;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53EF;&#x9760;&#x7684; Python &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;&#x53C2;&#x8003;&#x6307;&#x5357;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5B83;&#x6765;&#x89E3;&#x51B3;&#x60A8;&#x7684;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x7528;&#x4F8B;&#x3002;</p>
+<p>&#x60A8;&#x5C06;&#x770B;&#x5230;&#x5E38;&#x89C1; Python &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x5305;&#x62EC;<a href="https://realpython.com/python-command-line-arguments/" target="_blank">&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</a>&#xFF08;CLI &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF09;&#x3001;&#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;&#x3001;&#x53EF;&#x5B89;&#x88C5;&#x5305;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Flask</a>&#x548C;<a href="https://www.djangoproject.com/" target="_blank">Django</a>&#x7B49;&#x6D41;&#x884C;&#x6846;&#x67B6;&#x7684; Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;&#x3002;</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x672C;&#x53C2;&#x8003;&#x6307;&#x5357;&#x5047;&#x5B9A;&#x60A8;&#x5177;&#x5907; Python &#x6A21;&#x5757;&#x548C;&#x5305;&#x7684;&#x5DE5;&#x4F5C;&#x77E5;&#x8BC6;&#x3002;&#x5982;&#x679C;&#x60A8;&#x89C9;&#x5F97;&#x6709;&#x70B9;&#x751F;&#x758F;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;&#x6211;&#x4EEC;&#x5BF9; <a href="https://realpython.com/python-modules-packages/" target="_blank">Python &#x6A21;&#x5757;&#x548C;&#x5305;&#x7684;&#x4ECB;&#x7ECD;&#x4EE5;&#x590D;&#x4E60;</a>&#x3002;</p>
+</blockquote>
+<h2 id="1-&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><a name="1-&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;" class="anchor-navigation-ex-anchor" href="#1-&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;</h2>
+<p>&#x6211;&#x4EEC;&#x4E2D;&#x7684;&#x5F88;&#x591A;&#x4EBA;&#x4E3B;&#x8981;&#x4F7F;&#x7528;<a href="https://realpython.com/comparing-python-command-line-parsing-libraries-argparse-docopt-click/" target="_blank">&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;</a> (CLI)&#x8FD0;&#x884C;&#x7684; Python &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x4ECE;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;&#x5F00;&#x59CB;&#x53EF;&#x80FD;&#x4F1A;&#x4EE4;&#x4EBA;&#x751F;&#x754F;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x7F16;&#x7801;&#x5668;&#x5757;&#x4E0D;&#x8DB3;&#x3002;&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x60F3;&#x5206;&#x4EAB;&#x4E00;&#x4E9B;&#x7ECF;&#x8FC7;&#x9A8C;&#x8BC1;&#x7684;&#x5E03;&#x5C40;&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x5C06;&#x8FD9;&#x4E9B;&#x5E03;&#x5C40;&#x7528;&#x4F5C;&#x6211;&#x6240;&#x6709; Python CLI &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x8D77;&#x70B9;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x4ECE;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x57FA;&#x672C;&#x7684;&#x7528;&#x4F8B;&#x7684;&#x975E;&#x5E38;&#x57FA;&#x672C;&#x7684;&#x5E03;&#x5C40;&#x5F00;&#x59CB;&#xFF1A;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x7B80;&#x5355;&#x811A;&#x672C;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x60A8;&#x5C06;&#x770B;&#x5230;&#x5982;&#x4F55;&#x968F;&#x7740;&#x7528;&#x4F8B;&#x7684;&#x63A8;&#x8FDB;&#x6765;&#x6784;&#x5EFA;&#x5E03;&#x5C40;&#x3002;</p>
+<h3 id="11-&#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;"><a name="11-&#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;" class="anchor-navigation-ex-anchor" href="#11-&#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1 &#x4E00;&#x6B21;&#x6027;&#x811A;&#x672C;</h3>
+<p>&#x5982;&#x679C;&#x60A8;&#x53EA;&#x662F;&#x5236;&#x4F5C;&#x4E00;&#x4E2A;&#x4F9B;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x6216;&#x8005;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5916;&#x90E8;<a href="https://realpython.com/courses/managing-python-dependencies/" target="_blank">&#x4F9D;&#x8D56;&#x9879;</a>&#x7684;&#x811A;&#x672C;&#xFF0C;&#x90A3;&#x5F88;&#x597D;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x60A8;&#x5FC5;&#x987B;&#x5206;&#x53D1;&#x5B83;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x7279;&#x522B;&#x662F;&#x5BF9;&#x4E8E;&#x4E0D;&#x592A;&#x61C2;&#x6280;&#x672F;&#x7684;&#x7528;&#x6237;&#xFF1F;</p>
+<p>&#x4EE5;&#x4E0B;&#x5E03;&#x5C40;&#x9002;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x4FEE;&#x6539;&#x4EE5;&#x53CD;&#x6620;&#x60A8;&#x5728;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x4EFB;&#x4F55;&#x5B89;&#x88C5;&#x6216;&#x5176;&#x4ED6;&#x5DE5;&#x5177;&#x3002;&#x65E0;&#x8BBA;&#x60A8;&#x662F;&#x521B;&#x5EFA;&#x7EAF; Python &#x811A;&#x672C;&#xFF08;&#x5373;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#x9879;&#x7684;&#x811A;&#x672C;&#xFF09;&#x8FD8;&#x662F;&#x4F7F;&#x7528;&#x8BF8;&#x5982;pip&#x6216;Pipenv &#x4E4B;&#x7C7B;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x6B64;&#x5E03;&#x5C40;&#x90FD;&#x5C06;&#x6DB5;&#x76D6;&#x60A8;&#x3002;</p>
+<p>&#x5728;&#x9605;&#x8BFB;&#x672C;&#x53C2;&#x8003;&#x6307;&#x5357;&#x65F6;&#xFF0C;&#x8BF7;&#x8BB0;&#x4F4F;&#xFF0C;&#x6587;&#x4EF6;&#x5728;&#x5E03;&#x5C40;&#x4E2D;&#x7684;&#x786E;&#x5207;&#x4F4D;&#x7F6E;&#x6BD4;&#x5B83;&#x4EEC;&#x653E;&#x7F6E;&#x5728;&#x4F55;&#x5904;&#x7684;&#x539F;&#x56E0;&#x66F4;&#x91CD;&#x8981;&#x3002;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x90FD;&#x5E94;&#x4F4D;&#x4E8E;&#x4EE5;&#x60A8;&#x7684;&#x9879;&#x76EE;&#x547D;&#x540D;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;&#xFF08;&#x8FD8;&#x6709;&#x4EC0;&#x4E48;&#xFF1F;&#xFF09;helloworld&#x4F5C;&#x4E3A;&#x9879;&#x76EE;&#x540D;&#x79F0;&#x548C;&#x6839;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x6211;&#x901A;&#x5E38;&#x7528;&#x4E8E; CLI &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684; Python &#x9879;&#x76EE;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">helloworld/
+&#x2502;
+&#x251C;&#x2500;&#x2500; .gitignore
+&#x251C;&#x2500;&#x2500; helloworld.py
+&#x251C;&#x2500;&#x2500; LICENSE
+&#x251C;&#x2500;&#x2500; README.md
+&#x251C;&#x2500;&#x2500; requirements.txt
+&#x251C;&#x2500;&#x2500; setup.py
+&#x2514;&#x2500;&#x2500; tests.py
+</code></pre>
+<p>&#x8FD9;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF1A;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x90FD;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#x3002;&#x6B64;&#x5904;&#x663E;&#x793A;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x5B9A;&#x8BE6;&#x5C3D;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x60A8;&#x6253;&#x7B97;&#x4F7F;&#x7528;&#x8FD9;&#x6837;&#x7684;&#x57FA;&#x672C;&#x5E03;&#x5C40;&#xFF0C;&#x6211;&#x5EFA;&#x8BAE;&#x5C06;&#x6587;&#x4EF6;&#x6570;&#x91CF;&#x4FDD;&#x6301;&#x5728;&#x6700;&#x4F4E;&#x9650;&#x5EA6;&#x3002;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x5BF9;&#x60A8;&#x6765;&#x8BF4;&#x662F;&#x65B0;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x5FEB;&#x901F;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x5B83;&#x4EEC;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+<ul>
+<li><code>gitignore</code>&#xFF1A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x544A;&#x8BC9; Git &#x5FFD;&#x7565;&#x54EA;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982; IDE &#x6DF7;&#x4E71;&#x6587;&#x4EF6;&#x6216;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;<a href="https://realpython.com/python-git-github-intro/#gitignore" target="_blank">&#x6211;&#x4EEC;&#x7684; Git &#x6559;&#x7A0B;&#x5305;&#x542B;&#x6240;&#x6709;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</a>&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;<a href="https://github.com/github/gitignore" target="_blank">&#x5728;&#x6B64;&#x5904;</a>.gitignore&#x627E;&#x5230;Python &#x9879;&#x76EE;&#x7684;&#x793A;&#x4F8B;&#x6587;&#x4EF6;&#x3002;</li>
+<li><code>helloworld.py</code>: &#x8FD9;&#x662F;&#x60A8;&#x5206;&#x53D1;&#x7684;&#x811A;&#x672C;&#x3002;&#x81F3;&#x4E8E;&#x4E3B;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x547D;&#x540D;&#xFF0C;&#x6211;&#x5EFA;&#x8BAE;&#x60A8;&#x4F7F;&#x7528;&#x9879;&#x76EE;&#x7684;&#x540D;&#x79F0;&#xFF08;&#x4E0E;&#x9876;&#x7EA7;&#x76EE;&#x5F55;&#x7684;&#x540D;&#x79F0;&#x76F8;&#x540C;&#xFF09;&#x3002;</li>
+<li><code>LICENSE</code>&#xFF1A;&#x6B64;&#x7EAF;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x4E86;&#x60A8;&#x7528;&#x4E8E;&#x9879;&#x76EE;&#x7684;&#x8BB8;&#x53EF;&#x8BC1;&#x3002;&#x5982;&#x679C;&#x60A8;&#x8981;&#x5206;&#x53D1;&#x4EE3;&#x7801;&#xFF0C;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x603B;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x4E3B;&#x610F;&#x3002;&#x6309;&#x7167;&#x60EF;&#x4F8B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x5168;&#x90E8;&#x5927;&#x5199;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x9700;&#x8981;&#x5E2E;&#x52A9;&#x4E3A;&#x60A8;&#x7684;&#x9879;&#x76EE;&#x9009;&#x62E9;&#x8BB8;&#x53EF;&#x8BC1;&#xFF1F;&#x67E5;&#x770B;&#x9009;&#x62E9;<a href="https://choosealicense.com/" target="_blank">&#x8BB8;&#x53EF;&#x8BC1;</a>&#x3002;</p>
+</blockquote>
+<ul>
+<li><code>README.md</code>&#xFF1A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;Markdown&#xFF08;&#x6216;reStructuredText&#xFF09;&#x6587;&#x4EF6;&#xFF0C;&#x8BB0;&#x5F55;&#x4E86;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x76EE;&#x7684;&#x548C;&#x7528;&#x6CD5;&#x3002;&#x5236;&#x4F5C;&#x4E00;&#x4EF6;&#x7269;&#x54C1;&#x662F;&#x4E00;&#x95E8;&#x827A;&#x672F;&#xFF0C;&#x4F46;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;README&#x627E;&#x5230;&#x7CBE;&#x901A;&#x7684;&#x6377;&#x5F84;&#x3002;</li>
+<li><code>requirements.txt</code>&#xFF1A;&#x6B64;&#x6587;&#x4EF6;&#x4E3A;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5B9A;&#x4E49;&#x5916;&#x90E8; Python &#x4F9D;&#x8D56;&#x9879;&#x53CA;&#x5176;&#x7248;&#x672C;&#x3002;</li>
+<li><code>setup.py</code>: &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x9700;&#x8981;&#x5728;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x786E;&#x5B9E;&#x5F88;&#x51FA;&#x8272;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x6211;&#x4EEC;&#x7684; <a href="https://realpython.com/pipenv-guide/" target="_blank">Pipenv &#x6307;&#x5357;</a>&#x4E2D;&#x9605;&#x8BFB;&#x66F4;&#x591A;&#x5173;&#x4E8E;&#x4E24;&#x8005;setup.py&#x7684;&#x4FE1;&#x606F;&#x3002;requirements.txt</li>
+<li><code>tests.py</code>&#xFF1A;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x5305;&#x542B;&#x4F60;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x6709;&#x7684;&#x8BDD;&#x3002;<a href="https://realpython.com/python-testing/" target="_blank">&#x4F60;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E9B;</a>&#x3002;</li>
+</ul>
+<h3 id="12-&#x5B89;&#x88C5;&#x5355;&#x5305;"><a name="12-&#x5B89;&#x88C5;&#x5355;&#x5305;" class="anchor-navigation-ex-anchor" href="#12-&#x5B89;&#x88C5;&#x5355;&#x5305;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2 &#x5B89;&#x88C5;&#x5355;&#x5305;</h3>
+<p>&#x5047;&#x8BBE;&#x5B83;<code>helloworld.py</code>&#x4ECD;&#x7136;&#x662F;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E3B;&#x811A;&#x672C;&#xFF0C;&#x4F46;&#x662F;&#x60A8;&#x5DF2;&#x5C06;&#x6240;&#x6709;&#x8F85;&#x52A9;&#x65B9;&#x6CD5;&#x79FB;&#x52A8;&#x5230;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>helpers.py</code>.</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x628A;helloworld Python &#x6587;&#x4EF6;&#x6253;&#x5305;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4F46;&#x5C06;&#x6240;&#x6709;&#x6742;&#x9879;&#x6587;&#x4EF6;&#xFF08;&#x4F8B;&#x5982; your README&#x3001;.gitignore&#x7B49;&#xFF09;&#x4FDD;&#x5B58;&#x5728;&#x9876;&#x5C42;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre class="language-"><code class="lang-kotlin">helloworld<span class="token operator">/</span>
+&#x2502;
+&#x251C;&#x2500;&#x2500; helloworld<span class="token operator">/</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__<span class="token punctuation">.</span>py
+&#x2502;   &#x251C;&#x2500;&#x2500; helloworld<span class="token punctuation">.</span>py
+&#x2502;   &#x2514;&#x2500;&#x2500; helpers<span class="token punctuation">.</span>py
+&#x2502;
+&#x251C;&#x2500;&#x2500; tests<span class="token operator">/</span>
+&#x2502;   &#x251C;&#x2500;&#x2500; helloworld_tests<span class="token punctuation">.</span>py
+&#x2502;   &#x2514;&#x2500;&#x2500; helpers_tests<span class="token punctuation">.</span>py
+&#x2502;
+&#x251C;&#x2500;&#x2500; <span class="token punctuation">.</span>gitignore
+&#x251C;&#x2500;&#x2500; LICENSE
+&#x251C;&#x2500;&#x2500; README<span class="token punctuation">.</span>md
+&#x251C;&#x2500;&#x2500; requirements<span class="token punctuation">.</span>txt
+&#x2514;&#x2500;&#x2500; setup<span class="token punctuation">.</span>py
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x662F;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x73B0;&#x5728;&#x90FD;&#x4FDD;&#x5B58;&#x5728;helloworld&#x5B50;&#x76EE;&#x5F55;&#x4E2D;&#x2014;&#x2014;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4EE5;&#x4F60;&#x7684;&#x5305;&#x547D;&#x540D;&#x2014;&#x2014;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>__init__.py.</code> &#x8BA9;&#x6211;&#x4EEC;&#x4ECB;&#x7ECD;&#x8FD9;&#x4E9B;&#x65B0;&#x6587;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><code>helloworld/__init__.py</code>: &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x6709;&#x5F88;&#x591A;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x662F;&#x4E3A;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x5B83;&#x544A;&#x8BC9; Python &#x89E3;&#x91CA;&#x5668;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x76EE;&#x5F55;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6B64;<code>__init__.py</code>&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x60A8;&#x80FD;&#x591F;&#x4ECE;&#x6574;&#x4E2A;&#x5305;&#x4E2D;&#x5BFC;&#x5165;&#x7C7B;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E86;&#x89E3;&#x5185;&#x90E8;&#x6A21;&#x5757;&#x7ED3;&#x6784;&#x5E76;&#x4ECE;<code>helloworld.helloworld</code>&#x6216;&#x5BFC;&#x5165;<code>helloworld.helpers</code>&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5BF9;&#x4E8E;&#x5185;&#x90E8;&#x5305;&#x548C; &#x7684;&#x66F4;&#x6DF1;&#x5165;&#x8BA8;&#x8BBA;<strong>init</strong>.py&#xFF0C;<a href="https://realpython.com/python-modules-packages/" target="_blank">&#x6211;&#x4EEC;&#x7684; Python &#x6A21;&#x5757;&#x548C;&#x5305;&#x6982;&#x8FF0;&#x5DF2;&#x6DB5;&#x76D6;</a>&#x3002;</p>
+</blockquote>
+<ul>
+<li><code>helloworld/helpers.py</code>: &#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5C06;helloworld.py&apos;s &#x7684;&#x5927;&#x90E8;&#x5206;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x79FB;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x591A;&#x4E8F;&#x4E86;<code>__init__.py</code>&#xFF0C;&#x5916;&#x90E8;&#x6A21;&#x5757;&#x5C06;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x4ECE;<code>helloworld</code>&#x5305;&#x4E2D;&#x5BFC;&#x5165;&#x6765;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li><code>tests/</code>&#xFF1A;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5C06;&#x6211;&#x4EEC;&#x7684;&#x6D4B;&#x8BD5;&#x79FB;&#x5230;&#x4E86;&#x4ED6;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x968F;&#x7740;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x60A8;&#x5C06;&#x7EE7;&#x7EED;&#x770B;&#x5230;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x6211;&#x4EEC;&#x8FD8;&#x5C06;&#x6D4B;&#x8BD5;&#x62C6;&#x5206;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x4EE5;&#x53CD;&#x6620;&#x6211;&#x4EEC;&#x5305;&#x7684;&#x7ED3;&#x6784;&#x3002;</li>
+</ul>
+<p><a href="https://github.com/navdeep-G/samplemod" target="_blank">&#x6B64;&#x5E03;&#x5C40;&#x662F;Kenneth Reitz &#x7684; samplemod &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x7684;&#x7CBE;&#x7B80;&#x7248;</a>&#x3002;&#x8FD9;&#x662F;&#x60A8;&#x7684; CLI &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x8D77;&#x70B9;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5BF9;&#x4E8E;&#x66F4;&#x5E7F;&#x6CDB;&#x7684;&#x9879;&#x76EE;&#x3002;</p>
+<h3 id="13-&#x5E26;&#x6709;&#x5185;&#x90E8;&#x5305;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;"><a name="13-&#x5E26;&#x6709;&#x5185;&#x90E8;&#x5305;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;" class="anchor-navigation-ex-anchor" href="#13-&#x5E26;&#x6709;&#x5185;&#x90E8;&#x5305;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3 &#x5E26;&#x6709;&#x5185;&#x90E8;&#x5305;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</h3>
+<p>&#x5728;&#x8F83;&#x5927;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5185;&#x90E8;&#x5305;&#xFF0C;&#x5B83;&#x4EEC;&#x8981;&#x4E48;&#x4E0E;&#x4E3B;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x811A;&#x672C;&#x7ED1;&#x5B9A;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x8981;&#x4E48;&#x4E3A;&#x60A8;&#x6B63;&#x5728;&#x6253;&#x5305;&#x7684;&#x8F83;&#x5927;&#x5E93;&#x63D0;&#x4F9B;&#x7279;&#x5B9A;&#x529F;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x6269;&#x5C55;&#x4E0A;&#x8FF0;&#x7EA6;&#x5B9A;&#x4EE5;&#x9002;&#x5E94;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">helloworld/
+&#x2502;
+&#x251C;&#x2500;&#x2500; bin/
+&#x2502;
+&#x251C;&#x2500;&#x2500; docs/
+&#x2502;   &#x251C;&#x2500;&#x2500; hello.md
+&#x2502;   &#x2514;&#x2500;&#x2500; world.md
+&#x2502;
+&#x251C;&#x2500;&#x2500; helloworld/
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; runner.py
+&#x2502;   &#x251C;&#x2500;&#x2500; hello/
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; hello.py
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; helpers.py
+&#x2502;   &#x2502;
+&#x2502;   &#x2514;&#x2500;&#x2500; world/
+&#x2502;       &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;       &#x251C;&#x2500;&#x2500; helpers.py
+&#x2502;       &#x2514;&#x2500;&#x2500; world.py
+&#x2502;
+&#x251C;&#x2500;&#x2500; data/
+&#x2502;   &#x251C;&#x2500;&#x2500; input.csv
+&#x2502;   &#x2514;&#x2500;&#x2500; output.xlsx
+&#x2502;
+&#x251C;&#x2500;&#x2500; tests/
+&#x2502;   &#x251C;&#x2500;&#x2500; hello
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; helpers_tests.py
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; hello_tests.py
+&#x2502;   &#x2502;
+&#x2502;   &#x2514;&#x2500;&#x2500; world/
+&#x2502;       &#x251C;&#x2500;&#x2500; helpers_tests.py
+&#x2502;       &#x2514;&#x2500;&#x2500; world_tests.py
+&#x2502;
+&#x251C;&#x2500;&#x2500; .gitignore
+&#x251C;&#x2500;&#x2500; LICENSE
+&#x2514;&#x2500;&#x2500; README.md
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x8FD8;&#x6709;&#x66F4;&#x591A;&#x5185;&#x5BB9;&#x9700;&#x8981;&#x6D88;&#x5316;&#xFF0C;&#x4F46;&#x53EA;&#x8981;&#x60A8;&#x8BB0;&#x4F4F;&#x5B83;&#x9075;&#x5FAA;&#x4E4B;&#x524D;&#x7684;&#x5E03;&#x5C40;&#xFF0C;&#x60A8;&#x5C31;&#x4F1A;&#x66F4;&#x8F7B;&#x677E;&#x5730;&#x8DDF;&#x968F;&#x3002;&#x6211;&#x5C06;&#x6309;&#x987A;&#x5E8F;&#x4ECB;&#x7ECD;&#x6DFB;&#x52A0;&#x548C;&#x4FEE;&#x6539;&#x3001;&#x5B83;&#x4EEC;&#x7684;&#x7528;&#x9014;&#x4EE5;&#x53CA;&#x60A8;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5B83;&#x4EEC;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<ul>
+<li><code>bin/</code>&#xFF1A;&#x6B64;&#x76EE;&#x5F55;&#x5305;&#x542B;&#x6240;&#x6709;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x3002;&#x6211;&#x6539;&#x7F16;&#x81EA;<a href="http://as.ynchrono.us/2007/12/filesystem-structure-of-python-project_21.html" target="_blank">Jean-Paul Calderone &#x7684;&#x7ECF;&#x5178;&#x7ED3;&#x6784;&#x5E16;&#x5B50;</a>&#xFF0C;&#x4ED6;&#x5BF9;&#x4F7F;&#x7528;bin/&#x76EE;&#x5F55;&#x7684;&#x89C4;&#x5B9A;&#x4ECD;&#x7136;&#x5F88;&#x91CD;&#x8981;&#x3002;&#x8981;&#x8BB0;&#x4F4F;&#x7684;&#x6700;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x60A8;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x4E0D;&#x5E94;&#x8BE5;&#x6709;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5BFC;&#x5165;&#x548C;&#x8C03;&#x7528;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x811A;&#x672C;&#x4E2D;&#x7684;<a href="https://realpython.com/python-main-function/" target="_blank">main&#x51FD;&#x6570;</a>&#x3002;&#x5982;&#x679C;&#x60A8;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x7EAF; Python &#x6216;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x6B64;&#x76EE;&#x5F55;&#x3002;</li>
+<li><code>/docs</code>&#xFF1A;&#x5BF9;&#x4E8E;&#x66F4;&#x9AD8;&#x7EA7;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x5176;&#x6240;&#x6709;&#x90E8;&#x5206;&#x7684;&#x826F;&#x597D;&#x6587;&#x6863;&#x3002;&#x6211;&#x559C;&#x6B22;&#x5C06;&#x5185;&#x90E8;&#x6A21;&#x5757;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x6863;&#x653E;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x60A8;&#x4F1A;&#x770B;&#x5230;hello&#x548C;world&#x5305;&#x7684;&#x5355;&#x72EC;&#x6587;&#x6863;&#x3002;&#x5982;&#x679C;&#x60A8;&#x5728;&#x5185;&#x90E8;&#x6A21;&#x5757;&#x4E2D;&#x4F7F;&#x7528;<a href="https://realpython.com/documenting-python-code/#documenting-your-python-code-base-using-docstrings" target="_blank">&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;</a>&#xFF08;&#x5E76;&#x4E14;&#x60A8;&#x5E94;&#x8BE5;&#x8FD9;&#x6837;&#x505A;&#xFF01;&#xFF09;&#xFF0C;&#x60A8;&#x7684;&#x6574;&#x4E2A;&#x6A21;&#x5757;&#x6587;&#x6863;&#x81F3;&#x5C11;&#x5E94;&#x8BE5;&#x5BF9;&#x6A21;&#x5757;&#x7684;&#x76EE;&#x7684;&#x548C;&#x529F;&#x80FD;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#x89C6;&#x56FE;&#x3002;</li>
+<li><code>helloworld/</code>:&#x8FD9;&#x548C;&#x4EE5;&#x524D;&#x7684;&#x7ED3;&#x6784;&#x7C7B;&#x4F3C;helloworld/&#xFF0C;&#x4F46;&#x73B0;&#x5728;&#x6709;&#x5B50;&#x76EE;&#x5F55;&#x3002;&#x968F;&#x7740;&#x60A8;&#x589E;&#x52A0;&#x66F4;&#x591A;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x60A8;&#x5C06;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x201C;&#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x201D;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x5E76;&#x5C06;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;&#x7684;&#x90E8;&#x5206;&#x62C6;&#x5206;&#x6210;&#x66F4;&#x6613;&#x4E8E;&#x7BA1;&#x7406;&#x7684;&#x5757;&#x3002;&#x8BF7;&#x8BB0;&#x4F4F;&#xFF0C;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x662F;&#x6307;&#x6574;&#x4E2A;&#x5305;&#x540D;&#x79F0;&#xFF0C;&#x56E0;&#x6B64;&#x5B50;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#xFF08;hello/&#x548C;world/&#xFF09;&#x5E94;&#x8BE5;&#x53CD;&#x6620;&#x5B83;&#x4EEC;&#x7684;&#x5305;&#x540D;&#x79F0;&#x3002;</li>
+<li><code>data/</code>:&#x6709;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x5BF9;&#x6D4B;&#x8BD5;&#x5F88;&#x6709;&#x5E2E;&#x52A9;&#x3002;&#x5B83;&#x662F;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x6444;&#x53D6;&#x6216;&#x751F;&#x6210;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#x3002;&#x6839;&#x636E;&#x60A8;&#x90E8;&#x7F72;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5C06;&#x201C;&#x751F;&#x4EA7;&#x7EA7;&#x201D;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x6307;&#x5411;&#x6B64;&#x76EE;&#x5F55;&#xFF0C;&#x6216;&#x8005;&#x4EC5;&#x5C06;&#x5176;&#x7528;&#x4E8E;&#x5185;&#x90E8;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li><code>tests/</code>&#xFF1A;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x653E;&#x7F6E;&#x200B;&#x200B;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x2014;&#x2014;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3001;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x3001;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x7B49;&#x7B49;&#x3002;&#x968F;&#x610F;&#x4EE5;&#x6700;&#x65B9;&#x4FBF;&#x7684;&#x65B9;&#x5F0F;&#x4E3A;&#x60A8;&#x7684;&#x6D4B;&#x8BD5;&#x7B56;&#x7565;&#x3001;&#x5BFC;&#x5165;&#x7B56;&#x7565;&#x7B49;&#x6784;&#x5EFA;&#x6B64;&#x76EE;&#x5F55;&#x3002;&#x6709;&#x5173;&#x4F7F;&#x7528;Python &#x6D4B;&#x8BD5;&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x590D;&#x4E60;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;<a href="https://realpython.com/python-cli-testing/" target="_blank">&#x6211;&#x7684;&#x6587;&#x7AE0;4 &#x6D4B;&#x8BD5; Python &#x547D;&#x4EE4;&#x884C; (CLI) &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6280;&#x672F;&#x3002;</a></li>
+</ul>
+<p>&#x9876;&#x7EA7;&#x6587;&#x4EF6;&#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x5E03;&#x5C40;&#x57FA;&#x672C;&#x76F8;&#x540C;&#x3002;&#x8FD9;&#x4E09;&#x79CD;&#x5E03;&#x5C40;&#x5E94;&#x8BE5;&#x6DB5;&#x76D6;&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5927;&#x591A;&#x6570;&#x7528;&#x4F8B;&#xFF0C;&#x751A;&#x81F3;&#x662F; GUI &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x6839;&#x636E;&#x6240;&#x4F7F;&#x7528;&#x7684; GUI &#x6846;&#x67B6;&#x4FEE;&#x6539;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#x3002;</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8BF7;&#x8BB0;&#x4F4F;&#xFF0C;&#x8FD9;&#x4E9B;&#x53EA;&#x662F;&#x5E03;&#x5C40;&#x3002;&#x5982;&#x679C;&#x76EE;&#x5F55;&#x6216;&#x6587;&#x4EF6;&#x5BF9;&#x60A8;&#x7684;&#x7279;&#x5B9A;&#x7528;&#x4F8B;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#xFF08;&#x4F8B;&#x5982;tests/&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x5206;&#x53D1;&#x6D4B;&#x8BD5;&#xFF09;&#xFF0C;&#x8BF7;&#x968F;&#x65F6;&#x5C06;&#x5176;&#x6392;&#x9664;&#x5728;&#x5916;&#x3002;&#x4F46;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x9057;&#x6F0F;docs/&#x3002;&#x8BB0;&#x5F55;&#x60A8;&#x7684;&#x5DE5;&#x4F5C;&#x603B;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x4E3B;&#x610F;&#x3002;</p>
+</blockquote>
+<h2 id="2-web-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><a name="2-web-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;" class="anchor-navigation-ex-anchor" href="#2-web-&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;"><i class="fa fa-link" aria-hidden="true"></i></a>2. Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;</h2>
+<p>Python &#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x4E3B;&#x8981;&#x7528;&#x4F8B;&#x662F;<a href="https://realpython.com/python-web-applications/" target="_blank">Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;</a>&#x3002;<a href="https://www.djangoproject.com/" target="_blank">Django</a>&#x548C;<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Flask</a>&#x53EF;&#x4EE5;&#x8BF4;&#x662F; Python &#x6700;&#x6D41;&#x884C;&#x7684; Web &#x6846;&#x67B6;&#xFF0C;&#x5E78;&#x8FD0;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;&#x65B9;&#x9762;&#x5B83;&#x4EEC;&#x66F4;&#x52A0;&#x56FA;&#x6267;&#x5DF1;&#x89C1;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x3001;&#x6210;&#x719F;&#x7684;&#x5E03;&#x5C40;&#x53C2;&#x8003;&#xFF0C;&#x6211;&#x60F3;&#x5F3A;&#x8C03;&#x8FD9;&#x4E9B;&#x6846;&#x67B6;&#x5171;&#x6709;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<h3 id="21-django"><a name="21-django" class="anchor-navigation-ex-anchor" href="#21-django"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 Django</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x6309;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#xFF0C;&#x4ECE; Django &#x5F00;&#x59CB;&#x3002;Django &#x7684;&#x4F18;&#x70B9;&#x4E4B;&#x4E00;&#x662F;&#x5B83;&#x4F1A;&#x5728;&#x8FD0;&#x884C;&#x540E;&#x4E3A;&#x60A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x9AA8;&#x67B6;<code>django-admin startproject project</code>&#xFF0C;&#x5176;&#x4E2D;project&#x662F;&#x60A8;&#x7684;&#x9879;&#x76EE;&#x540D;&#x79F0;&#x3002;&#x8FD9;&#x5C06;&#x5728;&#x60A8;&#x5F53;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;project&#x4EE5;&#x4E0B;&#x5185;&#x200B;&#x200B;&#x90E8;&#x7ED3;&#x6784;&#x7684;&#x76EE;&#x5F55;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">project/
+&#x2502;
+&#x251C;&#x2500;&#x2500; project/
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; settings.py
+&#x2502;   &#x251C;&#x2500;&#x2500; urls.py
+&#x2502;   &#x2514;&#x2500;&#x2500; wsgi.py
+&#x2502;
+&#x2514;&#x2500;&#x2500; manage.py
+</code></pre>
+<p>&#x8FD9;&#x4F3C;&#x4E4E;&#x6709;&#x70B9;&#x7A7A;&#xFF0C;&#x4E0D;&#x662F;&#x5417;&#xFF1F;&#x6240;&#x6709;&#x7684;&#x903B;&#x8F91;&#x90FD;&#x5230;&#x54EA;&#x91CC;&#x53BB;&#x4E86;&#xFF1F;&#x89C2;&#x70B9;&#xFF1F;&#x8FDE;&#x6D4B;&#x8BD5;&#x90FD;&#x6CA1;&#x6709;&#xFF01;</p>
+<p>&#x5728; Django &#x4E2D;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x5B83;&#x5C06; Django &#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x3001;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8054;&#x7CFB;&#x5728;&#x4E00;&#x8D77;&#x3002;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x662F;&#x903B;&#x8F91;&#x3001;&#x6A21;&#x578B;&#x3001;&#x89C6;&#x56FE;&#x7B49;&#x5168;&#x90E8;&#x5B58;&#x5728;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6B64;&#x8FC7;&#x7A0B;&#x4E2D;&#x5B83;&#x4EEC;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EFB;&#x52A1;&#xFF0C;&#x4F8B;&#x5982;&#x7EF4;&#x62A4;&#x535A;&#x5BA2;&#x3002;</p>
+<p>Django &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x5BFC;&#x5165;&#x9879;&#x76EE;&#x5E76;&#x8DE8;&#x9879;&#x76EE;&#x4F7F;&#x7528;&#xFF0C;&#x5176;&#x7ED3;&#x6784;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E13;&#x95E8;&#x7684; Python &#x5305;&#x3002;</p>
+<p>&#x4E0E;&#x9879;&#x76EE;&#x4E00;&#x6837;&#xFF0C;Django &#x4F7F;&#x751F;&#x6210; Django &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x3002;&#x8BBE;&#x7F6E;&#x9879;&#x76EE;&#x540E;&#xFF0C;&#x60A8;&#x6240;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x5BFC;&#x822A;&#x5230;manage.py&#x5E76;&#x8FD0;&#x884C;&#x7684;&#x4F4D;&#x7F6E;<code>python manage.py startapp app</code>&#xFF0C;&#x8FD9;app&#x662F;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x540D;&#x79F0;&#x3002;</p>
+<p>&#x8FD9;&#x5C06;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;app&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x5E03;&#x5C40;&#x8C03;&#x7528;&#x7684;&#x76EE;&#x5F55;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">app/
+&#x2502;
+&#x251C;&#x2500;&#x2500; migrations/
+&#x2502;   &#x2514;&#x2500;&#x2500; __init__.py
+&#x2502;
+&#x251C;&#x2500;&#x2500; __init__.py
+&#x251C;&#x2500;&#x2500; admin.py
+&#x251C;&#x2500;&#x2500; apps.py
+&#x251C;&#x2500;&#x2500; models.py
+&#x251C;&#x2500;&#x2500; tests.py
+&#x2514;&#x2500;&#x2500; views.py
+</code></pre>
+<p>&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x76F4;&#x63A5;&#x5BFC;&#x5165;&#x5230;&#x60A8;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x3002;&#x6709;&#x5173;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x4F5C;&#x7528;&#x3001;&#x5982;&#x4F55;&#x5C06;&#x5B83;&#x4EEC;&#x7528;&#x4E8E;&#x60A8;&#x7684;&#x9879;&#x76EE;&#x7B49;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x8D85;&#x51FA;&#x4E86;&#x672C;&#x53C2;&#x8003;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x4F46;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x6211;&#x4EEC;&#x7684; Django &#x6559;&#x7A0B;<a href="https://realpython.com/django-setup/" target="_blank">&#x6DFB;&#x52A0;&#x94FE;&#x63A5;&#x63CF;&#x8FF0;</a>&#x548C;<a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/" target="_blank">&#x5B98;&#x65B9; Django &#x6587;&#x6863;</a>&#x4E2D;&#x83B7;&#x5F97;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x548C;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x6587;&#x4EF6;&#x548C;&#x6587;&#x4EF6;&#x5939;&#x7ED3;&#x6784;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x662F; Django &#x7684;&#x57FA;&#x672C;&#x8981;&#x6C42;&#x3002;&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x5F00;&#x6E90; Django &#x9879;&#x76EE;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#xFF08;&#x5E76;&#x4E14;&#x5E94;&#x8BE5;&#xFF09;&#x4ECE;&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;&#x8C03;&#x6574;&#x7ED3;&#x6784;&#x3002;&#x6211;&#x901A;&#x5E38;&#x5728;&#x5916;&#x90E8;project/&#x76EE;&#x5F55;&#x4E2D;&#x5F97;&#x5230;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x4E1C;&#x897F;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">project/
+&#x2502;
+&#x251C;&#x2500;&#x2500; app/
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; admin.py
+&#x2502;   &#x251C;&#x2500;&#x2500; apps.py
+&#x2502;   &#x2502;
+&#x2502;   &#x251C;&#x2500;&#x2500; migrations/
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x2502;
+&#x2502;   &#x251C;&#x2500;&#x2500; models.py
+&#x2502;   &#x251C;&#x2500;&#x2500; tests.py
+&#x2502;   &#x2514;&#x2500;&#x2500; views.py
+&#x2502;
+&#x251C;&#x2500;&#x2500; docs/
+&#x2502;
+&#x251C;&#x2500;&#x2500; project/
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; settings.py
+&#x2502;   &#x251C;&#x2500;&#x2500; urls.py
+&#x2502;   &#x2514;&#x2500;&#x2500; wsgi.py
+&#x2502;
+&#x251C;&#x2500;&#x2500; static/
+&#x2502;   &#x2514;&#x2500;&#x2500; style.css
+&#x2502;
+&#x251C;&#x2500;&#x2500; templates/
+&#x2502;   &#x2514;&#x2500;&#x2500; base.html
+&#x2502;
+&#x251C;&#x2500;&#x2500; .gitignore
+&#x251C;&#x2500;&#x2500; manage.py
+&#x251C;&#x2500;&#x2500; LICENSE
+&#x2514;&#x2500;&#x2500; README.md
+</code></pre>
+<p>&#x8981;&#x6DF1;&#x5165;&#x8BA8;&#x8BBA;&#x66F4;&#x9AD8;&#x7EA7;&#x7684; Django &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E03;&#x5C40;&#xFF0C;&#x8BF7;<a href="https://stackoverflow.com/questions/22841764/best-practice-for-django-project-working-directory-structure" target="_blank">&#x53C2;&#x9605; Stack Overflow &#x7EBF;&#x7A0B;</a>&#x3002;<a href="https://django-project-skeleton.readthedocs.io/en/latest/structure.html" target="_blank">django-project-skeleton&#x9879;&#x76EE;&#x6587;&#x6863;</a>&#x89E3;&#x91CA;&#x4E86;&#x60A8;&#x5C06;&#x5728; Stack Overflow &#x7EBF;&#x7A0B;&#x4E2D;&#x627E;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x76EE;&#x5F55;&#x3002;&#x53EF;&#x4EE5;&#x5728; Django &#x7684;&#x4E24;&#x4E2A;&#x72EC;&#x5BB6;&#x65B0;&#x95FB;&#x7684;&#x9875;&#x9762;&#x4E2D;&#x627E;&#x5230;&#x5BF9; Django &#x7684;&#x5168;&#x9762;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#xFF0C;&#x8BE5;&#x9875;&#x9762;&#x5C06;&#x5411;&#x60A8;&#x4ECB;&#x7ECD; Django &#x5F00;&#x53D1;&#x7684;&#x6240;&#x6709;&#x6700;&#x65B0;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x3002;</p>
+<p>&#x5982;&#x9700;&#x66F4;&#x591A; Django &#x6559;&#x7A0B;&#xFF0C;&#x8BF7;<a href="https://realpython.com/tutorials/django/" target="_blank">&#x8BBF;&#x95EE; Real Python &#x4E2D;&#x7684; Django &#x90E8;&#x5206;</a>&#x3002;</p>
+<h3 id="22-flask"><a name="22-flask" class="anchor-navigation-ex-anchor" href="#22-flask"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 Flask</h3>
+<p>Flask &#x662F;&#x4E00;&#x4E2A; Python &#x7F51;&#x7EDC;&#x201C;&#x5FAE;&#x6846;&#x67B6;&#x201D;&#x3002;&#x4E3B;&#x8981;&#x5356;&#x70B9;&#x4E4B;&#x4E00;&#x662F;&#x5B83;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5FEB;&#x901F;&#x5730;&#x4EE5;&#x6700;&#x5C0F;&#x7684;&#x5F00;&#x9500;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;Flask &#x6587;&#x6863;&#x6709;&#x4E00;&#x4E2A;&#x4E0D;&#x5230; 10 &#x884C;&#x4EE3;&#x7801;&#x548C;&#x5355;&#x4E2A;&#x811A;&#x672C;&#x7684; Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x793A;&#x4F8B;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x60A8;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x7F16;&#x5199;&#x8FD9;&#x4E48;&#x5C0F;&#x7684; Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x5E78;&#x8FD0;&#x7684;&#x662F;<a href="http://flask.pocoo.org/docs/1.0/" target="_blank">&#xFF0C;Flask &#x6587;&#x6863;</a>&#x7A81;&#x7136;&#x51FA;&#x73B0;&#xFF0C;&#x4E3A;&#x4ED6;&#x4EEC;&#x7684;&#x6559;&#x7A0B;&#x9879;&#x76EE;&#xFF08;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; Flaskr &#x7684;&#x535A;&#x5BA2; Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF09;&#x63D0;&#x4F9B;&#x4E86;&#x5EFA;&#x8BAE;&#x7684;&#x5E03;&#x5C40;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x4E3B;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#x68C0;&#x67E5;&#x5B83;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">flaskr/
+&#x2502;
+&#x251C;&#x2500;&#x2500; flaskr/
+&#x2502;   &#x251C;&#x2500;&#x2500; ___init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; db.py
+&#x2502;   &#x251C;&#x2500;&#x2500; schema.sql
+&#x2502;   &#x251C;&#x2500;&#x2500; auth.py
+&#x2502;   &#x251C;&#x2500;&#x2500; blog.py
+&#x2502;   &#x251C;&#x2500;&#x2500; templates/
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; base.html
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; auth/
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; login.html
+&#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; register.html
+&#x2502;   &#x2502;   &#x2502;
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; blog/
+&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; create.html
+&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; index.html
+&#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; update.html
+&#x2502;   &#x2502; 
+&#x2502;   &#x2514;&#x2500;&#x2500; static/
+&#x2502;       &#x2514;&#x2500;&#x2500; style.css
+&#x2502;
+&#x251C;&#x2500;&#x2500; tests/
+&#x2502;   &#x251C;&#x2500;&#x2500; conftest.py
+&#x2502;   &#x251C;&#x2500;&#x2500; data.sql
+&#x2502;   &#x251C;&#x2500;&#x2500; test_factory.py
+&#x2502;   &#x251C;&#x2500;&#x2500; test_db.py
+&#x2502;   &#x251C;&#x2500;&#x2500; test_auth.py
+&#x2502;   &#x2514;&#x2500;&#x2500; test_blog.py
+&#x2502;
+&#x251C;&#x2500;&#x2500; venv/
+&#x2502;
+&#x251C;&#x2500;&#x2500; .gitignore
+&#x251C;&#x2500;&#x2500; setup.py
+&#x2514;&#x2500;&#x2500; MANIFEST.in
+</code></pre>
+<p>flaskr&#x5728;&#x8FD9;&#x4E2A;&#x5E03;&#x5C40;&#x4E2D;&#xFF0C;&#x9664;&#x4E86;&#x4F60;&#x7684;&#x6D4B;&#x8BD5;&#x3001;<a href="https://realpython.com/python-virtual-environments-a-primer/" target="_blank">&#x865A;&#x62DF;&#x73AF;&#x5883;</a>&#x7684;&#x76EE;&#x5F55;&#x548C;&#x901A;&#x5E38;&#x7684;&#x9876;&#x7EA7;&#x6587;&#x4EF6;&#x4E4B;&#x5916;&#xFF0C;&#x6240;&#x6709;&#x4E1C;&#x897F;&#x90FD;&#x5728;&#x5305;&#x4E2D;&#x3002;&#x4E0E;&#x5176;&#x4ED6;&#x5E03;&#x5C40;&#x4E00;&#x6837;&#xFF0C;&#x60A8;&#x7684;&#x6D4B;&#x8BD5;&#x5C06;&#x5927;&#x81F4;&#x5339;&#x914D;&#x4F4D;&#x4E8E;flaskr&#x5305;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x3002;&#x60A8;&#x7684;&#x6A21;&#x677F;&#x4E5F;&#x9A7B;&#x7559;&#x5728;&#x4E3B;&#x9879;&#x76EE;&#x5305;&#x4E2D;&#xFF0C;&#x8FD9;&#x5728; Django &#x5E03;&#x5C40;&#x4E2D;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x3002;</p>
+<p>&#x8BF7;&#x52A1;&#x5FC5;&#x8BBF;&#x95EE;&#x6211;&#x4EEC;&#x7684;<a href="https://github.com/realpython/flask-boilerplate" target="_blank">Flask Boilerplate Githu</a>b &#x9875;&#x9762;&#x4EE5;&#x67E5;&#x770B;&#x66F4;&#x5B8C;&#x6574;&#x7684; Flask &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E76;&#x5728;&#x6B64;&#x5904;&#x67E5;&#x770B;&#x6837;&#x677F;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x6709;&#x5173; Flask &#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x5728;&#x6B64;<a href="https://realpython.com/tutorials/flask/" target="_blank">&#x5904;&#x67E5;&#x770B;&#x6211;&#x4EEC;&#x6240;&#x6709;&#x7684; Flask &#x6559;&#x7A0B;</a>&#x3002;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://realpython.com/python-application-layouts/#application-with-internal-packages" target="_blank">Python Application Layouts: A Reference</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-28 14:09:19
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_16_process_thread_coroutine.html" class="navigation navigation-prev " aria-label="Previous page: python 进程 线程 协程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Case/" class="navigation navigation-next " aria-label="Next page: Case">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 应用程序布局","level":"1.4.22","depth":2,"next":{"title":"Case","level":"1.5","depth":1,"path":"Case/README.md","ref":"Case/README.md","articles":[{"title":"python_monitor_1_file_move_and_unzip","level":"1.5.1","depth":2,"path":"Case/python_monitor_1_file_move_and_unzip.md","ref":"Case/python_monitor_1_file_move_and_unzip.md","articles":[]}]},"previous":{"title":"python 进程 线程 协程","level":"1.4.21","depth":2,"path":"Base/python_16_process_thread_coroutine.md","ref":"Base/python_16_process_thread_coroutine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Base/python_17_application_layout.md","mtime":"2022-06-28T14:09:19.958Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

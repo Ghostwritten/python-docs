@@ -1,0 +1,1987 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 xlsxwriter 生成execl文档 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_prometheus_client.html" />
+    
+    
+    <link rel="prev" href="python_redis.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 xlsxwriter 生成execl文档</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-xlsxwriter-&#x751F;&#x6210;execl&#x6587;&#x6863;"><b></b>python &#x6A21;&#x5757; XlsxWriter &#x751F;&#x6210;execl&#x6587;&#x6863;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x4ECB;&#x7ECD;"><b></b>1. &#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-&#x5B89;&#x88C5;"><b></b>2. &#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#3-&#x65B9;&#x6CD5;"><b></b>3. &#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#31-workbook&#x7C7B;"><b></b>3.1 Workbook&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#32-worksheet&#x7C7B;"><b></b>3.2 Worksheet&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#33-chart&#x7C7B;"><b></b>3.3 Chart&#x7C7B;</a></li></ul><li><span class="title-icon "></span><a href="#4-&#x5B9E;&#x6218;"><b></b>4 &#x5B9E;&#x6218;</a></li><ul><li><span class="title-icon "></span><a href="#41-&#x753B;&#x7EBF;&#x56FE;"><b></b>4.1 &#x753B;&#x7EBF;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#42-&#x5B9A;&#x5236;&#x81EA;&#x52A8;&#x5316;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x62A5;&#x8868;&#x5468;&#x62A5;"><b></b>4.2 &#x5B9A;&#x5236;&#x81EA;&#x52A8;&#x5316;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x62A5;&#x8868;&#x5468;&#x62A5;</a></li></ul></ul></ul></div><a href="#python-&#x6A21;&#x5757;-xlsxwriter-&#x751F;&#x6210;execl&#x6587;&#x6863;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-xlsxwriter-&#x751F;&#x6210;execl&#x6587;&#x6863;"><a name="python-&#x6A21;&#x5757;-xlsxwriter-&#x751F;&#x6210;execl&#x6587;&#x6863;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-xlsxwriter-&#x751F;&#x6210;execl&#x6587;&#x6863;"><i class="fa fa-link" aria-hidden="true"></i></a>python &#x6A21;&#x5757; XlsxWriter &#x751F;&#x6210;execl&#x6587;&#x6863;</h1>
+<h2 id="1-&#x4ECB;&#x7ECD;"><a name="1-&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4ECB;&#x7ECD;</h2>
+<p>Excel&#x662F;&#x5F53;&#x4ECA;&#x6700;&#x6D41;&#x884C;&#x7684;&#x7535;&#x5B50;&#x8868;&#x683C;&#x5904;&#x7406;&#x8F6F;&#x4EF6;&#xFF0C;&#x652F;&#x6301;&#x4E30;&#x5BCC;&#x7684;&#x8BA1;&#x7B97;&#x51FD;&#x6570;&#x53CA;&#x56FE;&#x8868;&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x8FD0;&#x8425;&#x65B9;&#x9762;&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x8FD0;&#x8425;&#x6570;&#x636E;&#x62A5;&#x8868;&#xFF0C;&#x6BD4;&#x5982;&#x4E1A;&#x52A1;&#x8D28;&#x91CF;&#x3001;&#x8D44;&#x6E90;&#x5229;&#x7528;&#x3001;&#x5B89;&#x5168;&#x626B;&#x63CF;&#x7B49;&#x62A5;&#x8868;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x5E94;&#x7528;&#x7CFB;&#x7EDF;&#x5E38;&#x89C1;&#x7684;&#x6587;&#x4EF6;&#x5BFC;&#x51FA;&#x683C;&#x5F0F;&#xFF0C;&#x4EE5;&#x4FBF;&#x6570;&#x636E;&#x4F7F;&#x7528;&#x4EBA;&#x5458;&#x505A;&#x8FDB;&#x4E00;&#x6B65;&#x52A0;&#x5DE5;&#x5904;&#x7406;&#x3002;&#x672C;&#x8282;&#x4E3B;&#x8981;&#x8BB2;&#x8FF0;&#x5229;&#x7528;Python&#x64CD;&#x4F5C;Excel&#x7684;&#x6A21;&#x5757;XlsxWriter&#xFF08;<a href="https://xlsxwriter.readthedocs.org&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x591A;&#x4E2A;&#x5DE5;&#x4F5C;&#x8868;&#x7684;&#x6587;&#x5B57;&#x3001;&#x6570;&#x5B57;&#x3001;&#x516C;&#x5F0F;&#x3001;&#x56FE;&#x8868;&#x7B49;&#x3002;[XlsxWriter](https://pypi.org/project/XlsxWriter/" target="_blank">https://xlsxwriter.readthedocs.org&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x591A;&#x4E2A;&#x5DE5;&#x4F5C;&#x8868;&#x7684;&#x6587;&#x5B57;&#x3001;&#x6570;&#x5B57;&#x3001;&#x516C;&#x5F0F;&#x3001;&#x56FE;&#x8868;&#x7B49;&#x3002;[XlsxWriter](https://pypi.org/project/XlsxWriter/</a>) &#x6A21;&#x5757;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x529F;&#x80FD;&#xFF1A;</p>
+<ul>
+<li>100%&#x517C;&#x5BB9;&#x7684;Excel XLSX&#x6587;&#x4EF6;&#xFF0C;&#x652F;&#x6301;Excel 2003&#x3001;Excel 2007&#x7B49;&#x7248;&#x672C;&#xFF1B;</li>
+<li>&#x652F;&#x6301;&#x6240;&#x6709;Excel&#x5355;&#x5143;&#x683C;&#x6570;&#x636E;&#x683C;&#x5F0F;&#xFF1B;</li>
+<li>&#x5355;&#x5143;&#x683C;&#x5408;&#x5E76;&#x3001;&#x6279;&#x6CE8;&#x3001;&#x81EA;&#x52A8;&#x7B5B;&#x9009;&#x3001;&#x4E30;&#x5BCC;&#x591A;&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;&#x7B49;&#xFF1B;</li>
+<li>&#x652F;&#x6301;&#x5DE5;&#x4F5C;&#x8868;PNG&#x3001;JPEG&#x56FE;&#x50CF;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x56FE;&#x8868;&#xFF1B;</li>
+<li>&#x5185;&#x5B58;&#x4F18;&#x5316;&#x6A21;&#x5F0F;&#x652F;&#x6301;&#x5199;&#x5165;&#x5927;&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
+<h2 id="2-&#x5B89;&#x88C5;"><a name="2-&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#2-&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B89;&#x88C5;</h2>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"> pip <span class="token function">install</span> XlsxWriter    <span class="token comment">#pip&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</span>
+</code></pre>
+<p> &#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"> easy_install XlsxWriter    <span class="token comment">#easy_install&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</span>
+</code></pre>
+<p>&#x7B2C;&#x4E09;&#x79CD;&#xFF1A;#&#x6E90;&#x7801;&#x5B89;&#x88C5;&#x65B9;&#x6CD5; </p>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -O -L http&#xFF1A;//github.com/jmcnamara/XlsxWriter/archive/master.tar.gz 
+<span class="token function">tar</span> zxvf master.tar.gz 
+<span class="token builtin class-name">cd</span> XlsxWriter-master/ 
+<span class="token function">sudo</span> python setup.py <span class="token function">install</span>
+</code></pre>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token comment">#---coding:-utf-8---</span>
+
+<span class="token function">import</span> xlsxwriter
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;demo1.xlsx&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Excel&#x6587;&#x4EF6; worksheet =</span>
+worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x8868;&#x5BF9;&#x8C61;</span>
+worksheet.set_column<span class="token punctuation">(</span><span class="token string">&apos;A:A&apos;</span>, <span class="token number">20</span><span class="token punctuation">)</span>    <span class="token comment">#&#x8BBE;&#x5B9A;&#x7B2C;&#x4E00;&#x5217;&#xFF08;A&#xFF09;&#x5BBD;&#x5EA6;&#x4E3A;20&#x50CF;&#x7D20;</span>
+<span class="token assign-left variable">bold</span><span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;bold&apos;</span><span class="token builtin class-name">:</span> True<span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x52A0;&#x7C97;&#x7684;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;</span>
+worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;A1&apos;</span>, <span class="token string">&apos;Hello&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#A1&#x5355;&#x5143;&#x683C;&#x5199;&#x5165;&#x2019;Hello&#x2019;</span>
+worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;A2&apos;</span>, <span class="token string">&apos;World&apos;</span>, bold<span class="token punctuation">)</span>  <span class="token comment">#A2&#x5355;&#x5143;&#x683C;&#x5199;&#x5165;&#x2019;World&#x2019;&#x5E76;&#x5F15;&#x7528;&#x52A0;&#x7C97;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;bold</span>
+worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;B2&apos;</span>, u<span class="token string">&apos;&#x4E2D;&#x6587;&#x6D4B;&#x8BD5;&apos;</span>, bold<span class="token punctuation">)</span> <span class="token comment">#B2&#x5355;&#x5143;&#x683C;&#x5199;&#x5165;&#x4E2D;&#x6587;&#x5E76;&#x5F15;&#x7528;&#x52A0;&#x7C97;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;bold</span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">2</span>, <span class="token number">0</span>, <span class="token number">32</span><span class="token punctuation">)</span>    <span class="token comment">#&#x7528;&#x884C;&#x5217;&#x8868;&#x793A;&#x6CD5;&#x5199;&#x5165;&#x6570;&#x5B57;&#x2019;32&#x2019;&#x4E0E;&#x2019;35.5&#x2032;</span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">3</span>, <span class="token number">0</span>, <span class="token number">35.5</span><span class="token punctuation">)</span> <span class="token comment">#&#x884C;&#x5217;&#x8868;&#x793A;&#x6CD5;&#x7684;&#x5355;&#x5143;&#x683C;&#x4E0B;&#x6807;&#x4EE5;0&#x4F5C;&#x4E3A;&#x8D77;&#x59CB;&#x503C;&#xFF0C;&#x2019;3&#xFF0C;0&#x2019;&#x7B49;&#x4EF7;&#x4E8E;&#x2019;A3&#x2019;</span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">4</span>, <span class="token number">0</span>, <span class="token string">&apos;=SUM&#xFF08;A3&#xFF1A;A4&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x6C42;A3&#xFF1A;A4&#x7684;&#x548C;&#xFF0C;&#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x5199;&#x5165;&#x2019;4&#xFF0C;0&#x2019;&#xFF0C;&#x5373;&#x2019;A5&#x2019;</span>
+worksheet.insert_image<span class="token punctuation">(</span><span class="token string">&apos;B5&apos;</span>, <span class="token string">&apos;img/1.jpg&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5728;B5&#x5355;&#x5143;&#x683C;&#x63D2;&#x5165;&#x56FE;&#x7247;</span>
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5173;&#x95ED;Excel&#x6587;&#x4EF6;</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;:
+<img src="https://img-blog.csdnimg.cn/20200419164550935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h2 id="3-&#x65B9;&#x6CD5;"><a name="3-&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#3-&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x65B9;&#x6CD5;</h2>
+<h3 id="31-workbook&#x7C7B;"><a name="31-workbook&#x7C7B;" class="anchor-navigation-ex-anchor" href="#31-workbook&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 Workbook&#x7C7B;</h3>
+<p>Workbook&#x7C7B;&#x5B9A;&#x4E49;&#xFF1A;
+<code>Workbook&#xFF08;filename[&#xFF0C;options]&#xFF09;</code>&#xFF0C;&#x8BE5;&#x7C7B;&#x5B9E;&#x73B0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;XlsxWriter&#x7684;Workbook&#x5BF9;&#x8C61;&#x3002;</p>
+<ul>
+<li>Workbook&#x7C7B;&#x4EE3;&#x8868;&#x6574;&#x4E2A;&#x7535;&#x5B50;&#x8868;&#x683C;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x5B58;&#x50A8;&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#x3002;</li>
+<li>&#x53C2;&#x6570;filename&#xFF08;String&#x7C7B;&#x578B;&#xFF09;&#x4E3A;&#x521B;&#x5EFA;&#x7684;Excel&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x8DEF;&#x5F84;&#xFF1B;</li>
+<li>&#x53C2;&#x6570;options&#xFF08;Dict&#x7C7B;&#x578B;&#xFF09;&#x4E3A;&#x53EF;&#x9009;&#x7684;Workbook&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x822C;&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#x8868;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#x503C;&#x4E3A;{&#x2018;strings_to_numbers&#x2019;&#xFF1A;True}&#x8868;&#x793A;&#x4F7F;&#x7528;worksheet.write&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x65F6;&#x6FC0;&#x6D3B;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6570;&#x5B57;&#x3002;</li>
+</ul>
+<p>&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h4 id="311-addworksheet&#xFF08;sheetname&#xFF09;"><a name="311-addworksheet&#xFF08;sheetname&#xFF09;" class="anchor-navigation-ex-anchor" href="#311-addworksheet&#xFF08;sheetname&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.1 <code>add_worksheet&#xFF08;[sheetname]&#xFF09;</code></h4>
+<p> &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x8868;&#xFF0C;
+ &#x53C2;&#x6570;<code>sheetname</code>&#xFF08;String&#x7C7B;&#x578B;&#xFF09;&#x4E3A;&#x53EF;&#x9009;&#x7684;&#x5DE5;&#x4F5C;&#x8868;&#x540D;&#x79F0;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>Sheet1</code>&#x3002;</p>
+<h4 id="312-addformat&#xFF08;properties&#xFF09;"><a name="312-addformat&#xFF08;properties&#xFF09;" class="anchor-navigation-ex-anchor" href="#312-addformat&#xFF08;properties&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.2 <code>add_format&#xFF08;[properties]&#xFF09;</code></h4>
+<p>&#x5728;&#x5DE5;&#x4F5C;&#x8868;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;&#x6765;&#x683C;&#x5F0F;&#x5316;&#x5355;&#x5143;&#x683C;&#x3002;
+&#x53C2;&#x6570;<code>properties&#xFF08;dict&#x7C7B;&#x578B;&#xFF09;</code>&#x4E3A;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x5C5E;&#x6027;&#x7684;&#x5B57;&#x5178;&#xFF0C;
+&#x4F8B;&#x5982;&#xFF1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x52A0;&#x7C97;&#x7684;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;&#xFF0C;<code>workbook.add_format&#xFF08;{&#x2018;bold&#x2019;&#xFF1A;True}&#xFF09;</code>&#x3002;&#x901A;&#x8FC7;Format methods&#xFF08;&#x683C;&#x5F0F;&#x5316;&#x65B9;&#x6CD5;&#xFF09;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x683C;&#x5F0F;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x7B49;&#x4EF7;&#x7684;&#x8BBE;&#x7F6E;&#x52A0;&#x7C97;&#x683C;&#x5F0F;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment">#&#x901A;&#x8FC7;&#x5B57;&#x5178;&#x7684;&#x65B9;&#x5F0F;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x683C;&#x5F0F;</span>
+workfomat <span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">{</span>
+     <span class="token string">&apos;bold&apos;</span><span class="token builtin class-name">:</span>  True,                 <span class="token comment">#&#x5B57;&#x4F53;&#x52A0;&#x7C97;</span>
+     <span class="token string">&apos;border&apos;</span>:1,                    <span class="token comment">#&#x5355;&#x5143;&#x683C;&#x8FB9;&#x6846;&#x5BBD;&#x5EA6;</span>
+     <span class="token string">&apos;align&apos;</span><span class="token builtin class-name">:</span>    <span class="token string">&apos;center&apos;</span>,          <span class="token comment">#&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;</span>
+     <span class="token string">&apos;valign&apos;</span><span class="token builtin class-name">:</span>   <span class="token string">&apos;vcenter&apos;</span>,         <span class="token comment">#&#x5B57;&#x4F53;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;</span>
+     <span class="token string">&apos;fg_color&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;#F4B084&apos;</span>,         <span class="token comment">#&#x5355;&#x5143;&#x683C;&#x80CC;&#x666F;&#x989C;&#x8272;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">#&#x901A;&#x8FC7;format&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E;&#x5355;&#x5143;&#x683C;&#x683C;&#x5F0F;</span>
+ workfomat <span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ workfomat.set_bold<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>                <span class="token comment">#&#x8BBE;&#x7F6E;&#x8FB9;&#x6846;&#x5BBD;&#x5EA6;</span>
+ workfomat.set_num_format<span class="token punctuation">(</span><span class="token string">&apos;0.00&apos;</span><span class="token punctuation">)</span>     <span class="token comment">#&#x683C;&#x5F0F;&#x5316;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x4E3A;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x4E24;&#x4F4D;</span>
+ workfomat.set_align<span class="token punctuation">(</span><span class="token string">&apos;center&apos;</span><span class="token punctuation">)</span>        <span class="token comment">#&#x8BBE;&#x7F6E;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;</span>
+ workfomat.set_fg_color<span class="token punctuation">(</span><span class="token string">&apos;blue&apos;</span><span class="token punctuation">)</span>       <span class="token comment">#&#x8BBE;&#x7F6E;&#x5355;&#x5143;&#x683C;&#x80CC;&#x666F;&#x989C;&#x8272;</span>
+ workfomat.set_bg_color<span class="token punctuation">(</span><span class="token string">&apos;red&apos;</span><span class="token punctuation">)</span>        <span class="token comment">#&#x8BBE;&#x7F6E;&#x5355;&#x5143;&#x683C;&#x80CC;&#x666F;&#x989C;&#x8272; (&#x7ECF;&#x6D4B;&#x8BD5;&#x548C;&#x4E0A;&#x8FB9;&#x7684;&#x529F;&#x80FD;&#x4E00;&#x6837;)</span>
+</code></pre>
+<h4 id="313-addchart&#xFF08;options&#xFF09;"><a name="313-addchart&#xFF08;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#313-addchart&#xFF08;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.3 <code>add_chart&#xFF08;options&#xFF09;</code></h4>
+<p>&#x5728;&#x5DE5;&#x4F5C;&#x8868;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x56FE;&#x8868;&#x5BF9;&#x8C61;&#xFF0C;&#x5185;&#x90E8;&#x662F;&#x901A;&#x8FC7;insert_chart&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;.
+&#x53C2;&#x6570;<code>options&#xFF08;dict&#x7C7B;&#x578B;&#xFF09;</code>&#x4E3A;&#x56FE;&#x8868;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x5C5E;&#x6027;
+&#x4F8B;&#x5982;&#xFF1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7EBF;&#x6761;&#x7C7B;&#x578B;&#x7684;&#x56FE;&#x8868;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE3;&#x7801;&#x4E3A;<code>chart=workbook.add_chart({&#x2018;type&#x2019;&#xFF1A;&#x2019;line&#x2019;})</code>&#x3002;</p>
+<h4 id="314--close&#xFF08;&#xFF09;"><a name="314--close&#xFF08;&#xFF09;" class="anchor-navigation-ex-anchor" href="#314--close&#xFF08;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.4  <code>close&#xFF08;&#xFF09;</code></h4>
+<p>&#x4F5C;&#x7528;&#x662F;&#x5173;&#x95ED;&#x5DE5;&#x4F5C;&#x8868;&#x6587;&#x4EF6;&#xFF0C;&#x5982;workbook.close&#xFF08;&#xFF09;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token comment">#---coding:-utf-8---</span>
+
+<span class="token function">import</span> xlsxwriter
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;demo2.xlsx&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Excel&#x6587;&#x4EF6; worksheet =</span>
+worksheet1 <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># Sheet1 </span>
+worksheet2 <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token string">&apos;Foglio2&apos;</span><span class="token punctuation">)</span>    <span class="token comment"># Foglio2 </span>
+worksheet3 <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token string">&apos;Data&apos;</span><span class="token punctuation">)</span>      <span class="token comment"># Data </span>
+worksheet4 <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token comment">#Sheet4</span>
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5173;&#x95ED;Excel&#x6587;&#x4EF6;</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/2020041916534631.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h3 id="32-worksheet&#x7C7B;"><a name="32-worksheet&#x7C7B;" class="anchor-navigation-ex-anchor" href="#32-worksheet&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 Worksheet&#x7C7B;</h3>
+<p>Worksheet&#x7C7B;&#x4EE3;&#x8868;&#x4E86;&#x4E00;&#x4E2A;Excel&#x5DE5;&#x4F5C;&#x8868;&#xFF0C;&#x662F;XlsxWriter&#x6A21;&#x5757;&#x64CD;&#x4F5C;Excel&#x5185;&#x5BB9;&#x6700;&#x6838;&#x5FC3;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x4F8B;&#x5982;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5355;&#x5143;&#x683C;&#x6216;&#x5DE5;&#x4F5C;&#x8868;&#x683C;&#x5F0F;&#x5E03;&#x5C40;&#x7B49;&#x3002;Worksheet&#x5BF9;&#x8C61;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;&#x901A;&#x8FC7;Workbook&#x5BF9;&#x8C61;&#x8C03;&#x7528;<code>add_worksheet&#xFF08;&#xFF09;</code>&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Worksheet&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x975E;&#x5E38;&#x4E30;&#x5BCC;&#x7684;&#x64CD;&#x4F5C;Excel&#x5185;&#x5BB9;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h4 id="321--write&#xFF08;row&#xFF0C;col&#xFF0C;args&#xFF09;"><a name="321--write&#xFF08;row&#xFF0C;col&#xFF0C;args&#xFF09;" class="anchor-navigation-ex-anchor" href="#321--write&#xFF08;row&#xFF0C;col&#xFF0C;args&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.1  <code>write&#xFF08;row&#xFF0C;col&#xFF0C;*args&#xFF09;</code></h4>
+<p> &#x5199;&#x666E;&#x901A;&#x6570;&#x636E;&#x5230;&#x5DE5;&#x4F5C;&#x8868;&#x7684;&#x5355;&#x5143;&#x683C;&#x3002;
+ &#x53C2;&#x6570;row&#x4E3A;&#x884C;&#x5750;&#x6807;&#xFF0C;col&#x4E3A;&#x5217;&#x5750;&#x6807;&#xFF0C;&#x5750;&#x6807;&#x7D22;&#x5F15;&#x8D77;&#x59CB;&#x503C;&#x4E3A;0&#xFF1B;*args&#x65E0;&#x540D;&#x5B57;&#x53C2;&#x6570;&#x4E3A;&#x6570;&#x636E;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x6570;&#x5B57;&#x3001;&#x516C;&#x5F0F;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;&#x3002;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x5199;&#x5165;&#x8FC7;&#x7A0B;&#xFF0C;write&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x4F5C;&#x4E3A;&#x5176;&#x4ED6;&#x66F4;&#x52A0;&#x5177;&#x4F53;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x65B9;&#x6CD5;&#x7684;&#x522B;&#x540D;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#xB7;write_string&#xFF08;&#xFF09;&#x5199;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write_string&#xFF08;0&#xFF0C; <span class="token number">0</span>&#xFF0C; <span class="token string">&apos;Your text here&apos;</span>&#xFF09;&#xFF1B;
+&#xB7;write_number&#xFF08;&#xFF09;&#x5199;&#x5165;&#x6570;&#x5B57;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write_number&#xFF08;<span class="token string">&apos;A2&apos;</span>&#xFF0C; <span class="token number">2.3451</span>&#xFF09;&#xFF1B;
+&#xB7;write_blank&#xFF08;&#xFF09;&#x5199;&#x5165;&#x7A7A;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write&#xFF08;<span class="token string">&apos;A2&apos;</span>&#xFF0C; None&#xFF09;&#xFF1B;
+&#xB7;write_formula&#xFF08;&#xFF09;&#x5199;&#x5165;&#x516C;&#x5F0F;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write_formula&#xFF08;2&#xFF0C; <span class="token number">0</span>&#xFF0C; <span class="token string">&apos;=SUM&#xFF08;B1&#xFF1A;B5&#xFF09;&apos;</span>&#xFF09;&#xFF1B;
+&#xB7;write_datetime&#xFF08;&#xFF09;&#x5199;&#x5165;&#x65E5;&#x671F;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write_datetime&#xFF08;7&#xFF0C; <span class="token number">0</span>&#xFF0C;datetime.datetime.strptime&#xFF08;<span class="token string">&apos;2013-01-23&apos;</span>&#xFF0C; <span class="token string">&apos;%Y-%m-%d&apos;</span>&#xFF09;&#xFF0C;workbook.add_format&#xFF08;<span class="token punctuation">{</span><span class="token string">&apos;num_format&apos;</span>&#xFF1A; <span class="token string">&apos;yyyy-mm-dd&apos;</span><span class="token punctuation">}</span>&#xFF09;&#xFF09;&#xFF1B;
+&#xB7;write_boolean&#xFF08;&#xFF09;&#x5199;&#x5165;&#x903B;&#x8F91;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write_boolean&#xFF08;0&#xFF0C; <span class="token number">0</span>&#xFF0C; True&#xFF09;&#xFF1B;
+&#xB7;write_url&#xFF08;&#xFF09;&#x5199;&#x5165;&#x8D85;&#x94FE;&#x63A5;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;
+
+worksheet.write_url&#xFF08;<span class="token string">&apos;A1&apos;</span>&#xFF0C; <span class="token string">&apos;ftp&#xFF1A;//www.python.org/&apos;</span>&#xFF09;&#x3002;
+</code></pre>
+<p>&#x4E0B;&#x5217;&#x901A;&#x8FC7;&#x5177;&#x4F53;&#x7684;&#x793A;&#x4F8B;&#x6765;&#x89C2;&#x5BDF;&#x522B;&#x540D;write&#x65B9;&#x6CD5;&#x4E0E;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+&#x5B9E;&#x4F8B;1&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token comment">#---coding:-utf-8---</span>
+
+<span class="token function">import</span> xlsxwriter
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;demo3.xlsx&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Excel&#x6587;&#x4EF6; worksheet =</span>
+worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># Sheet1 </span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token string">&apos;Hello&apos;</span><span class="token punctuation">)</span>      <span class="token comment"># write_string&#xFF08;&#xFF09; </span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">1</span>, <span class="token number">0</span>, <span class="token string">&apos;World&apos;</span><span class="token punctuation">)</span>          <span class="token comment"># write_string&#xFF08;&#xFF09; </span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">2</span>, <span class="token number">0</span>, <span class="token number">2</span><span class="token punctuation">)</span>                <span class="token comment"># write_number&#xFF08;&#xFF09;</span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">3,0</span>, <span class="token number">3.00001</span><span class="token punctuation">)</span>         <span class="token comment"># write_number&#xFF08;&#xFF09; </span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">4</span>, <span class="token number">0</span>, <span class="token string">&apos;=SIN(PI()/4)&apos;</span><span class="token punctuation">)</span>   <span class="token comment"># write_formula&#xFF08;&#xFF09; </span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">5</span>, <span class="token number">0</span>, <span class="token string">&apos;&apos;</span><span class="token punctuation">)</span>               <span class="token comment"># write_blank&#xFF08;&#xFF09; </span>
+worksheet.write<span class="token punctuation">(</span><span class="token number">6</span>, <span class="token number">0</span>, None<span class="token punctuation">)</span>             <span class="token comment"># write_blank&#xFF08;&#xFF09;</span>
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5173;&#x95ED;Excel&#x6587;&#x4EF6;</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200419170703795.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x5B9E;&#x4F8B;2&#xFF1A;&#x5FAA;&#x73AF;&#x5199;&#x5165;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> xlsxwriter
+
+ <span class="token comment"># Create a workbook and add a worksheet.</span>
+ workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;Expenses02.xlsx&apos;</span><span class="token punctuation">)</span>
+ worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+ <span class="token comment"># &#x6DFB;&#x52A0;&#x7528;&#x4E8E;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x5355;&#x5143;&#x683C;&#x7684;&#x7C97;&#x4F53;&#x683C;&#x5F0F;&#x3002;</span>
+ bold <span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;bold&apos;</span><span class="token builtin class-name">:</span> True<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ <span class="token comment"># &#x4E3A;&#x663E;&#x5F0F;&#x94B1;&#x7684;&#x5355;&#x5143;&#x683C;&#x6DFB;&#x52A0;&#x6570;&#x5B57;&#x683C;&#x5F0F;&#x3002;</span>
+ money <span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;num_format&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;$#,##0&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ <span class="token comment"># Write some data headers.</span>
+ worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;A1&apos;</span>, <span class="token string">&apos;Item&apos;</span>, bold<span class="token punctuation">)</span>
+ worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;B1&apos;</span>, <span class="token string">&apos;Cost&apos;</span>, bold<span class="token punctuation">)</span>
+
+ <span class="token comment"># Some data we want to write to the worksheet.</span>
+ expenses <span class="token operator">=</span> <span class="token punctuation">(</span>
+     <span class="token punctuation">[</span><span class="token string">&apos;Rent&apos;</span>, <span class="token number">1000</span><span class="token punctuation">]</span>,
+     <span class="token punctuation">[</span><span class="token string">&apos;Gas&apos;</span>,   <span class="token number">100</span><span class="token punctuation">]</span>,
+     <span class="token punctuation">[</span><span class="token string">&apos;Food&apos;</span>,  <span class="token number">300</span><span class="token punctuation">]</span>,
+     <span class="token punctuation">[</span><span class="token string">&apos;Gym&apos;</span>,    <span class="token number">50</span><span class="token punctuation">]</span>,
+ <span class="token punctuation">)</span>
+
+ <span class="token comment"># Start from the first cell below the headers.</span>
+ row <span class="token operator">=</span> <span class="token number">1</span>
+ col <span class="token operator">=</span> <span class="token number">0</span>
+
+ <span class="token comment"># Iterate over the data and write it out row by row.</span>
+ <span class="token keyword">for</span> item, cost <span class="token keyword">in</span> <span class="token punctuation">(</span>expenses<span class="token punctuation">)</span>:
+     worksheet.write<span class="token punctuation">(</span>row, col,     item<span class="token punctuation">)</span>
+     worksheet.write<span class="token punctuation">(</span>row, col + <span class="token number">1</span>, cost, money<span class="token punctuation">)</span>
+     row <span class="token operator">+=</span> <span class="token number">1</span>
+
+ <span class="token comment"># Write a total using a formula.</span>
+ worksheet.write<span class="token punctuation">(</span>row, <span class="token number">0</span>, <span class="token string">&apos;Total&apos;</span>,       bold<span class="token punctuation">)</span>
+ worksheet.write<span class="token punctuation">(</span>row, <span class="token number">1</span>, <span class="token string">&apos;=SUM(B2:B5)&apos;</span>, money<span class="token punctuation">)</span>
+
+ workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200419210731969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="322--setrow&#xFF08;row&#xFF0C;height&#xFF0C;cellformat&#xFF0C;options&#xFF09;"><a name="322--setrow&#xFF08;row&#xFF0C;height&#xFF0C;cellformat&#xFF0C;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#322--setrow&#xFF08;row&#xFF0C;height&#xFF0C;cellformat&#xFF0C;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.2  <code>set_row&#xFF08;row&#xFF0C;height&#xFF0C;cell_format&#xFF0C;options&#xFF09;</code></h4>
+<p> &#x8BBE;&#x7F6E;&#x884C;&#x5355;&#x5143;&#x683C;&#x7684;&#x5C5E;&#x6027;&#x3002;
+  &#x53C2;&#x6570;row&#xFF08;int&#x7C7B;&#x578B;&#xFF09;&#x6307;&#x5B9A;&#x884C;&#x4F4D;&#x7F6E;&#xFF0C;&#x8D77;&#x59CB;&#x4E0B;&#x6807;&#x4E3A;0&#xFF1B;
+  &#x53C2;&#x6570;height&#xFF08;float&#x7C7B;&#x578B;&#xFF09;&#x8BBE;&#x7F6E;&#x884C;&#x9AD8;&#xFF0C;&#x5355;&#x4F4D;&#x50CF;&#x7D20;&#xFF1B;
+  &#x53C2;&#x6570;cell_format&#xFF08;format&#x7C7B;&#x578B;&#xFF09;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;&#xFF1B;
+  &#x53C2;&#x6570;options&#xFF08;dict&#x7C7B;&#x578B;&#xFF09;&#x8BBE;&#x7F6E;&#x884C;hidden&#xFF08;&#x9690;&#x85CF;&#xFF09;&#x3001;level&#xFF08;&#x7EC4;&#x5408;&#x5206;&#x7EA7;&#xFF09;&#x3001;collapsed&#xFF08;&#x6298;&#x53E0;&#xFF09;&#x3002;&#x64CD;&#x4F5C;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token comment">#---coding:-utf-8---</span>
+
+<span class="token function">import</span> xlsxwriter
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;demo4.xlsx&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Excel&#x6587;&#x4EF6; worksheet =</span>
+worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># Sheet1 </span>
+worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;A1&apos;</span>, <span class="token string">&apos;Hello&apos;</span><span class="token punctuation">)</span>     <span class="token comment">#&#x5728;A1&#x5355;&#x5143;&#x683C;&#x5199;&#x5165;&apos;Hello&apos;&#x5B57;&#x7B26;&#x4E32; </span>
+cell_format <span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;bold&apos;</span><span class="token builtin class-name">:</span> True<span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x52A0;&#x7C97;&#x7684;&#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+worksheet.set_row<span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">40</span>, cell_format<span class="token punctuation">)</span>    <span class="token comment">#&#x8BBE;&#x7F6E;&#x7B2C;1&#x884C;&#x5355;&#x5143;&#x683C;&#x9AD8;&#x5EA6;&#x4E3A;40&#x50CF;&#x7D20;&#xFF0C;&#x4E14;&#x5F15;&#x7528;&#x52A0;&#x7C97;   &#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+worksheet.set_row<span class="token punctuation">(</span><span class="token number">1</span>, None, None, <span class="token punctuation">{</span><span class="token string">&apos;hidden&apos;</span><span class="token builtin class-name">:</span> True<span class="token punctuation">}</span><span class="token punctuation">)</span>   <span class="token comment">#&#x9690;&#x85CF;&#x7B2C;2&#x884C;&#x5355;&#x5143;&#x683C;</span>
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5173;&#x95ED;Excel&#x6587;&#x4EF6;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200419171353874.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="323--setcolumn&#xFF08;firstcol&#xFF0C;lastcol&#xFF0C;width&#xFF0C;cellformat&#xFF0C;options&#xFF09;"><a name="323--setcolumn&#xFF08;firstcol&#xFF0C;lastcol&#xFF0C;width&#xFF0C;cellformat&#xFF0C;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#323--setcolumn&#xFF08;firstcol&#xFF0C;lastcol&#xFF0C;width&#xFF0C;cellformat&#xFF0C;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.3  <code>set_column&#xFF08;first_col&#xFF0C;last_col&#xFF0C;width&#xFF0C;cell_format&#xFF0C;options&#xFF09;</code></h4>
+<p>&#x4F5C;&#x7528;&#x4E3A;&#x8BBE;&#x7F6E;&#x4E00;&#x5217;&#x6216;&#x591A;&#x5217;&#x5355;&#x5143;&#x683C;&#x5C5E;&#x6027;&#x3002;
+ &#x53C2;&#x6570;first_col&#xFF08;int&#x7C7B;&#x578B;&#xFF09;&#x6307;&#x5B9A;&#x5F00;&#x59CB;&#x5217;&#x4F4D;&#x7F6E;&#xFF0C;&#x8D77;&#x59CB;&#x4E0B;&#x6807;&#x4E3A;0&#xFF1B;
+ &#x53C2;&#x6570;last_col&#xFF08;int&#x7C7B;&#x578B;&#xFF09;&#x6307;&#x5B9A;&#x7ED3;&#x675F;&#x5217;&#x4F4D;&#x7F6E;&#xFF0C;&#x8D77;&#x59CB;&#x4E0B;&#x6807;&#x4E3A;0&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6210;&#x4E0E;first_col&#x4E00;&#x6837;&#xFF1B;
+ &#x53C2;&#x6570;width&#xFF08;float&#x7C7B;&#x578B;&#xFF09;&#x8BBE;&#x7F6E;&#x5217;&#x5BBD;&#xFF1B;
+ &#x53C2;&#x6570;cell_format&#xFF08;Format&#x7C7B;&#x578B;&#xFF09;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;&#xFF1B;
+ &#x53C2;&#x6570;options&#xFF08;dict&#x7C7B;&#x578B;&#xFF09;&#x8BBE;&#x7F6E;&#x884C;hidden&#xFF08;&#x9690;&#x85CF;&#xFF09;&#x3001;level&#xFF08;&#x7EC4;&#x5408;&#x5206;&#x7EA7;&#xFF09;&#x3001;collapsed&#xFF08;&#x6298;&#x53E0;&#xFF09;&#x3002;
+ &#x64CD;&#x4F5C;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token comment">#---coding:-utf-8---</span>
+
+<span class="token function">import</span> xlsxwriter
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;demo6.xlsx&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Excel&#x6587;&#x4EF6; worksheet =</span>
+worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># Sheet1 </span>
+worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;A1&apos;</span>, <span class="token string">&apos;Hello&apos;</span><span class="token punctuation">)</span>     <span class="token comment">#&#x5728;A1&#x5355;&#x5143;&#x683C;&#x5199;&#x5165;&apos;Hello&apos;&#x5B57;&#x7B26;&#x4E32; </span>
+worksheet.write<span class="token punctuation">(</span><span class="token string">&apos;B1&apos;</span>, <span class="token string">&apos;World&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5728;B1&#x5355;&#x5143;&#x683C;&#x5199;&#x5165;&apos;World&apos;&#x5B57;&#x7B26;&#x4E32; </span>
+cell_format <span class="token operator">=</span> workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;bold&apos;</span><span class="token builtin class-name">:</span> True<span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x52A0;&#x7C97;&#x7684;&#x683C;&#x5F0F;&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;0&#x5230;1&#x5373;&#xFF08;A&#x5230;B&#xFF09; &#x5217;&#x5355;&#x5143;&#x683C;&#x5BBD;&#x5EA6;&#x4E3A;10&#x50CF;&#x7D20;&#xFF0C;&#x4E14;&#x5F15;&#x7528;&#x52A0;&#x7C97;&#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+worksheet.set_column<span class="token punctuation">(</span><span class="token number">0,1</span>, <span class="token number">10</span>,cell_format<span class="token punctuation">)</span>
+worksheet.set_column<span class="token punctuation">(</span><span class="token string">&apos;C:D&apos;</span>, <span class="token number">20</span><span class="token punctuation">)</span>    <span class="token comment">#&#x8BBE;&#x7F6E;C&#x5230;D&#x5217;&#x5355;&#x5143;&#x683C;&#x5BBD;&#x5EA6;&#x4E3A;20&#x50CF;&#x7D20; </span>
+worksheet.set_column<span class="token punctuation">(</span><span class="token string">&apos;E:G&apos;</span>, None, None, <span class="token punctuation">{</span><span class="token string">&apos;hidden&apos;</span><span class="token builtin class-name">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x9690;&#x85CF;E&#x5230;G&#x5217;&#x5355;&#x5143;&#x683C;</span>
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5173;&#x95ED;Excel&#x6587;&#x4EF6;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200419172652434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="324-insertimage&#xFF08;row&#xFF0C;col&#xFF0C;image&#xFF0C;options&#xFF09;"><a name="324-insertimage&#xFF08;row&#xFF0C;col&#xFF0C;image&#xFF0C;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#324-insertimage&#xFF08;row&#xFF0C;col&#xFF0C;image&#xFF0C;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.4 <code>insert_image&#xFF08;row&#xFF0C;col&#xFF0C;image[&#xFF0C;options]&#xFF09;</code></h4>
+<p>&#x63D2;&#x5165;&#x56FE;&#x7247;&#x5230;&#x6307;&#x5B9A;&#x5355;&#x5143;&#x683C;&#xFF0C;&#x652F;&#x6301;PNG&#x3001;JPEG&#x3001;BMP&#x7B49;&#x56FE;&#x7247;&#x683C;&#x5F0F;&#x3002;
+ &#x53C2;&#x6570;row&#x4E3A;&#x884C;&#x5750;&#x6807;&#xFF0C;col&#x4E3A;&#x5217;&#x5750;&#x6807;&#xFF0C;&#x5750;&#x6807;&#x7D22;&#x5F15;&#x8D77;&#x59CB;&#x503C;&#x4E3A;0&#xFF1B;
+ &#x53C2;&#x6570;image&#xFF08;string&#x7C7B;&#x578B;&#xFF09;&#x4E3A;&#x56FE;&#x7247;&#x8DEF;&#x5F84;&#xFF1B;
+ &#x53C2;&#x6570;options&#xFF08;dict&#x7C7B;&#x578B;&#xFF09;&#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6307;&#x5B9A;&#x56FE;&#x7247;&#x7684;&#x4F4D;&#x7F6E;&#x3001;&#x6BD4;&#x4F8B;&#x3001;&#x94FE;&#x63A5;URL&#x7B49;&#x4FE1;&#x606F;&#x3002;
+ &#x64CD;&#x4F5C;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200419173107778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h3 id="33-chart&#x7C7B;"><a name="33-chart&#x7C7B;" class="anchor-navigation-ex-anchor" href="#33-chart&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 Chart&#x7C7B;</h3>
+<p>Chart&#x7C7B;&#x5B9E;&#x73B0;&#x5728;XlsxWriter&#x6A21;&#x5757;&#x4E2D;&#x56FE;&#x8868;&#x7EC4;&#x4EF6;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x56FE;&#x8868;&#x7C7B;&#x578B;&#x5305;&#x62EC;&#x9762;&#x79EF;&#x3001;&#x6761;&#x5F62;&#x56FE;&#x3001;&#x67F1;&#x5F62;&#x56FE;&#x3001;&#x6298;&#x7EBF;&#x56FE;&#x3001;&#x997C;&#x56FE;&#x3001;&#x6563;&#x70B9;&#x56FE;&#x3001;&#x80A1;&#x7968;&#x548C;&#x96F7;&#x8FBE;&#x7B49;&#xFF0C;&#x4E00;&#x4E2A;&#x56FE;&#x8868;&#x5BF9;&#x8C61;&#x662F;&#x901A;&#x8FC7;Workbook&#xFF08;&#x5DE5;&#x4F5C;&#x7C3F;&#xFF09;&#x7684;add_chart&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#xFF0C;&#x901A;&#x8FC7;{type&#xFF0C;&#x2019;&#x56FE;&#x8868;&#x7C7B;&#x578B;&#x2019;}&#x5B57;&#x5178;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x56FE;&#x8868;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8BED;&#x53E5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token punctuation">(</span>chart <span class="token operator">=</span> workbook.add_chart<span class="token punctuation">(</span><span class="token punctuation">{</span>type, <span class="token string">&apos;column&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;column&#xFF08;&#x67F1;&#x5F62;&#xFF09;&#x56FE;&#x8868; &#x66F4;&#x591A;&#x56FE;&#x8868;&#x7C7B;&#x578B;&#x8BF4;&#x660E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">area&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9762;&#x79EF;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+bar&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6761;&#x5F62;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+column&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x67F1;&#x5F62;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+line&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7EBF;&#x6761;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+pie&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x997C;&#x56FE;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+scatter&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6563;&#x70B9;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+stock&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x80A1;&#x7968;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#xFF1B;
+
+radar&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x96F7;&#x8FBE;&#x6837;&#x5F0F;&#x7684;&#x56FE;&#x8868;&#x3002;
+</code></pre>
+<p>&#x7136;&#x540E;&#x518D;&#x901A;&#x8FC7;Worksheet&#xFF08;&#x5DE5;&#x4F5C;&#x8868;&#xFF09;&#x7684;insert_chart&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x63D2;&#x5165;&#x5230;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#xFF0C;&#x8BED;&#x53E5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><code>worksheet.insert_chart&#xFF08;&apos;A7&apos;, chart&#xFF09;</code>    #&#x5728;A7&#x5355;&#x5143;&#x683C;&#x63D2;&#x5165;&#x56FE;&#x8868;</p>
+<p>&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;chart&#x7C7B;&#x7684;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h4 id="331-chartaddseries&#xFF08;options&#xFF09;"><a name="331-chartaddseries&#xFF08;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#331-chartaddseries&#xFF08;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.1 <code>chart.add_series&#xFF08;options&#xFF09;</code></h4>
+<p>&#x4F5C;&#x7528;&#x4E3A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7CFB;&#x5217;&#x5230;&#x56FE;&#x8868;.
+&#x53C2;&#x6570;options&#xFF08;dict&#x7C7B;&#x578B;&#xFF09;&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x7CFB;&#x5217;&#x9009;&#x9879;&#x7684;&#x5B57;&#x5178;&#xFF0C;&#x64CD;&#x4F5C;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">chart.add_series<span class="token punctuation">(</span><span class="token punctuation">{</span>
+     <span class="token string">&apos;categories&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;=Sheet1!$A$1:$A$5&apos;</span>,
+     <span class="token string">&apos;values&apos;</span><span class="token builtin class-name">:</span>     <span class="token string">&apos;=Sheet1&#xFF01;$B$1:$B$5&apos;</span>,
+     <span class="token string">&apos;line&apos;</span><span class="token builtin class-name">:</span>       <span class="token punctuation">{</span><span class="token string">&apos;color&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;red&apos;</span><span class="token punctuation">}</span>,
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>add_series&#x65B9;&#x6CD5;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E09;&#x4E2A;&#x9009;&#x9879;&#x4E3A;<code>categories&#x3001;values&#x3001;line</code>&#xFF0C;&#x5176;&#x4E2D;categories&#x4F5C;&#x4E3A;&#x662F;&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x7C7B;&#x522B;&#x6807;&#x7B7E;&#x8303;&#x56F4;&#xFF1B;values&#x4E3A;&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x6570;&#x636E;&#x8303;&#x56F4;&#xFF1B;line&#x4E3A;&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x7EBF;&#x6761;&#x5C5E;&#x6027;&#xFF0C;&#x5305;&#x62EC;&#x989C;&#x8272;&#x3001;&#x5BBD;&#x5EA6;&#x7B49;&#x3002;</p>
+<h4 id="332-setxaxis&#xFF08;options&#xFF09;"><a name="332-setxaxis&#xFF08;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#332-setxaxis&#xFF08;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.2 <code>set_x_axis&#xFF08;options&#xFF09;</code></h4>
+<p>&#x8BBE;&#x7F6E;&#x56FE;&#x8868;X&#x8F74;&#x9009;&#x9879;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x6548;&#x679C;&#x56FE;&#x5982;&#x56FE;3-7&#x6240;&#x793A;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">chart.set_x_axis<span class="token punctuation">(</span><span class="token punctuation">{</span>
+     <span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;Earnings per Quarter&apos;</span>,    <span class="token comment">#&#x8BBE;&#x7F6E;X&#x8F74;&#x6807;&#x9898;&#x540D;&#x79F0;</span>
+     <span class="token string">&apos;name_font&apos;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token string">&apos;size&apos;</span><span class="token builtin class-name">:</span> <span class="token number">14</span>, <span class="token string">&apos;bold&apos;</span><span class="token builtin class-name">:</span> True<span class="token punctuation">}</span>,  <span class="token comment">#&#x8BBE;&#x7F6E;X&#x8F74;&#x6807;&#x9898;&#x5B57;&#x4F53;&#x5C5E;&#x6027;</span>
+     <span class="token string">&apos;num_font&apos;</span><span class="token builtin class-name">:</span>  <span class="token punctuation">{</span><span class="token string">&apos;italic&apos;</span><span class="token builtin class-name">:</span> True <span class="token punctuation">}</span>,    <span class="token comment">#&#x8BBE;&#x7F6E;X&#x8F74;&#x6570;&#x5B57;&#x5B57;&#x4F53;&#x5C5E;&#x6027;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200419193447328.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="333-setsize&#xFF08;options&#xFF09;"><a name="333-setsize&#xFF08;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#333-setsize&#xFF08;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.3 <code>set_size&#xFF08;options&#xFF09;</code></h4>
+<p>&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x5927;&#x5C0F;&#xFF0C;&#x5982;chart.set_size&#xFF08;{&#x2018;width&#x2019;&#xFF1A;720&#xFF0C;&#x2019;height&#x2019;&#xFF1A;576}&#xFF09;&#xFF0C;&#x5176;&#x4E2D;width&#x4E3A;&#x5BBD;&#x5EA6;&#xFF0C;height&#x4E3A;&#x9AD8;&#x5EA6;&#x3002;</p>
+<h4 id="334-settitle&#xFF08;options&#xFF09;"><a name="334-settitle&#xFF08;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#334-settitle&#xFF08;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.4 <code>set_title&#xFF08;options&#xFF09;</code></h4>
+<p>&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x6807;&#x9898;&#xFF0C;&#x5982;chart.set_title&#xFF08;{&#x2018;name&#x2019;&#xFF1A;&#x2019;Year End Results&#x2019;}&#xFF09;
+<img src="https://img-blog.csdnimg.cn/20200419193634744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="335-setstylestyleid"><a name="335-setstylestyleid" class="anchor-navigation-ex-anchor" href="#335-setstylestyleid"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.5 <code>set_style(style_id)</code></h4>
+<p>&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x6837;&#x5F0F;&#xFF0C;style_id&#x4E3A;&#x4E0D;&#x540C;&#x6570;&#x5B57;&#x5219;&#x4EE3;&#x8868;&#x4E0D;&#x540C;&#x6837;&#x5F0F;&#xFF0C;&#x5982;chart.set_style&#xFF08;37&#xFF09;
+<img src="https://img-blog.csdnimg.cn/20200419193805764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="336-settable&#xFF08;options&#xFF09;"><a name="336-settable&#xFF08;options&#xFF09;" class="anchor-navigation-ex-anchor" href="#336-settable&#xFF08;options&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.6 <code>set_table&#xFF08;options&#xFF09;</code></h4>
+<p>&#x8BBE;&#x7F6E;X&#x8F74;&#x4E3A;&#x6570;&#x636E;&#x8868;&#x683C;&#x5F62;&#x5F0F;&#xFF0C;&#x5982;<code>chart.set_table&#xFF08;&#xFF09;</code>
+<img src="https://img-blog.csdnimg.cn/20200419193853674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h2 id="4-&#x5B9E;&#x6218;"><a name="4-&#x5B9E;&#x6218;" class="anchor-navigation-ex-anchor" href="#4-&#x5B9E;&#x6218;"><i class="fa fa-link" aria-hidden="true"></i></a>4 &#x5B9E;&#x6218;</h2>
+<h3 id="41-&#x753B;&#x7EBF;&#x56FE;"><a name="41-&#x753B;&#x7EBF;&#x56FE;" class="anchor-navigation-ex-anchor" href="#41-&#x753B;&#x7EBF;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1 &#x753B;&#x7EBF;&#x56FE;</h3>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> xlsxwriter                     <span class="token comment">#&#x5BFC;&#x5165;&#x6A21;&#x5757;</span>
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;new_excel.xlsx&apos;</span><span class="token punctuation">)</span>   <span class="token comment">#&#x521B;&#x5EFA;&#x65B0;&#x7684;excel</span>
+
+worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token string">&apos;sheet1&apos;</span><span class="token punctuation">)</span>        <span class="token comment">#&#x521B;&#x5EFA;&#x65B0;&#x7684;sheet</span>
+
+headings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Number&apos;</span>,<span class="token string">&apos;testA&apos;</span>,<span class="token string">&apos;testB&apos;</span><span class="token punctuation">]</span>             <span class="token comment">#&#x521B;&#x5EFA;&#x8868;&#x5934;</span>
+
+data <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">&apos;2017-9-1&apos;</span>,<span class="token string">&apos;2017-9-2&apos;</span>,<span class="token string">&apos;2017-9-3&apos;</span>,<span class="token string">&apos;2017-9-4&apos;</span>,<span class="token string">&apos;2017-9-5&apos;</span>,<span class="token string">&apos;2017-9-6&apos;</span><span class="token punctuation">]</span>,
+    <span class="token punctuation">[</span><span class="token number">10,40</span>,50,20,10,50<span class="token punctuation">]</span>,
+    <span class="token punctuation">[</span><span class="token number">30,60</span>,70,50,40,30<span class="token punctuation">]</span>,
+<span class="token punctuation">]</span>                                                       <span class="token comment">#&#x81EA;&#x5DF1;&#x9020;&#x7684;&#x6570;&#x636E;</span>
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;A1&apos;</span>,headings<span class="token punctuation">)</span>
+
+worksheet.write_column<span class="token punctuation">(</span><span class="token string">&apos;A2&apos;</span>,data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+worksheet.write_column<span class="token punctuation">(</span><span class="token string">&apos;B2&apos;</span>,data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+worksheet.write_column<span class="token punctuation">(</span><span class="token string">&apos;C2&apos;</span>,data<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                    <span class="token comment">#&#x5C06;&#x6570;&#x636E;&#x63D2;&#x5165;&#x5230;&#x8868;&#x683C;&#x4E2D;</span>
+
+chart_col <span class="token operator">=</span> workbook.add_chart<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;type&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;line&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>        <span class="token comment">#&#x65B0;&#x5EFA;&#x56FE;&#x8868;&#x683C;&#x5F0F; line&#x4E3A;&#x6298;&#x7EBF;&#x56FE;</span>
+chart_col.add_series<span class="token punctuation">(</span>                                   <span class="token comment">#&#x7ED9;&#x56FE;&#x8868;&#x8BBE;&#x7F6E;&#x683C;&#x5F0F;&#xFF0C;&#x586B;&#x5145;&#x5185;&#x5BB9;</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;=sheet1!$B$1&apos;</span>,
+        <span class="token string">&apos;categories&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;=sheet1!$A$2:$A$7&apos;</span>,
+        <span class="token string">&apos;values&apos;</span><span class="token builtin class-name">:</span>   <span class="token string">&apos;=sheet1!$B$2:$B$7&apos;</span>,
+        <span class="token string">&apos;line&apos;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token string">&apos;color&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;red&apos;</span><span class="token punctuation">}</span>,
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+chart_col.set_title<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;&#x6D4B;&#x8BD5;&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+chart_col.set_x_axis<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span><span class="token string">&quot;x&#x8F74;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+chart_col.set_y_axis<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;y&#x8F74;&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>          <span class="token comment">#&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x8868;&#x5934;&#x53CA;&#x5750;&#x6807;&#x8F74;</span>
+
+chart_col.set_style<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+worksheet.insert_chart<span class="token punctuation">(</span><span class="token string">&apos;A10&apos;</span>,chart_col,<span class="token punctuation">{</span><span class="token string">&apos;x_offset&apos;</span>:25,<span class="token string">&apos;y_offset&apos;</span>:10<span class="token punctuation">}</span><span class="token punctuation">)</span>   <span class="token comment">#&#x653E;&#x7F6E;&#x56FE;&#x8868;&#x4F4D;&#x7F6E;</span>
+
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200419213324897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h3 id="42-&#x5B9A;&#x5236;&#x81EA;&#x52A8;&#x5316;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x62A5;&#x8868;&#x5468;&#x62A5;"><a name="42-&#x5B9A;&#x5236;&#x81EA;&#x52A8;&#x5316;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x62A5;&#x8868;&#x5468;&#x62A5;" class="anchor-navigation-ex-anchor" href="#42-&#x5B9A;&#x5236;&#x81EA;&#x52A8;&#x5316;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x62A5;&#x8868;&#x5468;&#x62A5;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2 &#x5B9A;&#x5236;&#x81EA;&#x52A8;&#x5316;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x62A5;&#x8868;&#x5468;&#x62A5;</h3>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/python</span>
+<span class="token comment">#coding:utf-8 </span>
+
+<span class="token function">import</span> xlsxwriter 
+
+workbook <span class="token operator">=</span> xlsxwriter.Workbook<span class="token punctuation">(</span><span class="token string">&apos;chart.xlsx&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Excel&#x6587;&#x4EF6; worksheet = </span>
+
+worksheet <span class="token operator">=</span> workbook.add_worksheet<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x8868;&#x5BF9;&#x8C61; </span>
+
+chart <span class="token operator">=</span> workbook.add_chart<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;type&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;column&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>   <span class="token comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x56FE;&#x8868;&#x5BF9;&#x8C61; </span>
+
+<span class="token comment">#&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x8868;&#x5934;&#x5217;&#x8868; </span>
+
+title <span class="token operator">=</span> <span class="token punctuation">[</span>u<span class="token string">&apos;&#x4E1A;&#x52A1;&#x540D;&#x79F0;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x4E00;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x4E8C;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x4E09;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x56DB;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x4E94;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x516D;&apos;</span>, u<span class="token string">&apos;&#x661F;&#x671F;&#x65E5;&apos;</span>, u<span class="token string">&apos;&#x5E73;&#x5747;&#x6D41;&#x91CF;&apos;</span><span class="token punctuation">]</span> 
+<span class="token assign-left variable">buname</span><span class="token operator">=</span> <span class="token punctuation">[</span>u<span class="token string">&apos;&#x4E1A;&#x52A1;&#x5B98;&#x7F51;&apos;</span>, u<span class="token string">&apos;&#x65B0;&#x95FB;&#x4E2D;&#x5FC3;&apos;</span>, u<span class="token string">&apos;&#x8D2D;&#x7269;&#x9891;&#x9053;&apos;</span>, u<span class="token string">&apos;&#x4F53;&#x80B2;&#x9891;&#x9053;&apos;</span>, u<span class="token string">&apos;&#x4EB2;&#x5B50;&#x9891;&#x9053;&apos;</span><span class="token punctuation">]</span>    <span class="token comment">#&#x5B9A;&#x4E49;&#x9891;&#x9053;&#x540D;&#x79F0; </span>
+
+<span class="token comment">#&#x5B9A;&#x4E49;5&#x9891;&#x9053;&#x4E00;&#x5468;7&#x5929;&#x6D41;&#x91CF;&#x6570;&#x636E;&#x5217;&#x8868; </span>
+
+data <span class="token operator">=</span> <span class="token punctuation">[</span> 
+
+    <span class="token punctuation">[</span><span class="token number">150</span>, <span class="token number">152</span>, <span class="token number">158</span>, <span class="token number">149</span>, <span class="token number">155</span>, <span class="token number">145</span>, <span class="token number">148</span><span class="token punctuation">]</span>,
+
+     <span class="token punctuation">[</span><span class="token number">89</span>, <span class="token number">88</span>, <span class="token number">95</span>, <span class="token number">93</span>, <span class="token number">98</span>, <span class="token number">100</span>, <span class="token number">99</span><span class="token punctuation">]</span>,
+
+     <span class="token punctuation">[</span><span class="token number">201</span>, <span class="token number">200</span>, <span class="token number">198</span>, <span class="token number">175</span>, <span class="token number">170</span>, <span class="token number">198</span>, <span class="token number">195</span><span class="token punctuation">]</span>,
+
+     <span class="token punctuation">[</span><span class="token number">75</span>, <span class="token number">77</span>, <span class="token number">78</span>, <span class="token number">78</span>, <span class="token number">74</span>, <span class="token number">70</span>, <span class="token number">79</span><span class="token punctuation">]</span>,
+
+     <span class="token punctuation">[</span><span class="token number">88</span>, <span class="token number">85</span>, <span class="token number">87</span>, <span class="token number">90</span>, <span class="token number">93</span>, <span class="token number">88</span>, <span class="token number">84</span><span class="token punctuation">]</span>,
+
+ <span class="token punctuation">]</span> 
+
+<span class="token assign-left variable">format</span><span class="token operator">=</span>workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format&#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+
+format.set_border<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x8FB9;&#x6846;&#x52A0;&#x7C97;&#xFF08;1&#x50CF;&#x7D20;&#xFF09;&#x7684;&#x683C;&#x5F0F; </span>
+
+<span class="token assign-left variable">format_title</span><span class="token operator">=</span>workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format_title&#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+
+format_title.set_border<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>   <span class="token comment">#&#x5B9A;&#x4E49;format_title&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x8FB9;&#x6846;&#x52A0;&#x7C97;&#xFF08;1&#x50CF;&#x7D20;&#xFF09;&#x7684;&#x683C;&#x5F0F; </span>
+
+format_title.set_bg_color<span class="token punctuation">(</span><span class="token string">&apos;#cccccc&apos;</span><span class="token punctuation">)</span>   <span class="token comment">#&#x5B9A;&#x4E49;format_title&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x80CC;&#x666F;&#x989C;&#x8272;&#x4E3A;                          #&apos;#cccccc&apos;&#x7684;&#x683C;&#x5F0F; </span>
+
+format_title.set_align<span class="token punctuation">(</span><span class="token string">&apos;center&apos;</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format_title&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;&#x7684;&#x683C;&#x5F0F; </span>
+
+format_title.set_bold<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format_title&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x5185;&#x5BB9;&#x52A0;&#x7C97;&#x7684;&#x683C;&#x5F0F; </span>
+
+<span class="token assign-left variable">format_ave</span><span class="token operator">=</span>workbook.add_format<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format_ave&#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+
+format_ave.set_border<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5B9A;&#x4E49;format_ave&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x8FB9;&#x6846;&#x52A0;&#x7C97;&#xFF08;1&#x50CF;&#x7D20;&#xFF09;&#x7684;&#x683C;&#x5F0F; </span>
+
+format_ave.set_num_format<span class="token punctuation">(</span><span class="token string">&apos;0.00&apos;</span><span class="token punctuation">)</span>   <span class="token comment">#&#x5B9A;&#x4E49;format_ave&#x5BF9;&#x8C61;&#x5355;&#x5143;&#x683C;&#x6570;&#x5B57;&#x7C7B;&#x522B;&#x663E;&#x793A;&#x683C;&#x5F0F;</span>
+
+<span class="token comment">#&#x4E0B;&#x9762;&#x5206;&#x522B;&#x4EE5;&#x884C;&#x6216;&#x5217;&#x5199;&#x5165;&#x65B9;&#x5F0F;&#x5C06;&#x6807;&#x9898;&#x3001;&#x4E1A;&#x52A1;&#x540D;&#x79F0;&#x3001;&#x6D41;&#x91CF;&#x6570;&#x636E;&#x5199;&#x5165;&#x8D77;&#x521D;&#x5355;&#x5143;&#x683C;&#xFF0C;&#x540C;&#x65F6;&#x5F15;&#x7528;&#x4E0D;&#x540C;&#x683C;&#x5F0F;&#x5BF9;&#x8C61; </span>
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;A1&apos;</span>, title, format_title<span class="token punctuation">)</span>   
+
+worksheet.write_column<span class="token punctuation">(</span><span class="token string">&apos;A2&apos;</span>, buname, <span class="token function">format</span><span class="token punctuation">)</span> 
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;B2&apos;</span>, data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>, <span class="token function">format</span><span class="token punctuation">)</span> 
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;B3&apos;</span>, data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>, <span class="token function">format</span><span class="token punctuation">)</span> 
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;B4&apos;</span>, data<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>, <span class="token function">format</span><span class="token punctuation">)</span> 
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;B5&apos;</span>, data<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>, <span class="token function">format</span><span class="token punctuation">)</span> 
+
+worksheet.write_row<span class="token punctuation">(</span><span class="token string">&apos;B6&apos;</span>, data<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>, <span class="token function">format</span><span class="token punctuation">)</span> 
+
+<span class="token comment">#&#x5B9A;&#x4E49;&#x56FE;&#x8868;&#x6570;&#x636E;&#x7CFB;&#x5217;&#x51FD;&#x6570; </span>
+
+def chart_series<span class="token punctuation">(</span>cur_row<span class="token punctuation">)</span>:
+
+     worksheet.write_formula<span class="token punctuation">(</span><span class="token string">&apos;I&apos;</span>+cur_row, <span class="token punctuation">\</span>
+
+      <span class="token string">&apos;=AVERAGE(B&apos;</span>+cur_row+<span class="token string">&apos;:H&apos;</span>+cur_row+<span class="token string">&apos;)&apos;</span>, format_ave<span class="token punctuation">)</span>    <span class="token comment">#&#x8BA1;&#x7B97;&#xFF08;AVERAGE&#x51FD;&#x6570;&#xFF09;&#x9891;   &#x9053;&#x5468;&#x5E73;&#x5747;&#x6D41;&#x91CF;     </span>
+
+     chart.add_series<span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+         <span class="token string">&apos;categories&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;=Sheet1!$B$1:$H$1&apos;</span>,    <span class="token comment">#&#x5C06;&#x201C;&#x661F;&#x671F;&#x4E00;&#x81F3;&#x661F;&#x671F;&#x65E5;&#x201D;&#x4F5C;&#x4E3A;&#x56FE;&#x8868;&#x6570;&#x636E;&#x6807;&#x7B7E;&#xFF08;X&#x8F74;&#xFF09; </span>
+
+        <span class="token string">&apos;values&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;=Sheet1!$B$&apos;</span>+cur_row+<span class="token string">&apos;:$H$&apos;</span>+cur_row,    <span class="token comment">#&#x9891;&#x9053;&#x4E00;&#x5468;&#x6240;&#x6709;&#x6570;&#x636E;&#x4F5C;           &#x4E3A;&#x6570;&#x636E;&#x533A;&#x57DF; </span>
+
+        <span class="token string">&apos;line&apos;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token string">&apos;color&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;black&apos;</span><span class="token punctuation">}</span>,    <span class="token comment">#&#x7EBF;&#x6761;&#x989C;&#x8272;&#x5B9A;&#x4E49;&#x4E3A;black&#xFF08;&#x9ED1;&#x8272;&#xFF09;</span>
+
+         <span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;=Sheet1!$A$&apos;</span>+cur_row,    <span class="token comment">#&#x5F15;&#x7528;&#x4E1A;&#x52A1;&#x540D;&#x79F0;&#x4E3A;&#x56FE;&#x4F8B;&#x9879;</span>
+
+     <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">row</span> <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span>, <span class="token number">7</span><span class="token punctuation">)</span>:    <span class="token comment">#&#x6570;&#x636E;&#x57DF;&#x4EE5;&#x7B2C;2~6&#x884C;&#x8FDB;&#x884C;&#x56FE;&#x8868;&#x6570;&#x636E;&#x7CFB;&#x5217;&#x51FD;&#x6570;&#x8C03;&#x7528;     </span>
+
+    chart_series<span class="token punctuation">(</span>str<span class="token punctuation">(</span>row<span class="token punctuation">))</span>
+
+ <span class="token comment">#chart.set_table&#xFF08;&#xFF09;    #&#x8BBE;&#x7F6E;X&#x8F74;&#x8868;&#x683C;&#x683C;&#x5F0F;&#xFF0C;&#x672C;&#x793A;&#x4F8B;&#x4E0D;&#x542F;&#x7528;</span>
+
+ <span class="token comment">#chart.set_style&#xFF08;30&#xFF09;    #&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x6837;&#x5F0F;&#xFF0C;&#x672C;&#x793A;&#x4F8B;&#x4E0D;&#x542F;&#x7528;</span>
+
+chart.set_size<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;width&apos;</span><span class="token builtin class-name">:</span> <span class="token number">577</span>, <span class="token string">&apos;height&apos;</span><span class="token builtin class-name">:</span> <span class="token number">287</span><span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#x5927;&#x5C0F;</span>
+
+chart.set_title <span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span> u<span class="token string">&apos;&#x4E1A;&#x52A1;&#x6D41;&#x91CF;&#x5468;&#x62A5;&#x56FE;&#x8868;&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x8BBE;&#x7F6E;&#x56FE;&#x8868;&#xFF08;&#x4E0A;&#x65B9;&#xFF09;&#x5927;&#x6807;&#x9898; </span>
+
+chart.set_y_axis<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span> <span class="token string">&apos;Mb/s&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment">#&#x8BBE;&#x7F6E;y&#x8F74;&#xFF08;&#x5DE6;&#x4FA7;&#xFF09;&#x5C0F;&#x6807;&#x9898; </span>
+
+worksheet.insert_chart<span class="token punctuation">(</span><span class="token string">&apos;A8&apos;</span>, chart<span class="token punctuation">)</span>    <span class="token comment">#&#x5728;A8&#x5355;&#x5143;&#x683C;&#x63D2;&#x5165;&#x56FE;&#x8868; </span>
+
+workbook.close<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#&#x5173;&#x95ED;Excel&#x6587;&#x6863;</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+<img src="https://img-blog.csdnimg.cn/20200419205321924.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/python-create-and-write-on-excel-file-using-xlsxwriter-module/" target="_blank">Python | Create and write on excel file using xlsxwriter module</a></li>
+<li><a href="https://www.youtube.com/watch?v=Cbt9JRbNBV0" target="_blank">Automate Excel with Python and XlsxWriter Part 1: Getting Started</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 08:51:48
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_redis.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 redis">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_prometheus_client.html" class="navigation navigation-next " aria-label="Next page: python 模块 promethues client 开发 exporter">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 xlsxwriter 生成execl文档","level":"1.7.37","depth":2,"next":{"title":"python 模块 promethues client 开发 exporter","level":"1.7.38","depth":2,"path":"Modules/python_prometheus_client.md","ref":"Modules/python_prometheus_client.md","articles":[]},"previous":{"title":"python 模块 redis","level":"1.7.36","depth":2,"path":"Modules/python_redis.md","ref":"Modules/python_redis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_XlsxWriter.md","mtime":"2022-06-30T08:51:48.806Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

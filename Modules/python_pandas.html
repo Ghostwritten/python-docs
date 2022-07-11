@@ -1,0 +1,2125 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 pandas 数组处理 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_pycurl.html" />
+    
+    
+    <link rel="prev" href="python_sys.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 pandas 数组处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-pandas-&#x6570;&#x7EC4;&#x5904;&#x7406;"><b></b>python &#x6A21;&#x5757; pandas &#x6570;&#x7EC4;&#x5904;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#1-pandas&#x4ECB;&#x7ECD;"><b></b>1. pandas&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-&#x65B9;&#x6CD5;"><b></b>2. &#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#21-series"><b></b>2.1 Series</a></li><li><span class="title-icon "></span><a href="#22-&#x67E5;&#x770B;&#x6570;&#x636E;"><b></b>2.2 &#x67E5;&#x770B;&#x6570;&#x636E;</a></li><li><span class="title-icon "></span><a href="#23-&#x9009;&#x62E9;"><b></b>2.3 &#x9009;&#x62E9;</a></li><li><span class="title-icon "></span><a href="#24-&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x9009;&#x62E9;"><b></b>2.4 &#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x9009;&#x62E9;</a></li><li><span class="title-icon "></span><a href="#25-&#x5E03;&#x5C14;&#x7D22;&#x5F15;"><b></b>2.5 &#x5E03;&#x5C14;&#x7D22;&#x5F15;</a></li><li><span class="title-icon "></span><a href="#26-&#x8BBE;&#x7F6E;"><b></b>2.6 &#x8BBE;&#x7F6E;</a></li><li><span class="title-icon "></span><a href="#27-&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;"><b></b>2.7 &#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#28-&#x76F8;&#x5173;&#x64CD;&#x4F5C;"><b></b>2.8 &#x76F8;&#x5173;&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#29-&#x5B57;&#x7B26;&#x4E32;&#x65B9;&#x6CD5;"><b></b>2.9 &#x5B57;&#x7B26;&#x4E32;&#x65B9;&#x6CD5;</a></li></ul></ul><li><span class="title-icon "></span><a href="#&#x5C06;s-series-&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x6210;&#x5C0F;&#x5199;&#x3002;"><b></b>&#x5C06;s Series &#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x6210;&#x5C0F;&#x5199;&#x3002;</a></li><ul><ul><li><span class="title-icon "></span><a href="#210-&#x5408;&#x5E76;"><b></b>2.10 &#x5408;&#x5E76;</a></li><li><span class="title-icon "></span><a href="#211-&#x5206;&#x7EC4;"><b></b>2.11 &#x5206;&#x7EC4;</a></li></ul></ul></ul></div><a href="#python-&#x6A21;&#x5757;-pandas-&#x6570;&#x7EC4;&#x5904;&#x7406;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-pandas-&#x6570;&#x7EC4;&#x5904;&#x7406;"><a name="python-&#x6A21;&#x5757;-pandas-&#x6570;&#x7EC4;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-pandas-&#x6570;&#x7EC4;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>python &#x6A21;&#x5757; pandas &#x6570;&#x7EC4;&#x5904;&#x7406;</h1>
+<h2 id="1-pandas&#x4ECB;&#x7ECD;"><a name="1-pandas&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-pandas&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. pandas&#x4ECB;&#x7ECD;</h2>
+<p>Pandas &#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1A;Pandas &#x4E3B;&#x8981;&#x6709; Series&#xFF08;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;DataFrame&#xFF08;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;Panel&#xFF08;&#x4E09;&#x7EF4;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;Panel4D&#xFF08;&#x56DB;&#x7EF4;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;PanelND&#xFF08;&#x66F4;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#xFF09;&#x7B49;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x5176;&#x4E2D; Series &#x548C; DataFrame &#x5E94;&#x7528;&#x7684;&#x6700;&#x4E3A;&#x5E7F;&#x6CDB;&#x3002;
+Pandas &#x5E38;&#x7528;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6709;&#x4E24;&#x79CD;&#xFF1A;<code>Series</code> &#x548C; <code>DataFrame</code>&#x3002;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6784;&#x5EFA;&#x5728; Numpy &#x6570;&#x7EC4;&#x4E4B;&#x4E0A;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x4EEC;&#x6548;&#x7387;&#x5F88;&#x9AD8;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">python&#x7248;&#x672C;&#xFF1A;3.<span class="token operator"><span class="token file-descriptor important">5</span>&gt;</span><span class="token operator">=</span>python
+</code></pre>
+<p> &#x5BFC;&#x5165;&#x76F8;&#x5173;&#x5E93;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> numpy as np
+<span class="token function">import</span> pandas as pd
+</code></pre>
+<h2 id="2-&#x65B9;&#x6CD5;"><a name="2-&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x65B9;&#x6CD5;</h2>
+<h3 id="21-series"><a name="21-series" class="anchor-navigation-ex-anchor" href="#21-series"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 Series</h3>
+<p><code>Series</code> &#x662F;&#x4E00;&#x4E2A;&#x5E26;&#x6709; &#x540D;&#x79F0; &#x548C;&#x7D22;&#x5F15;&#x7684;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x65E2;&#x7136;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x80AF;&#x5B9A;&#x8981;&#x8BF4;&#x5230;&#x7684;&#x5C31;&#x662F;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#xFF0C;&#x5728; Series &#x4E2D;&#x5305;&#x542B;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x662F;&#x6574;&#x6570;&#x3001;&#x6D6E;&#x70B9;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;Python&#x5BF9;&#x8C61;&#x7B49;&#x3002;</p>
+<h4 id="211-&#x4F20;&#x9012;list&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-series"><a name="211-&#x4F20;&#x9012;list&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-series" class="anchor-navigation-ex-anchor" href="#211-&#x4F20;&#x9012;list&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-series"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.1 &#x4F20;&#x9012;list&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Series</h4>
+<p>pandas&#x4F1A;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x6574;&#x578B;&#x7D22;&#x5F15;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> pandas as pd
+<span class="token function">import</span> numpy as np
+<span class="token function">import</span> matplotlib.pyplot as plt
+<span class="token assign-left variable">s</span><span class="token operator">=</span> pd.Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1,3</span>,5,np.nan,6,8<span class="token punctuation">]</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<p>//&#x8F93;&#x51FA;</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">0</span>    <span class="token number">1.0</span>
+<span class="token number">1</span>    <span class="token number">3.0</span>
+<span class="token number">2</span>    <span class="token number">5.0</span>
+<span class="token number">3</span>    NaN
+<span class="token number">4</span>    <span class="token number">6.0</span>
+<span class="token number">5</span>    <span class="token number">8.0</span>
+dtype: float64
+</code></pre>
+<h4 id="212-&#x4F20;&#x9012;numpy-array&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x4EE5;&#x53CA;&#x5217;&#x6807;&#x7B7E;&#x6765;&#x521B;&#x5EFA;dataframe"><a name="212-&#x4F20;&#x9012;numpy-array&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x4EE5;&#x53CA;&#x5217;&#x6807;&#x7B7E;&#x6765;&#x521B;&#x5EFA;dataframe" class="anchor-navigation-ex-anchor" href="#212-&#x4F20;&#x9012;numpy-array&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x4EE5;&#x53CA;&#x5217;&#x6807;&#x7B7E;&#x6765;&#x521B;&#x5EFA;dataframe"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.2 &#x4F20;&#x9012;numpy array&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x4EE5;&#x53CA;&#x5217;&#x6807;&#x7B7E;&#x6765;&#x521B;&#x5EFA;DataFrame</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> pandas as pd
+<span class="token function">import</span> numpy as np
+<span class="token function">import</span> matplotlib.pyplot as plt
+<span class="token assign-left variable">s</span><span class="token operator">=</span> pd.Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1,3</span>,5,np.nan,6,8<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># print(s)</span>
+dates <span class="token operator">=</span> pd.date_range<span class="token punctuation">(</span><span class="token string">&apos;20170801&apos;</span>,periods<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token function">df</span> <span class="token operator">=</span> pd.DataFrame<span class="token punctuation">(</span>np.random.randn<span class="token punctuation">(</span><span class="token number">6,4</span><span class="token punctuation">)</span>,index<span class="token operator">=</span>dates,columns<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">&apos;ABCD&apos;</span><span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B         C         D
+<span class="token number">2017</span>-08-01 -0.352464  <span class="token number">0.207259</span> -0.379499 -0.040017
+<span class="token number">2017</span>-08-02 -1.400304 -1.609741  <span class="token number">1.149181</span>  <span class="token number">0.353892</span>
+<span class="token number">2017</span>-08-03 -0.244790  <span class="token number">0.343552</span> -2.269876 -0.832983
+<span class="token number">2017</span>-08-04  <span class="token number">0.817258</span> -0.256027  <span class="token number">0.917888</span> -0.240781
+<span class="token number">2017</span>-08-05  <span class="token number">0.312557</span> -1.103468  <span class="token number">1.140370</span> -0.097515
+<span class="token number">2017</span>-08-06 -0.945031  <span class="token number">0.178114</span>  <span class="token number">0.099680</span> -0.993974
+</code></pre>
+<h4 id="213-&#x4F20;&#x9012;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x7C7B;&#x4F3C;&#x5E8F;&#x5217;&#x7ED3;&#x6784;&#x7684;&#x5B57;&#x5178;&#x5BF9;&#x8C61;&#x6765;&#x521B;&#x5EFA;dataframe"><a name="213-&#x4F20;&#x9012;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x7C7B;&#x4F3C;&#x5E8F;&#x5217;&#x7ED3;&#x6784;&#x7684;&#x5B57;&#x5178;&#x5BF9;&#x8C61;&#x6765;&#x521B;&#x5EFA;dataframe" class="anchor-navigation-ex-anchor" href="#213-&#x4F20;&#x9012;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x7C7B;&#x4F3C;&#x5E8F;&#x5217;&#x7ED3;&#x6784;&#x7684;&#x5B57;&#x5178;&#x5BF9;&#x8C61;&#x6765;&#x521B;&#x5EFA;dataframe"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.3 &#x4F20;&#x9012;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x7C7B;&#x4F3C;&#x5E8F;&#x5217;&#x7ED3;&#x6784;&#x7684;&#x5B57;&#x5178;&#x5BF9;&#x8C61;&#x6765;&#x521B;&#x5EFA;DataFrame</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> pandas as pd
+<span class="token function">import</span> numpy as np
+<span class="token function">import</span> matplotlib.pyplot as plt
+df2 <span class="token operator">=</span> pd.DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">&apos;A&apos;</span><span class="token builtin class-name">:</span> <span class="token number">1</span>,
+    <span class="token string">&apos;B&apos;</span>:pd.Timestamp<span class="token punctuation">(</span><span class="token string">&apos;20170801&apos;</span><span class="token punctuation">)</span>,
+    <span class="token string">&apos;C&apos;</span>:pd.Series<span class="token punctuation">(</span><span class="token number">1</span>,index<span class="token operator">=</span>list<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">))</span>,dtype<span class="token operator">=</span><span class="token string">&apos;float64&apos;</span><span class="token punctuation">)</span>,
+    <span class="token string">&apos;D&apos;</span>:np.array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>*4,dtype<span class="token operator">=</span><span class="token string">&apos;int64&apos;</span><span class="token punctuation">)</span>,
+    <span class="token string">&apos;E&apos;</span>:pd.Categorical<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;test&quot;</span>,<span class="token string">&quot;train&quot;</span>,<span class="token string">&quot;test&quot;</span>,<span class="token string">&quot;train&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>,
+    <span class="token string">&apos;F&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;fooo&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+
+
+print<span class="token punctuation">(</span>df2<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"> A          B    C  D      E     F
+<span class="token number">0</span>  <span class="token number">1</span> <span class="token number">2017</span>-08-01  <span class="token number">1.0</span>  <span class="token number">3</span>   <span class="token builtin class-name">test</span>  fooo
+<span class="token number">1</span>  <span class="token number">1</span> <span class="token number">2017</span>-08-01  <span class="token number">1.0</span>  <span class="token number">3</span>  train  fooo
+<span class="token number">2</span>  <span class="token number">1</span> <span class="token number">2017</span>-08-01  <span class="token number">1.0</span>  <span class="token number">3</span>   <span class="token builtin class-name">test</span>  fooo
+<span class="token number">3</span>  <span class="token number">1</span> <span class="token number">2017</span>-08-01  <span class="token number">1.0</span>  <span class="token number">3</span>  train  fooo
+</code></pre>
+<p><strong>&#x67E5;&#x770B;&#x4E0D;&#x540C;&#x5217;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</strong></p>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df2.dtype<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">A             int64
+B    datetime64<span class="token punctuation">[</span>ns<span class="token punctuation">]</span>
+C           float64
+D             int64
+E          category
+F            object
+dtype: object
+</code></pre>
+<h3 id="22-&#x67E5;&#x770B;&#x6570;&#x636E;"><a name="22-&#x67E5;&#x770B;&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#22-&#x67E5;&#x770B;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x67E5;&#x770B;&#x6570;&#x636E;</h3>
+<h4 id="221-&#x67E5;&#x770B;frame&#x4E2D;&#x5934;&#x90E8;&#x548C;&#x5C3E;&#x90E8;&#x7684;&#x884C;"><a name="221-&#x67E5;&#x770B;frame&#x4E2D;&#x5934;&#x90E8;&#x548C;&#x5C3E;&#x90E8;&#x7684;&#x884C;" class="anchor-navigation-ex-anchor" href="#221-&#x67E5;&#x770B;frame&#x4E2D;&#x5934;&#x90E8;&#x548C;&#x5C3E;&#x90E8;&#x7684;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.1 &#x67E5;&#x770B;frame&#x4E2D;&#x5934;&#x90E8;&#x548C;&#x5C3E;&#x90E8;&#x7684;&#x884C;</h4>
+<pre class="language-"><code class="lang-bash">df.head<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+df.tail<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="222-&#x663E;&#x793A;&#x7D22;&#x5F15;&#x3001;&#x5217;&#x548C;&#x5E95;&#x5C42;&#x7684;numpy&#x6570;&#x636E;&#x3002;"><a name="222-&#x663E;&#x793A;&#x7D22;&#x5F15;&#x3001;&#x5217;&#x548C;&#x5E95;&#x5C42;&#x7684;numpy&#x6570;&#x636E;&#x3002;" class="anchor-navigation-ex-anchor" href="#222-&#x663E;&#x793A;&#x7D22;&#x5F15;&#x3001;&#x5217;&#x548C;&#x5E95;&#x5C42;&#x7684;numpy&#x6570;&#x636E;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.2 &#x663E;&#x793A;&#x7D22;&#x5F15;&#x3001;&#x5217;&#x548C;&#x5E95;&#x5C42;&#x7684;numpy&#x6570;&#x636E;&#x3002;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.index<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.columns<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.values<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">DatetimeIndex<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;2017-08-01&apos;</span>, <span class="token string">&apos;2017-08-02&apos;</span>, <span class="token string">&apos;2017-08-03&apos;</span>, <span class="token string">&apos;2017-08-04&apos;</span>,
+               <span class="token string">&apos;2017-08-05&apos;</span>, <span class="token string">&apos;2017-08-06&apos;</span><span class="token punctuation">]</span>,
+              <span class="token assign-left variable">dtype</span><span class="token operator">=</span><span class="token string">&apos;datetime64[ns]&apos;</span>, <span class="token assign-left variable">freq</span><span class="token operator">=</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">)</span>
+Index<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span>, <span class="token string">&apos;B&apos;</span>, <span class="token string">&apos;C&apos;</span>, <span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span>, <span class="token assign-left variable">dtype</span><span class="token operator">=</span><span class="token string">&apos;object&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span>-0.99340137 -0.12548833 -1.08581538  <span class="token number">1.17112124</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span> <span class="token number">0.29427792</span>  <span class="token number">0.20182606</span> -0.84427908 -1.42783808<span class="token punctuation">]</span>
+ <span class="token punctuation">[</span>-0.06528316  <span class="token number">1.55255719</span>  <span class="token number">1.15818104</span>  <span class="token number">0.05286832</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span> <span class="token number">1.49223138</span> -1.11517738  <span class="token number">2.01386582</span>  <span class="token number">0.3496034</span> <span class="token punctuation">]</span>
+ <span class="token punctuation">[</span> <span class="token number">0.23697223</span>  <span class="token number">0.43241392</span> -0.97061103  <span class="token number">0.79105226</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span> <span class="token number">2.96518919</span>  <span class="token number">0.8754193</span>  -1.26479748  <span class="token number">0.29930427</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+</code></pre>
+<h4 id="223-describe&#x51FD;&#x6570;&#x5BF9;&#x6570;&#x636E;&#x5FEB;&#x901F;&#x7684;&#x7EDF;&#x8BA1;&#x6C47;&#x603B;&#xFF1A;"><a name="223-describe&#x51FD;&#x6570;&#x5BF9;&#x6570;&#x636E;&#x5FEB;&#x901F;&#x7684;&#x7EDF;&#x8BA1;&#x6C47;&#x603B;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#223-describe&#x51FD;&#x6570;&#x5BF9;&#x6570;&#x636E;&#x5FEB;&#x901F;&#x7684;&#x7EDF;&#x8BA1;&#x6C47;&#x603B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.3 describe()&#x51FD;&#x6570;&#x5BF9;&#x6570;&#x636E;&#x5FEB;&#x901F;&#x7684;&#x7EDF;&#x8BA1;&#x6C47;&#x603B;&#xFF1A;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>describe<span class="token punctuation">(</span><span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">              A         B         C         D
+count  <span class="token number">6.000000</span>  <span class="token number">6.000000</span>  <span class="token number">6.000000</span>  <span class="token number">6.000000</span>
+mean   <span class="token number">0.396478</span>  <span class="token number">0.089271</span> -0.006982  <span class="token number">0.281260</span>
+std    <span class="token number">1.342037</span>  <span class="token number">1.158896</span>  <span class="token number">0.513877</span>  <span class="token number">0.997442</span>
+min   -1.395445 -1.287098 -1.047989 -1.062651
+<span class="token number">25</span>%   -0.390341 -0.907016  <span class="token number">0.116073</span> -0.073818
+<span class="token number">50</span>%    <span class="token number">0.210131</span>  <span class="token number">0.248303</span>  <span class="token number">0.193435</span>  <span class="token number">0.058509</span>
+<span class="token number">75</span>%    <span class="token number">1.401632</span>  <span class="token number">0.856122</span>  <span class="token number">0.235431</span>  <span class="token number">0.655625</span>
+max    <span class="token number">2.145753</span>  <span class="token number">1.559510</span>  <span class="token number">0.279513</span>  <span class="token number">1.896458</span>
+</code></pre>
+<h4 id="224--&#x5BF9;&#x6570;&#x636E;&#x7684;&#x8F6C;&#x7F6E;&#xFF0C;&#x6309;&#x8F74;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x6309;&#x503C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;"><a name="224--&#x5BF9;&#x6570;&#x636E;&#x7684;&#x8F6C;&#x7F6E;&#xFF0C;&#x6309;&#x8F74;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x6309;&#x503C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;" class="anchor-navigation-ex-anchor" href="#224--&#x5BF9;&#x6570;&#x636E;&#x7684;&#x8F6C;&#x7F6E;&#xFF0C;&#x6309;&#x8F74;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x6309;&#x503C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.4  &#x5BF9;&#x6570;&#x636E;&#x7684;&#x8F6C;&#x7F6E;&#xFF0C;&#x6309;&#x8F74;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x6309;&#x503C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;</h4>
+<pre class="language-"><code class="lang-bash">df.T    
+df.sort_index<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span>,ascending<span class="token operator">=</span>False<span class="token punctuation">)</span>
+df.sort<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="23-&#x9009;&#x62E9;"><a name="23-&#x9009;&#x62E9;" class="anchor-navigation-ex-anchor" href="#23-&#x9009;&#x62E9;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x9009;&#x62E9;</h3>
+<p>&#x867D;&#x7136;&#x6807;&#x51C6;&#x7684;python/numpy&#x7684;&#x9009;&#x62E9;&#x548C;&#x8BBE;&#x7F6E;&#x8868;&#x8FBE;&#x5F0F;&#x90FD;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#xFF0C;&#x4F46;&#x662F;&#x4F5C;&#x4E3A;&#x5DE5;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x7ECF;&#x8FC7;&#x4F18;&#x5316;&#x7684;pandas&#x6570;&#x636E;&#x8BBF;&#x95EE; &#x65B9;&#x5F0F;&#xFF1A;.at .iat .iloc .loc .ix
+&#x83B7;&#x53D6;&#xFF1A;</p>
+<h4 id="231-&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5217;&#xFF0C;&#x8FD9;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;series&#x7B49;&#x540C;&#x4E8E;dfa"><a name="231-&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5217;&#xFF0C;&#x8FD9;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;series&#x7B49;&#x540C;&#x4E8E;dfa" class="anchor-navigation-ex-anchor" href="#231-&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5217;&#xFF0C;&#x8FD9;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;series&#x7B49;&#x540C;&#x4E8E;dfa"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.1 &#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5217;&#xFF0C;&#x8FD9;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Series,&#x7B49;&#x540C;&#x4E8E;df.A</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">2017</span>-08-01    <span class="token number">0.559156</span>
+<span class="token number">2017</span>-08-02   -1.381263
+<span class="token number">2017</span>-08-03    <span class="token number">0.127286</span>
+<span class="token number">2017</span>-08-04    <span class="token number">0.771317</span>
+<span class="token number">2017</span>-08-05    <span class="token number">0.763690</span>
+<span class="token number">2017</span>-08-06   -0.123249
+Freq: D, Name: A, dtype: float64
+</code></pre>
+<h4 id="232-&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#x5728;&#x591A;&#x4E2A;&#x8F74;&#x4E0A;&#x8FDB;&#x884C;&#x9009;&#x62E9;-&#x7528;loc-&#x4E24;&#x4E2A;&#x4E2D;&#x62EC;&#x53F7;"><a name="232-&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#x5728;&#x591A;&#x4E2A;&#x8F74;&#x4E0A;&#x8FDB;&#x884C;&#x9009;&#x62E9;-&#x7528;loc-&#x4E24;&#x4E2A;&#x4E2D;&#x62EC;&#x53F7;" class="anchor-navigation-ex-anchor" href="#232-&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#x5728;&#x591A;&#x4E2A;&#x8F74;&#x4E0A;&#x8FDB;&#x884C;&#x9009;&#x62E9;-&#x7528;loc-&#x4E24;&#x4E2A;&#x4E2D;&#x62EC;&#x53F7;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.2 &#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#x5728;&#x591A;&#x4E2A;&#x8F74;&#x4E0A;&#x8FDB;&#x884C;&#x9009;&#x62E9; &#x7528;loc &#x4E24;&#x4E2A;&#x4E2D;&#x62EC;&#x53F7;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.loc<span class="token punctuation">[</span>:,<span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span>,<span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B
+<span class="token number">2017</span>-08-01  <span class="token number">0.040603</span>  <span class="token number">1.519448</span>
+<span class="token number">2017</span>-08-02 -2.429148  <span class="token number">0.874873</span>
+<span class="token number">2017</span>-08-03 -0.315154  <span class="token number">0.285603</span>
+<span class="token number">2017</span>-08-04  <span class="token number">0.878968</span> -0.130717
+<span class="token number">2017</span>-08-05  <span class="token number">0.201083</span> -0.280419
+<span class="token number">2017</span>-08-06  <span class="token number">1.089989</span>  <span class="token number">0.754818</span>
+</code></pre>
+<h4 id="233-&#x6807;&#x7B7E;&#x5207;&#x7247;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;2"><a name="233-&#x6807;&#x7B7E;&#x5207;&#x7247;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;2" class="anchor-navigation-ex-anchor" href="#233-&#x6807;&#x7B7E;&#x5207;&#x7247;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;2"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.3 &#x6807;&#x7B7E;&#x5207;&#x7247;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;2</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.loc<span class="token punctuation">[</span><span class="token string">&apos;20170802&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;20170804&apos;</span>,<span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span>,<span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B
+<span class="token number">2017</span>-08-02  <span class="token number">1.923047</span>  <span class="token number">0.324715</span>
+<span class="token number">2017</span>-08-03 -0.349817  <span class="token number">0.085359</span>
+<span class="token number">2017</span>-08-04 -0.675602  <span class="token number">1.166312</span>
+</code></pre>
+<h4 id="234-&#x5BF9;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7EF4;&#x5EA6;&#x7F29;&#x51CF;"><a name="234-&#x5BF9;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7EF4;&#x5EA6;&#x7F29;&#x51CF;" class="anchor-navigation-ex-anchor" href="#234-&#x5BF9;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7EF4;&#x5EA6;&#x7F29;&#x51CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.4 &#x5BF9;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7EF4;&#x5EA6;&#x7F29;&#x51CF;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.loc<span class="token punctuation">[</span><span class="token string">&apos;20170803&apos;</span>,<span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span>,<span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">A   -1.133357
+B   -1.008605
+Name: <span class="token number">2017</span>-08-03 00:00:00, dtype: float64
+</code></pre>
+<h4 id="235-&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x4EE5;&#x53CA;&#x5FEB;&#x901F;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x3002;&#xFF08;&#x610F;&#x601D;&#x7B49;&#x4EF7;&#xFF09;"><a name="235-&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x4EE5;&#x53CA;&#x5FEB;&#x901F;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x3002;&#xFF08;&#x610F;&#x601D;&#x7B49;&#x4EF7;&#xFF09;" class="anchor-navigation-ex-anchor" href="#235-&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x4EE5;&#x53CA;&#x5FEB;&#x901F;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x3002;&#xFF08;&#x610F;&#x601D;&#x7B49;&#x4EF7;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.5 &#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x4EE5;&#x53CA;&#x5FEB;&#x901F;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x6807;&#x91CF;&#x3002;&#xFF08;&#x610F;&#x601D;&#x7B49;&#x4EF7;&#xFF09;</h4>
+<pre class="language-"><code class="lang-bash">df.loc<span class="token punctuation">(</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>,<span class="token string">&apos;A&apos;</span><span class="token punctuation">)</span>
+df.at<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>,<span class="token string">&apos;A&apos;</span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="24-&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x9009;&#x62E9;"><a name="24-&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x9009;&#x62E9;" class="anchor-navigation-ex-anchor" href="#24-&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x9009;&#x62E9;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 &#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x9009;&#x62E9;</h3>
+<h4 id="241-&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x6570;&#x503C;&#x8FDB;&#x884C;-&#x4F4D;&#x7F6E;&#x9009;&#x62E9;&#xFF08;&#x9009;&#x62E9;&#x7684;&#x662F;&#x884C;&#xFF09;"><a name="241-&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x6570;&#x503C;&#x8FDB;&#x884C;-&#x4F4D;&#x7F6E;&#x9009;&#x62E9;&#xFF08;&#x9009;&#x62E9;&#x7684;&#x662F;&#x884C;&#xFF09;" class="anchor-navigation-ex-anchor" href="#241-&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x6570;&#x503C;&#x8FDB;&#x884C;-&#x4F4D;&#x7F6E;&#x9009;&#x62E9;&#xFF08;&#x9009;&#x62E9;&#x7684;&#x662F;&#x884C;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4.1 &#x901A;&#x8FC7;&#x4F20;&#x9012;&#x6570;&#x503C;&#x8FDB;&#x884C; &#x4F4D;&#x7F6E;&#x9009;&#x62E9;&#xFF08;&#x9009;&#x62E9;&#x7684;&#x662F;&#x884C;&#xFF09;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.iloc<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment"># &#x53D6;&#x7B2C;&#x56DB;&#x884C;&#x7684;&#x6570;&#x636E;</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">2017</span>-08-01  <span class="token number">0.150731</span> -0.167577  <span class="token number">1.524639</span> -0.324676
+<span class="token number">2017</span>-08-02 -0.118888 -0.100348  <span class="token number">0.666961</span>  <span class="token number">0.618953</span>
+<span class="token number">2017</span>-08-03  <span class="token number">0.634666</span> -0.937274  <span class="token number">0.280727</span> -2.504798
+<span class="token number">2017</span>-08-04  <span class="token number">0.395685</span> -0.650699 -0.573055 -2.597323
+<span class="token number">2017</span>-08-05  <span class="token number">1.403470</span>  <span class="token number">0.636823</span>  <span class="token number">0.289136</span>  <span class="token number">1.294045</span>
+<span class="token number">2017</span>-08-06 -1.337154  <span class="token number">1.718215</span> -0.093115 -1.529378
+A    <span class="token number">0.395685</span>
+B   -0.650699
+C   -0.573055
+D   -2.597323
+Name: <span class="token number">2017</span>-08-04 00:00:00, dtype: float64
+</code></pre>
+<h4 id="241-&#x901A;&#x8FC7;&#x6570;&#x503C;&#x8FDB;&#x884C;&#x5207;&#x7247;"><a name="241-&#x901A;&#x8FC7;&#x6570;&#x503C;&#x8FDB;&#x884C;&#x5207;&#x7247;" class="anchor-navigation-ex-anchor" href="#241-&#x901A;&#x8FC7;&#x6570;&#x503C;&#x8FDB;&#x884C;&#x5207;&#x7247;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4.1 &#x901A;&#x8FC7;&#x6570;&#x503C;&#x8FDB;&#x884C;&#x5207;&#x7247;</h4>
+<p>&#x4E0E;numpy /python &#x4E2D;&#x7684;&#x60C5;&#x51B5;&#x7C7B;&#x4F3C;</p>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.iloc<span class="token punctuation">[</span><span class="token number">3</span>:5,0:2<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B
+<span class="token number">2017</span>-08-04  <span class="token number">1.064645</span>  <span class="token number">1.346498</span>
+<span class="token number">2017</span>-08-05 -0.253172  <span class="token number">0.713125</span>
+</code></pre>
+<h5 id="242-&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x5217;&#x8868;"><a name="242-&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#242-&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4.2 &#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x5217;&#x8868;</h5>
+<p>&#x4E0E;numpy/python &#x4E2D;&#x7684;&#x60C5;&#x51B5;&#x7C7B;&#x4F3C;</p>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.iloc<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1,2</span>,4<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token number">0,2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         C
+<span class="token number">2017</span>-08-02 -0.987798 -0.081209
+<span class="token number">2017</span>-08-03  <span class="token number">0.039192</span> -0.244556
+<span class="token number">2017</span>-08-05 -0.043044 -0.337542
+</code></pre>
+<h5 id="243-&#x5BF9;&#x884C;&#x548C;&#x5217;&#x8FDB;&#x884C;&#x5207;&#x7247;"><a name="243-&#x5BF9;&#x884C;&#x548C;&#x5217;&#x8FDB;&#x884C;&#x5207;&#x7247;" class="anchor-navigation-ex-anchor" href="#243-&#x5BF9;&#x884C;&#x548C;&#x5217;&#x8FDB;&#x884C;&#x5207;&#x7247;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4.3 &#x5BF9;&#x884C;&#x548C;&#x5217;&#x8FDB;&#x884C;&#x5207;&#x7247;</h5>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.iloc<span class="token punctuation">[</span><span class="token number">1</span>:3,:<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">#&#x5BF9;&#x884C;&#x8FDB;&#x884C;&#x5207;&#x7247;</span>
+print<span class="token punctuation">(</span>df.iloc<span class="token punctuation">[</span>:,1:3<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#&#x5BF9;&#x5217;&#x8FDB;&#x884C;&#x5207;&#x7247;</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                 A         B         C         D
+<span class="token number">2017</span>-08-02  <span class="token number">0.598266</span>  <span class="token number">0.410904</span> -0.587577  <span class="token number">0.979511</span>
+<span class="token number">2017</span>-08-03 -0.206643 -0.859047 -0.110966 -0.696556
+                   B         C
+<span class="token number">2017</span>-08-01 -0.341683 -0.378477
+<span class="token number">2017</span>-08-02  <span class="token number">0.410904</span> -0.587577
+<span class="token number">2017</span>-08-03 -0.859047 -0.110966
+<span class="token number">2017</span>-08-04 -0.486971  <span class="token number">0.248343</span>
+<span class="token number">2017</span>-08-05  <span class="token number">2.641393</span> -1.229395
+<span class="token number">2017</span>-08-06  <span class="token number">1.023585</span>  <span class="token number">0.630160</span>
+</code></pre>
+<h4 id="244--&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x7684;&#x503C;"><a name="244--&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x7684;&#x503C;" class="anchor-navigation-ex-anchor" href="#244--&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x7684;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4.4  &#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x7684;&#x503C;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.iloc<span class="token punctuation">[</span><span class="token number">1,1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.iat<span class="token punctuation">[</span><span class="token number">1,1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">0.426774827739</span>
+<span class="token number">0.426774827739</span>
+</code></pre>
+<h3 id="25-&#x5E03;&#x5C14;&#x7D22;&#x5F15;"><a name="25-&#x5E03;&#x5C14;&#x7D22;&#x5F15;" class="anchor-navigation-ex-anchor" href="#25-&#x5E03;&#x5C14;&#x7D22;&#x5F15;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5 &#x5E03;&#x5C14;&#x7D22;&#x5F15;</h3>
+<h4 id="251-&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x5217;&#x7684;&#x503C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;"><a name="251-&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x5217;&#x7684;&#x503C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#251-&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x5217;&#x7684;&#x503C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.1 &#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x5217;&#x7684;&#x503C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">[</span>df.A <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B         C         D
+<span class="token number">2017</span>-08-01  <span class="token number">1.113008</span> -1.663732 -0.321016  <span class="token number">0.079169</span>
+<span class="token number">2017</span>-08-03  <span class="token number">0.000043</span>  <span class="token number">0.217510</span>  <span class="token number">0.929183</span>  <span class="token number">0.687162</span>
+<span class="token number">2017</span>-08-04  <span class="token number">0.167007</span> -2.045754  <span class="token number">0.318775</span> -0.168735
+<span class="token number">2017</span>-08-05  <span class="token number">0.721842</span>  <span class="token number">0.982646</span>  <span class="token number">0.367562</span>  <span class="token number">0.468250</span>
+<span class="token number">2017</span>-08-06  <span class="token number">0.853404</span> -0.344893  <span class="token number">2.266556</span> -0.304485
+</code></pre>
+<h4 id="252-&#x4F7F;&#x7528;where&#x64CD;&#x4F5C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;"><a name="252-&#x4F7F;&#x7528;where&#x64CD;&#x4F5C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#252-&#x4F7F;&#x7528;where&#x64CD;&#x4F5C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.2 &#x4F7F;&#x7528;where&#x64CD;&#x4F5C;&#x6765;&#x9009;&#x62E9;&#x6570;&#x636E;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">[</span>df<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                A         B         C         D
+<span class="token number">2017</span>-08-01  <span class="token number">0.183377</span>       NaN  <span class="token number">0.411767</span>  <span class="token number">0.535607</span>
+<span class="token number">2017</span>-08-02  <span class="token number">0.169412</span>  <span class="token number">1.331423</span>  <span class="token number">0.815747</span>       NaN
+<span class="token number">2017</span>-08-03  <span class="token number">0.807875</span>       NaN       NaN       NaN
+<span class="token number">2017</span>-08-04  <span class="token number">0.559794</span>       NaN  <span class="token number">1.384336</span>  <span class="token number">0.011442</span>
+<span class="token number">2017</span>-08-05  <span class="token number">0.250613</span>       NaN       NaN       NaN
+<span class="token number">2017</span>-08-06       NaN       NaN       NaN       NaN
+</code></pre>
+<h4 id="253-&#x4F7F;&#x7528;isin&#x65B9;&#x6CD5;&#x6765;&#x8FC7;&#x6EE4;"><a name="253-&#x4F7F;&#x7528;isin&#x65B9;&#x6CD5;&#x6765;&#x8FC7;&#x6EE4;" class="anchor-navigation-ex-anchor" href="#253-&#x4F7F;&#x7528;isin&#x65B9;&#x6CD5;&#x6765;&#x8FC7;&#x6EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.3 &#x4F7F;&#x7528;isin()&#x65B9;&#x6CD5;&#x6765;&#x8FC7;&#x6EE4;</h4>
+<pre class="language-"><code class="lang-bash">df2 <span class="token operator">=</span> df.copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+df2<span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;one&apos;</span>,<span class="token string">&apos;one&apos;</span>,<span class="token string">&apos;two&apos;</span>,<span class="token string">&apos;three&apos;</span>,<span class="token string">&apos;four&apos;</span>,<span class="token string">&apos;three&apos;</span><span class="token punctuation">]</span>
+print<span class="token punctuation">(</span>df2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df2<span class="token punctuation">[</span>df2<span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span>.isin<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;one&apos;</span>,<span class="token string">&apos;four&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">         A         B         C         D      E
+<span class="token number">2017</span>-08-01  <span class="token number">0.812330</span>  <span class="token number">1.333924</span> -1.267516  <span class="token number">0.536965</span>    one
+<span class="token number">2017</span>-08-02  <span class="token number">0.775528</span>  <span class="token number">1.071335</span> -1.344108  <span class="token number">2.075409</span>    one
+<span class="token number">2017</span>-08-03 -0.826466  <span class="token number">2.613913</span>  <span class="token number">0.153449</span>  <span class="token number">0.475277</span>    two
+<span class="token number">2017</span>-08-04 -0.190586 -0.613647 -0.044821 -1.224435  three
+<span class="token number">2017</span>-08-05 -0.025830 -0.432906  <span class="token number">0.990122</span>  <span class="token number">0.583328</span>   four
+<span class="token number">2017</span>-08-06  <span class="token number">1.258012</span> -1.513605  <span class="token number">2.128874</span>  <span class="token number">0.615266</span>  three
+                   A         B         C         D     E
+<span class="token number">2017</span>-08-01  <span class="token number">0.812330</span>  <span class="token number">1.333924</span> -1.267516  <span class="token number">0.536965</span>   one
+<span class="token number">2017</span>-08-02  <span class="token number">0.775528</span>  <span class="token number">1.071335</span> -1.344108  <span class="token number">2.075409</span>   one
+<span class="token number">2017</span>-08-05 -0.025830 -0.432906  <span class="token number">0.990122</span>  <span class="token number">0.583328</span>  four
+</code></pre>
+<h3 id="26-&#x8BBE;&#x7F6E;"><a name="26-&#x8BBE;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#26-&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6 &#x8BBE;&#x7F6E;</h3>
+<h4 id="261-&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x5217;"><a name="261-&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x5217;" class="anchor-navigation-ex-anchor" href="#261-&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.1 &#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x5217;</h4>
+<pre class="language-"><code class="lang-bash">s1 <span class="token operator">=</span> pd.Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1,2</span>,3,4,5,6<span class="token punctuation">]</span>,index<span class="token operator">=</span>pd.date_range<span class="token punctuation">(</span><span class="token string">&apos;20170801&apos;</span>,periods<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>s1<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">2017</span>-08-01    <span class="token number">1</span>
+<span class="token number">2017</span>-08-02    <span class="token number">2</span>
+<span class="token number">2017</span>-08-03    <span class="token number">3</span>
+<span class="token number">2017</span>-08-04    <span class="token number">4</span>
+<span class="token number">2017</span>-08-05    <span class="token number">5</span>
+<span class="token number">2017</span>-08-06    <span class="token number">6</span>
+Freq: D, dtype: int64
+</code></pre>
+<h4 id="262-&#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;"><a name="262-&#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;" class="anchor-navigation-ex-anchor" href="#262-&#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.2 &#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;</h4>
+<pre class="language-"><code class="lang-bash">pdf.at<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>,<span class="token string">&apos;A&apos;</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre>
+<h4 id="263--&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;&#xFF1A;"><a name="263--&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#263--&#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.3  &#x901A;&#x8FC7;&#x4F4D;&#x7F6E;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;&#xFF1A;</h4>
+<pre class="language-"><code class="lang-bash">df.iat<span class="token punctuation">[</span><span class="token number">0,1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre>
+<h4 id="264-&#x901A;&#x8FC7;&#x4E00;&#x4E2A;numpy&#x6570;&#x7EC4;&#x8BBE;&#x7F6E;&#x4E00;&#x7EC4;&#x65B0;&#x503C;"><a name="264-&#x901A;&#x8FC7;&#x4E00;&#x4E2A;numpy&#x6570;&#x7EC4;&#x8BBE;&#x7F6E;&#x4E00;&#x7EC4;&#x65B0;&#x503C;" class="anchor-navigation-ex-anchor" href="#264-&#x901A;&#x8FC7;&#x4E00;&#x4E2A;numpy&#x6570;&#x7EC4;&#x8BBE;&#x7F6E;&#x4E00;&#x7EC4;&#x65B0;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.4 &#x901A;&#x8FC7;&#x4E00;&#x4E2A;numpy&#x6570;&#x7EC4;&#x8BBE;&#x7F6E;&#x4E00;&#x7EC4;&#x65B0;&#x503C;</h4>
+<pre class="language-"><code class="lang-bash">df.loc<span class="token punctuation">[</span>:<span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> np.array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>*len<span class="token punctuation">(</span>df<span class="token punctuation">))</span>
+</code></pre>
+<h4 id="265-&#x901A;&#x8FC7;where&#x64CD;&#x4F5C;&#x6765;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;"><a name="265-&#x901A;&#x8FC7;where&#x64CD;&#x4F5C;&#x6765;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;" class="anchor-navigation-ex-anchor" href="#265-&#x901A;&#x8FC7;where&#x64CD;&#x4F5C;&#x6765;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.5 &#x901A;&#x8FC7;where&#x64CD;&#x4F5C;&#x6765;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x503C;</h4>
+<pre class="language-"><code class="lang-bash">df2 <span class="token operator">=</span>df.copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+df2<span class="token punctuation">[</span>df<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>-df2
+print<span class="token punctuation">(</span>df2<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B         C         D
+<span class="token number">2017</span>-08-01 -0.994060 -0.915353 -0.103166 -0.400363
+<span class="token number">2017</span>-08-02 -0.483559 -0.775021 -0.549397 -0.525969
+<span class="token number">2017</span>-08-03 -1.394320 -1.430371 -1.592913 -0.479944
+<span class="token number">2017</span>-08-04 -0.164794 -0.728599 -0.187677 -1.950128
+<span class="token number">2017</span>-08-05 -0.827711 -0.678634 -1.089334 -1.224033
+<span class="token number">2017</span>-08-06 -0.159199 -0.204388 -0.697539 -0.193927
+</code></pre>
+<h3 id="27-&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;"><a name="27-&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#27-&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7 &#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;</h3>
+<p>&#x5728;pandas&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;np.nan&#x6765;&#x4EE3;&#x66FF;&#x7F3A;&#x5931;&#x503C;&#xFF0C; &#x8FD9;&#x4E9B;&#x503C;&#x5C06;&#x9ED8;&#x8BA4;&#x4E0D;&#x4F1A;&#x5305;&#x542B;&#x5728;&#x8BA1;&#x7B97;&#x4E2D;&#xFF0C;</p>
+<h4 id="271-reindex&#x65B9;&#x6CD5;&#x5BF9;&#x6307;&#x5B9A;&#x8F74;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6539;&#x53D8;&#x589E;&#x52A0;&#x3001;&#x5220;&#x9664;"><a name="271-reindex&#x65B9;&#x6CD5;&#x5BF9;&#x6307;&#x5B9A;&#x8F74;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6539;&#x53D8;&#x589E;&#x52A0;&#x3001;&#x5220;&#x9664;" class="anchor-navigation-ex-anchor" href="#271-reindex&#x65B9;&#x6CD5;&#x5BF9;&#x6307;&#x5B9A;&#x8F74;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6539;&#x53D8;&#x589E;&#x52A0;&#x3001;&#x5220;&#x9664;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7.1 reindex()&#x65B9;&#x6CD5;&#x5BF9;&#x6307;&#x5B9A;&#x8F74;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6539;&#x53D8;/&#x589E;&#x52A0;&#x3001;&#x5220;&#x9664;</h4>
+<p>&#x8FD9;&#x5C06;&#x8FD4;&#x56DE;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7684;&#x4E00;&#x4E2A;&#x62F7;&#x8D1D;</p>
+<pre class="language-"><code class="lang-bash">df2 <span class="token operator">=</span> df.reindex<span class="token punctuation">(</span>index<span class="token operator">=</span>dates<span class="token punctuation">[</span><span class="token number">0</span>:4<span class="token punctuation">]</span>,columns<span class="token operator">=</span>list<span class="token punctuation">(</span>df.columns<span class="token punctuation">)</span>+<span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df2.loc<span class="token punctuation">[</span><span class="token number">0</span>:2,<span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+print<span class="token punctuation">(</span>df2<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B         C         D    E
+<span class="token number">2017</span>-08-01 -0.631494 -0.427917 -2.263502  <span class="token number">0.499206</span>  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-02 -0.363730 -1.641072  <span class="token number">0.251015</span>  <span class="token number">1.127523</span>  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-03  <span class="token number">1.284590</span> -0.249052 -0.410623  <span class="token number">0.304096</span>  NaN
+<span class="token number">2017</span>-08-04  <span class="token number">1.166190</span>  <span class="token number">1.371307</span> -0.636533  <span class="token number">0.959298</span>  NaN
+</code></pre>
+<h4 id="272-&#x53BB;&#x6389;&#x5305;&#x542B;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x884C;"><a name="272-&#x53BB;&#x6389;&#x5305;&#x542B;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x884C;" class="anchor-navigation-ex-anchor" href="#272-&#x53BB;&#x6389;&#x5305;&#x542B;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7.2 &#x53BB;&#x6389;&#x5305;&#x542B;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x884C;</h4>
+<pre class="language-"><code class="lang-bash">df2 <span class="token operator">=</span> df.reindex<span class="token punctuation">(</span>index<span class="token operator">=</span>dates<span class="token punctuation">[</span><span class="token number">0</span>:4<span class="token punctuation">]</span>,columns<span class="token operator">=</span>list<span class="token punctuation">(</span>df.columns<span class="token punctuation">)</span>+<span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df2.loc<span class="token punctuation">[</span><span class="token number">0</span>:2,<span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+print<span class="token punctuation">(</span>df2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df2.dropna<span class="token punctuation">(</span>how<span class="token operator">=</span><span class="token string">&apos;any&apos;</span><span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">            A         B         C         D    E
+<span class="token number">2017</span>-08-01  <span class="token number">0.844367</span>  <span class="token number">0.282881</span> -0.596537  <span class="token number">1.106986</span>  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-02 -0.297101 -0.935122  <span class="token number">0.100942</span>  <span class="token number">2.362901</span>  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-03  <span class="token number">0.775431</span>  <span class="token number">0.187812</span>  <span class="token number">1.244166</span>  <span class="token number">1.549058</span>  NaN
+<span class="token number">2017</span>-08-04  <span class="token number">0.146374</span>  <span class="token number">0.604248</span> -0.275827 -1.339286  NaN
+                   A         B         C         D    E
+<span class="token number">2017</span>-08-01  <span class="token number">0.844367</span>  <span class="token number">0.282881</span> -0.596537  <span class="token number">1.106986</span>  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-02 -0.297101 -0.935122  <span class="token number">0.100942</span>  <span class="token number">2.362901</span>  <span class="token number">1.0</span>
+</code></pre>
+<h4 id="273-&#x5BF9;&#x7F3A;&#x5931;&#x503C;&#x8FDB;&#x884C;&#x8865;&#x5145;"><a name="273-&#x5BF9;&#x7F3A;&#x5931;&#x503C;&#x8FDB;&#x884C;&#x8865;&#x5145;" class="anchor-navigation-ex-anchor" href="#273-&#x5BF9;&#x7F3A;&#x5931;&#x503C;&#x8FDB;&#x884C;&#x8865;&#x5145;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7.3 &#x5BF9;&#x7F3A;&#x5931;&#x503C;&#x8FDB;&#x884C;&#x8865;&#x5145;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df2.fillna<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                  A         B         C         D    E
+<span class="token number">2017</span>-08-01  <span class="token number">0.134828</span> -0.409695  <span class="token number">0.398769</span> -0.607453  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-02  <span class="token number">0.461754</span> -0.555881  <span class="token number">1.073785</span>  <span class="token number">2.268998</span>  <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-03  <span class="token number">2.494864</span>  <span class="token number">0.894457</span> -1.012622  <span class="token number">0.225400</span>  <span class="token number">5.0</span>
+<span class="token number">2017</span>-08-04 -0.789087 -0.632234 -1.368574 -1.554802  <span class="token number">5.0</span>
+</code></pre>
+<h4 id="274--&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E03;&#x5C14;&#x586B;&#x5145;"><a name="274--&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E03;&#x5C14;&#x586B;&#x5145;" class="anchor-navigation-ex-anchor" href="#274--&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E03;&#x5C14;&#x586B;&#x5145;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7.4  &#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E03;&#x5C14;&#x586B;&#x5145;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>pd.isnull<span class="token punctuation">(</span>df2<span class="token punctuation">))</span>
+</code></pre>
+<p>//   </p>
+<pre class="language-"><code class="lang-bash">            A      B      C      D      E
+<span class="token number">2017</span>-08-01  False  False  False  False  False
+<span class="token number">2017</span>-08-02  False  False  False  False  False
+<span class="token number">2017</span>-08-03  False  False  False  False   True
+<span class="token number">2017</span>-08-04  False  False  False  False   True
+</code></pre>
+<h3 id="28-&#x76F8;&#x5173;&#x64CD;&#x4F5C;"><a name="28-&#x76F8;&#x5173;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#28-&#x76F8;&#x5173;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.8 &#x76F8;&#x5173;&#x64CD;&#x4F5C;</h3>
+<h4 id="281-&#x6267;&#x884C;&#x63CF;&#x8FF0;&#x6027;&#x7EDF;&#x8BA1;"><a name="281-&#x6267;&#x884C;&#x63CF;&#x8FF0;&#x6027;&#x7EDF;&#x8BA1;" class="anchor-navigation-ex-anchor" href="#281-&#x6267;&#x884C;&#x63CF;&#x8FF0;&#x6027;&#x7EDF;&#x8BA1;"><i class="fa fa-link" aria-hidden="true"></i></a>2.8.1 &#x6267;&#x884C;&#x63CF;&#x8FF0;&#x6027;&#x7EDF;&#x8BA1;</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.mean<span class="token punctuation">(</span><span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>df.mean<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">              A         B         C         D
+<span class="token number">2017</span>-08-01 -0.211556  <span class="token number">0.151164</span>  <span class="token number">0.827327</span> -1.055808
+<span class="token number">2017</span>-08-02 -0.181771 -0.388966  <span class="token number">2.045035</span>  <span class="token number">0.118686</span>
+<span class="token number">2017</span>-08-03 -1.790196 -1.234819  <span class="token number">0.432210</span>  <span class="token number">0.390979</span>
+<span class="token number">2017</span>-08-04  <span class="token number">0.240327</span>  <span class="token number">0.018650</span>  <span class="token number">0.558570</span>  <span class="token number">0.044662</span>
+<span class="token number">2017</span>-08-05 -0.336993 -0.496467  <span class="token number">2.512642</span>  <span class="token number">0.198416</span>
+<span class="token number">2017</span>-08-06  <span class="token number">0.824033</span> -0.083081  <span class="token number">0.021884</span>  <span class="token number">3.237294</span>
+A   -0.242693
+B   -0.338920
+C    <span class="token number">1.066278</span>
+D    <span class="token number">0.489038</span>
+dtype: float64
+<span class="token number">2017</span>-08-01   -0.072218
+<span class="token number">2017</span>-08-02    <span class="token number">0.398246</span>
+<span class="token number">2017</span>-08-03   -0.550457
+<span class="token number">2017</span>-08-04    <span class="token number">0.215553</span>
+<span class="token number">2017</span>-08-05    <span class="token number">0.469400</span>
+<span class="token number">2017</span>-08-06    <span class="token number">1.000032</span>
+Freq: D, dtype: float64
+</code></pre>
+<p><strong>&#x5BF9;&#x4E8E;&#x62E5;&#x6709;&#x4E0D;&#x540C;&#x7EF4;&#x5EA6;&#xFF0C;&#x9700;&#x8981;&#x5BF9;&#x9F50;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;pandas&#x4F1A;&#x81EA;&#x52A8;&#x7684;&#x6CBF;&#x7740;&#x6307;&#x5B9A;&#x7684;&#x7EF4;&#x5EA6;&#x8FDB;&#x884C;&#x5E7F;&#x64AD;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-bash">s <span class="token operator">=</span> pd.Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1,3</span>,5,np.nan,6,8<span class="token punctuation">]</span>,index<span class="token operator">=</span>dates<span class="token punctuation">)</span>.shift<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">2017</span>-08-01    NaN
+<span class="token number">2017</span>-08-02    NaN
+<span class="token number">2017</span>-08-03    <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-04    <span class="token number">3.0</span>
+<span class="token number">2017</span>-08-05    <span class="token number">5.0</span>
+<span class="token number">2017</span>-08-06    NaN
+Freq: D, dtype: float64
+</code></pre>
+<pre class="language-"><code class="lang-bash">s <span class="token operator">=</span> pd.Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1,3</span>,5,np.nan,6,8<span class="token punctuation">]</span>,index<span class="token operator">=</span>dates<span class="token punctuation">)</span>.shift<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.sub<span class="token punctuation">(</span>s,axis<span class="token operator">=</span><span class="token string">&apos;index&apos;</span><span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">2017</span>-08-01    NaN
+<span class="token number">2017</span>-08-02    NaN
+<span class="token number">2017</span>-08-03    <span class="token number">1.0</span>
+<span class="token number">2017</span>-08-04    <span class="token number">3.0</span>
+<span class="token number">2017</span>-08-05    <span class="token number">5.0</span>
+<span class="token number">2017</span>-08-06    NaN
+Freq: D, dtype: float64
+                   A         B         C         D
+<span class="token number">2017</span>-08-01       NaN       NaN       NaN       NaN
+<span class="token number">2017</span>-08-02       NaN       NaN       NaN       NaN
+<span class="token number">2017</span>-08-03 -1.830701  <span class="token number">0.504959</span> -0.709195 -0.847686
+<span class="token number">2017</span>-08-04 -3.172816 -2.310923 -1.233996 -1.966726
+<span class="token number">2017</span>-08-05 -4.368654 -4.300136 -3.945498 -3.271250
+<span class="token number">2017</span>-08-06       NaN       NaN       NaN       NaN
+</code></pre>
+<h5 id="282-&#x5BF9;&#x6570;&#x636E;&#x5E94;&#x7528;&#x51FD;&#x6570;"><a name="282-&#x5BF9;&#x6570;&#x636E;&#x5E94;&#x7528;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#282-&#x5BF9;&#x6570;&#x636E;&#x5E94;&#x7528;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2.8.2 &#x5BF9;&#x6570;&#x636E;&#x5E94;&#x7528;&#x51FD;&#x6570;</h5>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>df.apply<span class="token punctuation">(</span>np.cumsum<span class="token punctuation">))</span><span class="token comment"># &#x7D2F;&#x8BA1;&#x6C42;&#x548C;</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">                   A         B         C         D
+<span class="token number">2017</span>-08-01  <span class="token number">2.643719</span> -1.955916 -0.625852 -0.200130
+<span class="token number">2017</span>-08-02  <span class="token number">0.510827</span> -1.552670 -0.669396  <span class="token number">1.146157</span>
+<span class="token number">2017</span>-08-03 -0.168740  <span class="token number">0.055871</span> -0.108548  <span class="token number">1.198155</span>
+<span class="token number">2017</span>-08-04 -1.524010  <span class="token number">0.844605</span> -0.157555  <span class="token number">1.387963</span>
+<span class="token number">2017</span>-08-05  <span class="token number">0.220436</span> -1.345371  <span class="token number">0.038241</span> -0.055306
+<span class="token number">2017</span>-08-06 -1.299420 -1.663129 -2.586310  <span class="token number">1.218230</span>
+                   A         B         C         D
+<span class="token number">2017</span>-08-01  <span class="token number">2.643719</span> -1.955916 -0.625852 -0.200130
+<span class="token number">2017</span>-08-02  <span class="token number">3.154545</span> -3.508586 -1.295248  <span class="token number">0.946027</span>
+<span class="token number">2017</span>-08-03  <span class="token number">2.985805</span> -3.452715 -1.403796  <span class="token number">2.144182</span>
+<span class="token number">2017</span>-08-04  <span class="token number">1.461795</span> -2.608110 -1.561352  <span class="token number">3.532144</span>
+<span class="token number">2017</span>-08-05  <span class="token number">1.682231</span> -3.953481 -1.523111  <span class="token number">3.476838</span>
+<span class="token number">2017</span>-08-06  <span class="token number">0.382811</span> -5.616610 -4.109421  <span class="token number">4.695068</span>
+</code></pre>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df.apply<span class="token punctuation">(</span>lambda x:x.max<span class="token punctuation">(</span><span class="token punctuation">)</span> - x.min<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">A    <span class="token number">1.510451</span>
+B    <span class="token number">3.455243</span>
+C    <span class="token number">1.772878</span>
+D    <span class="token number">2.703384</span>
+dtype: float64
+</code></pre>
+<p>4&#x3001;value_counts()</p>
+<pre class="language-"><code class="lang-bash">s <span class="token operator">=</span> pd.Series<span class="token punctuation">(</span>np.random.randint<span class="token punctuation">(</span><span class="token number">0,7</span>,size<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>s.value_counts<span class="token punctuation">(</span><span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>type<span class="token punctuation">(</span>s.value_counts<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span>pd.value_counts<span class="token punctuation">(</span>s<span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash"><span class="token number">0</span>    <span class="token number">1</span>
+<span class="token number">1</span>    <span class="token number">1</span>
+<span class="token number">2</span>    <span class="token number">3</span>
+<span class="token number">3</span>    <span class="token number">5</span>
+<span class="token number">4</span>    <span class="token number">2</span>
+<span class="token number">5</span>    <span class="token number">4</span>
+<span class="token number">6</span>    <span class="token number">2</span>
+<span class="token number">7</span>    <span class="token number">0</span>
+<span class="token number">8</span>    <span class="token number">2</span>
+<span class="token number">9</span>    <span class="token number">6</span>
+dtype: int32
+<span class="token number">2</span>    <span class="token number">3</span>
+<span class="token number">1</span>    <span class="token number">2</span>
+<span class="token number">6</span>    <span class="token number">1</span>
+<span class="token number">5</span>    <span class="token number">1</span>
+<span class="token number">3</span>    <span class="token number">1</span>
+<span class="token number">0</span>    <span class="token number">1</span>
+dtype: int64
+<span class="token operator">&lt;</span>class <span class="token string">&apos;pandas.core.series.Series&apos;</span><span class="token operator">&gt;</span>
+<span class="token number">2</span>    <span class="token number">3</span>
+<span class="token number">1</span>    <span class="token number">2</span>
+<span class="token number">6</span>    <span class="token number">1</span>
+<span class="token number">5</span>    <span class="token number">1</span>
+<span class="token number">4</span>    <span class="token number">1</span>
+<span class="token number">3</span>    <span class="token number">1</span>
+<span class="token number">0</span>    <span class="token number">1</span>
+dtype: int64
+</code></pre>
+<h3 id="29-&#x5B57;&#x7B26;&#x4E32;&#x65B9;&#x6CD5;"><a name="29-&#x5B57;&#x7B26;&#x4E32;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#29-&#x5B57;&#x7B26;&#x4E32;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.9 &#x5B57;&#x7B26;&#x4E32;&#x65B9;&#x6CD5;</h3>
+<p>Series&#x5BF9;&#x8C61;&#x5728;&#x5176;str&#x5C5E;&#x6027;&#x4E2D;&#x914D;&#x5907;&#x4E86;&#x4E00;&#x7EC4;&#x5B57;&#x7B26;&#x4E32;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x5E94;&#x7528;&#x5230;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5982;&#x4E0B;&#x6BB5;&#x4EE3;&#x7801;&#x6240;&#x793A;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"> s.str.lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h1 id="&#x5C06;s-series-&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x6210;&#x5C0F;&#x5199;&#x3002;"><a name="&#x5C06;s-series-&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x6210;&#x5C0F;&#x5199;&#x3002;" class="anchor-navigation-ex-anchor" href="#&#x5C06;s-series-&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x6210;&#x5C0F;&#x5199;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C06;s Series &#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x6210;&#x5C0F;&#x5199;&#x3002;</h1>
+<h3 id="210-&#x5408;&#x5E76;"><a name="210-&#x5408;&#x5E76;" class="anchor-navigation-ex-anchor" href="#210-&#x5408;&#x5E76;"><i class="fa fa-link" aria-hidden="true"></i></a>2.10 &#x5408;&#x5E76;</h3>
+<p>Pandas &#x63D0;&#x4F9B;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x80FD;&#x591F;&#x8F7B;&#x677E;&#x7684;&#x5BF9;Series,DataFrame&#x548C;Panel&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5404;&#x79CD;&#x7B26;&#x5408;&#x5404;&#x79CD;&#x903B;&#x8F91;&#x5173;&#x7CFB;&#x7684;&#x5408;&#x5E76; &#x3002;</p>
+<h4 id="2101-concat"><a name="2101-concat" class="anchor-navigation-ex-anchor" href="#2101-concat"><i class="fa fa-link" aria-hidden="true"></i></a>2.10.1 concat</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">df</span> <span class="token operator">=</span> pd.DataFrame<span class="token punctuation">(</span>np.random.randn<span class="token punctuation">(</span><span class="token number">10,4</span><span class="token punctuation">))</span>
+print<span class="token punctuation">(</span><span class="token string">&quot;is--&quot;</span>,df<span class="token punctuation">)</span>
+pieces <span class="token operator">=</span> <span class="token punctuation">[</span>df<span class="token punctuation">[</span>:3<span class="token punctuation">]</span>,df<span class="token punctuation">[</span><span class="token number">3</span>:7<span class="token punctuation">]</span>,df<span class="token punctuation">[</span><span class="token number">7</span>:<span class="token punctuation">]</span><span class="token punctuation">]</span>
+df1 <span class="token operator">=</span>  pd.concat<span class="token punctuation">(</span>pieces<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&quot;is==&quot;</span>,df1<span class="token punctuation">)</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">is--           <span class="token number">0</span>         <span class="token number">1</span>         <span class="token number">2</span>         <span class="token number">3</span>
+<span class="token number">0</span> -1.033090 -0.884844 -0.868251  <span class="token number">0.504889</span>
+<span class="token number">1</span>  <span class="token number">0.264918</span> -2.486587 -1.985965 -1.773131
+<span class="token number">2</span> -1.056175 -0.647278 -2.123045  <span class="token number">0.292224</span>
+<span class="token number">3</span>  <span class="token number">0.664369</span> -0.185612 -0.628173  <span class="token number">0.214924</span>
+<span class="token number">4</span>  <span class="token number">0.740074</span>  <span class="token number">0.515744</span> -2.547639 -0.116405
+<span class="token number">5</span> -0.578900 -0.966765  <span class="token number">0.455904</span> -0.623074
+<span class="token number">6</span> -2.000682  <span class="token number">1.712143</span>  <span class="token number">0.532171</span>  <span class="token number">0.807520</span>
+<span class="token number">7</span> -1.604986  <span class="token number">1.015452</span>  <span class="token number">2.270513</span>  <span class="token number">0.734573</span>
+<span class="token number">8</span> -0.817223  <span class="token number">0.211418</span>  <span class="token number">0.543868</span>  <span class="token number">0.930036</span>
+<span class="token number">9</span> -0.288155 -1.231245 -1.162904  <span class="token number">0.372432</span>
+<span class="token assign-left variable">is</span><span class="token operator">==</span>           <span class="token number">0</span>         <span class="token number">1</span>         <span class="token number">2</span>         <span class="token number">3</span>
+<span class="token number">0</span> -1.033090 -0.884844 -0.868251  <span class="token number">0.504889</span>
+<span class="token number">1</span>  <span class="token number">0.264918</span> -2.486587 -1.985965 -1.773131
+<span class="token number">2</span> -1.056175 -0.647278 -2.123045  <span class="token number">0.292224</span>
+<span class="token number">3</span>  <span class="token number">0.664369</span> -0.185612 -0.628173  <span class="token number">0.214924</span>
+<span class="token number">4</span>  <span class="token number">0.740074</span>  <span class="token number">0.515744</span> -2.547639 -0.116405
+<span class="token number">5</span> -0.578900 -0.966765  <span class="token number">0.455904</span> -0.623074
+<span class="token number">6</span> -2.000682  <span class="token number">1.712143</span>  <span class="token number">0.532171</span>  <span class="token number">0.807520</span>
+<span class="token number">7</span> -1.604986  <span class="token number">1.015452</span>  <span class="token number">2.270513</span>  <span class="token number">0.734573</span>
+<span class="token number">8</span> -0.817223  <span class="token number">0.211418</span>  <span class="token number">0.543868</span>  <span class="token number">0.930036</span>
+<span class="token number">9</span> -0.288155 -1.231245 -1.162904  <span class="token number">0.372432</span>
+</code></pre>
+<h4 id="join&#x7C7B;&#x4F3C;&#x4E0E;sql&#x7C7B;&#x578B;&#x7684;&#x5408;&#x5E76;"><a name="join&#x7C7B;&#x4F3C;&#x4E0E;sql&#x7C7B;&#x578B;&#x7684;&#x5408;&#x5E76;" class="anchor-navigation-ex-anchor" href="#join&#x7C7B;&#x4F3C;&#x4E0E;sql&#x7C7B;&#x578B;&#x7684;&#x5408;&#x5E76;"><i class="fa fa-link" aria-hidden="true"></i></a>Join&#x7C7B;&#x4F3C;&#x4E0E;SQL&#x7C7B;&#x578B;&#x7684;&#x5408;&#x5E76;</h4>
+<pre class="language-"><code class="lang-bash">left <span class="token operator">=</span> pd.DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;key&apos;</span>:<span class="token punctuation">[</span><span class="token string">&apos;foo&apos;</span>,<span class="token string">&apos;foo&apos;</span><span class="token punctuation">]</span>,<span class="token string">&apos;lval&apos;</span>:<span class="token punctuation">[</span><span class="token number">1,2</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+right <span class="token operator">=</span> pd.DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&apos;key&apos;</span>:<span class="token punctuation">[</span><span class="token string">&apos;foo&apos;</span>,<span class="token string">&apos;foo&apos;</span><span class="token punctuation">]</span>,<span class="token string">&apos;rval&apos;</span>:<span class="token punctuation">[</span><span class="token number">4,5</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>left<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>right<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>pd.merge<span class="token punctuation">(</span>left,right,on<span class="token operator">=</span>&apos;key<span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">   key  lval
+<span class="token number">0</span>  foo     <span class="token number">1</span>
+<span class="token number">1</span>  foo     <span class="token number">2</span>
+   key  rval
+<span class="token number">0</span>  foo     <span class="token number">4</span>
+<span class="token number">1</span>  foo     <span class="token number">5</span>
+   key  lval  rval
+<span class="token number">0</span>  foo     <span class="token number">1</span>     <span class="token number">4</span>
+<span class="token number">1</span>  foo     <span class="token number">1</span>     <span class="token number">5</span>
+<span class="token number">2</span>  foo     <span class="token number">2</span>     <span class="token number">4</span>
+<span class="token number">3</span>  foo     <span class="token number">2</span>     <span class="token number">5</span>
+</code></pre>
+<h4 id="2102-append&#x5C06;&#x4E00;&#x884C;&#x8FDE;&#x63A5;&#x5230;dataframe"><a name="2102-append&#x5C06;&#x4E00;&#x884C;&#x8FDE;&#x63A5;&#x5230;dataframe" class="anchor-navigation-ex-anchor" href="#2102-append&#x5C06;&#x4E00;&#x884C;&#x8FDE;&#x63A5;&#x5230;dataframe"><i class="fa fa-link" aria-hidden="true"></i></a>2.10.2 append&#x5C06;&#x4E00;&#x884C;&#x8FDE;&#x63A5;&#x5230;DataFrame</h4>
+<pre class="language-"><code class="lang-bash">print<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+s <span class="token operator">=</span>df.iloc<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+print<span class="token punctuation">(</span>df.append<span class="token punctuation">(</span>s,ignore_index <span class="token operator">=</span> True<span class="token punctuation">))</span>
+</code></pre>
+<p>//</p>
+<pre class="language-"><code class="lang-bash">               A         B         C         D
+<span class="token number">2017</span>-08-01  <span class="token number">0.040061</span> -0.552461 -1.442001 -0.443429
+<span class="token number">2017</span>-08-02  <span class="token number">1.850017</span> -0.526213  <span class="token number">0.548660</span> -0.760185
+<span class="token number">2017</span>-08-03  <span class="token number">1.233839</span> -0.338561 -1.441615  <span class="token number">0.008451</span>
+<span class="token number">2017</span>-08-04 -0.622002 -1.308038 -0.926464 -0.890123
+<span class="token number">2017</span>-08-05 -0.271971  <span class="token number">0.994797</span> -0.806631 -0.191609
+<span class="token number">2017</span>-08-06  <span class="token number">0.078366</span> -0.014979  <span class="token number">0.603089</span> -1.145712
+          A         B         C         D
+<span class="token number">0</span>  <span class="token number">0.040061</span> -0.552461 -1.442001 -0.443429
+<span class="token number">1</span>  <span class="token number">1.850017</span> -0.526213  <span class="token number">0.548660</span> -0.760185
+<span class="token number">2</span>  <span class="token number">1.233839</span> -0.338561 -1.441615  <span class="token number">0.008451</span>
+<span class="token number">3</span> -0.622002 -1.308038 -0.926464 -0.890123
+<span class="token number">4</span> -0.271971  <span class="token number">0.994797</span> -0.806631 -0.191609
+<span class="token number">5</span>  <span class="token number">0.078366</span> -0.014979  <span class="token number">0.603089</span> -1.145712
+<span class="token number">6</span> -0.622002 -1.308038 -0.926464 -0.890123
+</code></pre>
+<h3 id="211-&#x5206;&#x7EC4;"><a name="211-&#x5206;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#211-&#x5206;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>2.11 &#x5206;&#x7EC4;</h3>
+<p>&#x5BF9;&#x4E8E;&#x201D;group by&#x201D;&#x64CD;&#x4F5C;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x662F;&#x6307;&#x4EE5;&#x4E0B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>&#xFF08;Splitting&#xFF09;&#x6309;&#x7167;&#x4E00;&#x4E9B;&#x89C4;&#x5219;&#x5C06;&#x6570;&#x636E;&#x5206;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#xFF1B;</li>
+<li>&#xFF08;Applying&#xFF09;&#x5BF9;&#x4E8E;&#x6BCF;&#x7EC4;&#x6570;&#x636E;&#x5206;&#x522B;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1B;</li>
+<li>&#xFF08;Combining&#xFF09;&#x5C06;&#x7ED3;&#x679C;&#x7EC4;&#x5408;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#xFF1B;</li>
+</ul>
+<p>1&#x3001; &#x5206;&#x7EC4;&#x5E76;&#x5BF9;&#x6BCF;&#x4E2A;&#x5206;&#x7EC4;&#x6267;&#x884C;sum&#x51FD;&#x6570;&#xFF1A;
+2&#x3001; &#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x5217;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x5C42;&#x6B21;&#x7D22;&#x5F15;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF1A;</p>
+<hr>
+<p>&#x63A8;&#x8350;&#x9605;&#x8BFB;&#xFF1A;</p>
+<ul>
+<li><a href="https://www.gairuo.com/p/pandas-tutorial" target="_blank">https://www.gairuo.com/p/pandas-tutorial</a></li>
+<li><a href="https://pandas.pydata.org/" target="_blank">https://pandas.pydata.org/</a></li>
+<li><a href="https://www.runoob.com/pandas/pandas-tutorial.html" target="_blank">Pandas &#x6559;&#x7A0B;</a></li>
+<li><a href="https://www.w3schools.com/python/pandas/default.asp" target="_blank">Pandas Tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZyhVh-qRZPA" target="_blank">Python Pandas Tutorial (Part 1): Getting Started with Data Analysis - Installation and Loading Data</a></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/b46b352c96f2405e8e54a29f3cab3d17.gif#pic_center" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 12:23:41
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_sys.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 sys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_pycurl.html" class="navigation navigation-next " aria-label="Next page: python 模块 pycurl 处理 url">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 pandas 数组处理","level":"1.7.16","depth":2,"next":{"title":"python 模块 pycurl 处理 url","level":"1.7.17","depth":2,"path":"Modules/python_pycurl.md","ref":"Modules/python_pycurl.md","articles":[]},"previous":{"title":"python 模块 sys","level":"1.7.15","depth":2,"path":"Modules/python_sys.md","ref":"Modules/python_sys.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_pandas.md","mtime":"2022-06-30T12:23:41.762Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

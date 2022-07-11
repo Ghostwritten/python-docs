@@ -1,0 +1,2428 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 selenium 自动化测试 web 工具 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_configParser.html" />
+    
+    
+    <link rel="prev" href="python_concurrent.futures.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 selenium 自动化测试 web 工具</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-selenium-&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;-web-&#x5DE5;&#x5177;"><b></b>python &#x6A21;&#x5757; Selenium &#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5; Web &#x5DE5;&#x5177;</a></li><ul><li><span class="title-icon "></span><a href="#1-selenium&#x7B80;&#x4ECB;"><b></b>1. Selenium&#x7B80;&#x4ECB;</a></li><li><span class="title-icon "></span><a href="#2-&#x5B89;&#x88C5;selenium"><b></b>2. &#x5B89;&#x88C5;Selenium</a></li><li><span class="title-icon "></span><a href="#3-&#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;"><b></b>3. &#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;</a></li><li><span class="title-icon "></span><a href="#4-&#x73AF;&#x5883;&#x53D8;&#x91CF;"><b></b>4. &#x73AF;&#x5883;&#x53D8;&#x91CF;</a></li><li><span class="title-icon "></span><a href="#5-&#x53C2;&#x6570;"><b></b>5. &#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#6-&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;8&#x79CD;&#x65B9;&#x5F0F;"><b></b>6. &#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;8&#x79CD;&#x65B9;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#7--&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;"><b></b>7.  &#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#8-&#x952E;&#x76D8;&#x4E8B;&#x4EF6;"><b></b>8. &#x952E;&#x76D8;&#x4E8B;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#9-&#x83B7;&#x53D6;&#x65AD;&#x8A00;&#x4FE1;&#x606F;"><b></b>9. &#x83B7;&#x53D6;&#x65AD;&#x8A00;&#x4FE1;&#x606F;</a></li><li><span class="title-icon "></span><a href="#10-&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;"><b></b>10. &#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#11-&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7B49;&#x5F85;"><b></b>11. &#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7B49;&#x5F85;</a></li><ul><li><span class="title-icon "></span><a href="#111-&#x663E;&#x793A;&#x7B49;&#x5F85;"><b></b>11.1 &#x663E;&#x793A;&#x7B49;&#x5F85;</a></li><li><span class="title-icon "></span><a href="#112-&#x9690;&#x5F0F;&#x7B49;&#x5F85;"><b></b>11.2 &#x9690;&#x5F0F;&#x7B49;&#x5F85;</a></li></ul><li><span class="title-icon "></span><a href="#12-&#x591A;&#x7A97;&#x53E3;&#x5207;&#x6362;"><b></b>12. &#x591A;&#x7A97;&#x53E3;&#x5207;&#x6362;</a></li><li><span class="title-icon "></span><a href="#13-&#x8B66;&#x544A;&#x6846;&#x5904;&#x7406;"><b></b>13. &#x8B66;&#x544A;&#x6846;&#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#14-&#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;"><b></b>14. &#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;</a></li><li><span class="title-icon "></span><a href="#15-&#x591A;&#x8868;&#x5355;&#x5207;&#x6362;"><b></b>15. &#x591A;&#x8868;&#x5355;&#x5207;&#x6362;</a></li><li><span class="title-icon "></span><a href="#16-&#x4E0B;&#x62C9;&#x6846;&#x9009;&#x62E9;&#x64CD;&#x4F5C;"><b></b>16. &#x4E0B;&#x62C9;&#x6846;&#x9009;&#x62E9;&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#17-&#x6587;&#x4EF6;&#x4E0A;&#x4F20;"><b></b>17. &#x6587;&#x4EF6;&#x4E0A;&#x4F20;</a></li><li><span class="title-icon "></span><a href="#18-cookie&#x64CD;&#x4F5C;"><b></b>18. cookie&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#19-&#x8C03;&#x7528;javascript&#x4EE3;&#x7801;"><b></b>19. &#x8C03;&#x7528;JavaScript&#x4EE3;&#x7801;</a></li><li><span class="title-icon "></span><a href="#20-&#x7A97;&#x53E3;&#x622A;&#x56FE;"><b></b>20. &#x7A97;&#x53E3;&#x622A;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#21-&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;"><b></b>21. &#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;</a></li><li><span class="title-icon "></span><a href="#22-&#x5C01;&#x88C5;"><b></b>22. &#x5C01;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#23-selenium-&#x548C;-requests-&#x7ED3;&#x5408;"><b></b>23. selenium &#x548C; requests &#x7ED3;&#x5408;</a></li><li><span class="title-icon "></span><a href="#24-&#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;js"><b></b>24. &#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;JS</a></li><li><span class="title-icon "></span><a href="#25-&#x89E3;&#x538B;-gzip"><b></b>25. &#x89E3;&#x538B; gzip</a></li><li><span class="title-icon "></span><a href="#26-&#x76D1;&#x542C;&#x8BF7;&#x6C42;"><b></b>26. &#x76D1;&#x542C;&#x8BF7;&#x6C42;</a></li></ul></ul></div><a href="#python-&#x6A21;&#x5757;-selenium-&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;-web-&#x5DE5;&#x5177;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-selenium-&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;-web-&#x5DE5;&#x5177;"><a name="python-&#x6A21;&#x5757;-selenium-&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;-web-&#x5DE5;&#x5177;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-selenium-&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;-web-&#x5DE5;&#x5177;"><i class="fa fa-link" aria-hidden="true"></i></a>python &#x6A21;&#x5757; Selenium &#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5; Web &#x5DE5;&#x5177;</h1>
+<h2 id="1-selenium&#x7B80;&#x4ECB;"><a name="1-selenium&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#1-selenium&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>1. Selenium&#x7B80;&#x4ECB;</h2>
+<p>Selenium&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x7F51;&#x7AD9;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;&#x652F;&#x6301;&#x5404;&#x79CD;&#x6D4F;&#x89C8;&#x5668;&#x5305;&#x62EC;Chrome&#x3001;Firefox&#x3001;Safari&#x7B49;&#x4E3B;&#x6D41;&#x754C;&#x9762;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x652F;&#x6301;phantomJS&#x65E0;&#x754C;&#x9762;&#x6D4F;&#x89C8;&#x5668;&#x3002;&#x53EF;&#x6267;&#x884C;&#x7CFB;&#x7EDF;&#x5982;Windows&#x3001;Linux&#x3001;IOS&#x3001;Android&#x7B49;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x7F51;&#x7AD9;&#xFF1A;</p>
+<ul>
+<li><a href="https://github.com/SeleniumHQ/selenium/tree/trunk/py" target="_blank">github</a> </li>
+<li><a href="https://pypi.org/project/selenium/" target="_blank">pypi</a>    </li>
+<li><a href="https://selenium-python.readthedocs.io/" target="_blank">&#x5E2E;&#x52A9;&#x6587;&#x6863;</a>  </li>
+<li><a href="https://www.selenium.dev/" target="_blank">&#x5B98;&#x7F51;</a></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/9f3a2f5b99514d2489d57af034f8b2a7.gif#pic_center" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h2 id="2-&#x5B89;&#x88C5;selenium"><a name="2-&#x5B89;&#x88C5;selenium" class="anchor-navigation-ex-anchor" href="#2-&#x5B89;&#x88C5;selenium"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B89;&#x88C5;Selenium</h2>
+<pre class="language-"><code class="lang-bash">pip <span class="token function">install</span> Selenium
+</code></pre>
+<h2 id="3-&#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;"><a name="3-&#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;" class="anchor-navigation-ex-anchor" href="#3-&#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;</h2>
+<ul>
+<li>Firefox&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#xFF1A;<a href="https://github.com/mozilla/geckodriver/releases" target="_blank">geckodriver</a></li>
+<li>Chrome&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#xFF1A;<a href="https://sites.google.com/a/chromium.org/chromedriver/home" target="_blank">chromedriver</a> ,or <a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank">chromedriver 2</a></li>
+<li>IE&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#xFF1A;<a href="http://selenium-release.storage.googleapis.com/index.html" target="_blank">IEDriverServer</a></li>
+<li>Edge&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#xFF1A;<a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/" target="_blank">MicrosoftWebDriver</a></li>
+<li>Opera&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#xFF1A;<a href="https://github.com/operasoftware/operachromiumdriver/releases" target="_blank">operadriver</a></li>
+<li>PhantomJS&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#xFF1A;<a href="https://phantomjs.org/" target="_blank">phantomjs</a></li>
+</ul>
+<p>&#x9700;&#x8981;&#x628A;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#x653E;&#x5165;&#x7CFB;&#x7EDF;&#x8DEF;&#x5F84;&#x4E2D;&#xFF0C;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x544A;&#x77E5;selenuim&#x7684;&#x9A71;&#x52A8;&#x8DEF;&#x5F84;</p>
+<h2 id="4-&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a name="4-&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#4-&#x73AF;&#x5883;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x73AF;&#x5883;&#x53D8;&#x91CF;</h2>
+<p>&#x8BBE;&#x7F6E;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5730;&#x5740;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002; &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B58;&#x653E;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#xFF1A; F:\GeckoDriver , &#x5C06;&#x4E0B;&#x8F7D;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#x6587;&#x4EF6;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;chromedriver&#x3001;geckodriver&#xFF09;&#x4E22;&#x5230;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<p>&#x6211;&#x7684;&#x7535;&#x8111;&#x2013;&gt;&#x5C5E;&#x6027;&#x2013;&gt;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;&#x2013;&gt;&#x9AD8;&#x7EA7;&#x2013;&gt;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x2013;&gt;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#x2013;&gt;Path&#xFF0C;&#x5C06;&#x201C;F:\GeckoDriver&#x201D;&#x76EE;&#x5F55;&#x6DFB;&#x52A0;&#x5230;Path&#x7684;&#x503C;&#x4E2D;&#x3002;&#x6BD4;&#x5982;&#xFF1A;Path&#x5B57;&#x6BB5;;F:\GeckoDriver</p>
+<h2 id="5-&#x53C2;&#x6570;"><a name="5-&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#5-&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x53C2;&#x6570;</h2>
+<p>&#x53E6;&#x5916;&#x542F;&#x52A8;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x6BD4;&#x5982;&#x65E0;&#x754C;&#x9762;&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;<a href="https://zhuanlan.zhihu.com/p/60852696" target="_blank">&#x8BE6;&#x7EC6;&#x53C2;&#x8003;</a></p>
+<p>&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+
+driver <span class="token operator">=</span> webdriver.Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># Firefox&#x6D4F;&#x89C8;&#x5668;</span>
+<span class="token comment"># driver = webdriver.Firefox(&quot;&#x9A71;&#x52A8;&#x8DEF;&#x5F84;&quot;)</span>
+
+driver <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># Chrome&#x6D4F;&#x89C8;&#x5668;</span>
+
+driver <span class="token operator">=</span> webdriver.Ie<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment"># Internet Explorer&#x6D4F;&#x89C8;&#x5668;</span>
+
+driver <span class="token operator">=</span> webdriver.Edge<span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment"># Edge&#x6D4F;&#x89C8;&#x5668;</span>
+
+driver <span class="token operator">=</span> webdriver.Opera<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment"># Opera&#x6D4F;&#x89C8;&#x5668;</span>
+
+driver <span class="token operator">=</span> webdriver.PhantomJS<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># PhantomJS</span>
+
+<span class="token comment"># &#x6253;&#x5F00;&#x7F51;&#x9875;</span>
+driver.get<span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token comment"># &#x6253;&#x5F00;url&#x7F51;&#x9875; &#x6BD4;&#x5982; driver.get(&quot;http://www.baidu.com&quot;)</span>
+</code></pre>
+<h2 id="6-&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;8&#x79CD;&#x65B9;&#x5F0F;"><a name="6-&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;8&#x79CD;&#x65B9;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#6-&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;8&#x79CD;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;8&#x79CD;&#x65B9;&#x5F0F;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x5B9A;&#x4F4D;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</th>
+<th>&#x5B9A;&#x4F4D;&#x591A;&#x4E2A;&#x5143;&#x7D20;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find_element_by_id</td>
+<td>find_elements_by_id</td>
+<td>&#x901A;&#x8FC7;&#x5143;&#x7D20;id&#x5B9A;&#x4F4D;</td>
+</tr>
+<tr>
+<td>find_element_by_name</td>
+<td>find_elements_by_name</td>
+<td>&#x901A;&#x8FC7;&#x5143;&#x7D20;name&#x5B9A;&#x4F4D;</td>
+</tr>
+</tbody>
+</table>
+<p>find_element_by_xpath |    find_elements_by_xpath    | &#x901A;&#x8FC7;xpath&#x8868;&#x8FBE;&#x5F0F;&#x5B9A;&#x4F4D; | 
+|find_element_by_link_text    | find_elements_by_link_tex |    &#x901A;&#x8FC7;&#x5B8C;&#x6574;&#x8D85;&#x94FE;&#x63A5;&#x5B9A;&#x4F4D; |
+|find_element_by_partial_link_text |    find_elements_by_partial_link_text |    &#x901A;&#x8FC7;&#x90E8;&#x5206;&#x94FE;&#x63A5;&#x5B9A;&#x4F4D; | 
+| find_element_by_tag_name |    find_elements_by_tag_name    | &#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x5B9A;&#x4F4D; |
+| find_element_by_class_name |    find_elements_by_class_name |    &#x901A;&#x8FC7;&#x7C7B;&#x540D;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D; |
+| find_elements_by_css_selector |    find_elements_by_css_selector |    &#x901A;&#x8FC7;css&#x9009;&#x62E9;&#x5668;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D; |</p>
+<p>demo&#xFF1A;
+&#x5047;&#x5982;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;Web&#x9875;&#x9762;&#xFF0C;&#x901A;&#x8FC7;&#x524D;&#x7AEF;&#x5DE5;&#x5177;&#xFF08;&#x5982;&#xFF0C;Firebug&#xFF09;&#x67E5;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>body <span class="token assign-left variable">link</span><span class="token operator">=</span><span class="token string">&quot;#0000cc&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>a <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">&quot;result_logo&quot;</span> <span class="token assign-left variable">href</span><span class="token operator">=</span><span class="token string">&quot;/&quot;</span> <span class="token assign-left variable">onmousedown</span><span class="token operator">=</span><span class="token string">&quot;return c({&apos;fm&apos;:&apos;tab&apos;,&apos;tab&apos;:&apos;logo&apos;})&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>form <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">&quot;form&quot;</span> <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">&quot;fm&quot;</span> <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;f&quot;</span> <span class="token assign-left variable">action</span><span class="token operator">=</span><span class="token string">&quot;/s&quot;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">&quot;soutu-btn&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>input <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">&quot;kw&quot;</span> <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">&quot;s_ipt&quot;</span> <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;wd&quot;</span> <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span> <span class="token assign-left variable">maxlength</span><span class="token operator">=</span><span class="token string">&quot;255&quot;</span> <span class="token assign-left variable">autocomplete</span><span class="token operator">=</span><span class="token string">&quot;off&quot;</span><span class="token operator">&gt;</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;id&#x5B9A;&#x4F4D;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;kw&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;name&#x5B9A;&#x4F4D;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;wd&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;class name&#x5B9A;&#x4F4D;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_class_name<span class="token punctuation">(</span><span class="token string">&quot;s_ipt&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;tag name&#x5B9A;&#x4F4D;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_tag_name<span class="token punctuation">(</span><span class="token string">&quot;input&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;<code>xpath</code>&#x5B9A;&#x4F4D;&#xFF0C;<code>xpath</code>&#x5B9A;&#x4F4D;&#x6709;N&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x5217;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x5199;&#x6CD5;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//*[@id=&apos;kw&apos;]&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//*[@name=&apos;wd&apos;]&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//input[@class=&apos;s_ipt&apos;]&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;/html/body/form/span/input&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//span[@class=&apos;soutu-btn&apos;]/input&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//form[@id=&apos;form&apos;]/span/input&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//input[@id=&apos;kw&apos; and @name=&apos;wd&apos;]&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;css&#x5B9A;&#x4F4D;&#xFF0C;css&#x5B9A;&#x4F4D;&#x6709;N&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x5217;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x5199;&#x6CD5;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">&quot;#kw&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">&quot;[name=wd]&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">&quot;.s_ipt&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">&quot;html &gt; body &gt; form &gt; span &gt; input&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">&quot;span.soutu-btn&gt; input#kw&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">&quot;form#form &gt; span &gt; input&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x9875;&#x9762;&#x4E0A;&#x6709;&#x4E00;&#x7EC4;&#x6587;&#x672C;&#x94FE;&#x63A5;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x65B0;&#x95FB;&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;hao123&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;link text&#x5B9A;&#x4F4D;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x65B0;&#x95FB;&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;hao123&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;partial link text&#x5B9A;&#x4F4D;:</p>
+<pre class="language-"><code class="lang-bash">dr.find_element_by_partial_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x65B0;&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_partial_link_text<span class="token punctuation">(</span><span class="token string">&quot;hao&quot;</span><span class="token punctuation">)</span>
+dr.find_element_by_partial_link_text<span class="token punctuation">(</span><span class="token string">&quot;123&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="7--&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;"><a name="7--&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#7--&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>7.  &#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_window_size()</td>
+<td>&#x8BBE;&#x7F6E;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td>back()</td>
+<td>&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x540E;&#x9000;</td>
+</tr>
+<tr>
+<td>forward()</td>
+<td>&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x524D;&#x8FDB;</td>
+</tr>
+<tr>
+<td>refresh()</td>
+<td>&#x5237;&#x65B0;&#x5F53;&#x524D;&#x9875;&#x9762;</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>&#x6E05;&#x9664;&#x6587;&#x672C;</td>
+</tr>
+<tr>
+<td>send_keys (value)</td>
+<td>&#x6A21;&#x62DF;&#x6309;&#x952E;&#x8F93;&#x5165;</td>
+</tr>
+<tr>
+<td>click()</td>
+<td>&#x5355;&#x51FB;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>submit()</td>
+<td>&#x7528;&#x4E8E;&#x63D0;&#x4EA4;&#x8868;&#x5355;</td>
+</tr>
+<tr>
+<td>get_attribute(name)</td>
+<td>&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x5C5E;&#x6027;&#x503C;</td>
+</tr>
+<tr>
+<td>is_displayed()</td>
+<td>&#x8BBE;&#x7F6E;&#x8BE5;&#x5143;&#x7D20;&#x662F;&#x5426;&#x7528;&#x6237;&#x53EF;&#x89C1;</td>
+</tr>
+<tr>
+<td>size</td>
+<td>&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x7684;&#x5C3A;&#x5BF8;</td>
+</tr>
+<tr>
+<td>text</td>
+<td>&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x6587;&#x672C;</td>
+</tr>
+</tbody>
+</table>
+<p>demo:</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+<span class="token comment">#1.&#x521B;&#x5EFA;Chrome&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4F1A;&#x5728;&#x7535;&#x8111;&#x4E0A;&#x5728;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;</span>
+browser <span class="token operator">=</span> webdriver.Firefox<span class="token punctuation">(</span>executable_path <span class="token operator">=</span><span class="token string">&quot;F:\GeckoDriver\geckodriver&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#2.&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;URL&#x8BF7;&#x6C42;</span>
+browser.get<span class="token punctuation">(</span><span class="token string">&quot;https://www.baidu.com/&quot;</span><span class="token punctuation">)</span>
+
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment">#3.&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;</span>
+browser.refresh<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#4.&#x8BBE;&#x7F6E;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5927;&#x5C0F;</span>
+browser.set_window_size<span class="token punctuation">(</span><span class="token number">1400,800</span><span class="token punctuation">)</span>
+
+<span class="token comment">#5.&#x8BBE;&#x7F6E;&#x94FE;&#x63A5;&#x5185;&#x5BB9;</span>
+<span class="token assign-left variable">element</span><span class="token operator">=</span>browser.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x65B0;&#x95FB;&quot;</span><span class="token punctuation">)</span>
+element.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token assign-left variable">element</span><span class="token operator">=</span>browser.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x201C;&#x4E0B;&#x56E2;&#x7EC4;&#x201D;&#x65F6;&#x95F4;&quot;</span><span class="token punctuation">)</span>
+element.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="8-&#x952E;&#x76D8;&#x4E8B;&#x4EF6;"><a name="8-&#x952E;&#x76D8;&#x4E8B;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#8-&#x952E;&#x76D8;&#x4E8B;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x952E;&#x76D8;&#x4E8B;&#x4EF6;</h2>
+<p><code>Selenium</code>&#x4E2D;&#x7684;Key&#x6A21;&#x5757;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x6A21;&#x62DF;&#x952E;&#x76D8;&#x6309;&#x952E;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x5C31;&#x662F;<code>send_keys()</code>&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x952E;&#x76D8;&#x8F93;&#x5165;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x952E;&#x76D8;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5E38;&#x7528;&#x7684;&#x952E;&#x76D8;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;
+| &#x6A21;&#x62DF;&#x952E;&#x76D8;&#x6309;&#x952E;    | &#x8BF4;&#x660E; |
+|--|--|
+| send_keys(Keys.BACK_SPACE)    | &#x5220;&#x9664;&#x952E;&#xFF08;BackSpace&#xFF09;|
+| send_keys(Keys.SPACE)    | &#x7A7A;&#x683C;&#x952E;(Space) |
+| send_keys(Keys.TAB)    | &#x5236;&#x8868;&#x952E;(Tab) |
+| send_keys(Keys.ESCAPE)    | &#x56DE;&#x9000;&#x952E;&#xFF08;Esc&#xFF09;|
+| send_keys(Keys.ENTER)    | &#x56DE;&#x8F66;&#x952E;&#xFF08;Enter&#xFF09;|</p>
+<p>&#x7EC4;&#x5408;&#x952E;&#x7684;&#x4F7F;&#x7528;
+| &#x6A21;&#x62DF;&#x952E;&#x76D8;&#x6309;&#x952E;    | &#x8BF4;&#x660E; |
+|--|--|
+| send_keys(Keys.CONTROL,&#x2018;a&#x2019;)    | &#x5168;&#x9009;&#xFF08;Ctrl+A&#xFF09; |
+|send_keys(Keys.CONTROL,&#x2018;c&#x2019;)    | &#x590D;&#x5236;&#xFF08;Ctrl+C&#xFF09;| 
+| send_keys(Keys.CONTROL,&#x2018;x&#x2019;)    | &#x526A;&#x5207;&#xFF08;Ctrl+X&#xFF09;|
+| send_keys(Keys.CONTROL,&#x2018;v&#x2019;)    | &#x7C98;&#x8D34;&#xFF08;Ctrl+V&#xFF09;
+| send_keys(Keys.F1&#x2026;Fn)    | &#x952E;&#x76D8; F1&#x2026;Fn |</p>
+<h2 id="9-&#x83B7;&#x53D6;&#x65AD;&#x8A00;&#x4FE1;&#x606F;"><a name="9-&#x83B7;&#x53D6;&#x65AD;&#x8A00;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#9-&#x83B7;&#x53D6;&#x65AD;&#x8A00;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>9. &#x83B7;&#x53D6;&#x65AD;&#x8A00;&#x4FE1;&#x606F;</h2>
+<p>&#x4E0D;&#x7BA1;&#x662F;&#x5728;&#x505A;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x8FD8;&#x662F;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x6B65;&#x9700;&#x8981;&#x62FF;&#x5B9E;&#x9645;&#x7ED3;&#x679C;&#x4E0E;&#x9884;&#x671F;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x7684;&#x79F0;&#x4E4B;&#x4E3A;&#x65AD;&#x8A00;&#x3002;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x83B7;&#x53D6;title &#x3001;URL&#x548C;text&#x7B49;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x65AD;&#x8A00;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x5C5E;&#x6027;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>&#x7528;&#x4E8E;&#x83B7;&#x5F97;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>current_url</td>
+<td>&#x7528;&#x6237;&#x83B7;&#x5F97;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;URL</td>
+</tr>
+<tr>
+<td>text</td>
+<td>&#x83B7;&#x53D6;&#x641C;&#x7D22;&#x6761;&#x76EE;&#x7684;&#x6587;&#x672C;&#x4FE1;&#x606F;</td>
+</tr>
+</tbody>
+</table>
+<p>demo&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+
+driver <span class="token operator">=</span> webdriver.Firefox<span class="token punctuation">(</span>executable_path <span class="token operator">=</span><span class="token string">&quot;F:\GeckoDriver\geckodriver&quot;</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;https://www.baidu.com&quot;</span><span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">&apos;Before search================&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6253;&#x5370;&#x5F53;&#x524D;&#x9875;&#x9762;title</span>
+title <span class="token operator">=</span> driver.title
+print<span class="token punctuation">(</span>title<span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6253;&#x5370;&#x5F53;&#x524D;&#x9875;&#x9762;URL</span>
+now_url <span class="token operator">=</span> driver.current_url
+print<span class="token punctuation">(</span>now_url<span class="token punctuation">)</span>
+
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;kw&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&quot;selenium&quot;</span><span class="token punctuation">)</span>
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;su&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">&apos;After search================&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x518D;&#x6B21;&#x6253;&#x5370;&#x5F53;&#x524D;&#x9875;&#x9762;title</span>
+title <span class="token operator">=</span> driver.title
+print<span class="token punctuation">(</span>title<span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6253;&#x5370;&#x5F53;&#x524D;&#x9875;&#x9762;URL</span>
+now_url <span class="token operator">=</span> driver.current_url
+print<span class="token punctuation">(</span>now_url<span class="token punctuation">)</span>
+
+<span class="token comment"># &#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x6570;&#x76EE;</span>
+user <span class="token operator">=</span> driver.find_element_by_class_name<span class="token punctuation">(</span><span class="token string">&apos;nums&apos;</span><span class="token punctuation">)</span>.text
+print<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+
+<span class="token comment">#&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;</span>
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x6253;&#x5370;&#x8F93;&#x51FA;&#x7ED3;&#x679C;</p>
+<pre class="language-"><code class="lang-bash">Before <span class="token assign-left variable">search</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+&#x767E;&#x5EA6;&#x4E00;&#x4E0B;&#xFF0C;&#x4F60;&#x5C31;&#x77E5;&#x9053;
+https://www.baidu.com/
+After <span class="token assign-left variable">search</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+selenium_&#x767E;&#x5EA6;&#x641C;&#x7D22;
+https://www.baidu.com/s?ie<span class="token operator">=</span>utf-8<span class="token operator">&amp;</span><span class="token assign-left variable">f</span><span class="token operator">=</span><span class="token number">8</span><span class="token operator">&amp;</span><span class="token assign-left variable">rsv_bp</span><span class="token operator">=</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token assign-left variable">rsv_idx</span><span class="token operator">=</span><span class="token number">1</span><span class="token operator">&amp;</span><span class="token assign-left variable">tn</span><span class="token operator">=</span>baidu<span class="token operator">&amp;</span><span class="token assign-left variable">wd</span><span class="token operator">=</span>selenium<span class="token operator">&amp;</span><span class="token assign-left variable">rsv_pq</span><span class="token operator">=</span>a1d51b980000e36e<span class="token operator">&amp;</span><span class="token assign-left variable">rsv_t</span><span class="token operator">=</span>a715IZaMpLd1w92I4LNUi7gKuOdlAz5McsHe%2FSLQeBZD44OUIPnjY%2B7pODM<span class="token operator">&amp;</span><span class="token assign-left variable">rqlang</span><span class="token operator">=</span>cn<span class="token operator">&amp;</span><span class="token assign-left variable">rsv_enter</span><span class="token operator">=</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token assign-left variable">rsv_sug3</span><span class="token operator">=</span><span class="token number">8</span><span class="token operator">&amp;</span><span class="token assign-left variable">inputT</span><span class="token operator">=</span><span class="token number">758</span><span class="token operator">&amp;</span><span class="token assign-left variable">rsv_sug4</span><span class="token operator">=</span><span class="token number">759</span>
+&#x641C;&#x7D22;&#x5DE5;&#x5177;
+&#x767E;&#x5EA6;&#x4E3A;&#x60A8;&#x627E;&#x5230;&#x76F8;&#x5173;&#x7ED3;&#x679C;&#x7EA6;7,170,000&#x4E2A;
+&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;
+</code></pre>
+<h2 id="10-&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;"><a name="10-&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#10-&#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>10. &#x6D4F;&#x89C8;&#x5668;&#x64CD;&#x4F5C;</h2>
+<pre class="language-"><code class="lang-bash">browser.forward<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># &#x5411;&#x524D;</span>
+browser.back<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># &#x8FD4;&#x56DE;</span>
+browser.fullscreen_window<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># &#x5168;&#x5C4F;</span>
+browser.maximize_window<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># &#x6700;&#x5927;&#x5316;</span>
+browser.minimize_window<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># &#x6700;&#x5C0F;&#x5316;</span>
+</code></pre>
+<h2 id="11-&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7B49;&#x5F85;"><a name="11-&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7B49;&#x5F85;" class="anchor-navigation-ex-anchor" href="#11-&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7B49;&#x5F85;"><i class="fa fa-link" aria-hidden="true"></i></a>11. &#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7B49;&#x5F85;</h2>
+<h3 id="111-&#x663E;&#x793A;&#x7B49;&#x5F85;"><a name="111-&#x663E;&#x793A;&#x7B49;&#x5F85;" class="anchor-navigation-ex-anchor" href="#111-&#x663E;&#x793A;&#x7B49;&#x5F85;"><i class="fa fa-link" aria-hidden="true"></i></a>11.1 &#x663E;&#x793A;&#x7B49;&#x5F85;</h3>
+<p>&#x663E;&#x5F0F;&#x7B49;&#x5F85;&#x4F7F;WebdDriver&#x7B49;&#x5F85;&#x67D0;&#x4E2A;&#x6761;&#x4EF6;&#x6210;&#x7ACB;&#x65F6;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x5426;&#x5219;&#x5728;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x65F6;&#x957F;&#x65F6;&#x629B;&#x51FA;&#x8D85;&#x65F6;&#x5F02;&#x5E38;&#xFF08;TimeoutException&#xFF09;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from selenium.webdriver.common.by <span class="token function">import</span> By
+from selenium.webdriver.support.ui <span class="token function">import</span> WebDriverWait
+from selenium.webdriver.support <span class="token function">import</span> expected_conditions as EC
+
+driver <span class="token operator">=</span> webdriver.Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;http://www.baidu.com&quot;</span><span class="token punctuation">)</span>
+
+element <span class="token operator">=</span> WebDriverWait<span class="token punctuation">(</span>driver, <span class="token number">5</span>, <span class="token number">0.5</span><span class="token punctuation">)</span>.until<span class="token punctuation">(</span>
+                      EC.presence_of_element_located<span class="token variable"><span class="token punctuation">((</span>By.ID<span class="token punctuation">,</span> &quot;kw&quot;<span class="token punctuation">))</span></span>
+                      <span class="token punctuation">)</span>
+element.send_keys<span class="token punctuation">(</span><span class="token string">&apos;selenium&apos;</span><span class="token punctuation">)</span>
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>WebDriverWait</code>&#x7C7B;&#x662F;&#x7531;WebDirver &#x63D0;&#x4F9B;&#x7684;&#x7B49;&#x5F85;&#x65B9;&#x6CD5;&#x3002;&#x5728;&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x9ED8;&#x8BA4;&#x6BCF;&#x9694;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x68C0;&#x6D4B;&#x4E00;&#x6B21;&#x5F53;&#x524D;&#x9875;&#x9762;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x68C0;&#x6D4B;&#x4E0D;&#x5230;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;&#x5177;&#x4F53;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">WebDriverWait<span class="token punctuation">(</span>driver, timeout, <span class="token assign-left variable">poll_frequency</span><span class="token operator">=</span><span class="token number">0.5</span>, <span class="token assign-left variable">ignored_exceptions</span><span class="token operator">=</span>None<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li><code>driver</code> &#xFF1A;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#x3002;</li>
+<li><code>timeout</code> &#xFF1A;&#x6700;&#x957F;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x3002;</li>
+<li><code>poll_frequency</code> &#xFF1A;&#x68C0;&#x6D4B;&#x7684;&#x95F4;&#x9694;&#xFF08;&#x6B65;&#x957F;&#xFF09;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;0.5S&#x3002;</li>
+<li><code>ignored_exceptions</code> &#xFF1A;&#x8D85;&#x65F6;&#x540E;&#x7684;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x629B;NoSuchElementException&#x5F02;&#x5E38;&#x3002;</li>
+<li><code>WebDriverWait()</code>&#x4E00;&#x822C;&#x7531;until()&#x6216;until_not()&#x65B9;&#x6CD5;&#x914D;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x4E0B;&#x9762;&#x662F;until()&#x548C;until_not()&#x65B9;&#x6CD5;&#x7684;&#x8BF4;&#x660E;&#x3002;</li>
+<li><code>until(method, message=&#x2018;&#x2019;)</code> &#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x7684;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x76F4;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;True&#x3002;</li>
+<li><code>until_not(method, message=&#x2018;&#x2019;)</code> &#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x7684;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x76F4;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;False&#x3002;</li>
+</ul>
+<p>&#x5728;&#x672C;&#x4F8B;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;as&#x5173;&#x952E;&#x5B57;&#x5C06;<code>expected_conditions</code> &#x91CD;&#x547D;&#x540D;&#x4E3A;EC&#xFF0C;&#x5E76;&#x8C03;&#x7528;presence_of_element_located()&#x65B9;&#x6CD5;&#x5224;&#x65AD;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5B58;&#x5728;&#x3002;</p>
+<h3 id="112-&#x9690;&#x5F0F;&#x7B49;&#x5F85;"><a name="112-&#x9690;&#x5F0F;&#x7B49;&#x5F85;" class="anchor-navigation-ex-anchor" href="#112-&#x9690;&#x5F0F;&#x7B49;&#x5F85;"><i class="fa fa-link" aria-hidden="true"></i></a>11.2 &#x9690;&#x5F0F;&#x7B49;&#x5F85;</h3>
+<p>&#x5982;&#x679C;&#x67D0;&#x4E9B;&#x5143;&#x7D20;&#x4E0D;&#x662F;&#x7ACB;&#x5373;&#x53EF;&#x7528;&#x7684;&#xFF0C;&#x9690;&#x5F0F;&#x7B49;&#x5F85;&#x662F;&#x544A;&#x8BC9;WebDriver&#x53BB;&#x7B49;&#x5F85;&#x4E00;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x540E;&#x53BB;&#x67E5;&#x627E;&#x5143;&#x7D20;&#x3002; &#x9ED8;&#x8BA4;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x662F;0&#x79D2;&#xFF0C;&#x4E00;&#x65E6;&#x8BBE;&#x7F6E;&#x8BE5;&#x503C;&#xFF0C;&#x9690;&#x5F0F;&#x7B49;&#x5F85;&#x662F;&#x8BBE;&#x7F6E;&#x8BE5;WebDriver&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+driver <span class="token operator">=</span> webdriver.Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>    
+driver.implicitly_wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># seconds    </span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;http://somedomain/url_that_delays_loading&quot;</span><span class="token punctuation">)</span>    
+myDynamicElement <span class="token operator">=</span> driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;myDynamicElement&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="12-&#x591A;&#x7A97;&#x53E3;&#x5207;&#x6362;"><a name="12-&#x591A;&#x7A97;&#x53E3;&#x5207;&#x6362;" class="anchor-navigation-ex-anchor" href="#12-&#x591A;&#x7A97;&#x53E3;&#x5207;&#x6362;"><i class="fa fa-link" aria-hidden="true"></i></a>12. &#x591A;&#x7A97;&#x53E3;&#x5207;&#x6362;</h2>
+<p>&#x5728;&#x9875;&#x9762;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x65F6;&#x5019;&#x70B9;&#x51FB;&#x67D0;&#x4E2A;&#x94FE;&#x63A5;&#x4F1A;&#x5F39;&#x51FA;&#x65B0;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x8FD9;&#x65F6;&#x5C31;&#x9700;&#x8981;&#x4E3B;&#x673A;&#x5207;&#x6362;&#x5230;&#x65B0;&#x6253;&#x5F00;&#x7684;&#x7A97;&#x53E3;&#x4E0A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;WebDriver&#x63D0;&#x4F9B;&#x4E86;switch_to.window()&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x7A97;&#x53E3;&#x4E4B;&#x95F4;&#x5207;&#x6362;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current_window_handle</td>
+<td>&#x83B7;&#x5F97;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x53E5;&#x67C4;</td>
+</tr>
+<tr>
+<td>window_handles</td>
+<td>&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x7684;&#x53E5;&#x67C4;&#x5230;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;</td>
+</tr>
+<tr>
+<td>switch_to.window()</td>
+<td>&#x7528;&#x4E8E;&#x5207;&#x6362;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x4E0E;&#x4E0A;&#x4E00;&#x8282;&#x7684;switch_to.frame()&#x7C7B;&#x4F3C;&#xFF0C;&#x524D;&#x8005;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x7A97;&#x53E3;&#x7684;&#x5207;&#x6362;&#xFF0C;&#x540E;&#x8005;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x8868;&#x5355;&#x4E4B;&#x95F4;&#x7684;&#x5207;&#x6362;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-"><code class="lang-bash">driver.switch_to_window<span class="token punctuation">(</span><span class="token string">&quot;windowName&quot;</span><span class="token punctuation">)</span>
+driver.switch_to_frame<span class="token punctuation">(</span><span class="token string">&quot;frameName&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x4EE5;&#x76F4;&#x63A5;&#x53D6;&#x8868;&#x5355;&#x7684;id &#x6216;name&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;iframe&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;id&#x548C;name&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment">#&#x5148;&#x901A;&#x8FC7;xpth&#x5B9A;&#x4F4D;&#x5230;iframe</span>
+xf <span class="token operator">=</span> driver.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&apos;//*[@id=&quot;x-URS-iframe&quot;]&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#&#x518D;&#x5C06;&#x5B9A;&#x4F4D;&#x5BF9;&#x8C61;&#x4F20;&#x7ED9;switch_to_frame()&#x65B9;&#x6CD5;</span>
+driver.switch_to_frame<span class="token punctuation">(</span>xf<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x4E00;&#x65E6;&#x6211;&#x4EEC;&#x5B8C;&#x6210;&#x4E86;frame&#x4E2D;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8FD4;&#x56DE;&#x7236;frame:</p>
+<pre class="language-"><code class="lang-bash">driver.switch_to_default_content<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>demo&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+<span class="token function">import</span> <span class="token function">time</span>
+driver <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token string">&quot;F:\Chrome\ChromeDriver<span class="token entity" title="\c">\c</span>hromedriver&quot;</span><span class="token punctuation">)</span>
+driver.implicitly_wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;http://www.baidu.com&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#1.&#x83B7;&#x5F97;&#x767E;&#x5EA6;&#x641C;&#x7D22;&#x7A97;&#x53E3;&#x53E5;&#x67C4;</span>
+sreach_windows <span class="token operator">=</span> driver.current_window_handle
+
+driver.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&apos;&#x767B;&#x5F55;&apos;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x7ACB;&#x5373;&#x6CE8;&#x518C;&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#1.&#x83B7;&#x5F97;&#x5F53;&#x524D;&#x6240;&#x6709;&#x6253;&#x5F00;&#x7684;&#x7A97;&#x53E3;&#x7684;&#x53E5;&#x67C4;</span>
+all_handles <span class="token operator">=</span> driver.window_handles
+
+<span class="token comment">#3.&#x8FDB;&#x5165;&#x6CE8;&#x518C;&#x7A97;&#x53E3;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">handle</span> <span class="token keyword">in</span> all_handles:
+    <span class="token keyword">if</span> handle <span class="token operator">!=</span> sreach_windows:
+        driver.switch_to.window<span class="token punctuation">(</span>handle<span class="token punctuation">)</span>
+        print<span class="token punctuation">(</span><span class="token string">&apos;&#x8DF3;&#x8F6C;&#x5230;&#x6CE8;&#x518C;&#x7A97;&#x53E3;&apos;</span><span class="token punctuation">)</span>
+        driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;account&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&apos;123456789&apos;</span><span class="token punctuation">)</span>
+        driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&apos;password&apos;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&apos;123456789&apos;</span><span class="token punctuation">)</span>
+        time.sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="13-&#x8B66;&#x544A;&#x6846;&#x5904;&#x7406;"><a name="13-&#x8B66;&#x544A;&#x6846;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#13-&#x8B66;&#x544A;&#x6846;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>13. &#x8B66;&#x544A;&#x6846;&#x5904;&#x7406;</h2>
+<p>&#x5728;WebDriver&#x4E2D;&#x5904;&#x7406;JavaScript&#x6240;&#x751F;&#x6210;&#x7684;alert&#x3001;confirm&#x4EE5;&#x53CA;prompt&#x5341;&#x5206;&#x7B80;&#x5355;&#xFF0C;&#x5177;&#x4F53;&#x505A;&#x6CD5;&#x662F;&#x4F7F;&#x7528; switch_to.alert &#x65B9;&#x6CD5;&#x5B9A;&#x4F4D;&#x5230; alert/confirm/prompt&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;text/accept/dismiss/ send_keys&#x7B49;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>&#x8FD4;&#x56DE; alert/confirm/prompt &#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>accept()</td>
+<td>&#x63A5;&#x53D7;&#x73B0;&#x6709;&#x8B66;&#x544A;&#x6846;</td>
+</tr>
+<tr>
+<td>dismiss()</td>
+<td>&#x89E3;&#x6563;&#x73B0;&#x6709;&#x8B66;&#x544A;&#x6846;</td>
+</tr>
+<tr>
+<td>send_keys(keysToSend)</td>
+<td>&#x53D1;&#x9001;&#x6587;&#x672C;&#x81F3;&#x8B66;&#x544A;&#x6846;&#x3002;keysToSend&#xFF1A;&#x5C06;&#x6587;&#x672C;&#x53D1;&#x9001;&#x81F3;&#x8B66;&#x544A;&#x6846;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p>demo&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from selenium.webdriver.common.action_chains <span class="token function">import</span> ActionChains
+<span class="token function">import</span> <span class="token function">time</span>
+
+driver <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token string">&quot;F:\Chrome\ChromeDriver<span class="token entity" title="\c">\c</span>hromedriver&quot;</span><span class="token punctuation">)</span>
+driver.implicitly_wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&apos;http://www.baidu.com&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x9F20;&#x6807;&#x60AC;&#x505C;&#x81F3;&#x201C;&#x8BBE;&#x7F6E;&#x201D;&#x94FE;&#x63A5;</span>
+<span class="token function">link</span> <span class="token operator">=</span> driver.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&apos;&#x8BBE;&#x7F6E;&apos;</span><span class="token punctuation">)</span>
+ActionChains<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>.move_to_element<span class="token punctuation">(</span>link<span class="token punctuation">)</span>.perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6253;&#x5F00;&#x641C;&#x7D22;&#x8BBE;&#x7F6E;</span>
+driver.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x641C;&#x7D22;&#x8BBE;&#x7F6E;&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#&#x5728;&#x6B64;&#x5904;&#x8BBE;&#x7F6E;&#x7B49;&#x5F85;2s&#x5426;&#x5219;&#x53EF;&#x80FD;&#x62A5;&#x9519;</span>
+time.sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment"># &#x4FDD;&#x5B58;&#x8BBE;&#x7F6E;</span>
+driver.find_element_by_class_name<span class="token punctuation">(</span><span class="token string">&quot;prefpanelgo&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time.sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x63A5;&#x53D7;&#x8B66;&#x544A;&#x6846;</span>
+driver.switch_to.alert.accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="14-&#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;"><a name="14-&#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;" class="anchor-navigation-ex-anchor" href="#14-&#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>14. &#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;</h2>
+<p>&#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;&#x4E0E;&#x5B9A;&#x4F4D;&#x5355;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x662F;&#x5728;&#x5355;&#x8BCD;element&#x540E;&#x9762;&#x591A;&#x4E86;&#x4E00;&#x4E2A;s&#x8868;&#x793A;&#x590D;&#x6570;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+
+driver <span class="token operator">=</span>webdriver.Firefox<span class="token punctuation">(</span>executable_path <span class="token operator">=</span><span class="token string">&quot;F:\GeckoDriver\geckodriver&quot;</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;https://www.baidu.com&quot;</span><span class="token punctuation">)</span>
+
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;kw&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&quot;selenium&quot;</span><span class="token punctuation">)</span>
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;su&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">#1.&#x5B9A;&#x4F4D;&#x4E00;&#x7EC4;&#x5143;&#x7D20;</span>
+elements <span class="token operator">=</span> driver.find_elements_by_xpath<span class="token punctuation">(</span><span class="token string">&apos;//div/h3/a&apos;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>type<span class="token punctuation">(</span>elements<span class="token punctuation">))</span>
+
+<span class="token comment">#2.&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x51FA;&#x6BCF;&#x4E00;&#x6761;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x7684;&#x6807;&#x9898;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">t</span> <span class="token keyword">in</span> elements:
+    print<span class="token punctuation">(</span>t.text<span class="token punctuation">)</span>
+    <span class="token assign-left variable">element</span><span class="token operator">=</span>driver.find_element_by_link_text<span class="token punctuation">(</span>t.text<span class="token punctuation">)</span>
+    element.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="15-&#x591A;&#x8868;&#x5355;&#x5207;&#x6362;"><a name="15-&#x591A;&#x8868;&#x5355;&#x5207;&#x6362;" class="anchor-navigation-ex-anchor" href="#15-&#x591A;&#x8868;&#x5355;&#x5207;&#x6362;"><i class="fa fa-link" aria-hidden="true"></i></a>15. &#x591A;&#x8868;&#x5355;&#x5207;&#x6362;</h2>
+<p>&#x5728;Web&#x5E94;&#x7528;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;<code>frame/iframe</code>&#x8868;&#x5355;&#x5D4C;&#x5957;&#x9875;&#x9762;&#x7684;&#x5E94;&#x7528;&#xFF0C;WebDriver&#x53EA;&#x80FD;&#x5728;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4E0A;&#x5BF9;&#x5143;&#x7D20;&#x8BC6;&#x522B;&#x4E0E;&#x5B9A;&#x4F4D;&#xFF0C;&#x5BF9;&#x4E8E;<code>frame/iframe</code>&#x8868;&#x5355;&#x5185;&#x5D4C;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x5143;&#x7D20;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x5B9A;&#x4F4D;&#x3002;&#x8FD9;&#x65F6;&#x5C31;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>switch_to.frame()</code>&#x65B9;&#x6CD5;&#x5C06;&#x5F53;&#x524D;&#x5B9A;&#x4F4D;&#x7684;&#x4E3B;&#x4F53;&#x5207;&#x6362;&#x4E3A;<code>frame/iframe</code>&#x8868;&#x5355;&#x7684;&#x5185;&#x5D4C;&#x9875;&#x9762;&#x4E2D;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>switch_to.frame()</td>
+<td>&#x5C06;&#x5F53;&#x524D;&#x5B9A;&#x4F4D;&#x7684;&#x4E3B;&#x4F53;&#x5207;&#x6362;&#x4E3A;frame/iframe&#x8868;&#x5355;&#x7684;&#x5185;&#x5D4C;&#x9875;&#x9762;&#x4E2D;</td>
+</tr>
+<tr>
+<td>switch_to.default_content()</td>
+<td>&#x8DF3;&#x56DE;&#x6700;&#x5916;&#x5C42;&#x7684;&#x9875;&#x9762;</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+    <span class="token punctuation">..</span>.
+    <span class="token operator">&lt;</span>iframe <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">&quot;x-URS-iframe&quot;</span> <span class="token punctuation">..</span>.<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+           <span class="token punctuation">..</span>.
+           <span class="token operator">&lt;</span>input <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;email&quot;</span> <span class="token operator">&gt;</span>
+</code></pre>
+<p>126&#x90AE;&#x7BB1;&#x767B;&#x5F55;&#x6846;&#x7684;&#x7ED3;&#x6784;&#x5927;&#x6982;&#x662F;&#x8FD9;&#x6837;&#x5B50;&#x7684;&#xFF0C;&#x60F3;&#x8981;&#x64CD;&#x4F5C;&#x767B;&#x5F55;&#x6846;&#x5FC5;&#x987B;&#x8981;&#x5148;&#x5207;&#x6362;&#x5230;iframe&#x8868;&#x5355;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+
+driver <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;http://www.126.com&quot;</span><span class="token punctuation">)</span>
+
+driver.switch_to.frame<span class="token punctuation">(</span><span class="token string">&apos;x-URS-iframe&apos;</span><span class="token punctuation">)</span>
+driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;email&quot;</span><span class="token punctuation">)</span>.clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;email&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">)</span>
+driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;password&quot;</span><span class="token punctuation">)</span>.clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;password&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&quot;password&quot;</span><span class="token punctuation">)</span>
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;dologin&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver.switch_to.default_content<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>switch_to.frame()</code> &#x9ED8;&#x8BA4;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x53D6;&#x8868;&#x5355;&#x7684;id &#x6216;name&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;iframe&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;id&#x548C;name&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">&#x2026;&#x2026;
+<span class="token comment">#&#x5148;&#x901A;&#x8FC7;xpth&#x5B9A;&#x4F4D;&#x5230;iframe</span>
+xf <span class="token operator">=</span> driver.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&apos;//*[@id=&quot;x-URS-iframe&quot;]&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#&#x518D;&#x5C06;&#x5B9A;&#x4F4D;&#x5BF9;&#x8C61;&#x4F20;&#x7ED9;switch_to.frame()&#x65B9;&#x6CD5;</span>
+driver.switch_to.frame<span class="token punctuation">(</span>xf<span class="token punctuation">)</span>
+&#x2026;&#x2026;
+driver.switch_to.parent_frame<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="16-&#x4E0B;&#x62C9;&#x6846;&#x9009;&#x62E9;&#x64CD;&#x4F5C;"><a name="16-&#x4E0B;&#x62C9;&#x6846;&#x9009;&#x62E9;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#16-&#x4E0B;&#x62C9;&#x6846;&#x9009;&#x62E9;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>16. &#x4E0B;&#x62C9;&#x6846;&#x9009;&#x62E9;&#x64CD;&#x4F5C;</h2>
+<p>&#x5BFC;&#x5165;&#x9009;&#x62E9;&#x4E0B;&#x62C9;&#x6846;Select&#x7C7B;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;&#x7C7B;&#x5904;&#x7406;&#x4E0B;&#x62C9;&#x6846;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">from selenium.webdriver.support.select <span class="token function">import</span> Select
+</code></pre>
+<p>Select&#x7C7B;&#x7684;&#x65B9;&#x6CD5;
+|&#x65B9;&#x6CD5;    |&#x8BF4;&#x660E; |
+|--|--|
+|select_by_value(&#x201C;&#x9009;&#x62E9;&#x503C;&#x201D;)    | select&#x6807;&#x7B7E;&#x7684;value&#x5C5E;&#x6027;&#x7684;&#x503C; |
+|select_by_index(&#x201C;&#x7D22;&#x5F15;&#x503C;&#x201D;)    | &#x4E0B;&#x62C9;&#x6846;&#x7684;&#x7D22;&#x5F15; |
+|select_by_visible_testx(&#x201C;&#x6587;&#x672C;&#x503C;&#x201D;)    | &#x4E0B;&#x62C9;&#x6846;&#x7684;&#x6587;&#x672C;&#x503C; |</p>
+<p>&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x4F1A;&#x78B0;&#x5230;&#x4E0B;&#x62C9;&#x6846;&#xFF0C;WebDriver&#x63D0;&#x4F9B;&#x4E86;Select&#x7C7B;&#x6765;&#x5904;&#x7406;&#x4E0B;&#x62C9;&#x6846;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from selenium.webdriver.support.select <span class="token function">import</span> Select
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+
+driver <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token string">&quot;F:\Chrome\ChromeDriver<span class="token entity" title="\c">\c</span>hromedriver&quot;</span><span class="token punctuation">)</span>
+driver.implicitly_wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&apos;http://www.baidu.com&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#1.&#x9F20;&#x6807;&#x60AC;&#x505C;&#x81F3;&#x201C;&#x8BBE;&#x7F6E;&#x201D;&#x94FE;&#x63A5;</span>
+driver.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&apos;&#x8BBE;&#x7F6E;&apos;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">#2.&#x6253;&#x5F00;&#x641C;&#x7D22;&#x8BBE;&#x7F6E;</span>
+driver.find_element_by_link_text<span class="token punctuation">(</span><span class="token string">&quot;&#x641C;&#x7D22;&#x8BBE;&#x7F6E;&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">#3.&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x663E;&#x793A;&#x6761;&#x6570;</span>
+sel <span class="token operator">=</span> driver.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//select[@id=&apos;nr&apos;]&quot;</span><span class="token punctuation">)</span>
+Select<span class="token punctuation">(</span>sel<span class="token punctuation">)</span>.select_by_value<span class="token punctuation">(</span><span class="token string">&apos;50&apos;</span><span class="token punctuation">)</span>  <span class="token comment"># &#x663E;&#x793A;50&#x6761;</span>
+
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="17-&#x6587;&#x4EF6;&#x4E0A;&#x4F20;"><a name="17-&#x6587;&#x4EF6;&#x4E0A;&#x4F20;" class="anchor-navigation-ex-anchor" href="#17-&#x6587;&#x4EF6;&#x4E0A;&#x4F20;"><i class="fa fa-link" aria-hidden="true"></i></a>17. &#x6587;&#x4EF6;&#x4E0A;&#x4F20;</h2>
+<p>&#x5BF9;&#x4E8E;&#x901A;&#x8FC7;input&#x6807;&#x7B7E;&#x5B9E;&#x73B0;&#x7684;&#x4E0A;&#x4F20;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x770B;&#x4F5C;&#x662F;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x6846;&#xFF0C;&#x5373;&#x901A;&#x8FC7;<code>send_keys()</code>&#x6307;&#x5B9A;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x3002;</p>
+<p>&#x901A;&#x8FC7;<code>send_keys()</code>&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;:</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+<span class="token function">import</span> os
+
+driver <span class="token operator">=</span> webdriver.Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>
+file_path <span class="token operator">=</span> <span class="token string">&apos;file:///&apos;</span> + os.path.abspath<span class="token punctuation">(</span><span class="token string">&apos;upfile.html&apos;</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>
+
+<span class="token comment"># &#x5B9A;&#x4F4D;&#x4E0A;&#x4F20;&#x6309;&#x94AE;&#xFF0C;&#x6DFB;&#x52A0;&#x672C;&#x5730;&#x6587;&#x4EF6;</span>
+driver.find_element_by_name<span class="token punctuation">(</span><span class="token string">&quot;file&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&apos;D:\\upload_file.txt&apos;</span><span class="token punctuation">)</span>
+
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="18-cookie&#x64CD;&#x4F5C;"><a name="18-cookie&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#18-cookie&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>18. cookie&#x64CD;&#x4F5C;</h2>
+<p>&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;cookie&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF0C;&#x56E0;&#x4E3A;&#x57FA;&#x4E8E;&#x771F;&#x5B9E;cookie&#x7684;&#x6D4B;&#x8BD5;&#x662F;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x767D;&#x76D2;&#x548C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x8FDB;&#x884C;&#x7684;&#x3002;WebDriver&#x63D0;&#x4F9B;&#x4E86;&#x64CD;&#x4F5C;Cookie&#x7684;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x3001;&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;cookie&#x4FE1;&#x606F;&#x3002;</p>
+<p><code>WebDriver</code>&#x64CD;&#x4F5C;cookie&#x7684;&#x65B9;&#x6CD5;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_cookies()</td>
+<td>&#x83B7;&#x5F97;&#x6240;&#x6709;cookie&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>get_cookie(name)</td>
+<td>&#x8FD4;&#x56DE;&#x5B57;&#x5178;&#x7684;key&#x4E3A;&#x201C;name&#x201D;&#x7684;cookie&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>add_cookie(cookie_dict)</td>
+<td>&#x6DFB;&#x52A0;cookie&#x3002;&#x201C;cookie_dict&#x201D;&#x6307;&#x5B57;&#x5178;&#x5BF9;&#x8C61;&#xFF0C;&#x5FC5;&#x987B;&#x6709;name &#x548C;value &#x503C;</td>
+</tr>
+<tr>
+<td>delete_cookie(name,optionsString)</td>
+<td>&#x5220;&#x9664;cookie&#x4FE1;&#x606F;&#x3002;&#x201C;name&#x201D;&#x662F;&#x8981;&#x5220;&#x9664;&#x7684;cookie&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x201C;optionsString&#x201D;&#x662F;&#x8BE5;cookie&#x7684;&#x9009;&#x9879;&#xFF0C;&#x76EE;&#x524D;&#x652F;&#x6301;&#x7684;&#x9009;&#x9879;&#x5305;&#x62EC;&#x201C;&#x8DEF;&#x5F84;&#x201D;&#xFF0C;&#x201C;&#x57DF;&#x201D;</td>
+</tr>
+<tr>
+<td>delete_all_cookies()</td>
+<td>&#x5220;&#x9664;&#x6240;&#x6709;cookie&#x4FE1;&#x606F;</td>
+</tr>
+</tbody>
+</table>
+<p>demo:</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+<span class="token function">import</span> <span class="token function">time</span>
+browser <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token string">&quot;F:\Chrome\ChromeDriver<span class="token entity" title="\c">\c</span>hromedriver&quot;</span><span class="token punctuation">)</span>
+browser.get<span class="token punctuation">(</span><span class="token string">&quot;http://www.youdao.com&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#1.&#x6253;&#x5370;cookie&#x4FE1;&#x606F;</span>
+print<span class="token punctuation">(</span><span class="token string">&apos;=====================================&apos;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&quot;&#x6253;&#x5370;cookie&#x4FE1;&#x606F;&#x4E3A;&#xFF1A;&quot;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>browser.get_cookies<span class="token punctuation">)</span>
+
+<span class="token comment">#2.&#x6DFB;&#x52A0;cookie&#x4FE1;&#x606F;</span>
+<span class="token assign-left variable">dict</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&apos;name&apos;</span><span class="token builtin class-name">:</span><span class="token string">&quot;name&quot;</span>,<span class="token string">&apos;value&apos;</span><span class="token builtin class-name">:</span><span class="token string">&apos;Kaina&apos;</span><span class="token punctuation">}</span>
+browser.add_cookie<span class="token punctuation">(</span>dict<span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">&apos;=====================================&apos;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&apos;&#x6DFB;&#x52A0;cookie&#x4FE1;&#x606F;&#x4E3A;&#xFF1A;&apos;</span><span class="token punctuation">)</span>
+<span class="token comment">#3.&#x904D;&#x5386;&#x6253;&#x5370;cookie&#x4FE1;&#x606F;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">cookie</span> <span class="token keyword">in</span> browser.get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    print<span class="token punctuation">(</span><span class="token string">&apos;%s----%s\n&apos;</span> %<span class="token punctuation">(</span>cookie<span class="token punctuation">[</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">]</span>,cookie<span class="token punctuation">[</span><span class="token string">&apos;value&apos;</span><span class="token punctuation">]</span><span class="token punctuation">))</span>
+
+<span class="token comment">#4.&#x5220;&#x9664;&#x4E00;&#x4E2A;cookie</span>
+browser.delete_cookie<span class="token punctuation">(</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&apos;=====================================&apos;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&apos;&#x5220;&#x9664;&#x4E00;&#x4E2A;cookie&apos;</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">cookie</span> <span class="token keyword">in</span> browser.get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    print<span class="token punctuation">(</span><span class="token string">&apos;%s----%s\n&apos;</span> %<span class="token punctuation">(</span>cookie<span class="token punctuation">[</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">]</span>,cookie<span class="token punctuation">[</span><span class="token string">&apos;value&apos;</span><span class="token punctuation">]</span><span class="token punctuation">))</span>
+
+print<span class="token punctuation">(</span><span class="token string">&apos;=====================================&apos;</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">&apos;&#x5220;&#x9664;&#x6240;&#x6709;cookie&#x540E;&#xFF1A;&apos;</span><span class="token punctuation">)</span>
+<span class="token comment">#5.&#x5220;&#x9664;&#x6240;&#x6709;cookie,&#x65E0;&#x9700;&#x4F20;&#x9012;&#x53C2;&#x6570;</span>
+browser.delete_all_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">cookie</span> <span class="token keyword">in</span> browser.get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    print<span class="token punctuation">(</span><span class="token string">&apos;%s----%s\n&apos;</span> %<span class="token punctuation">(</span>cookie<span class="token punctuation">[</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">]</span>,cookie<span class="token punctuation">[</span><span class="token string">&apos;value&apos;</span><span class="token punctuation">]</span><span class="token punctuation">))</span>
+
+time.sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+browser.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="19-&#x8C03;&#x7528;javascript&#x4EE3;&#x7801;"><a name="19-&#x8C03;&#x7528;javascript&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#19-&#x8C03;&#x7528;javascript&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>19. &#x8C03;&#x7528;JavaScript&#x4EE3;&#x7801;</h2>
+<p>&#x867D;&#x7136;WebDriver&#x63D0;&#x4F9B;&#x4E86;&#x64CD;&#x4F5C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x524D;&#x8FDB;&#x548C;&#x540E;&#x9000;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x6EDA;&#x52A8;&#x6761;&#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x501F;&#x52A9;JavaScript&#x6765;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x3002;WebDriver&#x63D0;&#x4F9B;&#x4E86;<code>execute_script()</code>&#x65B9;&#x6CD5;&#x6765;&#x6267;&#x884C;<code>JavaScript</code>&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x7528;&#x4E8E;&#x8C03;&#x6574;&#x6D4F;&#x89C8;&#x5668;&#x6EDA;&#x52A8;&#x6761;&#x4F4D;&#x7F6E;&#x7684;JavaScript&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&lt;</span><span class="token operator">!</span>-- window.scrollTo<span class="token punctuation">(</span>&#x5DE6;&#x8FB9;&#x8DDD;,&#x4E0A;&#x8FB9;&#x8DDD;<span class="token punctuation">)</span><span class="token punctuation">;</span> --<span class="token operator">&gt;</span>
+window.scrollTo<span class="token punctuation">(</span><span class="token number">0,450</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>window.scrollTo()</code>&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x6EDA;&#x52A8;&#x6761;&#x7684;&#x6C34;&#x5E73;&#x548C;&#x5782;&#x76F4;&#x4F4D;&#x7F6E;&#x3002;&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#x6C34;&#x5E73;&#x7684;&#x5DE6;&#x95F4;&#x8DDD;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#x5782;&#x76F4;&#x7684;&#x4E0A;&#x8FB9;&#x8DDD;&#x3002;&#x5176;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+
+<span class="token comment">#1.&#x8BBF;&#x95EE;&#x767E;&#x5EA6;</span>
+<span class="token assign-left variable">driver</span><span class="token operator">=</span>webdriver.Firefox<span class="token punctuation">(</span>executable_path <span class="token operator">=</span><span class="token string">&quot;F:\GeckoDriver\geckodriver&quot;</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;http://www.baidu.com&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#2.&#x641C;&#x7D22;</span>
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;kw&quot;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&quot;selenium&quot;</span><span class="token punctuation">)</span>
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;su&quot;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#3.&#x4F11;&#x7720;2s&#x76EE;&#x7684;&#x662F;&#x83B7;&#x5F97;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;&#x4F11;&#x7720;&#x53EF;&#x80FD;&#x62A5;&#x9519;</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">#4.&#x901A;&#x8FC7;javascript&#x8BBE;&#x7F6E;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x4F4D;&#x7F6E;</span>
+<span class="token assign-left variable">js</span><span class="token operator">=</span><span class="token string">&quot;window.scrollTo(100,450);&quot;</span>
+driver.execute_script<span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+driver.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x767E;&#x5EA6;&#x8FDB;&#x884C;&#x641C;&#x7D22;&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x524D;&#x901A;&#x8FC7;<code>set_window_size()</code>&#x65B9;&#x6CD5;&#x5C06;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x8BBE;&#x7F6E;&#x4E3A;&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x663E;&#x793A;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x8BA9;&#x7A97;&#x53E3;&#x51FA;&#x73B0;&#x6C34;&#x5E73;&#x548C;&#x5782;&#x76F4;&#x6EDA;&#x52A8;&#x6761;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>execute_script()</code>&#x65B9;&#x6CD5;&#x6267;&#x884C;JavaScripts&#x4EE3;&#x7801;&#x6765;&#x79FB;&#x52A8;&#x6EDA;&#x52A8;&#x6761;&#x7684;&#x4F4D;&#x7F6E;&#x3002;
+&#x6EDA;&#x52A8;&#x6761;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x6EDA;&#x52A8;&#x4EE3;&#x7801;&#x6F14;&#x793A;</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+
+<span class="token assign-left variable">driver</span><span class="token operator">=</span>webdriver.Firefox<span class="token punctuation">(</span>executable_path <span class="token operator">=</span><span class="token string">&quot;F:\GeckoDriver\geckodriver&quot;</span><span class="token punctuation">)</span>
+driver.set_window_size<span class="token punctuation">(</span><span class="token number">400,400</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&quot;https://www.baidu.com&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#2.&#x641C;&#x7D22;</span>
+<span class="token comment"># driver.find_element_by_id(&quot;kw&quot;).send_keys(&quot;selenium&quot;)</span>
+<span class="token comment"># driver.find_element_by_id(&quot;su&quot;).click()</span>
+
+<span class="token comment">#3.&#x4F11;&#x7720;2s&#x76EE;&#x7684;&#x662F;&#x83B7;&#x5F97;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;&#x4F11;&#x7720;&#x53EF;&#x80FD;&#x62A5;&#x9519;</span>
+sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">#4 &#x6EDA;&#x52A8;&#x5DE6;&#x53F3;&#x6EDA;&#x52A8;&#x6761;---&#x5411;&#x53F3;</span>
+js2 <span class="token operator">=</span> <span class="token string">&quot;var q=document.documentElement.scrollLeft=10000&quot;</span>
+driver.execute_script<span class="token punctuation">(</span>js2<span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>
+
+<span class="token comment">#5 &#x6EDA;&#x52A8;&#x5DE6;&#x53F3;&#x6EDA;&#x52A8;&#x6761;---&#x5411;&#x5DE6;</span>
+js3 <span class="token operator">=</span> <span class="token string">&quot;var q=document.documentElement.scrollLeft=0&quot;</span>
+driver.execute_script<span class="token punctuation">(</span>js3<span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>
+
+<span class="token comment">#6 &#x62D6;&#x52A8;&#x5230;&#x6EDA;&#x52A8;&#x6761;&#x5E95;&#x90E8;---&#x5411;&#x4E0B;</span>
+js <span class="token operator">=</span> <span class="token string">&quot;var q=document.documentElement.scrollTop=10000&quot;</span>
+driver.execute_script<span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>
+
+<span class="token comment">#7 &#x62D6;&#x52A8;&#x5230;&#x6EDA;&#x52A8;&#x6761;&#x5E95;&#x90E8;---&#x5411;&#x4E0A;</span>
+js <span class="token operator">=</span> <span class="token string">&quot;var q=document.documentElement.scrollTop=0&quot;</span>
+driver.execute_script<span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>
+
+driver.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/734cb514bb5f46178b8ffd76330eec7c.gif#pic_center" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h2 id="20-&#x7A97;&#x53E3;&#x622A;&#x56FE;"><a name="20-&#x7A97;&#x53E3;&#x622A;&#x56FE;" class="anchor-navigation-ex-anchor" href="#20-&#x7A97;&#x53E3;&#x622A;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>20. &#x7A97;&#x53E3;&#x622A;&#x56FE;</h2>
+<p>&#x81EA;&#x52A8;&#x5316;&#x7528;&#x4F8B;&#x662F;&#x7531;&#x7A0B;&#x5E8F;&#x53BB;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6709;&#x65F6;&#x5019;&#x6253;&#x5370;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5E76;&#x4E0D;&#x5341;&#x5206;&#x660E;&#x786E;&#x3002;&#x5982;&#x679C;&#x5728;&#x811A;&#x672C;&#x6267;&#x884C;&#x51FA;&#x9519;&#x7684;&#x65F6;&#x5019;&#x80FD;&#x5BF9;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x622A;&#x56FE;&#x4FDD;&#x5B58;&#xFF0C;&#x90A3;&#x4E48;&#x901A;&#x8FC7;&#x56FE;&#x7247;&#x5C31;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x76F4;&#x89C2;&#x5730;&#x770B;&#x51FA;&#x51FA;&#x9519;&#x7684;&#x539F;&#x56E0;&#x3002;WebDriver&#x63D0;&#x4F9B;&#x4E86;&#x622A;&#x56FE;&#x51FD;&#x6570;<code>get_screenshot_as_file()</code>&#x6765;&#x622A;&#x53D6;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</p>
+<p>&#x622A;&#x5C4F;&#x65B9;&#x6CD5;&#xFF1A;
+|&#x65B9;&#x6CD5;    | &#x8BF4;&#x660E; |
+|--|--|
+| get_screenshot_as_file(self, filename) | &#x7528;&#x4E8E;&#x622A;&#x53D6;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#xFF0C;&#x5E76;&#x628A;&#x56FE;&#x7247;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730; |</p>
+<pre class="language-"><code class="lang-bash">from selenium <span class="token function">import</span> webdriver
+from <span class="token function">time</span> <span class="token function">import</span> <span class="token function">sleep</span>
+
+driver <span class="token operator">=</span>webdriver.Firefox<span class="token punctuation">(</span>executable_path <span class="token operator">=</span><span class="token string">&quot;F:\GeckoDriver\geckodriver&quot;</span><span class="token punctuation">)</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&apos;http://www.baidu.com&apos;</span><span class="token punctuation">)</span>
+
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&apos;kw&apos;</span><span class="token punctuation">)</span>.send_keys<span class="token punctuation">(</span><span class="token string">&apos;selenium&apos;</span><span class="token punctuation">)</span>
+driver.find_element_by_id<span class="token punctuation">(</span><span class="token string">&apos;su&apos;</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">#1.&#x622A;&#x53D6;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x622A;&#x56FE;&#x56FE;&#x7247;&#x7684;&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E;</span>
+driver.get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">&quot;D:<span class="token entity" title="\\">\\</span>baidu_img.jpg&quot;</span><span class="token punctuation">)</span>
+
+driver.quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="21-&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;"><a name="21-&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;" class="anchor-navigation-ex-anchor" href="#21-&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>21. &#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;</h2>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x4F7F;&#x7528;quit()&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x542B;&#x4E49;&#x4E3A;&#x9000;&#x51FA;&#x76F8;&#x5173;&#x7684;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x548C;&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;WebDriver&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;close()&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x5173;&#x95ED;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;&#x4F8B;&#x591A;&#x7A97;&#x53E3;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5728;&#x7528;&#x4F8B;&#x6267;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6253;&#x5F00;&#x4E86;&#x591A;&#x4E2A;&#x7A97;&#x53E3;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5173;&#x95ED;&#x5176;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x7A97;&#x53E3;&#xFF0C;&#x8FD9;&#x65F6;&#x5C31;&#x8981;&#x7528;&#x5230;close()&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5173;&#x95ED;&#x4E86;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close()</td>
+<td>&#x5173;&#x95ED;&#x5355;&#x4E2A;&#x7A97;&#x53E3;</td>
+</tr>
+<tr>
+<td>quit()</td>
+<td>&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-&#x5C01;&#x88C5;"><a name="22-&#x5C01;&#x88C5;" class="anchor-navigation-ex-anchor" href="#22-&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>22. &#x5C01;&#x88C5;</h2>
+<p>&#x5C06;&#x5404;&#x79CD;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x4EE5;&#x7C7B;&#x4F3C; <code>get_by_browser(&apos;class:class_name&apos;)</code> &#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">def get_by_browser<span class="token punctuation">(</span>browser, by<span class="token punctuation">)</span>:
+    by_kv <span class="token operator">=</span> by.split<span class="token punctuation">(</span><span class="token string">&apos;:&apos;</span><span class="token punctuation">)</span>
+    k, <span class="token function">v</span> <span class="token operator">=</span> by_kv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>, by_kv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    by_case <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;id&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_id<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_name<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;xpath&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_xpath<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;link_text&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_link_text<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;partial_link_text&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_partial_link_text<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;tag_name&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_tag_name<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;class_name&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_class_name<span class="token punctuation">(</span>x<span class="token punctuation">)</span>,
+        <span class="token string">&quot;css_selector&quot;</span><span class="token builtin class-name">:</span> lambda x: browser.find_element_by_css_selector<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    try:
+        browser <span class="token operator">=</span> by_case<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+    except KeyError as e:
+        browser <span class="token operator">=</span> browser.find_element_by_tag_name<span class="token punctuation">(</span><span class="token string">&apos;html&apos;</span><span class="token punctuation">)</span>
+
+    <span class="token builtin class-name">return</span> browser
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x8FB9;&#x7684;&#x529F;&#x80FD;&#x4E5F;&#x53EF;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">from selenium.webdriver.common.by <span class="token function">import</span> By
+<span class="token comment"># browser.find_element(by=&apos;id&apos;, value=None)</span>
+browser.find_element<span class="token punctuation">(</span>By.ID, <span class="token string">&quot;content&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="23-selenium-&#x548C;-requests-&#x7ED3;&#x5408;"><a name="23-selenium-&#x548C;-requests-&#x7ED3;&#x5408;" class="anchor-navigation-ex-anchor" href="#23-selenium-&#x548C;-requests-&#x7ED3;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>23. selenium &#x548C; requests &#x7ED3;&#x5408;</h2>
+<p>&#x7F51;&#x9875;&#x6E32;&#x67D3;&#x540E;&#xFF0C;&#x5355;&#x7EAF;&#x7684; HTTP &#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Requests &#x5E93;&#x6765;&#x64CD;&#x4F5C;&#x3002;&#x8FD8;&#x6709;&#x79CD;&#x60C5;&#x51B5;&#x4E2D;&#xFF0C;&#x767B;&#x5F55;&#x6709;&#x590D;&#x6742;&#x7684;&#x9A8C;&#x8BC1;&#x7801;&#x5982;&#x62D6;&#x52A8;&#x56FE;&#x50CF;&#x5757;&#x3001;&#x624B;&#x673A;&#x9A8C;&#x8BC1;&#x7801;&#x7B49;&#xFF0C;&#x9700;&#x8981; selenium &#x914D;&#x5408;&#x5E76;&#x4EBA;&#x5DE5;&#x5B8C;&#x6210;&#xFF0C;&#x767B;&#x5F55;&#x4E4B;&#x540E;&#x518D;&#x7528; Requests &#x8BBF;&#x95EE;&#x6570;&#x636E;&#x3002;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> requests
+s <span class="token operator">=</span> requests.Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+selenium_user_agent <span class="token operator">=</span> browser.execute_script<span class="token punctuation">(</span><span class="token string">&quot;return navigator.userAgent;&quot;</span><span class="token punctuation">)</span>
+s.headers.update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;user-agent&quot;</span><span class="token builtin class-name">:</span> selenium_user_agent<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">cookie</span> <span class="token keyword">in</span> browser.get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    s.cookies.set<span class="token punctuation">(</span>cookie<span class="token punctuation">[</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">]</span>, cookie<span class="token punctuation">[</span><span class="token string">&apos;value&apos;</span><span class="token punctuation">]</span>, <span class="token assign-left variable">domain</span><span class="token operator">=</span>cookie<span class="token punctuation">[</span><span class="token string">&apos;domain&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x53D1;&#x8D77;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;</span>
+r <span class="token operator">=</span> s.get<span class="token punctuation">(</span>target_url<span class="token punctuation">)</span>
+<span class="token comment"># browser.delete_all_cookies()</span>
+</code></pre>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x4E0A;&#x8FF0;&#x767B;&#x5F55;&#x9A8C;&#x8BC1;&#x7801;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x6ED1;&#x52A8;&#x9A8C;&#x8BC1;&#xFF0C;&#x53EF;&#x4EE5; Selenium &#x6A21;&#x62DF;</li>
+<li>&#x6ED1;&#x52A8;&#x8DDD;&#x79BB;&#xFF0C;&#x56FE;&#x50CF;&#x68AF;&#x5EA6;&#x7B97;&#x6CD5;&#x53EF;&#x5224;&#x65AD;</li>
+<li>&#x56FE;&#x6587;&#x9A8C;&#x8BC1;&#xFF0C;&#x53EF;&#x4EE5; Python AI &#x5E93;&#x8BC6;&#x522B;</li>
+</ul>
+<h2 id="24-&#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;js"><a name="24-&#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;js" class="anchor-navigation-ex-anchor" href="#24-&#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;js"><i class="fa fa-link" aria-hidden="true"></i></a>24. &#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;JS</h2>
+<p>&#x7981;&#x6B62;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x548C;JS&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">chrome_options <span class="token operator">=</span> webdriver.ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token assign-left variable">prefs</span><span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;profile.default_content_setting_values&apos;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+<span class="token string">&apos;images&apos;</span>:2,
+<span class="token string">&apos;javascript&apos;</span>:2
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+chrome_options.add_experimental_option<span class="token punctuation">(</span><span class="token string">&quot;prefs&quot;</span>, prefs<span class="token punctuation">)</span>
+
+driver.switch_to.frame<span class="token punctuation">(</span><span class="token string">&apos;ptlogin_iframe&apos;</span><span class="token punctuation">)</span> <span class="token comment"># &#x5207;&#x6362;&#x6846;&#x67B6;&#x9875;</span>
+driver.implicitly_wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># &#x81EA;&#x52A8;&#x68C0;&#x6D4B;&#xFF0C;&#x5982;&#x679C;10&#x79D2;&#x672A;&#x6210;&#x529F;&#x5219;&#x62A5;&#x9519;</span>
+<span class="token comment"># &#x901A;&#x8FC7;&#x6587;&#x5B57;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;</span>
+b.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//[text()=&apos;&#x70B9;&#x6211;&apos;]&quot;</span><span class="token punctuation">)</span>
+b.find_element_by_xpath<span class="token punctuation">(</span><span class="token string">&quot;//*[contains(text(), &apos;&#x6211;&apos;)]&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="25-&#x89E3;&#x538B;-gzip"><a name="25-&#x89E3;&#x538B;-gzip" class="anchor-navigation-ex-anchor" href="#25-&#x89E3;&#x538B;-gzip"><i class="fa fa-link" aria-hidden="true"></i></a>25. &#x89E3;&#x538B; gzip</h2>
+<p>&#x60F3;&#x89E3;&#x538B;&#x901A;&#x8FC7; gzip &#x538B;&#x7F29;&#x7684;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x53EF;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x65B9;&#x6CD5;&#x4E8C;&#xFF0C;&#x63A8;&#x8350;</span>
+<span class="token function">import</span> <span class="token function">gzip</span>
+<span class="token comment"># r &#x4E3A; gzip &#x538B;&#x7F29;&#x7684; bytes</span>
+gzip.decompress<span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+<span class="token comment"># ...</span>
+
+<span class="token comment"># &#x65B9;&#x6CD5;&#x4E8C;</span>
+<span class="token function">import</span> zlib
+<span class="token comment"># r &#x4E3A; gzip &#x538B;&#x7F29;&#x7684; bytes</span>
+zlib.decompress<span class="token punctuation">(</span>r, <span class="token number">16</span>+zlib.MAX_WBITS<span class="token punctuation">)</span>
+<span class="token comment"># ...</span>
+</code></pre>
+<h2 id="26-&#x76D1;&#x542C;&#x8BF7;&#x6C42;"><a name="26-&#x76D1;&#x542C;&#x8BF7;&#x6C42;" class="anchor-navigation-ex-anchor" href="#26-&#x76D1;&#x542C;&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>26. &#x76D1;&#x542C;&#x8BF7;&#x6C42;</h2>
+<p>&#x5982;&#x679C;&#x8981;&#x76D1;&#x542C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x5BF9; Selenium &#x4E09;&#x65B9;&#x5C01;&#x88C5; <code>Selenium Wire</code>&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># pip install selenium-wire</span>
+from seleniumwire <span class="token function">import</span> webdriver  <span class="token comment"># Import from seleniumwire</span>
+
+<span class="token comment"># Create a new instance of the Chrome driver</span>
+driver <span class="token operator">=</span> webdriver.Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Go to the Google home page</span>
+driver.get<span class="token punctuation">(</span><span class="token string">&apos;https://www.google.com&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Access requests via the `requests` attribute</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">request</span> <span class="token keyword">in</span> driver.requests:
+    <span class="token keyword">if</span> request.response:
+        print<span class="token punctuation">(</span>
+            request.url,
+            request.response.status_code,
+            request.response.headers<span class="token punctuation">[</span><span class="token string">&apos;Content-Type&apos;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">)</span>
+<span class="token string">&apos;&apos;</span>&apos;
+https://www.google.com/ <span class="token number">200</span> text/html<span class="token punctuation">;</span> <span class="token assign-left variable">charset</span><span class="token operator">=</span><span class="token punctuation">..</span>.
+https://www.google.com/images/branding/googlelo<span class="token punctuation">..</span>.
+https://consent.google.com/status?continue<span class="token operator">=</span>http<span class="token punctuation">..</span>.
+https://www.google.com/images/branding/googlelo<span class="token punctuation">..</span>.
+https://ssl.gstatic.com/gb/images/i2_2ec824b0.p<span class="token punctuation">..</span>.
+https://www.google.com/gen_204?s<span class="token operator">=</span>webaft<span class="token operator">&amp;</span><span class="token assign-left variable">t</span><span class="token operator">=</span>aft<span class="token operator">&amp;</span>a<span class="token punctuation">..</span>.
+<span class="token punctuation">..</span>.
+<span class="token string">&apos;&apos;</span>&apos;
+</code></pre>
+<hr>
+<p>&#x2708;<font color="#FF4500" size="4" style="font-family:Courier New">&#x53C2;&#x8003;&#x9605;&#x8BFB;&#xFF1A;</font></p>
+<ul>
+<li><a href="https://www.gairuo.com/p/python-selenium" target="_blank">https://www.gairuo.com/p/python-selenium</a></li>
+<li><a href="https://www.selenium.dev/" target="_blank">https://www.selenium.dev/</a></li>
+<li><a href="https://selenium-python.readthedocs.io/" target="_blank">https://selenium-python.readthedocs.io/</a></li>
+<li><a href="https://blog.csdn.net/weixin_36279318/article/details/79475388" target="_blank">https://blog.csdn.net/weixin_36279318/article/details/79475388</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/111859925" target="_blank">https://zhuanlan.zhihu.com/p/111859925</a></li>
+<li><a href="http://www.selenium.org.cn/1694.html" target="_blank">http://www.selenium.org.cn/1694.html</a></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/5bd131ce2e874e11868944b6bc87277c.gif#pic_center" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 12:16:32
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_concurrent.futures.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 concurrent futures 线程处理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_configParser.html" class="navigation navigation-next " aria-label="Next page: python 模块 configparser 配置文件">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 selenium 自动化测试 web 工具","level":"1.7.4","depth":2,"next":{"title":"python 模块 configparser 配置文件","level":"1.7.5","depth":2,"path":"Modules/python_configParser.md","ref":"Modules/python_configParser.md","articles":[]},"previous":{"title":"python 模块 concurrent futures 线程处理","level":"1.7.3","depth":2,"path":"Modules/python_concurrent.futures.md","ref":"Modules/python_concurrent.futures.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_Selenium.md","mtime":"2022-06-30T12:16:32.854Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

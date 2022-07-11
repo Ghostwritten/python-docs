@@ -1,0 +1,1879 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 socket 网络通信 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_sys.html" />
+    
+    
+    <link rel="prev" href="python_random.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 socket 网络通信</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-socket-&#x7F51;&#x7EDC;&#x901A;&#x4FE1;"><b></b>Python &#x6A21;&#x5757; Socket &#x7F51;&#x7EDC;&#x901A;&#x4FE1;</a></li><ul><li><span class="title-icon "></span><a href="#1-socket&#x4ECB;&#x7ECD;"><b></b>1. socket&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-socket-&#x7C7B;&#x578B;"><b></b>2. Socket &#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#3-socket-&#x51FD;&#x6570;"><b></b>3. Socket &#x51FD;&#x6570;</a></li><ul><li><span class="title-icon "></span><a href="#31-&#x670D;&#x52A1;&#x5668;&#x7AEF;-socket-&#x51FD;&#x6570;"><b></b>3.1 &#x670D;&#x52A1;&#x5668;&#x7AEF; Socket &#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#32-&#x5BA2;&#x6237;&#x7AEF;-socket-&#x51FD;&#x6570;"><b></b>3.2 &#x5BA2;&#x6237;&#x7AEF; Socket &#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#33-&#x516C;&#x5171;-socket-&#x51FD;&#x6570;"><b></b>3.3 &#x516C;&#x5171; Socket &#x51FD;&#x6570;</a></li></ul><li><span class="title-icon "></span><a href="#4-socket-&#x7F16;&#x7A0B;&#x601D;&#x60F3;"><b></b>4. Socket &#x7F16;&#x7A0B;&#x601D;&#x60F3;</a></li><ul><li><span class="title-icon "></span><a href="#41-&#x64CD;&#x4F5C;ip"><b></b>4.1 &#x64CD;&#x4F5C;ip</a></li><li><span class="title-icon "></span><a href="#42-&#x64CD;&#x4F5C;&#x7AEF;&#x53E3;"><b></b>4.2 &#x64CD;&#x4F5C;&#x7AEF;&#x53E3;</a></li><li><span class="title-icon "></span><a href="#43-tcp-&#x670D;&#x52A1;&#x5668;"><b></b>4.3 TCP &#x670D;&#x52A1;&#x5668;</a></li><li><span class="title-icon "></span><a href="#44-tcp-&#x5BA2;&#x6237;&#x7AEF;"><b></b>4.4 TCP &#x5BA2;&#x6237;&#x7AEF;</a></li></ul><li><span class="title-icon "></span><a href="#5-&#x7EC3;&#x4E60;"><b></b>5. &#x7EC3;&#x4E60;</a></li><ul><li><span class="title-icon "></span><a href="#51-&#x793A;&#x4F8B;1"><b></b>5.1 &#x793A;&#x4F8B;1</a></li><li><span class="title-icon "></span><a href="#52-&#x793A;&#x4F8B;2"><b></b>5.2 &#x793A;&#x4F8B;2</a></li></ul></ul></ul></div><a href="#python-&#x6A21;&#x5757;-socket-&#x7F51;&#x7EDC;&#x901A;&#x4FE1;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-socket-&#x7F51;&#x7EDC;&#x901A;&#x4FE1;"><a name="python-&#x6A21;&#x5757;-socket-&#x7F51;&#x7EDC;&#x901A;&#x4FE1;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-socket-&#x7F51;&#x7EDC;&#x901A;&#x4FE1;"><i class="fa fa-link" aria-hidden="true"></i></a>Python &#x6A21;&#x5757; Socket &#x7F51;&#x7EDC;&#x901A;&#x4FE1;</h1>
+<h2 id="1-socket&#x4ECB;&#x7ECD;"><a name="1-socket&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-socket&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. socket&#x4ECB;&#x7ECD;</h2>
+<p>Python &#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x7684; socket &#x6A21;&#x5757;&#xFF1A;</p>
+<ul>
+<li>Socket &#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x6807;&#x51C6;&#x7684;BSD Socket API&#x3002;</li>
+<li>SocketServer &#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x670D;&#x52A1;&#x5668;&#x91CD;&#x5FC3;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5F00;&#x53D1;&#x3002;</li>
+</ul>
+<h2 id="2-socket-&#x7C7B;&#x578B;"><a name="2-socket-&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#2-socket-&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>2. Socket &#x7C7B;&#x578B;</h2>
+<p>&#x5957;&#x63A5;&#x5B57;&#x683C;&#x5F0F;&#xFF1A;<code>socket(family, type[,protocal])</code> &#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x5957;&#x63A5;&#x65CF;&#xFF0C;&#x5957;&#x63A5;&#x5B57;&#x7C7B;&#x578B;&#xFF0C;&#x534F;&#x8BAE;&#x7F16;&#x53F7;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;0&#xFF09;&#x6765;&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;&#x3002;
+| socket &#x7C7B;&#x578B;               | &#x63CF;&#x8FF0;                                                                                                            |
+|-------------------------|---------------------------------------------------------------------------------------------------------------|
+| socket.AF_UNIX        | &#x7528;&#x4E8E;&#x540C;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#x7684;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#xFF08;&#x65E2;&#x672C;&#x673A;&#x901A;&#x4FE1;&#xFF09;                                                                                          |
+| socket.AF_INET        | &#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;                                                                                              |
+| socket.AF_INET6       | &#x57FA;&#x4E8E;IPV6&#x65B9;&#x5F0F;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;                                                                                       |
+| socket.SOCK_STREAM    | &#x57FA;&#x4E8E;TCP&#x7684;&#x6D41;&#x5F0F;socket&#x901A;&#x4FE1;                                                                                              |
+| socket.SOCK_DGRAM     | &#x57FA;&#x4E8E;UDP&#x7684;&#x6570;&#x636E;&#x62A5;&#x5F0F;socket&#x901A;&#x4FE1;                                                                                            |
+| socket.SOCK_RAW       | &#x539F;&#x59CB;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x666E;&#x901A;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x65E0;&#x6CD5;&#x5904;&#x7406;ICMP&#x3001;IGMP&#x7B49;&#x7F51;&#x7EDC;&#x62A5;&#x6587;&#xFF0C;&#x800C;SOCK_RAW&#x53EF;&#x4EE5;&#xFF1B;&#x5176;&#x6B21;SOCK_RAW&#x4E5F;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7279;&#x6B8A;&#x7684;IPV4&#x62A5;&#x6587;&#xFF1B;&#x6B64;&#x5916;&#xFF0C;&#x5229;&#x7528;&#x539F;&#x59CB;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;IP_HDRINCL&#x5957;&#x63A5;&#x5B57;&#x9009;&#x9879;&#x7531;&#x7528;&#x6237;&#x6784;&#x9020;IP&#x5934; |
+| socket.SOCK_SEQPACKET | &#x53EF;&#x9760;&#x7684;&#x8FDE;&#x7EED;&#x6570;&#x636E;&#x5305;&#x670D;&#x52A1;                                                                                                    |
+&#x521B;&#x5EFA;TCP Socket&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">sock <span class="token operator">=</span> socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x521B;&#x5EFA;UDP Socket&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">sock <span class="token operator">=</span> socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_DGRAM<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="3-socket-&#x51FD;&#x6570;"><a name="3-socket-&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#3-socket-&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3. Socket &#x51FD;&#x6570;</h2>
+<ul>
+<li>TCP&#x53D1;&#x9001;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5DF2;&#x5EFA;&#x7ACB;&#x597D;TCP&#x94FE;&#x63A5;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5730;&#x5740;&#xFF0C;&#x800C;UDP&#x662F;&#x9762;&#x5411;&#x65E0;&#x8FDE;&#x63A5;&#x7684;&#xFF0C;&#x6BCF;&#x6B21;&#x53D1;&#x9001;&#x90FD;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x53D1;&#x9001;&#x7ED9;&#x8C01;&#x3002;</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x5217;&#x8868;&#xFF0C;&#x5143;&#x7D20;&#xFF0C;&#x5B57;&#x5178;&#x7B49;&#x5E26;&#x6709;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x53D1;&#x9001;&#x7684;&#x5185;&#x5BB9;&#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;&#x3002;</li>
+</ul>
+<h3 id="31-&#x670D;&#x52A1;&#x5668;&#x7AEF;-socket-&#x51FD;&#x6570;"><a name="31-&#x670D;&#x52A1;&#x5668;&#x7AEF;-socket-&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#31-&#x670D;&#x52A1;&#x5668;&#x7AEF;-socket-&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 &#x670D;&#x52A1;&#x5668;&#x7AEF; Socket &#x51FD;&#x6570;</h3>
+<table>
+<thead>
+<tr>
+<th>Socket &#x51FD;&#x6570;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.bind(address)</td>
+<td>&#x5C06;&#x5957;&#x63A5;&#x5B57;&#x7ED1;&#x5B9A;&#x5230;&#x5730;&#x5740;&#xFF0C;&#x5728;AF_INET&#x4E0B;&#xFF0C;&#x4EE5;tuple(host, port)&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x5165;&#xFF0C;&#x5982;s.bind((host, port))</td>
+</tr>
+<tr>
+<td>s.listen(backlog)</td>
+<td>&#x5F00;&#x59CB;&#x76D1;&#x542C;TCP&#x4F20;&#x5165;&#x8FDE;&#x63A5;&#xFF0C;backlog&#x6307;&#x5B9A;&#x5728;&#x62D2;&#x7EDD;&#x94FE;&#x63A5;&#x524D;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x6302;&#x8D77;&#x7684;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x8BE5;&#x503C;&#x6700;&#x5C11;&#x4E3A;1&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BBE;&#x4E3A;5&#x5C31;&#x591F;&#x7528;&#x4E86;</td>
+</tr>
+<tr>
+<td>s.accept()</td>
+<td>&#x63A5;&#x53D7;TCP&#x94FE;&#x63A5;&#x5E76;&#x8FD4;&#x56DE;&#xFF08;conn, address&#xFF09;&#xFF0C;&#x5176;&#x4E2D;conn&#x662F;&#x65B0;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x63A5;&#x6536;&#x548C;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;address&#x662F;&#x94FE;&#x63A5;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5730;&#x5740;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-&#x5BA2;&#x6237;&#x7AEF;-socket-&#x51FD;&#x6570;"><a name="32-&#x5BA2;&#x6237;&#x7AEF;-socket-&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#32-&#x5BA2;&#x6237;&#x7AEF;-socket-&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 &#x5BA2;&#x6237;&#x7AEF; Socket &#x51FD;&#x6570;</h3>
+<table>
+<thead>
+<tr>
+<th>Socket &#x51FD;&#x6570;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.connect(address)</td>
+<td>&#x94FE;&#x63A5;&#x5230;address&#x5904;&#x7684;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x4E00;&#x822C;address&#x7684;&#x683C;&#x5F0F;&#x4E3A;tuple(host, port)&#xFF0C;&#x5982;&#x679C;&#x94FE;&#x63A5;&#x51FA;&#x9519;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;socket.error&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>s.connect_ex(address)</td>
+<td>&#x529F;&#x80FD;&#x4E0E;s.connect(address)&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x6210;&#x529F;&#x8FD4;&#x56DE;0&#xFF0C;&#x5931;&#x8D25;&#x8FD4;&#x56DE;errno&#x7684;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-&#x516C;&#x5171;-socket-&#x51FD;&#x6570;"><a name="33-&#x516C;&#x5171;-socket-&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#33-&#x516C;&#x5171;-socket-&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 &#x516C;&#x5171; Socket &#x51FD;&#x6570;</h3>
+<table>
+<thead>
+<tr>
+<th>Socket &#x51FD;&#x6570;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.recv(bufsize[, flag])</td>
+<td>&#x63A5;&#x53D7;TCP&#x5957;&#x63A5;&#x5B57;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6570;&#x636E;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#xFF0C;buffsize&#x6307;&#x5B9A;&#x8981;&#x63A5;&#x53D7;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x91CF;&#xFF0C;flag&#x63D0;&#x4F9B;&#x6709;&#x5173;&#x6D88;&#x606F;&#x7684;&#x5176;&#x4ED6;&#x4FE1;&#x606F;&#xFF0C;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;</td>
+</tr>
+<tr>
+<td>s.send(string[, flag])</td>
+<td>&#x53D1;&#x9001;TCP&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5230;&#x94FE;&#x63A5;&#x7684;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x8981;&#x53D1;&#x9001;&#x7684;&#x5B57;&#x8282;&#x6570;&#x91CF;&#xFF0C;&#x8BE5;&#x6570;&#x91CF;&#x53EF;&#x80FD;&#x5C0F;&#x4E8E;string&#x7684;&#x5B57;&#x8282;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td>s.sendall(string[, flag])</td>
+<td>&#x5B8C;&#x6574;&#x53D1;&#x9001;TCP&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5230;&#x94FE;&#x63A5;&#x7684;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x4F46;&#x5728;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x5C1D;&#x8BD5;&#x53D1;&#x9001;&#x6240;&#x6709;&#x6570;&#x636E;&#x3002;&#x6210;&#x529F;&#x8FD4;&#x56DE;None&#xFF0C;&#x5931;&#x8D25;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;</td>
+</tr>
+<tr>
+<td>s.recvfrom(bufsize[, flag])</td>
+<td>&#x63A5;&#x53D7;UDP&#x5957;&#x63A5;&#x5B57;&#x7684;&#x6570;&#x636E;u&#xFF0C;&#x4E0E;recv()&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x8FD4;&#x56DE;&#x503C;&#x662F;tuple(data, address)&#x3002;&#x5176;&#x4E2D;data&#x662F;&#x5305;&#x542B;&#x63A5;&#x53D7;&#x6570;&#x636E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;address&#x662F;&#x53D1;&#x9001;&#x6570;&#x636E;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;</td>
+</tr>
+<tr>
+<td>s.sendto(string[, flag], address)</td>
+<td>&#x53D1;&#x9001;UDP&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5230;&#x5957;&#x63A5;&#x5B57;&#xFF0C;address&#x5F62;&#x5F0F;&#x4E3A;tuple(ipaddr, port)&#xFF0C;&#x6307;&#x5B9A;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x53D1;&#x9001;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x53D1;&#x9001;&#x7684;&#x5B57;&#x8282;&#x6570;</td>
+</tr>
+<tr>
+<td>s.close()</td>
+<td>&#x5173;&#x95ED;&#x5957;&#x63A5;&#x5B57;</td>
+</tr>
+<tr>
+<td>s.getpeername()</td>
+<td>&#x8FD4;&#x56DE;&#x5957;&#x63A5;&#x5B57;&#x7684;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A;tuple(ipaddr, port)</td>
+</tr>
+<tr>
+<td>s.getsockname()</td>
+<td>&#x8FD4;&#x56DE;&#x5957;&#x63A5;&#x5B57;&#x81EA;&#x5DF1;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A;tuple(ipaddr, port)</td>
+</tr>
+<tr>
+<td>s.setsockopt(level, optname, value)</td>
+<td>&#x8BBE;&#x7F6E;&#x7ED9;&#x5B9A;&#x5957;&#x63A5;&#x5B57;&#x9009;&#x9879;&#x7684;&#x503C;</td>
+</tr>
+<tr>
+<td>s.getsockopt(level, optname[, buflen])</td>
+<td>&#x8FD4;&#x56DE;&#x5957;&#x63A5;&#x5B57;&#x9009;&#x9879;&#x7684;&#x503C;</td>
+</tr>
+<tr>
+<td>s.settimeout(timeout)</td>
+<td>&#x8BBE;&#x7F6E;&#x5957;&#x63A5;&#x5B57;&#x64CD;&#x4F5C;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;timeout&#x662F;&#x4E00;&#x4E2A;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#xFF0C;&#x503C;&#x4E3A;None&#x5219;&#x8868;&#x793A;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8D85;&#x65F6;&#x3002;&#x4E00;&#x822C;&#x8D85;&#x65F6;&#x671F;&#x5E94;&#x5728;&#x521A;&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;&#x65F6;&#x8BBE;&#x7F6E;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x53EF;&#x80FD;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;s.connect()</td>
+</tr>
+<tr>
+<td>s.gettimeout()</td>
+<td>&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8D85;&#x65F6;&#x503C;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x5219;&#x8FD4;&#x56DE;None</td>
+</tr>
+<tr>
+<td>s.fileno()</td>
+<td>&#x8FD4;&#x56DE;&#x5957;&#x63A5;&#x5B57;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;</td>
+</tr>
+<tr>
+<td>s.setblocking(flag)</td>
+<td>&#x5982;&#x679C;flag&#x4E3A;0&#xFF0C;&#x5219;&#x5C06;&#x5957;&#x63A5;&#x5B57;&#x8BBE;&#x7F6E;&#x4E3A;&#x975E;&#x963B;&#x585E;&#x6A21;&#x5F0F;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x5957;&#x63A5;&#x5B57;&#x8BBE;&#x7F6E;&#x4E3A;&#x963B;&#x585E;&#x6A21;&#x5F0F;&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x3002;&#x975E;&#x963B;&#x585E;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;recv()&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#xFF0C;&#x6216;send()&#x8C03;&#x7528;&#x65E0;&#x6CD5;&#x7ACB;&#x5373;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x5F15;&#x8D77;socket.error&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td>s.makefile()</td>
+<td>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0E;&#x8BE5;&#x5957;&#x63A5;&#x5B57;&#x76F8;&#x5173;&#x7684;&#x6587;&#x4EF6;</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://img-blog.csdnimg.cn/20200625172929487.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeGloYWhhbGVsZWhlaGU=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h2 id="4-socket-&#x7F16;&#x7A0B;&#x601D;&#x60F3;"><a name="4-socket-&#x7F16;&#x7A0B;&#x601D;&#x60F3;" class="anchor-navigation-ex-anchor" href="#4-socket-&#x7F16;&#x7A0B;&#x601D;&#x60F3;"><i class="fa fa-link" aria-hidden="true"></i></a>4. Socket &#x7F16;&#x7A0B;&#x601D;&#x60F3;</h2>
+<h3 id="41-&#x64CD;&#x4F5C;ip"><a name="41-&#x64CD;&#x4F5C;ip" class="anchor-navigation-ex-anchor" href="#41-&#x64CD;&#x4F5C;ip"><i class="fa fa-link" aria-hidden="true"></i></a>4.1 &#x64CD;&#x4F5C;ip</h3>
+<pre class="language-"><code class="lang-powershell">127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>01 &#x672C;&#x5730;&#x6D4B;&#x8BD5;ip
+0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0  &#x5C40;&#x57DF;&#x7F51;&#x53EF;&#x7528;ip
+192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>0 &#x7F51;&#x6BB5;
+192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1  &#x7F51;&#x5173;
+192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>255 &#x5E7F;&#x64AD;&#x5730;&#x5740;
+</code></pre>
+<pre class="language-"><code class="lang-powershell">In <span class="token punctuation">[</span>1<span class="token punctuation">]</span>: import socket
+<span class="token comment">#&#x83B7;&#x53D6;&#x4E3B;&#x673A;&#x540D;</span>
+In <span class="token punctuation">[</span>2<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>gethostname<span class="token punctuation">(</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>2<span class="token punctuation">]</span>: <span class="token string">&apos;localhost.localdomain&apos;</span>
+<span class="token comment"># &#x901A;&#x8FC7;&#x4E3B;&#x673A;&#x540D;&#x89E3;&#x6790;ip</span>
+In <span class="token punctuation">[</span>3<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>gethostbyname<span class="token punctuation">(</span><span class="token string">&apos;localhost.localdomain&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>3<span class="token punctuation">]</span>: <span class="token string">&apos;127.0.0.1&apos;</span>
+
+In <span class="token punctuation">[</span>4<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>gethostbyname<span class="token punctuation">(</span><span class="token string">&apos;localhost&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>4<span class="token punctuation">]</span>: <span class="token string">&apos;127.0.0.1&apos;</span>
+
+In <span class="token punctuation">[</span>3<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>gethostbyname<span class="token punctuation">(</span><span class="token string">&apos;www.baidu.com&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>3<span class="token punctuation">]</span>: <span class="token string">&apos;180.101.49.11&apos;</span>
+
+<span class="token comment">#&#x5341;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x4E8C;&#x8FDB;&#x5236;</span>
+In <span class="token punctuation">[</span>5<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>inet_aton<span class="token punctuation">(</span><span class="token string">&apos;192.168.1.190&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>5<span class="token punctuation">]</span>: <span class="token string">&apos;\xc0\xa8\x01\xbe&apos;</span>
+
+<span class="token comment">#&#x4E8C;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x5341;&#x8FDB;&#x5236;</span>
+In <span class="token punctuation">[</span>8<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>inet_ntoa<span class="token punctuation">(</span><span class="token string">&apos;\xc0\xa8\x01\xbe&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>8<span class="token punctuation">]</span>: <span class="token string">&apos;192.168.1.190&apos;</span>
+
+<span class="token comment">#&#x5341;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x4E8C;&#x8FDB;&#x5236;</span>
+In <span class="token punctuation">[</span>11<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>inet_pton<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> <span class="token string">&apos;192.168.1.190&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>11<span class="token punctuation">]</span>: <span class="token string">&apos;\xc0\xa8\x01\xbe&apos;</span>
+
+<span class="token comment">#&#x4E8C;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x5341;&#x8FDB;&#x5236;</span>
+In <span class="token punctuation">[</span>15<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>inet_ntop<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> <span class="token string">&apos;\xc0\xa8\x01\xbe&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>15<span class="token punctuation">]</span>: <span class="token string">&apos;192.168.1.190&apos;</span>
+</code></pre>
+<h3 id="42-&#x64CD;&#x4F5C;&#x7AEF;&#x53E3;"><a name="42-&#x64CD;&#x4F5C;&#x7AEF;&#x53E3;" class="anchor-navigation-ex-anchor" href="#42-&#x64CD;&#x4F5C;&#x7AEF;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2 &#x64CD;&#x4F5C;&#x7AEF;&#x53E3;</h3>
+<p>&#x5E94;&#x7528;&#x5C42;&#x7AEF;&#x53E3;&#xFF1A;1--65535
+&#x4F17;&#x6240;&#x5468;&#x77E5;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x53E3;&#xFF1A;1--255 
+&#x7CFB;&#x7EDF;&#x7AEF;&#x53E3;&#xFF1A;256--1023</p>
+<pre class="language-"><code class="lang-powershell">In <span class="token punctuation">[</span>16<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>getservbyname<span class="token punctuation">(</span><span class="token string">&apos;mysql&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>16<span class="token punctuation">]</span>: 3306
+
+In <span class="token punctuation">[</span>17<span class="token punctuation">]</span>: socket<span class="token punctuation">.</span>getservbyname<span class="token punctuation">(</span><span class="token string">&apos;http&apos;</span><span class="token punctuation">)</span>
+Out<span class="token punctuation">[</span>17<span class="token punctuation">]</span>: 80
+</code></pre>
+<h3 id="43-tcp-&#x670D;&#x52A1;&#x5668;"><a name="43-tcp-&#x670D;&#x52A1;&#x5668;" class="anchor-navigation-ex-anchor" href="#43-tcp-&#x670D;&#x52A1;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>4.3 TCP &#x670D;&#x52A1;&#x5668;</h3>
+<p>1&#x3001;&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x7ED1;&#x5B9A;&#x5957;&#x63A5;&#x5B57;&#x5230;&#x672C;&#x5730;IP&#x4E0E;&#x7AEF;&#x53E3;</p>
+<pre class="language-"><code class="lang-bash">s <span class="token operator">=</span> socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span>
+s.bind<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>2&#x3001;&#x5F00;&#x59CB;&#x76D1;&#x542C;&#x94FE;&#x63A5;</p>
+<pre class="language-"><code class="lang-bash">s.listen<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>3&#x3001;&#x8FDB;&#x5165;&#x5FAA;&#x73AF;&#xFF0C;&#x4E0D;&#x65AD;&#x63A5;&#x53D7;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x94FE;&#x63A5;&#x8BF7;&#x6C42;</p>
+<pre class="language-"><code class="lang-bash">While True:
+    s.accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>4&#x3001;&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x4F20;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x53D1;&#x9001;&#x7ED9;&#x5BF9;&#x65B9;&#x53D1;&#x9001;&#x6570;&#x636E;</p>
+<pre class="language-"><code class="lang-bash">s.recv<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s.sendall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>5&#x3001;&#x4F20;&#x8F93;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x5173;&#x95ED;&#x5957;&#x63A5;&#x5B57;</p>
+<pre class="language-"><code class="lang-bash">s.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="44-tcp-&#x5BA2;&#x6237;&#x7AEF;"><a name="44-tcp-&#x5BA2;&#x6237;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#44-tcp-&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>4.4 TCP &#x5BA2;&#x6237;&#x7AEF;</h3>
+<p>1&#x3001;&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;&#x5E76;&#x94FE;&#x63A5;&#x81F3;&#x8FDC;&#x7AEF;&#x5730;&#x5740;</p>
+<pre class="language-"><code class="lang-bash">s <span class="token operator">=</span> socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span>
+s.connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>2&#x3001;&#x94FE;&#x63A5;&#x540E;&#x53D1;&#x9001;&#x6570;&#x636E;&#x548C;&#x63A5;&#x6536;&#x6570;&#x636E;</p>
+<pre class="language-"><code class="lang-bash">s.sendall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s.recv<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>3&#x3001;&#x4F20;&#x8F93;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x5173;&#x95ED;&#x5957;&#x63A5;&#x5B57;</p>
+<h2 id="5-&#x7EC3;&#x4E60;"><a name="5-&#x7EC3;&#x4E60;" class="anchor-navigation-ex-anchor" href="#5-&#x7EC3;&#x4E60;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x7EC3;&#x4E60;</h2>
+<h3 id="51-&#x793A;&#x4F8B;1"><a name="51-&#x793A;&#x4F8B;1" class="anchor-navigation-ex-anchor" href="#51-&#x793A;&#x4F8B;1"><i class="fa fa-link" aria-hidden="true"></i></a>5.1 &#x793A;&#x4F8B;1</h3>
+<p>&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4EE3;&#x7801;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> socket
+
+HOST <span class="token operator">=</span> <span class="token string">&apos;192.168.1.100&apos;</span>
+PORT <span class="token operator">=</span> <span class="token number">8001</span>
+
+s <span class="token operator">=</span> socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span>
+s.bind<span class="token variable"><span class="token punctuation">((</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">))</span></span>
+s.listen<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+print <span class="token string">&apos;Server start at: %s:%s&apos;</span> %<span class="token punctuation">(</span>HOST, PORT<span class="token punctuation">)</span>
+print <span class="token string">&apos;wait for connection...&apos;</span>
+
+<span class="token keyword">while</span> True:
+    conn, addr <span class="token operator">=</span> s.accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    print <span class="token string">&apos;Connected by &apos;</span>, addr
+
+    <span class="token keyword">while</span> True:
+        data <span class="token operator">=</span> conn.recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+        print data
+
+        conn.send<span class="token punctuation">(</span><span class="token string">&quot;server received you message.&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># conn.close()</span>
+</code></pre>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">import</span> socket
+HOST <span class="token operator">=</span> <span class="token string">&apos;192.168.1.100&apos;</span>
+PORT <span class="token operator">=</span> <span class="token number">8001</span>
+
+s <span class="token operator">=</span> socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span>
+s.connect<span class="token variable"><span class="token punctuation">((</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">))</span></span>
+
+<span class="token keyword">while</span> True:
+    cmd <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">&quot;Please input msg:&quot;</span><span class="token punctuation">)</span>
+    s.send<span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+    data <span class="token operator">=</span> s.recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+    print data
+
+    <span class="token comment">#s.close()</span>
+</code></pre>
+<pre class="language-"><code class="lang-powershell">$ python soc2<span class="token punctuation">.</span>py
+Please input msg:<span class="token function">ls</span>
+server received you message<span class="token punctuation">.</span>
+Please input msg:hello
+server received you message<span class="token punctuation">.</span>
+</code></pre>
+<pre class="language-"><code class="lang-powershell">$ python test1<span class="token punctuation">.</span>py
+Server <span class="token function">start</span> at: 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>211<span class="token punctuation">.</span>15:80
+wait <span class="token keyword">for</span> connection<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+Connected by  <span class="token punctuation">(</span><span class="token string">&apos;192.168.211.15&apos;</span><span class="token punctuation">,</span> 44079<span class="token punctuation">)</span>
+<span class="token function">ls</span>
+hello
+</code></pre>
+<h3 id="52-&#x793A;&#x4F8B;2"><a name="52-&#x793A;&#x4F8B;2" class="anchor-navigation-ex-anchor" href="#52-&#x793A;&#x4F8B;2"><i class="fa fa-link" aria-hidden="true"></i></a>5.2 &#x793A;&#x4F8B;2</h3>
+<h4 id="&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x7AEF;"><a name="&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x7AEF;</h4>
+<p>server2.py</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env python3</span>
+
+<span class="token function">import</span> socket
+
+HOST <span class="token operator">=</span> <span class="token string">&apos;127.0.0.1&apos;</span>  <span class="token comment"># &#x6807;&#x51C6;&#x7684;&#x56DE;&#x73AF;&#x5730;&#x5740; (localhost)</span>
+PORT <span class="token operator">=</span> <span class="token number">65432</span>        <span class="token comment"># &#x76D1;&#x542C;&#x7684;&#x7AEF;&#x53E3; (&#x975E;&#x7CFB;&#x7EDF;&#x7EA7;&#x7684;&#x7AEF;&#x53E3;: &#x5927;&#x4E8E; 1023)</span>
+
+with socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span> as s:
+    s.bind<span class="token variable"><span class="token punctuation">((</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">))</span></span>
+    s.listen<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    conn, addr <span class="token operator">=</span> s.accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    with conn:
+        print<span class="token punctuation">(</span><span class="token string">&apos;Connected by&apos;</span>, addr<span class="token punctuation">)</span>
+        <span class="token keyword">while</span> True:
+            data <span class="token operator">=</span> conn.recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> not data:
+                <span class="token builtin class-name">break</span>
+            conn.sendall<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x89E3;&#x8BF4;&#xFF1A;</p>
+<ul>
+<li><code>socket.socket()</code> &#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A; socket &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x652F;&#x6301; context manager type&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; with&#x8BED;&#x53E5;&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x5C31;&#x4E0D;&#x7528;&#x518D;&#x624B;&#x52A8;&#x8C03;&#x7528; s.close() &#x6765;&#x5173;&#x95ED; socket &#x4E86;&#x3002;</li>
+</ul>
+<pre class="language-"><code class="lang-bash">with socket.socket<span class="token punctuation">(</span>socket.AF_INET, socket.SOCK_STREAM<span class="token punctuation">)</span> as s:
+    pass  <span class="token comment"># Use the socket object without calling s.close().</span>
+</code></pre>
+<ul>
+<li><p><code>bind()</code> &#x7528;&#x6765;&#x5173;&#x8054; socket &#x5230;&#x6307;&#x5B9A;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#xFF08;IP &#x5730;&#x5740;&#xFF09;&#x548C;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;bind() &#x65B9;&#x6CD5;&#x7684;&#x5165;&#x53C2;&#x53D6;&#x51B3;&#x4E8E; socket&#x5730;&#x5740;&#x65CF;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86; socket.AF_INET (IPv4)&#xFF0C;&#x5B83;&#x5C06;&#x8FD4;&#x56DE;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x5143;&#x7EC4;&#xFF1A;(host, port)&#x3002;host&#x53EF;&#x4EE5;&#x662F;&#x4E3B;&#x673A;&#x540D;&#x79F0;&#x3001;IP &#x5730;&#x5740;&#x3001;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; IP &#x5730;&#x5740;&#xFF0C;host &#x5C31;&#x5E94;&#x8BE5;&#x662F; IPv4 &#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;127.0.0.1 &#x662F;&#x6807;&#x51C6;&#x7684;IPv4 &#x56DE;&#x73AF;&#x5730;&#x5740;&#xFF0C;&#x53EA;&#x6709;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F20;&#x4E86;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x63A5;&#x53D7;&#x672C;&#x673A;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684; IPv4 &#x5730;&#x5740; &#x7AEF;&#x53E3;&#x53F7;&#x5E94;&#x8BE5;&#x662F;1-65535 &#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;&#xFF08;0&#x662F;&#x4FDD;&#x7559;&#x7684;&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x6574;&#x6570;&#x5C31;&#x662F;&#x7528;&#x6765;&#x63A5;&#x53D7;&#x5BA2;&#x6237;&#x7AEF;&#x94FE;&#x63A5;&#x7684; TCP &#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x5982;&#x679C;&#x7AEF;&#x53E3;&#x53F7;&#x5C0F;&#x4E8E;1024&#xFF0C;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x8981;&#x6C42;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x3002;</p>
+</li>
+<li><p><code>listen()</code> &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4F7F;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x4F7F;&#x5B83;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x300C;&#x76D1;&#x542C;&#x4E2D;&#x300D;&#x7684; socket
+listen() &#x65B9;&#x6CD5;&#x6709;&#x4E00;&#x4E2A; backlog &#x53C2;&#x6570;&#x3002;&#x5B83;&#x6307;&#x5B9A;&#x5728;&#x62D2;&#x7EDD;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#x4E4B;&#x524D;&#x7CFB;&#x7EDF;&#x5C06;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x7684; &#x672A;&#x63A5;&#x53D7;&#x7684;&#x8FDE;&#x63A5; &#x6570;&#x91CF;&#x3002;&#x4ECE; Python 3.5 &#x5F00;&#x59CB;&#xFF0C;&#x8FD9;&#x662F;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;Python &#x5C06;&#x53D6;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x540C;&#x65F6;&#x63A5;&#x6536;&#x5F88;&#x591A;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#xFF0C;&#x589E;&#x52A0; backlog &#x53C2;&#x6570;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x52A0;&#x5927;&#x7B49;&#x5F85;&#x94FE;&#x63A5;&#x8BF7;&#x6C42;&#x961F;&#x5217;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x6BD4;&#x5982;&#x5728; Linux &#x4E0B;&#xFF0C;&#x53C2;&#x8003; <a href="https://serverfault.com/questions/518862/will-increasing-net-core-somaxconn-make-a-difference/519152" target="_blank">/proc/sys/net/core/somaxconn</a></p>
+</li>
+<li><code>accept()</code> &#x65B9;&#x6CD5;&#x963B;&#x585E;&#x5E76;&#x7B49;&#x5F85;&#x4F20;&#x5165;&#x8FDE;&#x63A5;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; socket &#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x4E2D;&#x6709;&#x8868;&#x793A;&#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x7684; conn&#x548C;&#x4E00;&#x4E2A;&#x7531;&#x4E3B;&#x673A;&#x3001;&#x7AEF;&#x53E3;&#x53F7;&#x7EC4;&#x6210;&#x7684; IPv4/v6 &#x8FDE;&#x63A5;&#x7684;&#x5143;&#x7EC4;&#xFF0C;&#x8FD9;&#x91CC;&#x5FC5;&#x987B;&#x8981;&#x660E;&#x767D;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8C03;&#x7528; accept() &#x65B9;&#x6CD5;&#x62E5;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684; socket&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;&#x4F60;&#x5C06;&#x7528;&#x8FD9;&#x4E2A; socket &#x5BF9;&#x8C61;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;&#x548C;&#x76D1;&#x542C;&#x4E00;&#x4E2A; socket &#x4E0D;&#x540C;&#x7684;&#x662F;&#x540E;&#x8005;&#x53EA;&#x7528;&#x6765;&#x6388;&#x53D7;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x3002;</li>
+<li>&#x4ECE; <code>accept()</code> &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF; socket &#x8FDE;&#x63A5;&#x5BF9;&#x8C61; conn &#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x65E0;&#x9650; while &#x5FAA;&#x73AF;&#x6765;&#x963B;&#x585E;&#x8C03;&#x7528;<code>conn.recv()</code>&#xFF0C;&#x65E0;&#x8BBA;&#x5BA2;&#x6237;&#x7AEF;&#x4F20;&#x8FC7;&#x6765;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x4F7F;&#x7528; <code>conn.sendall()</code> &#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x5982;&#x679C; conn.recv()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A; byte &#x5BF9;&#x8C61;&#xFF08;b&apos;&apos;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5BA2;&#x6237;&#x7AEF;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#xFF0C;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#xFF0C;with &#x8BED;&#x53E5;&#x548C; conn &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x901A;&#x4FE1;&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x81EA;&#x52A8;&#x5173;&#x95ED;socket &#x94FE;&#x63A5;&#x3002;</li>
+</ul>
+<h4 id="&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x5BA2;&#x6237;&#x7AEF;"><a name="&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x5BA2;&#x6237;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x5BA2;&#x6237;&#x7AEF;</h4>
+<pre class="language-"><code class="lang-powershell"><span class="token comment">#!/usr/bin/env python3</span>
+
+import socket
+
+HOST = <span class="token string">&apos;127.0.0.1&apos;</span>  <span class="token comment"># &#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x6216;&#x8005; IP &#x5730;&#x5740;</span>
+PORT = 65432        <span class="token comment"># &#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x7AEF;&#x53E3;</span>
+
+with socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> as s:
+    s<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>b<span class="token string">&apos;Hello, world&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">data</span> = s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span>1024<span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">&apos;Received&apos;</span><span class="token punctuation">,</span> repr<span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8FD0;&#x884C;&#xFF1A;
+&#x7B2C;&#x4E00;&#x6B65;</p>
+<pre class="language-"><code class="lang-powershell">$ python3<span class="token punctuation">.</span>8 server1<span class="token punctuation">.</span>py
+</code></pre>
+<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;</p>
+<pre class="language-"><code class="lang-powershell">$ python3<span class="token punctuation">.</span>8 client2<span class="token punctuation">.</span>py 
+Received b<span class="token string">&apos;Hello, world&apos;</span>
+</code></pre>
+<p>&#x7B2C;&#x4E09;&#x6B65;</p>
+<pre class="language-"><code class="lang-powershell">$ python3<span class="token punctuation">.</span>8 server1<span class="token punctuation">.</span>py
+Connected by <span class="token punctuation">(</span><span class="token string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span> 47816<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://keelii.com/2018/09/24/socket-programming-in-python/" target="_blank">Python &#x4E2D;&#x7684; Socket &#x7F16;&#x7A0B;&#xFF08;&#x6307;&#x5357;&#xFF09;</a></li>
+<li><a href="https://gist.github.com/kevinkindom/108ffd675cb9253f8f71" target="_blank">Python Socket &#x7F16;&#x7A0B;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-30 12:23:54
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_random.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 random随机生成">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_sys.html" class="navigation navigation-next " aria-label="Next page: python 模块 sys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 socket 网络通信","level":"1.7.14","depth":2,"next":{"title":"python 模块 sys","level":"1.7.15","depth":2,"path":"Modules/python_sys.md","ref":"Modules/python_sys.md","articles":[]},"previous":{"title":"python 模块 random随机生成","level":"1.7.13","depth":2,"path":"Modules/python_random.md","ref":"Modules/python_random.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_socket.md","mtime":"2022-06-30T12:23:54.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

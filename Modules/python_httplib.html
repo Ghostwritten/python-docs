@@ -1,0 +1,1855 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python 模块 httplib 处理http请求 · Python Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="宗勋 - zongxun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-holi-theme.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python_logging.html" />
+    
+    
+    <link rel="prev" href="python_threading.html" />
+    
+
+    <link href="http://smoothies.com.cn/rss" title="Python Docs" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/linux-command-docs/" target="_blank" class="custom-link">Command</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/gitbook-docs/" target="_blank" class="custom-link">Gitbook</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://smoothies.com.cn/shell-docs/" target="_blank" class="custom-link">Shell</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://ghostwritten.gitbook.io/kubernetes-exam-in-action/" target="_blank" class="custom-link">Exam</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../Overview.html">
+            
+                <a href="../Overview.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Flask/">
+            
+                <a href="../Flask/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Base/">
+            
+                <a href="../Base/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Base
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Base/python_1.0_pip_install.html">
+            
+                <a href="../Base/python_1.0_pip_install.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    python pip 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Base/python_1.1_pip.html">
+            
+                <a href="../Base/python_1.1_pip.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    python pip 安装模块包命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Base/python_1.2_pip_download_slow.html">
+            
+                <a href="../Base/python_1.2_pip_download_slow.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    python pip 解决下载速度慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Base/python_2.0_compile_install.html">
+            
+                <a href="../Base/python_2.0_compile_install.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    python 3 10 0 源码编译安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Base/python_3_scripts_run.html">
+            
+                <a href="../Base/python_3_scripts_run.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    python 多种运行脚本方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Base/python_4_import.html">
+            
+                <a href="../Base/python_4_import.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    python import 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Base/python_5_list.html">
+            
+                <a href="../Base/python_5_list.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    python list 列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../Base/python_6_tuple.html">
+            
+                <a href="../Base/python_6_tuple.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    pyhon tuple 元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../Base/python_7_dict.html">
+            
+                <a href="../Base/python_7_dict.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    python dict 字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../Base/python_8_error_handle.html">
+            
+                <a href="../Base/python_8_error_handle.html">
+            
+                    
+                        <b>1.4.10.</b>
+                    
+                    python 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../Base/python_9_basic_function.html">
+            
+                <a href="../Base/python_9_basic_function.html">
+            
+                    
+                        <b>1.4.11.</b>
+                    
+                    python 基本函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../Base/python_10_built_in_functions.html">
+            
+                <a href="../Base/python_10_built_in_functions.html">
+            
+                    
+                        <b>1.4.12.</b>
+                    
+                    python 内置函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../Base/python_11_advanced_functions.html">
+            
+                <a href="../Base/python_11_advanced_functions.html">
+            
+                    
+                        <b>1.4.13.</b>
+                    
+                    python 高级函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../Base/python_12_decoratiors.html">
+            
+                <a href="../Base/python_12_decoratiors.html">
+            
+                    
+                        <b>1.4.14.</b>
+                    
+                    python 装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../Base/python_13_yield.html">
+            
+                <a href="../Base/python_13_yield.html">
+            
+                    
+                        <b>1.4.15.</b>
+                    
+                    python yield 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../Base/python_14_function_print.html">
+            
+                <a href="../Base/python_14_function_print.html">
+            
+                    
+                        <b>1.4.16.</b>
+                    
+                    python 函数 print 打印
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../Base/python_14.1_function_open.html">
+            
+                <a href="../Base/python_14.1_function_open.html">
+            
+                    
+                        <b>1.4.17.</b>
+                    
+                    python 函数 open 文本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../Base/python_14.2_function_super.html">
+            
+                <a href="../Base/python_14.2_function_super.html">
+            
+                    
+                        <b>1.4.18.</b>
+                    
+                    python 函数 super 调用父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../Base/python_15_object_oriented.html">
+            
+                <a href="../Base/python_15_object_oriented.html">
+            
+                    
+                        <b>1.4.19.</b>
+                    
+                    python 1 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../Base/python_15.1_object_oriented.html">
+            
+                <a href="../Base/python_15.1_object_oriented.html">
+            
+                    
+                        <b>1.4.20.</b>
+                    
+                    python 2 面向对象之类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../Base/python_16_process_thread_coroutine.html">
+            
+                <a href="../Base/python_16_process_thread_coroutine.html">
+            
+                    
+                        <b>1.4.21.</b>
+                    
+                    python 进程 线程 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../Base/python_17_application_layout.html">
+            
+                <a href="../Base/python_17_application_layout.html">
+            
+                    
+                        <b>1.4.22.</b>
+                    
+                    python 应用程序布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Case/">
+            
+                <a href="../Case/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Case
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                <a href="../Case/python_monitor_1_file_move_and_unzip.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    python_monitor_1_file_move_and_unzip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Django/">
+            
+                <a href="../Django/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="python_asyncio.html">
+            
+                <a href="python_asyncio.html">
+            
+                    
+                        <b>1.7.1.</b>
+                    
+                    python 模块 1 asyncio 协程异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="python_subprocess.html">
+            
+                <a href="python_subprocess.html">
+            
+                    
+                        <b>1.7.2.</b>
+                    
+                    python 模块 subprocess 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="python_concurrent.futures.html">
+            
+                <a href="python_concurrent.futures.html">
+            
+                    
+                        <b>1.7.3.</b>
+                    
+                    python 模块 concurrent futures 线程处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="python_Selenium.html">
+            
+                <a href="python_Selenium.html">
+            
+                    
+                        <b>1.7.4.</b>
+                    
+                    python 模块 selenium 自动化测试 web 工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="python_configParser.html">
+            
+                <a href="python_configParser.html">
+            
+                    
+                        <b>1.7.5.</b>
+                    
+                    python 模块 configparser 配置文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="python_pdb.html">
+            
+                <a href="python_pdb.html">
+            
+                    
+                        <b>1.7.6.</b>
+                    
+                    python 模块 pdb调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="python_paramiko.html">
+            
+                <a href="python_paramiko.html">
+            
+                    
+                        <b>1.7.7.</b>
+                    
+                    python 模块 paramiko批量远程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="python_dnspython.html">
+            
+                <a href="python_dnspython.html">
+            
+                    
+                        <b>1.7.8.</b>
+                    
+                    python 模块 dnspython
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="python_ntpath.html">
+            
+                <a href="python_ntpath.html">
+            
+                    
+                        <b>1.7.9.</b>
+                    
+                    python 模块 ntpath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="python_gevent.html">
+            
+                <a href="python_gevent.html">
+            
+                    
+                        <b>1.7.10.</b>
+                    
+                    python 模块 gevent 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="python_time.html">
+            
+                <a href="python_time.html">
+            
+                    
+                        <b>1.7.11.</b>
+                    
+                    python 模块 time 时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="python_nmap.html">
+            
+                <a href="python_nmap.html">
+            
+                    
+                        <b>1.7.12.</b>
+                    
+                    python 模块 nmap 网络扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="python_random.html">
+            
+                <a href="python_random.html">
+            
+                    
+                        <b>1.7.13.</b>
+                    
+                    python 模块 random随机生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="python_socket.html">
+            
+                <a href="python_socket.html">
+            
+                    
+                        <b>1.7.14.</b>
+                    
+                    python 模块 socket 网络通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="python_sys.html">
+            
+                <a href="python_sys.html">
+            
+                    
+                        <b>1.7.15.</b>
+                    
+                    python 模块 sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="python_pandas.html">
+            
+                <a href="python_pandas.html">
+            
+                    
+                        <b>1.7.16.</b>
+                    
+                    python 模块 pandas 数组处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="python_pycurl.html">
+            
+                <a href="python_pycurl.html">
+            
+                    
+                        <b>1.7.17.</b>
+                    
+                    python 模块 pycurl 处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="python_IPy.html">
+            
+                <a href="python_IPy.html">
+            
+                    
+                        <b>1.7.18.</b>
+                    
+                    python 模块 ipy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="python_mysql-connector.html">
+            
+                <a href="python_mysql-connector.html">
+            
+                    
+                        <b>1.7.19.</b>
+                    
+                    python 模块 mysql connector 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="python_zipfile.html">
+            
+                <a href="python_zipfile.html">
+            
+                    
+                        <b>1.7.20.</b>
+                    
+                    python 模块 zipfile压缩文件管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="python_json.html">
+            
+                <a href="python_json.html">
+            
+                    
+                        <b>1.7.21.</b>
+                    
+                    python 模块  json 文本处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="python_collections.html">
+            
+                <a href="python_collections.html">
+            
+                    
+                        <b>1.7.22.</b>
+                    
+                    python 模块 collections 专用容器数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="python_re.html">
+            
+                <a href="python_re.html">
+            
+                    
+                        <b>1.7.23.</b>
+                    
+                    python 模块 re 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="python_datetime.html">
+            
+                <a href="python_datetime.html">
+            
+                    
+                        <b>1.7.24.</b>
+                    
+                    python 模块 datetime时间处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="python_os.html">
+            
+                <a href="python_os.html">
+            
+                    
+                        <b>1.7.25.</b>
+                    
+                    python 模块 os模块文件目录操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="python_threading.html">
+            
+                <a href="python_threading.html">
+            
+                    
+                        <b>1.7.26.</b>
+                    
+                    python 模块 threading 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.27" data-path="python_httplib.html">
+            
+                <a href="python_httplib.html">
+            
+                    
+                        <b>1.7.27.</b>
+                    
+                    python 模块 httplib 处理http请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="python_logging.html">
+            
+                <a href="python_logging.html">
+            
+                    
+                        <b>1.7.28.</b>
+                    
+                    python 模块 logging日志处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="python_BeautifulSoup.html">
+            
+                <a href="python_BeautifulSoup.html">
+            
+                    
+                        <b>1.7.29.</b>
+                    
+                    python 模块 beautifulsoup 抓取 web 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="python_commands.html">
+            
+                <a href="python_commands.html">
+            
+                    
+                        <b>1.7.30.</b>
+                    
+                    python 模块 commands 执行命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="python_flask_caching.html">
+            
+                <a href="python_flask_caching.html">
+            
+                    
+                        <b>1.7.31.</b>
+                    
+                    python 模块 flask caching 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="python_argparse.html">
+            
+                <a href="python_argparse.html">
+            
+                    
+                        <b>1.7.32.</b>
+                    
+                    python 模块 argparse参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="python_pymysql.html">
+            
+                <a href="python_pymysql.html">
+            
+                    
+                        <b>1.7.33.</b>
+                    
+                    python 模块 pymysql 管理数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="python_click.html">
+            
+                <a href="python_click.html">
+            
+                    
+                        <b>1.7.34.</b>
+                    
+                    python 模块 click参数处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="python_copy.html">
+            
+                <a href="python_copy.html">
+            
+                    
+                        <b>1.7.35.</b>
+                    
+                    python 模块 copy 复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="python_redis.html">
+            
+                <a href="python_redis.html">
+            
+                    
+                        <b>1.7.36.</b>
+                    
+                    python 模块 redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="python_XlsxWriter.html">
+            
+                <a href="python_XlsxWriter.html">
+            
+                    
+                        <b>1.7.37.</b>
+                    
+                    python 模块 xlsxwriter 生成execl文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="python_prometheus_client.html">
+            
+                <a href="python_prometheus_client.html">
+            
+                    
+                        <b>1.7.38.</b>
+                    
+                    python 模块 promethues client 开发 exporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="python_psutil.html">
+            
+                <a href="python_psutil.html">
+            
+                    
+                        <b>1.7.39.</b>
+                    
+                    python 模块 psutil 系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="python_rrdtools.html">
+            
+                <a href="python_rrdtools.html">
+            
+                    
+                        <b>1.7.40.</b>
+                    
+                    python 模块 rrdtool 数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="python_cPickle_and_pickle.html">
+            
+                <a href="python_cPickle_and_pickle.html">
+            
+                    
+                        <b>1.7.41.</b>
+                    
+                    python 模块 cpickle 与 pickle 序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="python_filecmp.html">
+            
+                <a href="python_filecmp.html">
+            
+                    
+                        <b>1.7.42.</b>
+                    
+                    python 模块 filecmp 文件差异对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="python_stmplib_and_email.html">
+            
+                <a href="python_stmplib_and_email.html">
+            
+                    
+                        <b>1.7.43.</b>
+                    
+                    python 模块 stmplib与email 发送邮箱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="python_request_1.html">
+            
+                <a href="python_request_1.html">
+            
+                    
+                        <b>1.7.44.</b>
+                    
+                    python 模块 requests  1  处理 url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="python_request_2.html">
+            
+                <a href="python_request_2.html">
+            
+                    
+                        <b>1.7.45.</b>
+                    
+                    python 模块 requests  2  处理url
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python 模块 httplib 处理http请求</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python-&#x6A21;&#x5757;-httplib-&#x5904;&#x7406;http&#x8BF7;&#x6C42;"><b></b>python &#x6A21;&#x5757; httplib &#x5904;&#x7406;HTTP&#x8BF7;&#x6C42;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x4ECB;&#x7ECD;"><b></b>1. &#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#2-&#x5B89;&#x88C5;"><b></b>2. &#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#3-class-httplibhttpconnection"><b></b>3. class httplib.HTTPConnection</a></li><ul><li><span class="title-icon "></span><a href="#31-httpconnection"><b></b>3.1 HTTPConnection()</a></li><li><span class="title-icon "></span><a href="#32-httpsconnection"><b></b>3.2 HTTPSConnection()</a></li><li><span class="title-icon "></span><a href="#33-httpconnectionrequest"><b></b>3.3 HTTPConnection.request()</a></li><li><span class="title-icon "></span><a href="#34-httpconnectiongetresponse"><b></b>3.4 HTTPConnection.getresponse()</a></li><li><span class="title-icon "></span><a href="#35-httpconnectionconnect"><b></b>3.5 HTTPConnection.connect()</a></li><li><span class="title-icon "></span><a href="#36-httpconnectionclose"><b></b>3.6 HTTPConnection.close()</a></li><li><span class="title-icon "></span><a href="#37-httpconnectionsetdebuglevel-level-"><b></b>3.7 HTTPConnection.set_debuglevel( level )</a></li></ul><li><span class="title-icon "></span><a href="#4--class-httplibhttpresponse"><b></b>4.  class httplib.HTTPResponse</a></li><ul><li><span class="title-icon "></span><a href="#41-httpresponsereadamt"><b></b>4.1 HTTPResponse.read([amt])</a></li><li><span class="title-icon "></span><a href="#42--httpresponsegetheaders"><b></b>4.2  HTTPResponse.getheaders()</a></li><li><span class="title-icon "></span><a href="#43-httpresponsemsg"><b></b>4.3 HTTPResponse.msg()</a></li><li><span class="title-icon "></span><a href="#44-httpresponsemsg"><b></b>4.4 HTTPResponse.msg</a></li><li><span class="title-icon "></span><a href="#45--httpresponsestatus"><b></b>4.5  HTTPResponse.status</a></li><li><span class="title-icon "></span><a href="#46-httpresponsereason"><b></b>4.6 HTTPResponse.reason</a></li></ul><li><span class="title-icon "></span><a href="#5-class-httplibhttpmessage"><b></b>5. class httplib.HTTPMessage</a></li><li><span class="title-icon "></span><a href="#6-&#x5F02;&#x5E38;&#x5904;&#x7406;"><b></b>6. &#x5F02;&#x5E38;&#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#7-&#x5B9E;&#x6218;"><b></b>7. &#x5B9E;&#x6218;</a></li></ul></ul></div><a href="#python-&#x6A21;&#x5757;-httplib-&#x5904;&#x7406;http&#x8BF7;&#x6C42;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python-&#x6A21;&#x5757;-httplib-&#x5904;&#x7406;http&#x8BF7;&#x6C42;"><a name="python-&#x6A21;&#x5757;-httplib-&#x5904;&#x7406;http&#x8BF7;&#x6C42;" class="anchor-navigation-ex-anchor" href="#python-&#x6A21;&#x5757;-httplib-&#x5904;&#x7406;http&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>python &#x6A21;&#x5757; httplib &#x5904;&#x7406;HTTP&#x8BF7;&#x6C42;</h1>
+<h2 id="1-&#x4ECB;&#x7ECD;"><a name="1-&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#1-&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4ECB;&#x7ECD;</h2>
+<p>httplib&#x662F;&#x63D0;&#x4F9B;&#x4E86;Web&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x529F;&#x80FD;&#x548C;&#x63A5;&#x53E3;&#x3002;&#x8FD9;&#x6837;httplib&#x5C06;&#x4F1A;&#x5B8C;&#x6210;Web&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x6A21;&#x5757;urllib,urllib2,httplib&#x7684;&#x533A;&#x522B;&#xFF08;&#x7EC6;&#x8282;&#x53E6;&#x8D77;&#x6587;&#x7AE0;&#xFF09;
+httplib&#x5B9E;&#x73B0;&#x4E86;http&#x548C;https&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x534F;&#x8BAE;&#xFF0C;&#x4F46;&#x662F;&#x5728;python&#x4E2D;&#xFF0C;<code>&#x6A21;&#x5757;urllib&#x548C;urllib2&#x5BF9;httplib</code>&#x8FDB;&#x884C;&#x4E86;&#x66F4;&#x4E0A;&#x5C42;&#x7684;&#x5C01;&#x88C5;&#x3002;</p>
+<h2 id="2-&#x5B89;&#x88C5;"><a name="2-&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#2-&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B89;&#x88C5;</h2>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost <span class="token operator">~</span><span class="token punctuation">]</span># pip install httplib2
+Downloading<span class="token operator">/</span>unpacking httplib2
+  Downloading httplib2<span class="token operator">-</span><span class="token number">0.17</span><span class="token number">.0</span><span class="token punctuation">.</span>tar<span class="token punctuation">.</span><span class="token function">gz</span> <span class="token punctuation">(</span><span class="token number">220</span>kB<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token number">220</span>kB downloaded
+  Running setup<span class="token punctuation">.</span><span class="token function">py</span> <span class="token punctuation">(</span>path<span class="token operator">:</span><span class="token operator">/</span>tmp<span class="token operator">/</span>pip_build_root<span class="token operator">/</span>httplib2<span class="token operator">/</span>setup<span class="token punctuation">.</span>py<span class="token punctuation">)</span> egg_info <span class="token keyword">for</span> package httplib2
+
+Installing collected packages<span class="token operator">:</span> httplib2
+  Running setup<span class="token punctuation">.</span>py install <span class="token keyword">for</span> httplib2
+
+Successfully installed httplib2
+Cleaning up<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h2 id="3-class-httplibhttpconnection"><a name="3-class-httplibhttpconnection" class="anchor-navigation-ex-anchor" href="#3-class-httplibhttpconnection"><i class="fa fa-link" aria-hidden="true"></i></a>3. class httplib.HTTPConnection</h2>
+<h3 id="31-httpconnection"><a name="31-httpconnection" class="anchor-navigation-ex-anchor" href="#31-httpconnection"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 HTTPConnection()</h3>
+<h4 id="311-&#x8BED;&#x6CD5;"><a name="311-&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#311-&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.1 &#x8BED;&#x6CD5;</h4>
+<pre class="language-"><code class="lang-c"> class httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span>host<span class="token punctuation">[</span><span class="token punctuation">,</span>port<span class="token punctuation">[</span><span class="token punctuation">,</span> strict<span class="token punctuation">[</span><span class="token punctuation">,</span> timeout<span class="token punctuation">[</span><span class="token punctuation">,</span> source_address<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="312-&#x7528;&#x6CD5;"><a name="312-&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#312-&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.2 &#x7528;&#x6CD5;</h4>
+<pre class="language-"><code>&#x8BE5;&#x7C7B;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;http&#x7C7B;&#x578B;&#x7684;&#x8BF7;&#x6C42;&#x94FE;&#x63A5;
+</code></pre><h4 id="313-&#x53C2;&#x6570;"><a name="313-&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#313-&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.3 &#x53C2;&#x6570;</h4>
+<ul>
+<li>host: &#x8BF7;&#x6C42;&#x7684;&#x670D;&#x52A1;&#x5668;host&#xFF0C;&#x4E0D;&#x80FD;&#x5E26;<a href="http://&#x5F00;&#x5934;" target="_blank">http://&#x5F00;&#x5934;</a></li>
+<li>port: &#x670D;&#x52A1;&#x5668;web&#x670D;&#x52A1;&#x7AEF;&#x53E3;</li>
+<li>strict: &#x662F;&#x5426;&#x4E25;&#x683C;&#x68C0;&#x67E5;&#x8BF7;&#x6C42;&#x7684;&#x72B6;&#x6001;&#x884C;&#xFF0C;&#x5C31;&#x662F;http1.0/1.1
+&#x534F;&#x8BAE;&#x7248;&#x672C;&#x7684;&#x90A3;&#x4E00;&#x884C;&#xFF0C;&#x5373;&#x8BF7;&#x6C42;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;False&#xFF0C;&#x4E3A;True&#x65F6;&#x68C0;&#x67E5;&#x9519;&#x8BEF;&#x4F1A;&#x629B;&#x5F02;&#x5E38;&#x3002;</li>
+<li>timeout: &#x5355;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;httplib&#x6A21;&#x5757;&#x5185;&#x7684;&#x5168;&#x5C40;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</li>
+</ul>
+<h4 id="314-&#x8FD4;&#x56DE;"><a name="314-&#x8FD4;&#x56DE;" class="anchor-navigation-ex-anchor" href="#314-&#x8FD4;&#x56DE;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.4 &#x8FD4;&#x56DE;</h4>
+<pre class="language-"><code>HTTPConnection&#x7C7B;&#x4F1A;&#x5B9E;&#x4F8B;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;HTTPConnection&#x5BF9;&#x8C61;
+</code></pre><h4 id="315-&#x8BE6;&#x89E3;"><a name="315-&#x8BE6;&#x89E3;" class="anchor-navigation-ex-anchor" href="#315-&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.5 &#x8BE6;&#x89E3;</h4>
+<p>  HttpConnection&#x7684;&#x5B9E;&#x4F8B;&#x8868;&#x793A;&#x4E0E;HTTP&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E8B;&#x52A1;&#x3002;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x9700;&#x8981;&#x4F20;&#x9012;&#x4E3B;&#x673A;&#x548C;&#x53EF;&#x9009;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x8BD5;&#x56FE;&#x4EE5;host:port&#x683C;&#x5F0F;&#x4ECE;&#x4E3B;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x63D0;&#x53D6;&#xFF0C;&#x5982;&#x679C;&#x63D0;&#x53D6;&#x5931;&#x8D25;&#x5219;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;HTTP&#x7AEF;&#x53E3;(80)&#x3002;
+  &#x53C2;&#x6570;strict&#x9ED8;&#x8BA4;&#x4E3A;false&#xFF0C;&#x8868;&#x793A;&#x5728;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&#x72B6;&#x6001;&#x884C;&#x65F6;(status line)&#x4E0D;&#x80FD;&#x88AB;HTTP/1.0&#x6216;1.1&#x89E3;&#x6790;&#x65F6;&#x4E0D;&#x629B;&#x51FA;BadStatusLine&#x5F02;&#x5E38;&#xFF1B;&#x53EF;&#x9009;&#x53C2;&#x6570;timeout&#x8868;&#x793A;&#x5373;&#x963B;&#x585E;&#x5728;&#x591A;&#x5C11;&#x79D2;&#x540E;&#x8D85;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x51FA;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x8D85;&#x65F6;&#x8BBE;&#x7F6E;&#x3002;&#x53EF;&#x9009;&#x53C2;&#x6570;source_address&#x8868;&#x793A;HTTP&#x7684;&#x6E90;&#x5730;&#x5740;(host, port)&#x3002;</p>
+<p>&#x5B9E;&#x4F8B;&#x4EE3;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-c">import httplib
+conn <span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">)</span>
+print conn
+conn <span class="token operator">=</span> httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com:80&apos;</span><span class="token punctuation">)</span>
+print conn
+conn <span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;80&apos;</span><span class="token punctuation">)</span>
+print conn
+conn <span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;80&apos;</span><span class="token punctuation">,</span>True<span class="token punctuation">)</span>
+print conn
+conn <span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;80&apos;</span><span class="token punctuation">,</span>True<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+print conn
+conn <span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com:80&apos;</span><span class="token punctuation">,</span>True<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+print conn
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash"><span class="token operator">&lt;</span>httplib.HTTPConnection instance at 0x7feb97b9005<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span>
+<span class="token operator">&lt;</span>httplib.HTTPConnection instance at 0x7feb97b9683<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span>
+<span class="token operator">&lt;</span>httplib.HTTPConnection instance at 0x7feb97b9671<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span>
+<span class="token operator">&lt;</span>httplib.HTTPConnection instance at 0x7feb97b9683<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span>
+<span class="token operator">&lt;</span>httplib.HTTPConnection instance at 0x7feb97b9671<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span>
+<span class="token operator">&lt;</span>httplib.HTTPConnection instance at 0x7feb97b9683<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span>
+</code></pre>
+<h3 id="32-httpsconnection"><a name="32-httpsconnection" class="anchor-navigation-ex-anchor" href="#32-httpsconnection"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 HTTPSConnection()</h3>
+<h4 id="321-&#x8BED;&#x6CD5;"><a name="321-&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#321-&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.1 &#x8BED;&#x6CD5;</h4>
+<pre class="language-"><code class="lang-bash">httplib.HTTPSConnection<span class="token punctuation">(</span><span class="token string">&apos;www.baidu.com&apos;</span>,443,key_file,cert_file,True,10<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="322-&#x7528;&#x6CD5;"><a name="322-&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#322-&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.2 &#x7528;&#x6CD5;</h4>
+<p>&#x8BE5;&#x7C7B;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;https&#x7C7B;&#x578B;&#x7684;&#x8BF7;&#x6C42;&#x94FE;&#x63A5;</p>
+<h4 id="323-&#x53C2;&#x6570;"><a name="323-&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#323-&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.3 &#x53C2;&#x6570;</h4>
+<ul>
+<li>key_file:&#x4E00;&#x4E2A;&#x5305;&#x542B;PEM&#x683C;&#x5F0F;&#x7684;&#x79C1;&#x94A5;&#x6587;&#x4EF6;</li>
+<li>cert_file:&#x4E00;&#x4E2A;&#x5305;&#x542B;PEM&#x683C;&#x5F0F;&#x7684;&#x8BA4;&#x8BC1;&#x6587;&#x4EF6;</li>
+<li>other&#xFF1A;&#x5176;&#x5B83;&#x540C;http&#x53C2;&#x6570;</li>
+</ul>
+<h4 id="324-&#x8FD4;&#x56DE;"><a name="324-&#x8FD4;&#x56DE;" class="anchor-navigation-ex-anchor" href="#324-&#x8FD4;&#x56DE;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.4 &#x8FD4;&#x56DE;</h4>
+<pre class="language-"><code>&#x540C;&#x6837;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;HTTPSConnection&#x5BF9;&#x8C61;
+</code></pre><p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;
+    &#x8981;&#x521B;&#x5EFA;https&#x94FE;&#x63A5;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x4FDD;&#x8BC1;&#x5E95;&#x5C42;&#x7684;<code>socket</code>&#x6A21;&#x5757;&#x662F;&#x652F;&#x6301;<code>ssl</code>&#x7684;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;&#xFF0C;&#x5373;&#x7F16;&#x8BD1;&#x65F6;ssl&#x9009;&#x9879;&#x7684;&#x5F00;&#x5173;&#x662F;&#x5F00;&#x7740;&#x7684;</p>
+<h4 id="325-&#x8BE6;&#x89E3;"><a name="325-&#x8BE6;&#x89E3;" class="anchor-navigation-ex-anchor" href="#325-&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.5 &#x8BE6;&#x89E3;</h4>
+<p>   HttpConnection&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x4F7F;&#x7528;SSL&#x4E0E;&#x5B89;&#x5168;&#x670D;&#x52A1;&#x5668;&#x901A;&#x4FE1;&#x3002;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x4E3A;443&#x3002;key_file&#x662F;&#x5305;&#x542B;PEM&#x683C;&#x5F0F;&#x79C1;&#x94A5;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x3002; <code>cert_file</code>&#x4E2D;&#x662F;PEM&#x683C;&#x5F0F;&#x7684;&#x8BC1;&#x4E66;&#x94FE;&#x6587;&#x4EF6;&#x3002;</p>
+<h4 id="326-&#x5B9E;&#x4F8B;&#x4EE3;&#x7801;"><a name="326-&#x5B9E;&#x4F8B;&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#326-&#x5B9E;&#x4F8B;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.6 &#x5B9E;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-c">import httplib
+conn <span class="token operator">=</span> httplib<span class="token punctuation">.</span><span class="token function">HTTPSConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">443</span><span class="token punctuation">,</span>key_file<span class="token punctuation">,</span>cert_file<span class="token punctuation">,</span>True<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="33-httpconnectionrequest"><a name="33-httpconnectionrequest" class="anchor-navigation-ex-anchor" href="#33-httpconnectionrequest"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 HTTPConnection.request()</h3>
+<h4 id="331-&#x8BED;&#x6CD5;"><a name="331-&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#331-&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.1 &#x8BED;&#x6CD5;</h4>
+<pre class="language-"><code class="lang-c"> HTTPConnection<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span> method <span class="token punctuation">,</span> url <span class="token punctuation">[</span> <span class="token punctuation">,</span> body <span class="token punctuation">[</span> <span class="token punctuation">,</span> headers <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>
+</code></pre>
+<h4 id="332-&#x7528;&#x6CD5;"><a name="332-&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#332-&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.2 &#x7528;&#x6CD5;</h4>
+<p> &#x8C03;&#x7528;request&#x65B9;&#x6CD5;&#x4F1A;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;</p>
+<h4 id="333-&#x53C2;&#x6570;"><a name="333-&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#333-&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.3 &#x53C2;&#x6570;</h4>
+<ul>
+<li>method: &#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;&apos;GET&apos;,&apos;POST&apos;,&apos;HEAD&apos;,&apos;PUT&apos;,&apos;DELETE&apos;&#x7B49;</li>
+<li>url: &#x8BF7;&#x6C42;&#x7684;&#x7F51;&#x9875;&#x8DEF;&#x5F84;&#x3002;&#x5982;&#xFF1A;&apos;/index.html&apos;</li>
+<li>body: &#x8BF7;&#x6C42;&#x662F;&#x5426;&#x5E26;&#x6570;&#x636E;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x5178;</li>
+<li>headers: &#x8BF7;&#x6C42;&#x662F;&#x5426;&#x5E26;&#x5934;&#x4FE1;&#x606F;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x4E0D;&#x8FC7;&#x952E;&#x7684;&#x540D;&#x5B57;&#x662F;&#x6307;&#x5B9A;&#x7684;http&#x5934;&#x5173;&#x952E;&#x5B57;</li>
+</ul>
+<h4 id="334-&#x8FD4;&#x56DE;"><a name="334-&#x8FD4;&#x56DE;" class="anchor-navigation-ex-anchor" href="#334-&#x8FD4;&#x56DE;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.4 &#x8FD4;&#x56DE;</h4>
+<p>  &#x65E0;&#x8FD4;&#x56DE;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x5411;&#x670D;&#x52A1;&#x5176;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x6700;&#x540E;&#x56DE;&#x8F66;</p>
+<h4 id="335-&#x4EE3;&#x7801;"><a name="335-&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#335-&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.5 &#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-c">import httplib
+conn <span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com:80&apos;</span><span class="token punctuation">,</span>True<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+print conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;get&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;/&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token char">&apos;user-agent&apos;</span><span class="token operator">:</span><span class="token char">&apos;test&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="34-httpconnectiongetresponse"><a name="34-httpconnectiongetresponse" class="anchor-navigation-ex-anchor" href="#34-httpconnectiongetresponse"><i class="fa fa-link" aria-hidden="true"></i></a>3.4 HTTPConnection.getresponse()</h3>
+<h4 id="341-&#x8BF4;&#x660E;"><a name="341-&#x8BF4;&#x660E;" class="anchor-navigation-ex-anchor" href="#341-&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4.1 &#x8BF4;&#x660E;</h4>
+<p>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;http&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x6700;&#x540E;&#x7684;2&#x4E2A;&#x56DE;&#x8F66;</p>
+<h4 id="342-&#x8FD4;&#x56DE;"><a name="342-&#x8FD4;&#x56DE;" class="anchor-navigation-ex-anchor" href="#342-&#x8FD4;&#x56DE;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4.2 &#x8FD4;&#x56DE;</h4>
+<p>HTTPResponse&#x5BF9;&#x8C61;&#xFF08;&#x4E0B;&#x9762;&#x4F1A;&#x7528;&#x5230;&#xFF09;</p>
+<h4 id="343-&#x4EE3;&#x7801;"><a name="343-&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#343-&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4.3 &#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http2<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;get&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;/&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token char">&apos;user-agent&apos;</span><span class="token operator">:</span><span class="token char">&apos;test&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res
+<span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http2<span class="token punctuation">.</span>py
+<span class="token operator">&lt;</span>httplib<span class="token punctuation">.</span>HTTPResponse instance at <span class="token number">0x7f459bd107e8</span><span class="token operator">&gt;</span>
+</code></pre>
+<h3 id="35-httpconnectionconnect"><a name="35-httpconnectionconnect" class="anchor-navigation-ex-anchor" href="#35-httpconnectionconnect"><i class="fa fa-link" aria-hidden="true"></i></a>3.5 HTTPConnection.connect()</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E4B;&#x540E;&#x8FDE;&#x63A5;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x670D;&#x52A1;&#x5668;</p>
+<h3 id="36-httpconnectionclose"><a name="36-httpconnectionclose" class="anchor-navigation-ex-anchor" href="#36-httpconnectionclose"><i class="fa fa-link" aria-hidden="true"></i></a>3.6 HTTPConnection.close()</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x5173;&#x95ED;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;<br> &#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-c"> #<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;get&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;/&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token char">&apos;user-agent&apos;</span><span class="token operator">:</span><span class="token char">&apos;test&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res
+conn<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="37-httpconnectionsetdebuglevel-level-"><a name="37-httpconnectionsetdebuglevel-level-" class="anchor-navigation-ex-anchor" href="#37-httpconnectionsetdebuglevel-level-"><i class="fa fa-link" aria-hidden="true"></i></a>3.7 HTTPConnection.set_debuglevel( level )</h3>
+<p> &#x8BF4;&#x660E;&#xFF1A; &#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;&#x7684;&#x7EA7;&#x522B;&#x3002;&#x53C2;&#x6570;level &#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;0 &#xFF0C;&#x8868;&#x793A;&#x4E0D;&#x8F93;&#x51FA;&#x4EFB;&#x4F55;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;</p>
+<pre class="language-"><code class="lang-c"> #<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;get&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;/&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token char">&apos;user-agent&apos;</span><span class="token operator">:</span><span class="token char">&apos;test&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+debug <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">set_debuglevel</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+print debug
+conn<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="4--class-httplibhttpresponse"><a name="4--class-httplibhttpresponse" class="anchor-navigation-ex-anchor" href="#4--class-httplibhttpresponse"><i class="fa fa-link" aria-hidden="true"></i></a>4.  class httplib.HTTPResponse</h2>
+<p> <code>HTTPResponse</code>&#x8868;&#x793A;&#x670D;&#x52A1;&#x5668;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x3002;&#x5F80;&#x5F80;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>HTTPConnection.getresponse()</code>&#x6765;&#x521B;&#x5EFA;&#xFF0C;&#x5B9E;&#x4F8B;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x4E4B;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x7C7B;&#xFF0C;&#x4E0D;&#x80FD;&#x7531;&#x7528;&#x6237;&#x5B9E;&#x4F8B;&#x5316;&#x3002;
+&#x5B83;&#x6709;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF1A;</p>
+<h3 id="41-httpresponsereadamt"><a name="41-httpresponsereadamt" class="anchor-navigation-ex-anchor" href="#41-httpresponsereadamt"><i class="fa fa-link" aria-hidden="true"></i></a>4.1 HTTPResponse.read([amt])</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A; &#x83B7;&#x5F97;http&#x54CD;&#x5E94;&#x7684;&#x5185;&#x5BB9;&#x90E8;&#x5206;&#xFF0C;&#x5373;&#x7F51;&#x9875;&#x6E90;&#x7801;
+&#x539F;&#x578B;&#xFF1A;body = res.read([amt])amt: &#x8BFB;&#x53D6;&#x6307;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x7A7A;&#xFF0C;&#x5373;&#x8BFB;&#x53D6;&#x6240;&#x6709;&#x5185;&#x5BB9;
+&#x8FD4;&#x56DE;&#xFF1A;&#x7F51;&#x9875;&#x5185;&#x5BB9;&#x5B57;&#x7B26;&#x4E32;
+&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x7684;&#x6D88;&#x606F;&#x4F53;&#x3002;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x7F51;&#x9875;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x9875;&#x9762;&#x7684;html&#x3002;&#x53EF;&#x9009;&#x53C2;&#x6570;amt&#x8868;&#x793A;&#x4ECE;&#x54CD;&#x5E94;&#x6D41;&#x4E2D;&#x8BFB;&#x53D6;&#x6307;&#x5B9A;&#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http5<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;GET&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http5<span class="token punctuation">.</span>py
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>STATUS OK<span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string">&quot;content-type&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;text/html;charset=utf-8&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string">&quot;X-UA-Compatible&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;IE=Edge&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">&quot;dns-prefetch&quot;</span> href<span class="token operator">=</span><span class="token string">&quot;//s1.bdstatic.com&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+    &#xB7;&#xB7;&#xB7;&#xB7;&#xB7;&#xB7;&#xB7;&#xB7;&#xB7;
+</code></pre>
+<p>&#x83B7;&#x53D6;&#x6267;&#x6307;&#x5B9A;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x3002;Name&#x8868;&#x793A;&#x5934;&#x57DF;(headerfield)&#x540D;&#xFF0C;&#x53EF;&#x9009;&#x53C2;&#x6570;default&#x5728;&#x5934;&#x57DF;&#x540D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x8FD4;&#x56DE;&#x3002;</p>
+<h3 id="42--httpresponsegetheaders"><a name="42--httpresponsegetheaders" class="anchor-navigation-ex-anchor" href="#42--httpresponsegetheaders"><i class="fa fa-link" aria-hidden="true"></i></a>4.2  HTTPResponse.getheaders()</h3>
+<p>&#x8BF4;&#x660E;; &#x83B7;&#x5F97;&#x6240;&#x6709;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x5185;&#x5BB9;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;&#x5217;&#x8868;[(name,value),(name2,value2)]
+ &#x9644;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http6<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;GET&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res<span class="token punctuation">.</span><span class="token function">getheaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http6<span class="token punctuation">.</span>py
+<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token char">&apos;content-length&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;14615&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;traceid&apos;</span><span class="token punctuation">,</span> &apos;<span class="token number">1585662997043926733812101108609502278751</span><span class="token char">&apos;), (&apos;</span>set<span class="token operator">-</span>cookie<span class="token char">&apos;, &apos;</span>BAIDUID<span class="token operator">=</span>C1DA400A878388A271CC54BCDE99F6F5<span class="token operator">:</span>FG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>Thu<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Dec<span class="token operator">-</span><span class="token number">37</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">55</span> GMT<span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">2147483647</span><span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">,</span> BIDUPSID<span class="token operator">=</span>C1DA400A878388A271CC54BCDE99F6F5<span class="token punctuation">;</span> expires<span class="token operator">=</span>Thu<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Dec<span class="token operator">-</span><span class="token number">37</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">55</span> GMT<span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">2147483647</span><span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">,</span> PSTM<span class="token operator">=</span><span class="token number">1585662997</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>Thu<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Dec<span class="token operator">-</span><span class="token number">37</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">55</span> GMT<span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">2147483647</span><span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">,</span> BAIDUID<span class="token operator">=</span>C1DA400A878388A2E4674A2D94B0BB5F<span class="token operator">:</span>FG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">31536000</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>Wed<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Mar<span class="token operator">-</span><span class="token number">21</span> <span class="token number">13</span><span class="token operator">:</span><span class="token number">56</span><span class="token operator">:</span><span class="token number">37</span> GMT<span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> version<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> comment<span class="token operator">=</span>bd<span class="token char">&apos;), (&apos;</span>accept<span class="token operator">-</span>ranges<span class="token char">&apos;, &apos;</span>bytes<span class="token char">&apos;), (&apos;</span>vary<span class="token char">&apos;, &apos;</span>Accept<span class="token operator">-</span>Encoding<span class="token char">&apos;), (&apos;</span>server<span class="token char">&apos;, &apos;</span>BWS<span class="token operator">/</span><span class="token number">1.1</span><span class="token char">&apos;), (&apos;</span>connection<span class="token char">&apos;, &apos;</span>keep<span class="token operator">-</span>alive<span class="token char">&apos;), (&apos;</span>x<span class="token operator">-</span>ua<span class="token operator">-</span>compatible<span class="token char">&apos;, &apos;</span>IE<span class="token operator">=</span>Edge<span class="token punctuation">,</span>chrome<span class="token operator">=</span><span class="token number">1</span><span class="token char">&apos;), (&apos;</span>pragma<span class="token char">&apos;, &apos;</span>no<span class="token operator">-</span>cache<span class="token char">&apos;), (&apos;</span>cache<span class="token operator">-</span>control<span class="token char">&apos;, &apos;</span>no<span class="token operator">-</span>cache<span class="token char">&apos;), (&apos;</span>date<span class="token char">&apos;, &apos;</span>Tue<span class="token punctuation">,</span> <span class="token number">31</span> Mar <span class="token number">2020</span> <span class="token number">13</span><span class="token operator">:</span><span class="token number">56</span><span class="token operator">:</span><span class="token number">37</span> GMT<span class="token char">&apos;), (&apos;</span>p3p<span class="token char">&apos;, &apos;</span>CP<span class="token operator">=</span><span class="token string">&quot; OTI DSP COR IVA OUR IND COM &quot;</span><span class="token punctuation">,</span> CP<span class="token operator">=</span><span class="token string">&quot; OTI DSP COR IVA OUR IND COM &quot;</span><span class="token char">&apos;), (&apos;</span>content<span class="token operator">-</span>type<span class="token char">&apos;, &apos;</span>text<span class="token operator">/</span>html&apos;<span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="43-httpresponsemsg"><a name="43-httpresponsemsg" class="anchor-navigation-ex-anchor" href="#43-httpresponsemsg"><i class="fa fa-link" aria-hidden="true"></i></a>4.3 HTTPResponse.msg()</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x4FE1;&#x606F;&#x3002;&#x5305;&#x542B;&#x54CD;&#x5E94;&#x5934;&#x7684;mimetools.Message&#x5B9E;&#x4F8B;</p>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http7<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;GET&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res<span class="token punctuation">.</span>msg
+</code></pre>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http7<span class="token punctuation">.</span>py
+Accept<span class="token operator">-</span>Ranges<span class="token operator">:</span> bytes
+Cache<span class="token operator">-</span>Control<span class="token operator">:</span> no<span class="token operator">-</span>cache
+Connection<span class="token operator">:</span> keep<span class="token operator">-</span>alive
+Content<span class="token operator">-</span>Length<span class="token operator">:</span> <span class="token number">14615</span>
+Content<span class="token operator">-</span>Type<span class="token operator">:</span> text<span class="token operator">/</span>html
+Date<span class="token operator">:</span> Tue<span class="token punctuation">,</span> <span class="token number">31</span> Mar <span class="token number">2020</span> <span class="token number">13</span><span class="token operator">:</span><span class="token number">59</span><span class="token operator">:</span><span class="token number">33</span> GMT
+P3p<span class="token operator">:</span> CP<span class="token operator">=</span><span class="token string">&quot; OTI DSP COR IVA OUR IND COM &quot;</span>
+P3p<span class="token operator">:</span> CP<span class="token operator">=</span><span class="token string">&quot; OTI DSP COR IVA OUR IND COM &quot;</span>
+Pragma<span class="token operator">:</span> no<span class="token operator">-</span>cache
+Server<span class="token operator">:</span> BWS<span class="token operator">/</span><span class="token number">1.1</span>
+Set<span class="token operator">-</span>Cookie<span class="token operator">:</span> BAIDUID<span class="token operator">=</span><span class="token number">03</span>C55CB4B2F53EEB89BC70720ABA5DB8<span class="token operator">:</span>FG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>Thu<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Dec<span class="token operator">-</span><span class="token number">37</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">55</span> GMT<span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">2147483647</span><span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
+Set<span class="token operator">-</span>Cookie<span class="token operator">:</span> BIDUPSID<span class="token operator">=</span><span class="token number">03</span>C55CB4B2F53EEB89BC70720ABA5DB8<span class="token punctuation">;</span> expires<span class="token operator">=</span>Thu<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Dec<span class="token operator">-</span><span class="token number">37</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">55</span> GMT<span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">2147483647</span><span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
+Set<span class="token operator">-</span>Cookie<span class="token operator">:</span> PSTM<span class="token operator">=</span><span class="token number">1585663173</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>Thu<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Dec<span class="token operator">-</span><span class="token number">37</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">55</span> GMT<span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">2147483647</span><span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
+Set<span class="token operator">-</span>Cookie<span class="token operator">:</span> BAIDUID<span class="token operator">=</span><span class="token number">03</span>C55CB4B2F53EEB1D3F571BA752A14E<span class="token operator">:</span>FG<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">31536000</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>Wed<span class="token punctuation">,</span> <span class="token number">31</span><span class="token operator">-</span>Mar<span class="token operator">-</span><span class="token number">21</span> <span class="token number">13</span><span class="token operator">:</span><span class="token number">59</span><span class="token operator">:</span><span class="token number">33</span> GMT<span class="token punctuation">;</span> domain<span class="token operator">=</span><span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">;</span> path<span class="token operator">=</span><span class="token operator">/</span><span class="token punctuation">;</span> version<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> comment<span class="token operator">=</span>bd
+Traceid<span class="token operator">:</span> <span class="token number">1585663173045617562611241334006733438813</span>
+Vary<span class="token operator">:</span> Accept<span class="token operator">-</span>Encoding
+X<span class="token operator">-</span>Ua<span class="token operator">-</span>Compatible<span class="token operator">:</span> IE<span class="token operator">=</span>Edge<span class="token punctuation">,</span>chrome<span class="token operator">=</span><span class="token number">1</span>
+</code></pre>
+<h3 id="44-httpresponsemsg"><a name="44-httpresponsemsg" class="anchor-navigation-ex-anchor" href="#44-httpresponsemsg"><i class="fa fa-link" aria-hidden="true"></i></a>4.4 HTTPResponse.msg</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x83B7;&#x53D6;&#x670D;&#x52A1;&#x5668;&#x6240;&#x4F7F;&#x7528;&#x7684;http&#x534F;&#x8BAE;&#x7248;&#x672C;&#x3002;11&#x8868;&#x793A;http/1.1&#xFF1B;10&#x8868;&#x793A;http/1.0</p>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http8<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;GET&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res<span class="token punctuation">.</span>version
+</code></pre>
+<pre class="language-"><code class="lang-bash"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span><span class="token comment"># python http8.py</span>
+<span class="token number">11</span>
+</code></pre>
+<h3 id="45--httpresponsestatus"><a name="45--httpresponsestatus" class="anchor-navigation-ex-anchor" href="#45--httpresponsestatus"><i class="fa fa-link" aria-hidden="true"></i></a>4.5  HTTPResponse.status</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A; &#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;&#x5982;&#xFF1A;200&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x6210;&#x529F;</p>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http9<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;GET&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res<span class="token punctuation">.</span>status
+</code></pre>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http9<span class="token punctuation">.</span>py
+<span class="token number">200</span>
+</code></pre>
+<h3 id="46-httpresponsereason"><a name="46-httpresponsereason" class="anchor-navigation-ex-anchor" href="#46-httpresponsereason"><i class="fa fa-link" aria-hidden="true"></i></a>4.6 HTTPResponse.reason</h3>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x8FD4;&#x56DE;&#x670D;&#x52A1;&#x5668;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;&#x8BF4;&#x660E;&#x3002;&#x4E00;&#x822C;&#x4E3A;&#x201D;OK&#x201D;</p>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http10<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+import httplib
+conn<span class="token operator">=</span>httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token char">&apos;www.baidu.com&apos;</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span>False<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token char">&apos;GET&apos;</span><span class="token punctuation">,</span><span class="token char">&apos;&apos;</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+print res<span class="token punctuation">.</span>reason
+</code></pre>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http10<span class="token punctuation">.</span>py
+OK
+</code></pre>
+<h2 id="5-class-httplibhttpmessage"><a name="5-class-httplibhttpmessage" class="anchor-navigation-ex-anchor" href="#5-class-httplibhttpmessage"><i class="fa fa-link" aria-hidden="true"></i></a>5. class httplib.HTTPMessage</h2>
+<p>  <code>HTTPMessage</code>&#x5B9E;&#x4F8B;&#x7528;&#x4E8E;<strong>&#x4FDD;&#x5B58;HTTP&#x54CD;&#x5E94;&#x5934;</strong>&#x3002;&#x5B83;&#x4F7F;&#x7528;mimetools.Message&#x7C7B;&#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x5904;&#x7406;HTTP&#x5934;&#x7684;&#x5DE5;&#x5177;&#x51FD;&#x6570;&#x3002;&#x5B83;&#x4E0D;&#x76F4;&#x63A5;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x7528;&#x6237;&#x3002;&#x4E0D;&#x80FD;&#x7531;&#x7528;&#x6237;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</p>
+<h2 id="6-&#x5F02;&#x5E38;&#x5904;&#x7406;"><a name="6-&#x5F02;&#x5E38;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#6-&#x5F02;&#x5E38;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x5F02;&#x5E38;&#x5904;&#x7406;</h2>
+<pre class="language-"><code class="lang-c">exception httplib<span class="token punctuation">.</span>HTTPException
+</code></pre>
+<p>Exception&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x6B64;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x5F02;&#x5E38;&#x7684;&#x57FA;&#x7C7B;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x7C7B;&#x9ED8;&#x8BA4;&#x662F;&#x8BE5;&#x7C7B;&#x7684;&#x76F4;&#x63A5;&#x5B50;&#x7C7B;&#x3002;</p>
+<pre class="language-"><code class="lang-c">httplib<span class="token punctuation">.</span>NotConnected
+
+httplib<span class="token punctuation">.</span>InvalidURL
+
+httplib<span class="token punctuation">.</span>UnknownProtocol
+
+httplib<span class="token punctuation">.</span>UnknownTransferEncoding
+
+httplib<span class="token punctuation">.</span>UnimplementedFileMode
+
+httplib<span class="token punctuation">.</span>IncompleteRead
+
+httplib<span class="token punctuation">.</span>ImproperConnectionState
+
+httplib<span class="token punctuation">.</span>CannotSendRequest
+
+ImproperConnectionState&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#x3002;
+
+httplib<span class="token punctuation">.</span>CannotSendHeader
+
+ImproperConnectionState&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#x3002;
+
+httplib<span class="token punctuation">.</span>ResponseNotReady
+
+ImproperConnectionState&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#x3002;
+
+httplib<span class="token punctuation">.</span>BadStatusLine
+</code></pre>
+<p>&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;HTTP&#x72B6;&#x6001;&#x7801;&#x4E0D;&#x8BA4;&#x8BC6;&#x65F6;&#x4EA7;&#x751F;&#x3002;</p>
+<h2 id="7-&#x5B9E;&#x6218;"><a name="7-&#x5B9E;&#x6218;" class="anchor-navigation-ex-anchor" href="#7-&#x5B9E;&#x6218;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x5B9E;&#x6218;</h2>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># cat http11<span class="token punctuation">.</span>py
+#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">coding</span><span class="token expression"><span class="token operator">:</span>utf<span class="token operator">-</span><span class="token number">8</span></span></span>
+import httplib<span class="token punctuation">,</span> urllib
+conn <span class="token operator">=</span> None
+try<span class="token operator">:</span>
+    params <span class="token operator">=</span> urllib<span class="token punctuation">.</span><span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token char">&apos;name&apos;</span><span class="token operator">:</span> <span class="token char">&apos;qiye&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;age&apos;</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;Content-type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;application/x-www-form-urlencoded&quot;</span>
+    <span class="token punctuation">,</span> <span class="token string">&quot;Accept&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text/plain&quot;</span><span class="token punctuation">}</span>
+    conn <span class="token operator">=</span> httplib<span class="token punctuation">.</span><span class="token function">HTTPConnection</span><span class="token punctuation">(</span><span class="token string">&quot;www.zhihu.com&quot;</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+    conn<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token string">&quot;POST&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/login&quot;</span><span class="token punctuation">,</span> params<span class="token punctuation">,</span> headers<span class="token punctuation">)</span>
+    response <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">getresponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    print response<span class="token punctuation">.</span><span class="token function">getheaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span> # &#x83B7;&#x53D6;&#x5934;&#x4FE1;&#x606F;
+    print response<span class="token punctuation">.</span>status
+    print response<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+except Exception<span class="token punctuation">,</span> e<span class="token operator">:</span>
+    print e
+finally<span class="token operator">:</span>
+    <span class="token keyword">if</span> conn<span class="token operator">:</span>
+        conn<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-c"><span class="token punctuation">[</span>root@localhost httplib2<span class="token punctuation">]</span># python http11<span class="token punctuation">.</span>py
+<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token char">&apos;x-edge-timing&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;0.000&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;content-length&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;278&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;via&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;vcache3.cn2204[,0]&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;x-cdn-provider&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;alibaba&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;eagleid&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;3ad79e1715856640307233330e&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;server&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;Tengine&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;connection&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;keep-alive&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;location&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;https://www.zhihu.com/login&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;date&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;Tue, 31 Mar 2020 14:13:50 GMT&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;content-type&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;text/html&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token char">&apos;timing-allow-origin&apos;</span><span class="token punctuation">,</span> <span class="token char">&apos;*&apos;</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token number">301</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE HTML PUBLIC <span class="token string">&quot;-//IETF//DTD HTML 2.0//EN&quot;</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span><span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span class="token number">301</span> Moved Permanently<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>body bgcolor<span class="token operator">=</span><span class="token string">&quot;white&quot;</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token number">301</span> Moved Permanently<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>The requested resource has been assigned a new permanent URI<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>hr<span class="token operator">/</span><span class="token operator">&gt;</span>Powered by Tengine<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1504178" target="_blank">Python&#x4E2D;&#x64CD;&#x4F5C;HTTP&#x8BF7;&#x6C42;&#x7684;urllib&#x6A21;&#x5757;&#x8BE6;&#x89E3;</a></li>
+<li><a href="https://cloud.tencent.com/developer/section/1368319" target="_blank">&#x817E;&#x8BAF;&#x4E91; python httplib</a></li>
+<li><a href="https://www.programcreek.com/python/example/187/httplib.HTTPConnection" target="_blank">Python httplib.HTTPConnection() Examples</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ghostwritten &#x6D59;ICP&#x5907;2020032454&#x53F7; 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-06-29 13:54:55
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="python_threading.html" class="navigation navigation-prev " aria-label="Previous page: python 模块 threading 多线程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python_logging.html" class="navigation navigation-next " aria-label="Next page: python 模块 logging日志处理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python 模块 httplib 处理http请求","level":"1.7.27","depth":2,"next":{"title":"python 模块 logging日志处理","level":"1.7.28","depth":2,"path":"Modules/python_logging.md","ref":"Modules/python_logging.md","articles":[]},"previous":{"title":"python 模块 threading 多线程","level":"1.7.26","depth":2,"path":"Modules/python_threading.md","ref":"Modules/python_threading.md","articles":[]},"dir":"ltr"},"config":{"plugins":["3-ba","accordion","advanced-emoji","anchor-navigation-ex","baidu-tongji","code","change_girls","custom-favicon","donate","expandable-chapters-small","edit-link","flexible-alerts","github-buttons","github","insert-logo","musicxml","prism","prism-themes","pageview-count","-highlight","-search","-lunr","rss","search-plus","splitter","-sharing","sharing-plus","sidebar-style","simple-mind-map","theme-default","tags","todo","tbfed-pagefooter"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"zongxun","title":"《Python Docs》"},"tbfed-pagefooter":{"copyright":"Copyright &copy ghostwritten 浙ICP备2020032454号 2022","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-holi-theme.css"],"lang":{"shell":"bash"}},"github":{"url":"https://github.com/Ghostwritten"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"55e7dfe47f4dc1c018d4042fdfa62565"},"todo":{},"splitter":{},"change_girls":{"time":10,"urls":["https://pic2.zhimg.com/80/v2-82f9192cb78a38307f969f9e19244ba9_1440w.jpg","https://pic4.zhimg.com/80/v2-a8207582fe89a64450bd262deb5ef943_1440w.jpg","https://pic4.zhimg.com/80/v2-d8f1fb514b611e1a40d9465e79314387_1440w.jpg","https://pic2.zhimg.com/80/v2-50aee9aa49821ffafe91e79dd9936325_1440w.jpg","https://pic1.zhimg.com/80/v2-11e46e2888a7b949bba549b3b700c680_1440w.jpg","https://pic3.zhimg.com/80/v2-3d4dbc9f8af54dd418835827795d4b32_1440w.jpg","https://pic3.zhimg.com/80/v2-4ca4130ddee79d65d4336d433624fe1a_1440w.jpg","https://pic2.zhimg.com/80/v2-c012b5b799a9d6b41af5363f22adaed9_1440w.jpg","https://pic4.zhimg.com/80/v2-893518c7a30970e6aed26a3c835eb187_1440w.jpg","https://pic3.zhimg.com/80/v2-91d75c25aace41ec767d2114e13c2056_1440w.jpg","https://pic2.zhimg.com/80/v2-b90c58131f223afd9d81b70913cabd75_1440w.jpg","https://pic2.zhimg.com/80/v2-9e82ae1993458d826e2b978c37436ad5_1440w.jpg","https://pic2.zhimg.com/80/v2-3643794f777aba6676d19856a9463a51_1440w.jpg"]},"accordion":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/aplipay.png?raw=true","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://github.com/Ghostwritten/python-docs/blob/gh-pages/assets/imgs/wechat.png?raw=true","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["python"],"title":"Python Docs","description":"This is the best book ever.","author":"Zong Xun","feed_url":"http://smoothies.com.cn/rss","site_url":"https://smoothies.com.cn/python-docs/","managingEditor":"writer@smoothies.com.cn (Zong Xun)","webMaster":"webmaster@smoothies.com.cn (Zong Xun)"},"musicxml":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":"assets/imgs/1_girl.ico","pageview-count":{},"prism-themes":{},"github-buttons":{"buttons":[{"user":"Ghostwritten","repo":"python-docs","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"tags":{"placement":"top"},"3-ba":{"configuration":"auto","token":"9ffc0dce8d7079aceab6b0bc18eb626b"},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Danger"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":false,"qzone":false},"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"default","style":{},"type":"markdown"},"edit-link":{"label":"Edit","base":"https://github.com/Ghostwritten/python-docs/edit/master/"},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"insert-logo":{"style":"background: none; max-height: 120px; min-height: 120px","url":"https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg"},"search-plus":{}},"theme":"default","author":"宗勋 - zongxun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python Docs","language":"zh-hans","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Blog":"https://smoothies.com.cn","Command":"https://smoothies.com.cn/linux-command-docs/","Gitbook":"https://smoothies.com.cn/gitbook-docs/","Shell":"https://smoothies.com.cn/shell-docs/","Exam":"https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"}},"gitbook":"*","description":"这是一本关于 [Python](https://www.python.org/) 的书籍"},"file":{"path":"Modules/python_httplib.md","mtime":"2022-06-29T13:54:55.616Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T13:12:11.893Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/osmd.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/musicxml.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-musicxml/promise.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
