@@ -14,9 +14,15 @@
 
      "sidebar": {
         "Blog": "https://smoothies.com.cn",
-        "Command": "https://smoothies.com.cn/linux-command-docs/",
-        "Gitbook": "https://smoothies.com.cn/gitbook-docs/",
-        "Shell": "https://smoothies.com.cn/shell-docs/",
+        "Command": "https://smoothies.com.cn/linux-command-docs/Overview.html",
+        "Linux": "https://smoothies.com.cn/linux-docs/Overview.html",
+        "Gitbook": "https://smoothies.com.cn/gitbook-docs/Overview.html",
+        "Prometheus": "https://smoothies.com.cn/prometheus-docs/Overview.html",
+        "Docker": "https://smoothies.com.cn/docker-docs/Overview.html",
+        "Kubernetes": "https://smoothies.com.cn/kubernetes-docs/Overview.html",
+        "Shell": "https://smoothies.com.cn/shell-docs/Overview.html",
+        "Python": "https://smoothies.com.cn/python-docs/Overview.html",
+        "Go": "https://smoothies.com.cn/go-docs/Overview.html",
         "Exam": "https://ghostwritten.gitbook.io/kubernetes-exam-in-action/"
      }
   },
@@ -51,6 +57,8 @@
     "sidebar-style",
     "simple-mind-map",
     "theme-default",
+    "youtube",
+    "zymplayer",
     "tags",
     "todo",
     "tbfed-pagefooter"
@@ -150,6 +158,25 @@
       "url": "https://pic1.zhimg.com/80/v2-4b2cfc61824c35b4d577c4e5d5dc1134_1440w.jpg",
       "style": "background: none; max-height: 120px; min-height: 120px"
     },
+
+
+    "zymplayer": {
+      "element": "body", 
+      "width": "350px", 
+      "mode": "random", 
+      "show": "all", 
+      "list": {
+          "path": "assets/music/musicList.json",
+          "height": 180, 
+          "expand": false 
+      },
+      "position": {
+          "pos": "fixed", 
+          "right": "0px",
+          "bottom": "0px" 
+          }
+    },
+
 
     "rss": {
       "title": "Python Docs",
