@@ -82,7 +82,7 @@ git push origin master
 
 }
 push_gh-pages(){
-cp About.md _book/README.md
+cp SUMMARY.md _book/README.md
 cd _book
 git init
 git remote add origin https://${repo}
